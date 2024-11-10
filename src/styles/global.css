@@ -1,0 +1,17 @@
+/* Global styles and resets */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom properties (CSS variables) */
+
+:root {
+  /* Colors */
+  --clr-primary: #2E4BD7;
+  --clr-secondary: #FEFFFE;
+  --clr-accent: #F6C12F;
+}
