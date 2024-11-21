@@ -1,3 +1,31 @@
+/* Fonts */
+/* Regular */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Poppins-Regular.woff2") format("woff2");
+}
+
+/* Medium */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/Poppins-Medium.woff2") format("woff2");
+}
+
+/* Semi-Bold */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/Poppins-SemiBold.woff2") format("woff2");
+}
+
 /* Global styles and resets */
 *,
 *::after,
@@ -11,7 +39,19 @@
 
 :root {
   /* Colors */
-  --clr-primary: #2E4BD7;
-  --clr-secondary: #FEFFFE;
-  --clr-accent: #F6C12F;
+  --clr-primary: #223cc1;
+  --clr-secondary: #ffffff;
+  --clr-accent: #f9dc0a;
+
+  /* Spaces */
+  --space-x-sm: 2.875rem;
+  --space-x-m: 3.875rem;
+  --space-x-xl: calc(var(--space-x-sm) + var(--space-x-m));
+
+  /* Fonts */
+
+  /* Fonts Weights*/
+  --fnt-light: 400;
+  --fnt-regular: 500;
+  --fnt-bold: 600;
 }
