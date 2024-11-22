@@ -4,7 +4,21 @@ import Button from "@components/Button.astro";
 import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
 import mobileButton from "@assets/mobile-menu-icon-fundacio-balonamno-granollers.png";
 ---
+<script>
+  const menuToggle = document.querySelector('button');
+const menu = document.querySelector('.menu');
+const backdrop = document.querySelector('.backdrop');
 
+
+menuToggle?.addEventListener('click', () => {
+  const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+  menuToggle.setAttribute('aria-expanded', `${!isExpanded ? "true" :"false"}`);
+  menu?.setAttribute('aria-hidden', `${!isExpanded ? "true" :"false"}`);
+  backdrop?.setAttribute('aria-hidden', `${!isExpanded ? "true" :"false"}`);
+  menu?.classList.toggle('active');
+  backdrop?.classList.toggle('active');
+});
+</script>
 <header>
   <button>
     <Image
@@ -28,6 +42,9 @@ import mobileButton from "@assets/mobile-menu-icon-fundacio-balonamno-granollers
   <div class="header-button">
     <Button slug="https://bmgranollers.cat/cat" text="BM. Granollers" newTab />
   </div>
+
+  <aside class="menu" aria-hidden="true"></aside>
+  <div class="backdrop" aria-hidden="true"></div>
 </header>
 
 <style>
@@ -38,7 +55,6 @@ import mobileButton from "@assets/mobile-menu-icon-fundacio-balonamno-granollers
     --header-height-sm: 4.099375;
     --header-radius: 2.5rem;
 
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,17 +65,61 @@ import mobileButton from "@assets/mobile-menu-icon-fundacio-balonamno-granollers
     color: var(--clr-primary);
     border-bottom-left-radius: var(--header-radius);
     border-bottom-right-radius: var(--header-radius);
+
   }
 
   .logo-container {
     display: flex;
     justify-content: center;
   }
-
+  button {
+    z-index: 9999;
+  }
   button span {
     display: inline-block;
     padding-left: 0.4375rem;
   }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 83vw;
+    max-width: 38.75rem;
+    background-color: #e9e9e9;
+    z-index: 2;
+    border-top-right-radius: var(--header-radius);
+    border-bottom-right-radius: var(--header-radius);
+    transform: translateX(-100%); /* Hide off-screen to the left */
+  transition: transform 0.3s ease-in-out;
+  pointer-events: none; /* Disable interactions */
+  }
+
+
+.backdrop {
+position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Should be less than the menu's z-index */
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0; /* Invisible initially */
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+
+.menu.active {
+  transform: translateX(0); /* Slide in */
+  pointer-events: auto;
+}
+
+.backdrop.active {
+  opacity: 1; /* Fade in */
+  pointer-events: auto; /* Enable interactions*/
+}
 
   @media (width < 800px) {
     header {
