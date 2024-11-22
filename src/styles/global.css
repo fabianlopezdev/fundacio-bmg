@@ -35,6 +35,18 @@
   padding: 0;
 }
 
+a {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--clr-primary);
+  outline-offset: 2px;
+}
+
 /* Custom properties (CSS variables) */
 
 :root {
@@ -53,10 +65,9 @@
   /* Font Sizes */
 
   /* Around 14px for 1344px width */
-  --fnt-sz-extra-sm: clamp(0.8475rem,0.8257rem + 0.1086vi,0.9615rem);
+  --fnt-sz-sm: clamp(0.8475rem,0.8257rem + 0.1086vi,0.9615rem);
   /* Around 18px for 1344px width */
-  --fnt-sz-sm: clamp(1rem, 0.9524rem + 0.2381vi, 1.25rem);
-
+  --fnt-sz-regular: clamp(1rem, 0.9524rem + 0.2381vi, 1.25rem);
   /* Around 40px for 1344px width */
   --fnt-sz-m: clamp(1.9388rem, 1.628rem + 1.5537vi, 3.5701rem);
   /* Around 50px for 1344px width */

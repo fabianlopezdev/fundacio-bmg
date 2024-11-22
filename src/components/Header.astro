@@ -1,19 +1,27 @@
 ---
-
+import { Image } from "astro:assets";
+import Button from "@components/Button.astro";
+import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
 ---
 
-<header>Hello</header>
+<header>
+  <p>Menú</p>
+  <Image src={fundacioBMGLogo} alt="Logo del club bàsquet Granollers" />
+  <Button slug="https://bmgranollers.cat/cat" text="BM. Granollers" newTab />
+</header>
 
 <style>
   header {
-    --local-radius: 2.5rem;
+    --header-radius: 2.5rem;
     margin-inline: var(--space-x-m);
     padding-inline: var(--space-x-sm);
     height: 5.875rem;
     background-color: var(--clr-secondary);
     color: var(--clr-primary);
-    border-bottom-left-radius: var(--local-radius);
-    border-bottom-right-radius: var(--local-radius);
-    padding-top: 2.875rem;
+    border-bottom-left-radius: var(--header-radius);
+    border-bottom-right-radius: var(--header-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>

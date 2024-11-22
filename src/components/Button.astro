@@ -1,0 +1,40 @@
+---
+const { slug, text, newTab } = Astro.props as {
+  slug: string;
+  text: string;
+  newTab?: boolean;
+};
+---
+
+<a
+  class="button"
+  href={slug}
+  rel={newTab ? "noopener noreferrer" : undefined}
+  aria-label={`Navega a la pàgina ${text}${newTab ? ", s'obre en una nova pestanya" : ""}`}
+  target={newTab ? "_blank" : ""}
+>
+  {text}
+</a>
+
+<style>
+  .button {
+    --button-radius: 1.25rem;
+    background-color: var(--clr-primary);
+    color: var(--clr-secondary);
+    border-radius: var(--button-radius);
+    padding-inline: 1.1875rem;
+    padding-block: 0.3125rem;
+    font-size: var(--fnt-sz-regular);
+    font-weight: var(--fnt-wg-bold);
+    border: 2px solid var(--clr-primary);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      transform 0.2s ease;
+  }
+
+  .button:hover {
+    background-color: var(--clr-secondary);
+    color: var(--clr-primary);
+  }
+</style>
