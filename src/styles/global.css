@@ -42,6 +42,14 @@ a {
   text-decoration: none;
 }
 
+button {
+  all: unset;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 :focus-visible {
   outline: 2px solid var(--clr-primary);
   outline-offset: 2px;
@@ -65,18 +73,23 @@ a {
   /* Font Sizes */
 
   /* Around 14px for 1344px width */
-  --fnt-sz-sm: clamp(0.8475rem,0.8257rem + 0.1086vi,0.9615rem);
+  --fnt-sz-sm: clamp(0.8475rem, 0.8257rem + 0.1086vi, 0.9615rem);
   /* Around 18px for 1344px width */
   --fnt-sz-regular: clamp(1rem, 0.9524rem + 0.2381vi, 1.25rem);
   /* Around 40px for 1344px width */
   --fnt-sz-m: clamp(1.9388rem, 1.628rem + 1.5537vi, 3.5701rem);
   /* Around 50px for 1344px width */
-  --fnt-sz-xl:  clamp(2.2878rem, 1.8395rem + 2.2413vi, 4.6412rem);
+  --fnt-sz-xl: clamp(2.2878rem, 1.8395rem + 2.2413vi, 4.6412rem);
   /* Around 80px for 1344px width */
   --fnt-sz-xxl: clamp(2.6996rem, 2.0645rem + 3.1752vi, 6.0335rem);
-   
+
   /* Fonts Weights*/
   --fnt-wg-light: 400;
   --fnt-wg-regular: 500;
   --fnt-wg-bold: 600;
+
+  @media (width < 800px) {
+    --space-x-m: 0.8125rem;
+    --space-x-sm: var(--space-x-m);
+  }
 }
