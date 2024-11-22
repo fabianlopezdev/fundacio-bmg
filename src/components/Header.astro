@@ -4,27 +4,57 @@ import Button from "@components/Button.astro";
 import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
 import mobileButton from "@assets/mobile-menu-icon-fundacio-balonamno-granollers.png";
 ---
+
 <script>
-  const menuToggle = document.querySelector('button');
-const menu = document.querySelector('.menu');
-const backdrop = document.querySelector('.backdrop');
+  const menuToggle = document.querySelector("button");
+  const menu = document.querySelector(".menu");
+  const backdrop = document.querySelector(".backdrop");
 
+  menuToggle?.addEventListener("click", () => {
+    const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute(
+      "aria-expanded",
+      `${!isExpanded ? "true" : "false"}`,
+    );
+    menu?.setAttribute("aria-hidden", `${!isExpanded ? "false" : "true"}`);
+    backdrop?.setAttribute("aria-hidden", `${!isExpanded ? "false" : "true"}`);
+    menu?.classList.toggle("active");
+    backdrop?.classList.toggle("active");
+    menuToggle.classList.toggle("active"); 
+  });
 
-menuToggle?.addEventListener('click', () => {
-  const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-  menuToggle.setAttribute('aria-expanded', `${!isExpanded ? "true" :"false"}`);
-  menu?.setAttribute('aria-hidden', `${!isExpanded ? "true" :"false"}`);
-  backdrop?.setAttribute('aria-hidden', `${!isExpanded ? "true" :"false"}`);
-  menu?.classList.toggle('active');
-  backdrop?.classList.toggle('active');
-});
+  // Close menu when clicking on the backdrop
+  backdrop?.addEventListener("click", () => {
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menu?.setAttribute("aria-hidden", "true");
+    backdrop?.setAttribute("aria-hidden", "true");
+    menu?.classList.remove("active");
+    backdrop.classList.remove("active");
+    menuToggle?.classList.remove("active");
+    menuToggle?.focus(); // Return focus to the button
+  });
+
+  // Close menu on Escape key press
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menu?.classList.contains("active")) {
+      menuToggle?.setAttribute("aria-expanded", "false");
+      menu?.setAttribute("aria-hidden", "true");
+      backdrop?.setAttribute("aria-hidden", "true");
+      menu?.classList.remove("active");
+      backdrop?.classList.remove("active");
+      menuToggle?.classList.remove("active");
+      menuToggle?.focus(); 
+    }
+  });
 </script>
+
 <header>
   <button>
-    <Image
-      src={mobileButton}
-      alt="Icona que obre el menú de pàgines de la web de la fundació del Balonmano Granollers"
-    />
+    <div class="btn-menu-lines">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
+    </div>
     <span>Menú</span>
   </button>
   <a
@@ -65,7 +95,63 @@ menuToggle?.addEventListener('click', () => {
     color: var(--clr-primary);
     border-bottom-left-radius: var(--header-radius);
     border-bottom-right-radius: var(--header-radius);
+  }
 
+  .btn-menu-lines {
+    width: 21px;
+    height: 18px;
+    flex: 0 0 21px;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+  }
+
+  .line {
+    height: 3px;
+    width: 21px;
+    background: var(--clr-primary);
+    display: block;
+    position: absolute;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    opacity: 1;
+  }
+
+  .line-1 {
+    top: 0;
+  }
+
+  .line-2 {
+    top: 6px;
+    width: 15px;
+  }
+
+  .line-3 {
+    top: 12px;
+    width: 10px;
+  }
+
+  button:hover .line-2,
+  button:hover .line-3 {
+    width: 21px;
+  }
+
+  button.active .line-1 {
+    top: 9px; /* Center vertically */
+    transform: rotate(45deg);
+  }
+
+  button.active .line-2 {
+    opacity: 0; /* Hide middle line */
+  }
+
+  button.active .line-3 {
+    top: 9px; /* Center vertically */
+    transform: rotate(-45deg);
+  }
+
+  button.active .line-1,
+  button.active .line-3 {
+    width: 21px; /* Ensure lines are full width */
   }
 
   .logo-container {
@@ -92,34 +178,32 @@ menuToggle?.addEventListener('click', () => {
     border-top-right-radius: var(--header-radius);
     border-bottom-right-radius: var(--header-radius);
     transform: translateX(-100%); /* Hide off-screen to the left */
-  transition: transform 0.3s ease-in-out;
-  pointer-events: none; /* Disable interactions */
+    transition: transform 0.3s ease-in-out;
+    pointer-events: none; /* Disable interactions */
   }
 
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Should be less than the menu's z-index */
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0; /* Invisible initially */
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+  }
 
-.backdrop {
-position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1; /* Should be less than the menu's z-index */
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0; /* Invisible initially */
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none;
-}
+  .menu.active {
+    transform: translateX(0); /* Slide in */
+    pointer-events: auto;
+  }
 
-
-.menu.active {
-  transform: translateX(0); /* Slide in */
-  pointer-events: auto;
-}
-
-.backdrop.active {
-  opacity: 1; /* Fade in */
-  pointer-events: auto; /* Enable interactions*/
-}
+  .backdrop.active {
+    opacity: 1; /* Fade in */
+    pointer-events: auto; /* Enable interactions*/
+  }
 
   @media (width < 800px) {
     header {
