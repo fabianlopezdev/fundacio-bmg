@@ -134,9 +134,8 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
 
   details::details-content {
     block-size: 0;
-    margin-left: calc(
-      (var(--space-x-xl) + (var(--mg-left-nested-link) * -1)) * -1
-    );
+
+    
     transition:
       block-size 0.45s,
       content-visibility 0.45s;
@@ -149,7 +148,7 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
   }
   .sub-menu {
     margin-left: calc(
-      (var(--space-x-xl) + (var(--mg-left-nested-link) * -1)) * -1
+      (var(--space-x-xl) + (var(--mg-left-nested-link) * -1) + rem) * -1
     );
     padding-left: calc(var(--space-x-sm) + var(--space-x-xl));
     background-color: var(--clr-primary);
