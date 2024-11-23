@@ -3,7 +3,7 @@ import CollapsibleArrow from "@assets/CollapsibleArrow.astro";
 import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
 ---
 
-<aside id="menu" class="menu active" aria-hidden="true">
+<aside id="menu" class="menu" aria-hidden="true">
   <div class="non-scrollable"></div>
   <nav class="menu-nav">
     <ul>
@@ -92,9 +92,6 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
     padding-top: var(--space-x-m);
   }
 
-  li:hover {
-    
-  }
   .standalone-link {
     color: var(--clr-primary);
   }
@@ -193,18 +190,6 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
     .non-scrollable {
       height: calc(var(--header-height-sm) * 1rem);
     }
-
-    /* details::details-content {
-      margin-left: calc(
-        (var(--space-x-m) + (var(--mg-left-nested-link) * -1)) * -1
-      );
-    } */
-
-    /* .sub-menu {
-      margin-left: calc(
-        (var(--space-x-m) + (var(--mg-left-nested-link) * -1)) * -1
-      );
-    } */
 
     .sub-menu a{
       padding-left: calc(
