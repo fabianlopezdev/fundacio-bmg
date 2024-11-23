@@ -137,19 +137,21 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
     margin-left: calc(
       (var(--space-x-xl) + (var(--mg-left-nested-link) * -1)) * -1
     );
-    background-color: var(--clr-primary);
     transition:
-      block-size 0.45s,
-      content-visibility 0.45s;
+    block-size 0.45s,
+    content-visibility 0.45s;
     transition-behavior: allow-discrete;
     overflow: hidden;
   }
-
+  
   details[open]::details-content {
     block-size: auto;
-    padding-left: calc(var(--space-x-sm) + var(--space-x-xl));
   }
-
+  .sub-menu {
+    padding-left: calc(var(--space-x-sm) + var(--space-x-xl));
+  
+    background-color: var(--clr-primary);
+  }
   .sub-menu a {
     color: var(--clr-secondary);
   }
