@@ -3,7 +3,7 @@ import CollapsibleArrow from "@assets/CollapsibleArrow.astro";
 import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
 ---
 
-<aside id="menu" class="menu" aria-hidden="true">
+<aside id="menu" class="menu active" aria-hidden="true">
   <div class="non-scrollable"></div>
   <nav class="menu-nav">
     <ul>
@@ -92,12 +92,14 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
     padding-top: var(--space-x-m);
   }
 
+  li:hover {
+    
+  }
   .standalone-link {
     color: var(--clr-primary);
   }
 
   .standalone-link:hover {
-    cursor: pointer;
     color: var(--clr-hover-active);
   }
 
@@ -109,7 +111,7 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
     display: none;
   }
 
-  details:hover summary {
+  details > summary:hover {
     color: var(--clr-hover-active);
     cursor: pointer;
   }
@@ -135,8 +137,9 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
   details::details-content {
     block-size: 0;
     margin-left: calc(
-      (var(--space-x-xl) + (var(--mg-left-nested-link) * -1)) * -1
+      ((var(--space-x-xl) + 0.1rem) + (var(--mg-left-nested-link) * -1)) * -1
     );
+    padding-left: calc(var(--space-x-sm) + var(--space-x-xl) - 1rem);
     transition:
       block-size 0.45s,
       content-visibility 0.45s;
@@ -149,13 +152,18 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
   }
   .sub-menu {
     margin-left: calc(
-      (var(--space-x-xl) + (var(--mg-left-nested-link) * -1)) * -1
+      ((var(--space-x-xl) + 0.1rem) + (var(--mg-left-nested-link) * -1)) * -1
     );
-    /* padding-left: calc(var(--space-x-sm) + var(--space-x-xl)); */
+
+
     background-color: var(--clr-primary);
   }
   .sub-menu a {
     color: var(--clr-secondary);
+    padding-left: calc(var(--space-x-sm) + var(--space-x-xl));
+  }
+
+  details::details-content a {
     padding-left: calc(var(--space-x-sm) + var(--space-x-xl));
   }
 
@@ -198,10 +206,10 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
       );
     } */
 
-    /* .sub-menu a{
+    .sub-menu a{
       padding-left: calc(
-        (var(--space-x-xl) + (var(--mg-left-nested-link) * -1))
+        ((var(--space-x-xl) + 1rem) + (var(--mg-left-nested-link) * -1))
       );
-    } */
+    }
   }
 </style>
