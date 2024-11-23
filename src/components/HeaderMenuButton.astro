@@ -1,0 +1,79 @@
+---
+---
+
+<button id="menu-toggle">
+  <div class="btn-menu-lines">
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+  </div>
+  <span>Menú</span>
+</button>
+
+<style>
+  button {
+    z-index: 9999;
+  }
+
+  button span {
+    display: inline-block;
+    padding-left: 0.4375rem;
+  }
+
+  .btn-menu-lines {
+    width: 21px;
+    height: 18px;
+    flex: 0 0 21px;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+  }
+
+  .line {
+    height: 3px;
+    width: 21px;
+    background: var(--clr-primary);
+    display: block;
+    position: absolute;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    opacity: 1;
+  }
+
+  .line-1 {
+    top: 0;
+  }
+
+  .line-2 {
+    top: 6px;
+    width: 15px;
+  }
+
+  .line-3 {
+    top: 12px;
+    width: 10px;
+  }
+
+  button:hover .line-2,
+  button:hover .line-3 {
+    width: 21px;
+  }
+
+  button.active .line-1 {
+    top: 9px; /* Center vertically */
+    transform: rotate(45deg);
+  }
+
+  button.active .line-2 {
+    opacity: 0; /* Hide middle line */
+  }
+
+  button.active .line-3 {
+    top: 9px; /* Center vertically */
+    transform: rotate(-45deg);
+  }
+
+  button.active .line-1,
+  button.active .line-3 {
+    width: 21px; /* Ensure lines are full width */
+  }
+</style>

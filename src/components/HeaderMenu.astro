@@ -1,0 +1,188 @@
+---
+import CollapsibleArrow from "@assets/CollapsibleArrow.astro";
+import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
+---
+
+<aside id="menu" class="menu" aria-hidden="true">
+  <div class="non-scrollable"></div>
+  <nav class="menu-nav">
+    <ul>
+      {
+        HEADER_MENU_LINKS.map((link) => (
+          <li>
+            {link.nested ? (
+              <details>
+                <summary>
+                  <span class="arrow">
+                    <CollapsibleArrow />
+                  </span>
+                  {link.label}
+                </summary>
+                <nav class="sub-menu">
+                  <ul>
+                    {link.nested.map((subLink) => (
+                      <li>
+                        <a href={subLink.url} aria-label={subLink.ariaLabel}>
+                          {subLink.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </details>
+            ) : (
+              <a
+                class="standalone-link"
+                href={link.url}
+                aria-label={link.ariaLabel}
+              >
+                {link.label}
+              </a>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" aria-hidden="true"></div>
+
+<style>
+  aside {
+    --clr-bg-menu: #e9e9e9;
+    --clr-hover-active: black;
+    --mg-left-nested-link: -1.9rem;
+  }
+
+  .non-scrollable {
+    position: sticky;
+    top: 0;
+    height: calc(var(--header-height) * 1rem);
+    background-color: var(--clr-bg-menu);
+    z-index: 3;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: clamp(18.75rem, 12.505rem + 27.754vi, 38.75rem);
+    background-color: var(--clr-bg-menu);
+    border-top-right-radius: var(--radius-regular);
+    border-bottom-right-radius: var(--radius-regular);
+    pointer-events: none;
+    font-size: var(--fnt-sz-regular);
+    font-weight: var(--fnt-wg-light);
+    line-height: 3.8125rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 2;
+    overflow: scroll;
+  }
+
+  .menu.active {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .menu-nav {
+    padding-left: calc(var(--space-x-xl) + 1.95rem);
+    padding-top: var(--space-x-m);
+  }
+
+  .standalone-link {
+    color: var(--clr-primary);
+  }
+
+  .standalone-link:hover {
+    cursor: pointer;
+    color: var(--clr-hover-active);
+  }
+
+  details > summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details:hover summary {
+    color: var(--clr-hover-active);
+    cursor: pointer;
+  }
+
+  details > summary > .arrow {
+    position: relative;
+    bottom: 0.25rem;
+    display: inline-block;
+    margin-left: var(--mg-left-nested-link);
+    transform: rotate(0);
+    transform-origin: 45% 55%;
+    transition: 0.45s transform ease-in-out;
+  }
+
+  details[open] > summary {
+    color: var(--clr-hover-active);
+  }
+  details[open] > summary > .arrow {
+    transform: rotate(-180deg);
+    transition: 0.45s transform ease-in-out;
+  }
+
+  details::details-content {
+    block-size: 0;
+    margin-left: calc(
+      (var(--space-x-xl) + (var(--mg-left-nested-link) * -1)) * -1
+    );
+    background-color: var(--clr-primary);
+    transition:
+      block-size 0.45s,
+      content-visibility 0.45s;
+    transition-behavior: allow-discrete;
+    overflow: hidden;
+  }
+
+  details[open]::details-content {
+    block-size: auto;
+    padding-left: calc(var(--space-x-sm) + var(--space-x-xl));
+  }
+
+  .sub-menu a {
+    color: var(--clr-secondary);
+  }
+
+  .sub-menu a:hover {
+    color: var(--clr-accent);
+  }
+
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (width < 800px) {
+    .non-scrollable {
+      height: calc(var(--header-height-sm) * 1rem);
+    }
+
+    .sub-menu a {
+      padding-left: calc(var(--mg-left-nested-link) * -1);
+    }
+  }
+</style>

@@ -1,61 +1,16 @@
 ---
 import { Image } from "astro:assets";
 import Button from "@components/Button.astro";
+import HeaderMenuButton from "@components/HeaderMenuButton.astro";
+import HeaderMenu from "@components/HeaderMenu.astro";
 import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
-import CollapsibleArrow from "@assets/CollapsibleArrow.astro";
 ---
 
-<script>
-  const menuToggle = document.getElementById(
-    "menu-toggle",
-  ) as HTMLButtonElement;
-  const menu = document.getElementById("menu") as HTMLElement;
-  const backdrop = document.getElementById("backdrop") as HTMLElement;
-
-  if (menuToggle && menu && backdrop) {
-    function openMenu() {
-      menuToggle.setAttribute("aria-expanded", "true");
-      menu.setAttribute("aria-hidden", "false");
-      backdrop.setAttribute("aria-hidden", "false");
-      menu.classList.add("active");
-      backdrop.classList.add("active");
-      menuToggle.classList.add("active");
-    }
-
-    function closeMenu() {
-      menuToggle.setAttribute("aria-expanded", "false");
-      menu.setAttribute("aria-hidden", "true");
-      backdrop.setAttribute("aria-hidden", "true");
-      menu.classList.remove("active");
-      backdrop.classList.remove("active");
-      menuToggle.classList.remove("active");
-      menuToggle.focus(); // Return focus to the button
-    }
-
-    menuToggle.addEventListener("click", () => {
-      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-      isExpanded ? closeMenu() : openMenu();
-    });
-
-    backdrop.addEventListener("click", closeMenu);
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && menu.classList.contains("active")) {
-        closeMenu();
-      }
-    });
-  }
-</script>
+<script src="../scripts/HeaderMenuScript.ts"/>
 
 <header>
-  <button id="menu-toggle">
-    <div class="btn-menu-lines">
-      <div class="line line-1"></div>
-      <div class="line line-2"></div>
-      <div class="line line-3"></div>
-    </div>
-    <span>Menú</span>
-  </button>
+  <HeaderMenuButton />
+  
   <a
     class="logo-container"
     href="/"
@@ -72,76 +27,14 @@ import CollapsibleArrow from "@assets/CollapsibleArrow.astro";
     <Button slug="https://bmgranollers.cat/cat" text="BM. Granollers" newTab />
   </div>
 
-  <aside id="menu" class="menu" aria-hidden="true">
-    <div class="non-scrollable"></div>
-    <nav>
-      <ul>
-        <li><a>La fundació</a></li>
-        <li><a>Un club amb valors</a></li>
-        <li><a>Palmarés del planter</a></li>
-        <li>
-          <details>
-            <summary>
-              <span class="arrow">
-                <CollapsibleArrow />
-              </span>
-              Tornejos
-            </summary>
-            <nav class="sub-menu">
-              <ul>
-                <li>
-                  <a href=""> Handbol escolar </a>
-                </li>
-                <li>
-                  <a href=""> Minihandbol </a>
-                </li>
-                <li>
-                  <a href=""> Granollers Cup </a>
-                </li>
-              </ul>
-            </nav>
-          </details>
-        </li>
-        <li><a>Equip especial</a></li>
-        <li>
-          <details>
-            <summary>
-              <span class="arrow">
-                <CollapsibleArrow />
-              </span>
-              Projectes Especials
-            </summary>
-            <nav class="sub-menu">
-              <ul>
-                <li>
-                  <a href=""> Handbol escolar </a>
-                </li>
-                <li>
-                  <a href=""> Minihandbol </a>
-                </li>
-                <li>
-                  <a href=""> Granollers Cup </a>
-                </li>
-              </ul>
-            </nav>
-          </details>
-        </li>
-        <li><a>La residència</a></li>
-        <li><a>Veterans</a></li>
-        <li><a>El llegat dels 25 anys</a></li>
-      </ul>
-    </nav>
-  </aside>
-  <div id="backdrop" class="backdrop" aria-hidden="true"></div>
+  <HeaderMenu />
 </header>
 
 <style>
   header {
     --logo-width: 177px;
-    --logo-height: 59px;
     --header-height: 5.875;
     --header-height-sm: 4.099375;
-    --header-radius: 2.5rem;
 
     display: flex;
     align-items: center;
@@ -151,210 +44,16 @@ import CollapsibleArrow from "@assets/CollapsibleArrow.astro";
     padding-inline: var(--space-x-sm);
     background-color: var(--clr-secondary);
     color: var(--clr-primary);
-    border-bottom-left-radius: var(--header-radius);
-    border-bottom-right-radius: var(--header-radius);
-  }
-
-  .btn-menu-lines {
-    width: 21px;
-    height: 18px;
-    flex: 0 0 21px;
-    position: relative;
-    top: 2px;
-    display: inline-block;
-  }
-
-  .line {
-    height: 3px;
-    width: 21px;
-    background: var(--clr-primary);
-    display: block;
-    position: absolute;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-    opacity: 1;
-  }
-
-  .line-1 {
-    top: 0;
-  }
-
-  .line-2 {
-    top: 6px;
-    width: 15px;
-  }
-
-  .line-3 {
-    top: 12px;
-    width: 10px;
-  }
-
-  button:hover .line-2,
-  button:hover .line-3 {
-    width: 21px;
-  }
-
-  button.active .line-1 {
-    top: 9px; /* Center vertically */
-    transform: rotate(45deg);
-  }
-
-  button.active .line-2 {
-    opacity: 0; /* Hide middle line */
-  }
-
-  button.active .line-3 {
-    top: 9px; /* Center vertically */
-    transform: rotate(-45deg);
-  }
-
-  button.active .line-1,
-  button.active .line-3 {
-    width: 21px; /* Ensure lines are full width */
+    border-bottom-left-radius: var(--radius-regular);
+    border-bottom-right-radius: var(--radius-regular);
   }
 
   .logo-container {
     display: flex;
     justify-content: center;
   }
-  button {
-    z-index: 9999;
-  }
-  button span {
-    display: inline-block;
-    padding-left: 0.4375rem;
-  }
 
-  .non-scrollable {
-    position: sticky;
-    top: 0;
-    height: 9.375rem;
-    background-color: #e9e9e9;
-    margin-left: -2.7rem;
-    z-index: 3;
-    width: 100%;
-  }
-  .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100dvh;
-    width: clamp(18.75rem, 12.505rem + 27.754vi, 38.75rem);
-    background-color: #e9e9e9;
-    z-index: 2;
-    border-top-right-radius: var(--header-radius);
-    border-bottom-right-radius: var(--header-radius);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    pointer-events: none;
-    padding-left: var(--space-x-xl);
-    /* padding-top: 9.375rem; */
-    font-size: var(--fnt-sz-regular);
-    font-weight: var(--fnt-wg-light);
-    line-height: 3.8125rem;
-    overflow: scroll;
-  }
-
- 
-
-  details > summary {
-    list-style: none;
-  }
-
-  summary::-webkit-details-marker {
-    display: none;
-  }
-
-  details summary {
-    position: relative;
-    transition: margin 0.45s ease-out;
-  }
-
-  details > summary > .arrow {
-    display: inline-flex;
-    align-items: center;
-    height: 100%;
-    margin-left: -2.7rem;
-    padding-right: 12px;
-    position: relative;
-    bottom: 0.25rem;
-    transform: rotate(0);
-    transform-origin: 45% 55%;
-    transition: 0.45s transform ease-in-out;
-  }
-  details {
-    /* overflow: hidden; */
-  }
-  details[open] > summary {
-    color: black;
-  }
-  details[open] > summary > .arrow {
-    color: black;
-    transform: rotate(-180deg);
-    transition: 0.45s transform ease-in-out;
-  }
-
-  details::details-content {
-    margin-left: calc(var(--space-x-xl) * -1);
-    block-size: 0;
-    overflow: hidden;
- 
-    transition:
-      block-size 0.45s,
-      content-visibility 0.45s;
-    transition-behavior: allow-discrete;
-  }
-
-  details[open]::details-content {
-    block-size: auto;
-  }
-
-  .sub-menu {
-    background-color: var(--clr-primary);
-
-    padding-left: calc(var(--space-x-sm) + var(--space-x-xl));
-
- /* Adjust as needed */
-
-  }
-
-  .sub-menu a {
-    color: var(--clr-secondary);
-  }
-  .backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Should be less than the menu's z-index */
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0; /* Invisible initially */
-    transition: opacity 0.3s ease-in-out;
-    pointer-events: none;
-  }
-
-  .menu.active {
-    transform: translateX(0); /* Slide in */
-    pointer-events: auto;
-  }
-
-  .backdrop.active {
-    opacity: 1; /* Fade in */
-    pointer-events: auto; /* Enable interactions*/
-  }
-
-  li:hover {
-    cursor: pointer;
-    color: black;
-  }
-
-  /* Change arrow color to black on hover */
-  details:hover > summary > .arrow .arrow-icon path,
-/* Change arrow color to black when details is open */
-details[open] > summary > .arrow .arrow-icon path {
-    stroke: black;
-  }
-
+  
   @media (width < 800px) {
     header {
       height: calc(var(--header-height-sm) * 1rem);

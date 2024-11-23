@@ -35,6 +35,17 @@
   padding: 0;
 }
 
+body {
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+  background-color: var(--clr-primary);
+  font-family: "Poppins", sans-serif;
+  font-weight: var(--fnt-wg-light);
+  font-size: var(--fnt-sz-sm);
+  letter-spacing: -0.04em;
+}
+
 a {
   margin: 0;
   padding: 0;
@@ -96,6 +107,9 @@ ul {
   --fnt-wg-light: 400;
   --fnt-wg-regular: 500;
   --fnt-wg-bold: 600;
+
+  /* Radius */
+  --radius-regular: 2.5rem;
 
   @media (width < 800px) {
     --space-x-m: 0.8125rem;
