@@ -134,7 +134,9 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
 
   details::details-content {
     block-size: 0;
-
+    margin-left: calc(
+      (var(--space-x-xl) + (var(--mg-left-nested-link) * -1) + rem) * -1
+    );
     
     transition:
       block-size 0.45s,
@@ -147,10 +149,9 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
     block-size: auto;
   }
   .sub-menu {
-    margin-left: calc(
-      (var(--space-x-xl) + (var(--mg-left-nested-link) * -1) + rem) * -1
-    );
-    padding-left: calc(var(--space-x-sm) + var(--space-x-xl));
+  
+    padding-left: calc(
+      (var(--space-x-xl) + (var(--mg-left-nested-link) * -1) + rem));;
     background-color: var(--clr-primary);
   }
   .sub-menu a {
