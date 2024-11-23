@@ -138,12 +138,12 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
       (var(--space-x-xl) + (var(--mg-left-nested-link) * -1)) * -1
     );
     transition:
-    block-size 0.45s,
-    content-visibility 0.45s;
+      block-size 0.45s,
+      content-visibility 0.45s;
     transition-behavior: allow-discrete;
     overflow: hidden;
   }
-  
+
   details[open]::details-content {
     block-size: auto;
   }
@@ -152,11 +152,11 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
       (var(--space-x-xl) + (var(--mg-left-nested-link) * -1)) * -1
     );
     padding-left: calc(var(--space-x-sm) + var(--space-x-xl));
-  
     background-color: var(--clr-primary);
   }
   .sub-menu a {
     color: var(--clr-secondary);
+    padding-left: calc(var(--space-x-sm) + var(--space-x-xl));
   }
 
   .sub-menu a:hover {
@@ -187,7 +187,9 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
     }
 
     .sub-menu a {
-      padding-left: calc(var(--mg-left-nested-link) * -1);
+      padding-left: calc(
+        (var(--space-x-xl) + ((var(--mg-left-nested-link) * -1) * 2))
+      );
     }
   }
 </style>
