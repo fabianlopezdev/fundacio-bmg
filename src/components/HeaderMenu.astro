@@ -1,10 +1,14 @@
 ---
 import CollapsibleArrow from "@assets/CollapsibleArrow.astro";
 import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
+import Button from "@components/Button.astro";
 ---
 
 <aside id="menu" class="menu" aria-hidden="true">
   <div class="non-scrollable"></div>
+  <div class="mobile-header-button">
+    <Button slug="https://bmgranollers.cat/cat" text="BM. Granollers" newTab />
+  </div>
   <nav class="menu-nav">
     <ul>
       {
@@ -61,6 +65,10 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
     height: calc(var(--header-height) * 1rem);
     background-color: var(--clr-bg-menu);
     z-index: 3;
+  }
+  
+  .mobile-header-button {
+    display: none;
   }
 
   .menu {
@@ -195,11 +203,27 @@ import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
     .non-scrollable {
       height: calc(var(--header-height-sm) * 1rem);
     }
+    
 
     .sub-menu a {
       padding-left: calc(
         ((var(--space-x-xl) + 1rem) + (var(--mg-left-nested-link) * -1))
       );
+    }
+  }
+
+  @media (width < 640px) {
+    .mobile-header-button {
+      display: block;
+      top: calc(var(--header-height-sm) * 1rem);
+      position: sticky;
+      background-color: var(--clr-bg-menu);
+      text-align: center;
+      z-index: 3;
+    }
+
+    .logo-container {
+      justify-content: end;
     }
   }
 </style>
