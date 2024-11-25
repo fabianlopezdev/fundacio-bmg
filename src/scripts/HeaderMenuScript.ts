@@ -21,7 +21,7 @@ const menuToggle = document.getElementById(
       menu.classList.remove("active");
       backdrop.classList.remove("active");
       menuToggle.classList.remove("active");
-      menuToggle.focus(); // Return focus to the button
+      menuToggle.focus(); 
     }
 
     menuToggle.addEventListener("click", () => {

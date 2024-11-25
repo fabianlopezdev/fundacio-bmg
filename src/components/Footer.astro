@@ -1,10 +1,137 @@
 ---
+import { CREDITS } from "@data/CreditsData";
+console.log("credits:", CREDITS);
 ---
 
-<footer>Hello</footer>
-    
+<footer>
+  <section class="top-footer">
+    <small>
+      <dl class="credits">
+        {
+          CREDITS.map((credit) => (
+            <div class="credit-pair">
+              <dt>{credit.label}:</dt>
+              <dd>{` ${credit.text}`}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </small>
+  </section>
+  <section class="bottom-footer"></section>
+</footer>
+
 <style>
-    footer {
-        background-color: var(--clr-accent)
+  .top-footer {
+    color: var(--clr-secondary);
+    height: 14.6875rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-inline: var(--space-x-m);
+    padding-bottom: 3.5rem;
+  }
+
+  .credits {
+    font-size: var(--fnt-sz-extra-sm);
+    letter-spacing: 0.01rem;
+    line-height: 27px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.credit-pair {
+    display: inline-flex;
+    justify-content: center;
+    /* gap: 0.4rem; */
+  }
+
+  .credit-pair dt {
+    font-weight: var(--fnt-wg-regular);
+    padding-right: 0.4rem;
+  }
+
+
+  .credit-pair::after {
+    content: "|";
+    margin-inline: 1.5rem;
+  }
+
+  .credit-pair:nth-child(3),
+  .credit-pair:nth-child(4) {
+    &::after {
+      content: none;
+      margin-inline: 0rem;
     }
+  }
+
+  .bottom-footer {
+    height: 7.5rem;
+    background-color: var(--clr-secondary);
+  }
+
+  @media (width < 1289px) {
+    .credit-pair:nth-child(2) {
+      &::after {
+        content: none;
+      }
+    }
+
+    .credit-pair:nth-child(1) {
+        padding-left: 1rem;
+    }
+
+    .credit-pair:nth-child(2) {
+        padding-right: 1rem;
+    }
+  }
+
+  @media (width < 1064px) {
+    .credit-pair:nth-child(1) {
+      &::after {
+        content: none;
+        /* margin-left: 2rem; */
+      }
+    }
+
+    .credit-pair:nth-child(1) {
+        padding-inline: 2rem;
+    }
+
+    .credit-pair:nth-child(2) {
+        padding-inline: 0rem;
+    }
+
+    .credit-pair:nth-child(2)::after {
+      content: "|";
+      margin-inline: 1.5rem;
+    }
+  }
+
+  @media (width < 640px) {
+    .top-footer {
+      height: fit-content;
+      padding: var(--space-x-m);
+    }
+
+    .credits, .credit-pair {
+        text-align: start;
+      display: block;
+    }
+
+    .credit-pair {
+        padding-inline: 0rem !important;
+    }
+
+    .credit-pair dd {
+      padding-left: var(--space-x-m);
+    }
+    .credit-pair::after {
+      content: none !important; /* Add the decorative bar */
+      margin-inline: 0rem !important; /* Space between the text and the bar */ /* Space between the bar and the next item */
+    }
+  }
 </style>

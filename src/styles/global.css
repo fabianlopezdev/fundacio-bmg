@@ -90,7 +90,7 @@ ul {
   /* Font Sizes */
 
   /* Around 14px for 1344px width */
-  --fnt-sz-extra: clamp(0.8475rem, 0.8257rem + 0.1086vi, 0.9615rem);
+  --fnt-sz-extra-sm: clamp(0.8475rem, 0.8257rem + 0.1086vi, 0.9615rem);
   /* Around 18px for 1344px width */
   --fnt-sz-sm: clamp(1rem, 0.9524rem + 0.2381vi, 1.25rem);
     /* Around 34px for 1344px width */
