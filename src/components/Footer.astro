@@ -1,5 +1,10 @@
 ---
 import { CREDITS } from "@data/CreditsData";
+import { Image } from "astro:assets";
+import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
+import diputacioBCNLogo from "@assets/diputacio-de-barcelona-logo.png";
+import BMGLogo from "@assets/balonmano-granollers-logo.webp";
+
 console.log("credits:", CREDITS);
 ---
 
@@ -18,7 +23,13 @@ console.log("credits:", CREDITS);
       </dl>
     </small>
   </section>
-  <section class="bottom-footer"></section>
+  <section class="bottom-footer">
+    <div class="logos-container">
+      <Image class="logo" src={fundacioBMGLogo} alt="" />
+      <Image class="logo" src={BMGLogo} alt="" />
+      <Image class="logo" src={diputacioBCNLogo} alt="" />
+    </div>
+  </section>
 </footer>
 
 <style>
@@ -36,24 +47,23 @@ console.log("credits:", CREDITS);
   .credits {
     font-size: var(--fnt-sz-extra-sm);
     letter-spacing: 0.01rem;
+    max-width: 77rem;
     line-height: 27px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     text-align: center;
-}
+  }
 
-.credit-pair {
+  .credit-pair {
     display: inline-flex;
     justify-content: center;
-    /* gap: 0.4rem; */
   }
 
   .credit-pair dt {
     font-weight: var(--fnt-wg-regular);
     padding-right: 0.4rem;
   }
-
 
   .credit-pair::after {
     content: "|";
@@ -71,6 +81,16 @@ console.log("credits:", CREDITS);
   .bottom-footer {
     height: 7.5rem;
     background-color: var(--clr-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logos-container {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    max-width: 61rem;
   }
 
   @media (width < 1289px) {
@@ -81,11 +101,11 @@ console.log("credits:", CREDITS);
     }
 
     .credit-pair:nth-child(1) {
-        padding-left: 1rem;
+      padding-left: 1rem;
     }
 
     .credit-pair:nth-child(2) {
-        padding-right: 1rem;
+      padding-right: 1rem;
     }
   }
 
@@ -98,11 +118,11 @@ console.log("credits:", CREDITS);
     }
 
     .credit-pair:nth-child(1) {
-        padding-inline: 2rem;
+      padding-inline: 2rem;
     }
 
     .credit-pair:nth-child(2) {
-        padding-inline: 0rem;
+      padding-inline: 0rem;
     }
 
     .credit-pair:nth-child(2)::after {
@@ -111,19 +131,28 @@ console.log("credits:", CREDITS);
     }
   }
 
+  @media (width < 800px) {
+    .logo {
+      width: 123.5px;
+      height: auto;
+    }
+  }
+
+
   @media (width < 640px) {
     .top-footer {
       height: fit-content;
       padding: var(--space-x-m);
     }
 
-    .credits, .credit-pair {
-        text-align: start;
+    .credits,
+    .credit-pair {
+      text-align: start;
       display: block;
     }
 
     .credit-pair {
-        padding-inline: 0rem !important;
+      padding-inline: 0rem !important;
     }
 
     .credit-pair dd {
@@ -132,6 +161,20 @@ console.log("credits:", CREDITS);
     .credit-pair::after {
       content: none !important; /* Add the decorative bar */
       margin-inline: 0rem !important; /* Space between the text and the bar */ /* Space between the bar and the next item */
+    }
+
+    .bottom-footer {
+        /* height: fit-content; */
+        padding-block: 4.5rem;
+    }
+
+    .logos-container {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        /* gap: 2rem; */
+        column-gap: 2rem;
     }
   }
 </style>
