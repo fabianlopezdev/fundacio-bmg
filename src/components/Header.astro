@@ -8,7 +8,7 @@ import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
 
 <script src="../scripts/HeaderMenuScript.ts"/>
 
-<header>
+<header class="opposite-colors">
   <HeaderMenuButton />
   
   <a
@@ -19,6 +19,7 @@ import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
     <Image
       class="logo"
       src={fundacioBMGLogo}
+      loading="eager"
       alt="Logo de la fundació del Balonmano Granollers"
     />
   </a>
@@ -42,8 +43,6 @@ import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
     height: calc(var(--header-height) * 1rem);
     margin-inline: var(--space-x-m);
     padding-inline: var(--space-x-sm);
-    background-color: var(--clr-secondary);
-    color: var(--clr-primary);
     border-bottom-left-radius: var(--radius-regular);
     border-bottom-right-radius: var(--radius-regular);
   }

@@ -1,0 +1,65 @@
+---
+
+---
+
+<section>
+  <h1>
+    <span class="accent animated text" style="--delay: 100ms">25 anys</span><br
+    /><span class="animated text" style="--delay: 900ms"
+      >defensant els colors</span
+    ><br /><span class="animated text" style="--delay: 1700ms"
+      >que estimem.</span
+    >
+  </h1>
+</section>
+
+<style>
+  section {
+    border: 1px solid white;
+    padding-block: clamp(4rem, 5.7143rem + 1.4286vi, 4.5rem);
+    padding-left: var(--space-x-xl);
+  }
+
+  h1 {
+    font-size: var(--fnt-sz-xxl);
+    font-weight: var(--fnt-wg-light);
+    letter-spacing: -0.04em;
+    line-height: 1em;
+    position: relative;
+  }
+  .accent {
+    color: var(--clr-accent);
+    font-weight: var(--fnt-wg-bold);
+  }
+
+
+  span {
+    display: inline-block;
+    text-align: start;
+  }
+  .text {
+    opacity: 0;
+  }
+  .text.animated {
+    animation: animate-lines .2s var(--delay, 0ms) cubic-bezier(0,0,0.58,1.2) forwards;
+  }
+  @media (width < 800px) {
+    section {
+      padding-block: clamp(2rem, 1.6667rem + 1.6667vi, 3.75rem);
+    }
+  }
+
+  @keyframes animate-lines {
+    0% {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+    1% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
