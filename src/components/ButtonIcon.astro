@@ -1,0 +1,59 @@
+---
+import buttonArrow from "@assets/button-blue-arrow.png"
+import { Image } from "astro:assets";
+const { slug, text, newTab } = Astro.props as {
+  slug: string;
+  text: string;
+  newTab?: boolean;
+};
+---
+
+<div class="button">
+    <a
+    href={slug}
+    rel={newTab ? "noopener noreferrer" : undefined}
+    aria-label={`Navega a la pàgina ${text}${newTab ? ", s'obre en una nova pestanya" : ""}`}
+    target={newTab ? "_blank" : ""}
+    >
+    {text}
+</a>
+<div class="button-arrow">
+    <Image src={buttonArrow} alt=""/>
+</div>
+</div>
+
+<style>
+  .button {
+    --button-radius: 2rem;
+    width: fit-content;
+    background-color: var(--clr-secondary);
+    color: var(--clr-primary);
+    border-radius: var(--button-radius);
+    padding-inline: 1.5625rem;
+    padding-block: 0.7rem;
+    font-size: var(--fnt-sz-sm);
+    font-weight: var(--fnt-wg-regular);
+    transition:
+      background-color 0.2s ease,
+      color 0.3s ease,
+      transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+  }
+
+  .button-arrow {
+    display: flex;
+    align-items: center;
+    transform: translateX(0);
+    transition: transform 0.2s ease-in-out;
+  }
+  .button:hover {
+    background-color: var(--clr-accent);
+    cursor: pointer;
+  }
+
+  .button:hover .button-arrow {
+    transform: translateX(20%);
+  }
+</style>
