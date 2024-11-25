@@ -1,6 +1,7 @@
 ---
-import yellowArrow from "@assets/yellow-arrow.png";
 import { Image } from "astro:assets";
+import yellowArrow from "@assets/yellow-arrow.png";
+import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
 ---
 
 <section>
@@ -17,17 +18,21 @@ import { Image } from "astro:assets";
       <Image src={yellowArrow} alt="" loading="eager" />
     </a>
   </div>
+  <Image class="hero-image" src={heroImage} alt=""/>
 </section>
 
 <style>
   .hero-text {
-    border: 1px solid white;
     padding-block: clamp(4rem, 5.7143rem + 1.4286vi, 4.5rem);
     padding-inline: var(--space-x-xl);
     display: flex;
     justify-content: space-between;
   }
-
+  .hero-image {
+    width: 100%;
+    height:auto;
+    object-fit: fill;
+  }
   h1 {
     font-size: var(--fnt-sz-xxl);
     font-weight: var(--fnt-wg-light);
@@ -65,7 +70,7 @@ import { Image } from "astro:assets";
     cubic-bezier(0.8, 0, 0.2, 1) forwards;
   }
   @media (width < 800px) {
-    section {
+    .hero-text {
       padding-block: clamp(2rem, 1.6667rem + 1.6667vi, 3.75rem);
     }
   }
