@@ -6,11 +6,11 @@ import HeaderMenu from "@components/HeaderMenu.astro";
 import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
 ---
 
-<script src="../scripts/HeaderMenuScript.ts"/>
+<script src="../scripts/HeaderMenuScript.ts"></script>
 
-<header class="opposite-colors">
+<header class="global-opposite-colors">
   <HeaderMenuButton />
-  
+
   <a
     class="logo-container"
     href="/"
@@ -36,7 +36,8 @@ import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
     --logo-width: 177px;
     --header-height: 5.875;
     --header-height-sm: 4.099375;
-
+    position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -45,6 +46,7 @@ import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
     padding-inline: var(--space-x-sm);
     border-bottom-left-radius: var(--radius-regular);
     border-bottom-right-radius: var(--radius-regular);
+    z-index:2;
   }
 
   .logo-container {
@@ -52,7 +54,6 @@ import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
     justify-content: center;
   }
 
-  
   @media (width < 800px) {
     header {
       height: calc(var(--header-height-sm) * 1rem);

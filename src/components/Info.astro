@@ -1,19 +1,37 @@
 ---
-import ButtonIcon from "@components/ButtonIcon.astro"
+import ButtonIcon from "@components/ButtonIcon.astro";
 ---
 
 <section>
-    <div class="info-container">
-        <p>
+  <div class="info-container">
+    <p class="info-text">
+      L'1 de juny de 1999 es va constituir la <span class="global-accent" >
+       Fundació BM Granollers</span>, per iniciativa del Club Balonmano Granollers, i
+        d'una sèrie de persones, empreses, entitats i institucions com
+        l'Ajuntament de Granollers.
+      </span>
+      <ButtonIcon text="Veure més" />
+    </p>
+  </div>
 
-        </p>
-        <ButtonIcon text="Veure més"/>
-    </div>
-</section>
-
-<style>
+  <style>
     section {
-        height: 39.875rem;
-        border: 1px solid white;
+      border: 1px solid white;
     }
-</style>
+
+    .info-container {
+      padding-left: 40%;
+      padding-right: var(--space-x-xl);
+      padding-block: 7.8125rem;
+    }
+
+    .info-text {
+      font-size: var(--fnt-sz-regular);
+      line-height: 1.15em;
+      font-weight: var(--fnt-wg-light);
+      letter-spacing: 0.019em;
+      margin-bottom: 4.375rem;
+      /* text-wrap:; */
+    }
+  </style>
+</section>
