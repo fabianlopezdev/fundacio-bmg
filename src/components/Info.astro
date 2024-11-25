@@ -2,7 +2,10 @@
 import ButtonIcon from "@components/ButtonIcon.astro";
 ---
 
-<section>
+<section id="info">
+    <div class="info-decoration-outter"></div>
+    <div class="info-decoration-inner"></div>
+    
   <div class="info-container">
     <p class="info-text">
       L'1 de juny de 1999 es va constituir la <span class="global-accent" >
@@ -13,16 +16,40 @@ import ButtonIcon from "@components/ButtonIcon.astro";
       <ButtonIcon text="Veure més" />
     </p>
   </div>
+</section>
 
   <style>
-    section {
+    #info {
+        --decoration-width: 45vw;
+        --decoration-gap: 2.5rem;
       border: 1px solid white;
+      position: relative;
     }
 
+    .info-decoration-outter {
+    position: absolute;
+    background-color: var(--clr-secondary);
+    left: 0%;
+    top: 50%;
+    width: var(--decoration-width);
+    height: var(--decoration-width);
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.info-decoration-inner {
+    position: absolute;
+    background-color: var(--clr-accent);
+    left: 0%;
+    top: 50%;
+    width: calc(var(--decoration-width) - var(--decoration-gap));
+    height: calc(var(--decoration-width) - var(--decoration-gap));
+    transform: translate(-50%, -50%) rotate(45deg);
+}
     .info-container {
       padding-left: 40%;
       padding-right: var(--space-x-xl);
       padding-block: 7.8125rem;
+      /* z-index: -1; */
     }
 
     .info-text {
@@ -34,4 +61,3 @@ import ButtonIcon from "@components/ButtonIcon.astro";
       /* text-wrap:; */
     }
   </style>
-</section>
