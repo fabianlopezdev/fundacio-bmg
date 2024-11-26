@@ -52,6 +52,85 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
         });
       }
     });
+
+    function isMobile() {
+      return /Mobi|Android|iPhone/i.test(navigator.userAgent);
+    }
+
+    const isChrome = navigator.userAgent.indexOf("Chrome") > -1;
+  function animateHeight(
+      element: Element | HTMLElement,
+      duration: number = 600,
+    ): Animation | undefined {
+      // Explicitly cast to HTMLElement
+      const htmlElement = element as HTMLElement;
+      if (isChrome && !isMobile()) return;
+      console.log("jiopioiiiioooyayaay");
+      console.log("isChrome", isChrome);
+      console.log("istouch", !isMobile());
+
+      // Null and type checks
+      if (!htmlElement || !(htmlElement instanceof HTMLElement)) {
+        console.error("Invalid element passed to animateHeight");
+        return undefined;
+      }
+
+      // Get the delay from the CSS custom property
+      const computedStyle = window.getComputedStyle(htmlElement);
+      const delay = computedStyle.getPropertyValue("--delay")
+        ? parseInt(computedStyle.getPropertyValue("--delay"))
+        : 0;
+
+      console.log("Animate height function called", `Delay: ${delay}ms`);
+
+      // Prevent multiple simultaneous animations
+      if (htmlElement.classList.contains("animating")) return undefined;
+
+      // Get the current and natural height
+      const startHeight = htmlElement.offsetHeight;
+      htmlElement.style.height = `${startHeight}px`;
+      htmlElement.style.overflow = "hidden";
+      htmlElement.classList.add("animating");
+
+      // Measure the natural height
+      htmlElement.style.height = "auto";
+      const endHeight = htmlElement.offsetHeight;
+
+      // Reset to start height immediately
+      htmlElement.style.height = `${startHeight}px`;
+
+      // Animate using Web Animations API (most cross-browser compatible)
+      const animation = htmlElement.animate(
+        [{ height: `${startHeight}px` }, { height: `${endHeight}px` }],
+        {
+          duration: duration,
+          delay: delay, // Add the delay from CSS
+          easing: "ease-in-out",
+          fill: "forwards",
+        },
+      );
+
+      animation.onfinish = () => {
+        htmlElement.style.height = "auto";
+        htmlElement.style.overflow = "";
+        htmlElement.classList.remove("animating");
+      };
+
+      return animation;
+    };
+
+    // Select hero text and trigger animation
+    const heroText = document.querySelector(".hero-text");
+    if (heroText) {
+      console.log("Hero text found");
+
+      // Trigger animation after a short delay to ensure other animations complete
+      setTimeout(() => {
+        animateHeight(heroText);
+      }, 2500); // Match the animationDuration from your existing code
+    } else {
+      console.error("Hero text not found");
+    }
   });
 </script>
 
@@ -87,6 +166,7 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
     animation: all-height 0.6s 2500ms ease-in-out forwards;
     background-color: var(--clr-primary);
     margin-top: -5.875rem;
+    /* interpolate-size: allow-keywords; */
     /* position: fixed; */
     /* z-index: 9999; */
 
@@ -147,7 +227,7 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
   @media (width < 800px) {
     .hero-text {
       padding-block: clamp(2rem, 1.6667rem + 1.6667vi, 3.75rem);
-      margin-top: -4.099375rem;
+      margin-top: -5.875rem;
     }
   }
 
@@ -194,8 +274,9 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
 
   @keyframes all-height {
     100% {
-      height: fit-content;
       margin-top: 0rem;
+      height: auto;
+      height: calc-size(auto);
       /* position: relative; */
       /* z-index: -2; */
     }
