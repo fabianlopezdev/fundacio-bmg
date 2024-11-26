@@ -5,20 +5,28 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
 ---
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const heroSection = document.getElementById('hero-section');
+  document.addEventListener("DOMContentLoaded", () => {
+    // Disable scroll restoration
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    // Scroll to top of the page
+    window.scrollTo(0, 0);
+
+    const heroSection = document.getElementById("hero-section");
     const animationDuration = 2500; // Total animation duration in ms
 
     // Disable scrolling
     function disableScroll() {
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     }
 
     // Re-enable scrolling
     function enableScroll() {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
 
     // Disable scroll immediately
@@ -26,6 +34,22 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
 
     // Re-enable scroll after animation completes
     setTimeout(enableScroll, animationDuration);
+
+    document.querySelector(".hero-arrow").addEventListener("click", (e) => {
+      e.preventDefault();
+      const infoSection = document.querySelector("#info");
+
+      if (infoSection) {
+        // Calculate the scroll threshold (height of hero section)
+        const heroSectionHeight = heroSection?.offsetHeight;
+
+        // Scroll to the target section, starting from below the hero section
+        window.scrollTo({
+          top: heroSectionHeight,
+          behavior: "smooth",
+        });
+      }
+    });
   });
 </script>
 
@@ -39,7 +63,7 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
         >que estimem.</span
       >
     </h1>
-    <a href="#info" class="hero-arrow animated" style="--delay: 2500ms">
+    <a href="#info" class="hero-arrow animated" style="--delay: 3100ms">
       <Image src={yellowArrow} alt="" loading="eager" />
     </a>
   </div>
@@ -85,10 +109,17 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
   }
 
   .hero-arrow {
+    align-self: flex-end;
     display: flex;
     align-items: flex-end;
     padding-bottom: 0.38em;
     opacity: 0;
+    transition: transform 0.2s ease-in-out;
+    transform: translateY(0);
+  }
+
+  .hero-arrow:hover {
+    transform: translateY(10%) !important;
   }
   .accent {
     color: var(--clr-accent);
