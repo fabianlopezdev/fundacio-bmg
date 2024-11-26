@@ -1,63 +1,132 @@
 ---
 import ButtonIcon from "@components/ButtonIcon.astro";
+import playerDecoration from "@assets/jugador-icona-fundacio-balonmano-granollers.png";
+import { Image } from "astro:assets";
 ---
 
+<script>
+  if (typeof window !== "undefined") {
+    window.addEventListener("DOMContentLoaded", () => {
+      const infoSection = document.getElementById("info");
+      if (infoSection) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                infoSection.classList.add("animate");
+                observer.unobserve(infoSection); // Optional: stop observing once animation starts
+              }
+            });
+          },
+          { threshold: 0.5 }, // Trigger when 10% of the infoSection is visible
+        );
+
+        observer.observe(infoSection);
+      }
+    });
+  }
+</script>
+
 <section id="info">
-    <div class="info-decoration-outter"></div>
-    <div class="info-decoration-inner"></div>
-    
+  <div class="info-decoration outter"></div>
+  <div class="info-decoration inner"></div>
+  <div class="info-decoration image">
+    <Image src={playerDecoration} alt="" />
+  </div>
+
   <div class="info-container">
     <p class="info-text">
-      L'1 de juny de 1999 es va constituir la <span class="global-accent" >
-       Fundació BM Granollers</span>, per iniciativa del Club Balonmano Granollers, i
-        d'una sèrie de persones, empreses, entitats i institucions com
-        l'Ajuntament de Granollers.
-      </span>
-      <ButtonIcon text="Veure més" />
+      L'1 de juny de 1999 es va constituir la <span class="global-accent">
+        Fundació BM Granollers</span
+      >, per iniciativa del Club Balonmano Granollers, i d'una sèrie de
+      persones, empreses, entitats i institucions com l'Ajuntament de
+      Granollers.
     </p>
+    <ButtonIcon text="Veure més" />
   </div>
 </section>
 
-  <style>
-    #info {
-        --decoration-width: 45vw;
-        --decoration-gap: 2.5rem;
-      border: 1px solid white;
-      position: relative;
-    }
+<style>
+  #info {
+    --decoration-width: 45vw;
+    --decoration-gap: 2.5rem;
+    border: 1px solid white;
+    position: relative;
+  }
 
-    .info-decoration-outter {
+  .info-decoration {
     position: absolute;
-    background-color: var(--clr-secondary);
     left: 0%;
     top: 50%;
+    opacity: 0;
+  }
+
+  .info-decoration.outter {
+    background-color: var(--clr-secondary);
     width: var(--decoration-width);
     height: var(--decoration-width);
     transform: translate(-50%, -50%) rotate(45deg);
-}
+    /* animation: slide-from-left 0.6s 0.2s ease-in-out forwards; */
+  }
 
-.info-decoration-inner {
-    position: absolute;
+  .info-decoration.inner {
     background-color: var(--clr-accent);
-    left: 0%;
-    top: 50%;
     width: calc(var(--decoration-width) - var(--decoration-gap));
     height: calc(var(--decoration-width) - var(--decoration-gap));
     transform: translate(-50%, -50%) rotate(45deg);
-}
-    .info-container {
-      padding-left: 40%;
-      padding-right: var(--space-x-xl);
-      padding-block: 7.8125rem;
-      /* z-index: -1; */
-    }
+    /* animation: slide-from-left 0.6s 0.4s ease-in-out forwards; */
+  }
 
-    .info-text {
-      font-size: var(--fnt-sz-regular);
-      line-height: 1.15em;
-      font-weight: var(--fnt-wg-light);
-      letter-spacing: 0.019em;
-      margin-bottom: 4.375rem;
-      /* text-wrap:; */
+  #info.animate .info-decoration.outter {
+    animation: slide-from-left 0.6s 0.2s ease-in-out forwards;
+  }
+
+  #info.animate .info-decoration.inner {
+    animation: slide-from-left 0.6s 0.4s ease-in-out forwards;
+  }
+
+  #info.animate .info-decoration.image {
+    animation: slide-from-left-img 0.6s 0.8s ease-in-out forwards;
+  }
+  .info-decoration.image {
+    transform: translate(45%, -50%);
+    /* animation: slide-from-left-img 0.6s 0.8s ease-in-out forwards; */
+  }
+  .info-container {
+    padding-left: 40%;
+    padding-right: var(--space-x-xl);
+    padding-block: 7.8125rem;
+    /* z-index: -1; */
+  }
+
+  .info-text {
+    font-size: var(--fnt-sz-regular);
+    line-height: 1.15em;
+    font-weight: var(--fnt-wg-light);
+    letter-spacing: 0.019em;
+    margin-bottom: 4.375rem;
+    /* text-wrap:; */
+  }
+
+  @keyframes slide-from-left {
+    0% {
+      transform: translate(-100%, -50%) rotate(45deg);
+      opacity: 0;
     }
-  </style>
+    100% {
+      transform: translate(-50%, -50%) rotate(45deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-from-left-img {
+    0% {
+      transform: translate(-100%, -50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(45%, -50%);
+      opacity: 1;
+    }
+  }
+</style>

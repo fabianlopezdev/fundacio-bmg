@@ -18,7 +18,7 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
       <Image src={yellowArrow} alt="" loading="eager" />
     </a>
   </div>
-  <Image class="hero-image" src={heroImage} alt=""/>
+  <Image class="hero-image" src={heroImage} alt="" />
 </section>
 
 <style>
@@ -30,9 +30,13 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
   }
   .hero-image {
     width: 100%;
-    height:auto;
-    object-fit: fill;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1512 / 751;
+    opacity: 0;
+    animation: fade-in-img 1s ease-in-out forwards;
   }
+
   h1 {
     font-size: var(--fnt-sz-xxl);
     font-weight: var(--fnt-wg-light);
@@ -46,7 +50,6 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
     align-items: flex-end;
     padding-bottom: 0.38em;
     opacity: 0;
-
   }
   .accent {
     color: var(--clr-accent);
@@ -61,18 +64,30 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
     opacity: 0;
   }
   .text.animated {
-    animation: animate-lines 0.2s var(--delay, 0ms)
+    animation: animate-lines 1s var(--delay, 0ms)
       cubic-bezier(0, 0, 0.58, 1.2) forwards;
   }
 
   .hero-arrow.animated {
-    animation: animate-arrow 0.6s var(--delay, 0ms)
-    cubic-bezier(0.8, 0, 0.2, 1) forwards;
+    animation: animate-arrow 0.6s var(--delay, 0ms) cubic-bezier(0.8, 0, 0.2, 1)
+      forwards;
   }
   @media (width < 800px) {
     .hero-text {
       padding-block: clamp(2rem, 1.6667rem + 1.6667vi, 3.75rem);
     }
+  }
+
+
+  @keyframes fade-in-img {
+    from {
+    opacity: 0;
+    transform: scale(1.05); /* Optional: add a slight scale effect */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
   }
 
   @keyframes animate-lines {
@@ -91,17 +106,18 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
 
   @keyframes animate-arrow {
     0% {
-    opacity: 0;
-    transform: translateY(-50%);
+      opacity: 0;
+      transform: translateY(-50%);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(10%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  50% {
-    opacity: 1;
-    transform: translateY(10%);
-  }
- 
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  }
+
 </style>
