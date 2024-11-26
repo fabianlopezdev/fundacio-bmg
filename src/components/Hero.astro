@@ -35,7 +35,9 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
     // Re-enable scroll after animation completes
     setTimeout(enableScroll, animationDuration);
 
-    document.querySelector(".hero-arrow").addEventListener("click", (e) => {
+    const heroArrow = document.querySelector(".hero-arrow");
+    
+    heroArrow?.addEventListener("click", (e) => {
       e.preventDefault();
       const infoSection = document.querySelector("#info");
 
