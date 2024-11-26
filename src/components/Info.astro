@@ -14,7 +14,7 @@ import { Image } from "astro:assets";
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 infoSection.classList.add("animate");
-                observer.unobserve(infoSection); // Optional: stop observing once animation starts
+                observer.unobserve(infoSection); 
               }
             });
           },
