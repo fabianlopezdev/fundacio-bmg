@@ -25,9 +25,15 @@ console.log("credits:", CREDITS);
   </section>
   <section class="bottom-footer">
     <div class="logos-container">
-      <Image class="logo" src={fundacioBMGLogo} alt="" />
-      <Image class="logo" src={BMGLogo} alt="" />
-      <Image class="logo" src={diputacioBCNLogo} alt="" />
+      <a href="/">
+        <Image class="logo" src={fundacioBMGLogo} alt="" />
+      </a>
+      <a href="https://bmgranollers.cat/cat/"  target="_blank" rel="noopener nonreferrer nofollow">
+        <Image class="logo" src={BMGLogo} alt="" />
+      </a>
+      <a href="https://www.diba.cat/" target="_blank" rel="noopener">
+        <Image class="logo" src={diputacioBCNLogo} alt="" />
+      </a>
     </div>
   </section>
 </footer>
@@ -138,7 +144,6 @@ console.log("credits:", CREDITS);
     }
   }
 
-
   @media (width < 640px) {
     .top-footer {
       height: fit-content;
@@ -164,17 +169,17 @@ console.log("credits:", CREDITS);
     }
 
     .bottom-footer {
-        /* height: fit-content; */
-        padding-block: 4.5rem;
+      /* height: fit-content; */
+      padding-block: 4.5rem;
     }
 
     .logos-container {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-        /* gap: 2rem; */
-        column-gap: 2rem;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      /* gap: 2rem; */
+      column-gap: 2rem;
     }
   }
 </style>
