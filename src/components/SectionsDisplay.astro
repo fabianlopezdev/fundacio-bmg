@@ -47,6 +47,7 @@ function getBackgroundColor(index) {
 
 <style>
   section {
+    --gap: 0.66875rem;
     --length: 31.520625rem;
   }
 
@@ -72,7 +73,8 @@ function getBackgroundColor(index) {
     display: grid;
     grid-template-columns: repeat(3, minmax(200px, 1fr));
     /* grid-template-rows: repeat(3, minmax(100px, var(--length))); */
-    gap: 0.4rem;
+    gap: var(--gap);
+    padding-bottom: var(--gap);
     /* aspect-ratio: 3 / 3; */
   }
  
