@@ -83,11 +83,23 @@ ul {
 .global-accent {
   color: var(--clr-accent);
 }
+
+.global-light-bold {
+  font-weight: var(--fnt-wg-light)
+}
+
+.global-regular-bold {
+  font-weight: var(--fnt-wg-regular)
+}
+
+.global-bold {
+  font-weight: var(--fnt-wg-bold)
+}
 /* Custom properties (CSS variables) */
 
 :root {
   /* To allow Details Html Element to have transitions */
-  interpolate-size: allow-keywords;
+  /* interpolate-size: allow-keywords; */
   /* Colors */
   --clr-primary: #223cc1;
   --clr-secondary: #ffffff;
@@ -116,6 +128,7 @@ ul {
   /* Around 80px for 1344px width */
   --fnt-sz-xxl: clamp(2.6996rem, 2.0645rem + 3.1752vi, 6.0335rem);
 
+  
   /* Fonts Weights*/
   --fnt-wg-light: 400;
   --fnt-wg-regular: 500;
