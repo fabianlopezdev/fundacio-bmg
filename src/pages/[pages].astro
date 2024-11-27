@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+import { SECTIONS } from "@data/SectionsData"
+
+export async function getStaticPaths() {
+  
+  return SECTIONS.map((page) => {
+    return {
+      params: { pages: page.linkHref },
+      props: {
+        title: page.label,
+        // content: formatHtml(page.content.rendered),
+        // image: page.image,
+      },
+    };
+  });
+}
+---
+
+<BaseLayout title="" description="">
+
+</BaseLayout>

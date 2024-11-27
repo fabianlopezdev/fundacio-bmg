@@ -1,12 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import Button from "@components/Button.astro";
-import HeaderMenuButton from "@components/HeaderMenuButton.astro";
-import HeaderMenu from "@components/HeaderMenu.astro";
+
 import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
+
+import Button from "@components/buttons/Button.astro";
+import HeaderMenuButton from "@components/header/HeaderMenuButton.astro";
+import HeaderMenu from "@components/header/HeaderMenu.astro";
 ---
 
-<script src="../scripts/HeaderMenuScript.ts"></script>
+<script src="../../scripts/headerMenuScript.ts"></script>
 
 <header class="global-opposite-colors">
   <HeaderMenuButton />
@@ -34,28 +36,26 @@ import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
 <style>
   header {
     --logo-width: 177px;
-    --header-height: 5.875;
-    --header-height-sm: 4.099375;
+    
     position: sticky;
     top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: calc(var(--header-height) * 1rem);
+    height: calc(var(--hg-header) * 1rem);
     margin-inline: var(--space-x-m);
     padding-inline: var(--space-x-sm);
     border-bottom-left-radius: var(--radius-regular);
     border-bottom-right-radius: var(--radius-regular);
-    /* z-index:2; */
-    z-index:-2;
-    animation: z-index 0.6ms 3000ms ease-in-out forwards;
+    z-index: -2;
+    animation: z-index 0.6s 3000ms ease-in-out forwards;
   }
 
-@keyframes z-index {
-  100%{
-    z-index: 2;
+  @keyframes z-index {
+    100% {
+      z-index: 2;
+    }
   }
-}
 
   .logo-container {
     display: flex;
@@ -64,11 +64,11 @@ import fundacioBMGLogo from "@assets/fundacio-balonmano-granollers-logo.webp";
 
   @media (width < 800px) {
     header {
-      height: calc(var(--header-height-sm) * 1rem);
+      height: calc(var(--hg-header-sm) * 1rem);
     }
 
     .logo {
-      width: calc((var(--header-height-sm) / var(--header-height)) * 100%);
+      width: calc((var(--hg-header-sm) / var(--hg-header)) * 100%);
       height: auto;
     }
   }

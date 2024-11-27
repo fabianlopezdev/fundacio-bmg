@@ -1,0 +1,59 @@
+---
+import blueArrow from "@assets/small-blue-arrow.png";
+import whiteArrow from "@assets/small-white-arrow.webp";
+import { Image } from "astro:assets";
+const { href, text, newTab, isBlueArrow } = Astro.props as {
+  href: string;
+  text: string;
+  isBlueArrow: boolean;
+  newTab?: boolean;
+};
+---
+
+<a
+  href={href}
+  rel={newTab ? "noopener noreferrer" : undefined}
+  aria-label={`Navega a la pàgina ${text}${newTab ? ", s'obre en una nova pestanya" : ""}`}
+  target={newTab ? "_blank" : ""}
+>
+  <div
+    class="button-container"
+    style=`${isBlueArrow ? "--clr-background: var(--clr-secondary)" : "--clr-background: var(--clr-primary)"}`
+  >
+    <Image
+      class="button-image"
+      src={isBlueArrow ? blueArrow : whiteArrow}
+      alt=""
+    />
+  </div>
+</a>
+
+<style>
+  .button-container {
+    display: grid;
+    place-items: center;
+    --button-radius: 2rem;
+    width: fit-content;
+    background-color: var(--clr-background);
+    border-radius: var(--button-radius);
+    transition:
+      background-color 0.2s ease,
+      color 0.3s ease,
+      transform 0.2s ease;
+    padding-inline: 1.3625em;
+    padding-block: 0.5em;
+  }
+
+  .button-container:hover .button-image,
+  a:hover .button-image {
+    transform: translateX(20%);
+  }
+
+  .button-image {
+    transform: translateX(0);
+    transition: transform 0.2s ease-in-out;
+    max-width: 100%;
+    height: auto;
+    width: clamp(0.5rem, 4vw, 2rem);
+  }
+</style>

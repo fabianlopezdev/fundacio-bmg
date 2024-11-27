@@ -1,7 +1,9 @@
 ---
-import CollapsibleArrow from "@assets/CollapsibleArrow.astro";
 import { HEADER_MENU_LINKS } from "@data/HeaderMenuData";
-import Button from "@components/Button.astro";
+
+import CollapsibleArrow from "@assets/CollapsibleArrow.astro";
+
+import Button from "@components/buttons/Button.astro";
 ---
 
 <aside id="menu" class="menu" aria-hidden="true">
@@ -66,7 +68,7 @@ import Button from "@components/Button.astro";
     background-color: var(--clr-bg-menu);
     z-index: 3;
   }
-  
+
   .mobile-header-button {
     display: none;
   }
@@ -203,7 +205,6 @@ import Button from "@components/Button.astro";
     .non-scrollable {
       height: calc(var(--header-height-sm) * 1rem);
     }
-    
 
     .sub-menu a {
       padding-left: calc(

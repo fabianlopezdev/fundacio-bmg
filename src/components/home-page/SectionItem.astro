@@ -1,21 +1,23 @@
 ---
 import { Image } from "astro:assets";
-import ButtonArrow from "@components/ButtonArrow.astro";
 
-const { imageSrc, imageAlt, label, linkHref, backgroundColor} = Astro.props;
+import ButtonArrow from "@components/buttons/ButtonArrow.astro";
+
+const { imageSrc, imageAlt, label, linkHref, backgroundColor } = Astro.props;
 
 const isBlueColor = backgroundColor === "var(--clr-primary)";
-
 ---
 
 <article class="grid-item" style={`--background-color: ${backgroundColor};`}>
   <Image class="background-image" src={imageSrc} alt={imageAlt} />
   <div class="grid-content">
     <header class="grid-title">
-      <h3 style={`${isBlueColor && "--text-color: var(--clr-secondary)"}`}>{label}</h3>
+      <h3 style={`${isBlueColor && "--text-color: var(--clr-secondary)"}`}>
+        {label}
+      </h3>
     </header>
     <div class="grid-button">
-      <ButtonArrow href={linkHref} isBlueArrow={isBlueColor}/>
+      <ButtonArrow href={linkHref} isBlueArrow={isBlueColor} />
     </div>
   </div>
 </article>
@@ -24,20 +26,14 @@ const isBlueColor = backgroundColor === "var(--clr-primary)";
   .grid-item {
     aspect-ratio: 1 /1;
     position: relative;
-    /* background-color: var(--clr-primary); */
     overflow: hidden;
-    /* border: 1px solid #ddd; */
-    /* padding: 1rem; */
-    /* font-size: 1.5rem; */
-    /* text-align: center; */
   }
 
   .grid-content {
     position: absolute;
-    background-color: transparent; 
-    
+    background-color: transparent;
     top: 0;
-    left:0;/* Transparent to avoid overlap */
+    left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -45,25 +41,33 @@ const isBlueColor = backgroundColor === "var(--clr-primary)";
     transition: opacity 0.3s ease-in-out;
   }
 
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
   .grid-content::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Increase size to cover rotation edges */
+    width: 100%;
     height: 100%;
     background-color: var(--background-color);
-    transform: rotate(0deg) scale(1); /* Rotate the background */
-    /* transform-origin: center; */
-    /* z-index: 1;  */
+    transform: rotate(0deg) scale(1);
   }
 
   .grid-item:hover .grid-content {
-    opacity: 1; /* Ensures the content becomes visible on hover */
+    opacity: 1;
   }
 
   .grid-item:hover .grid-content::before {
-    animation: spring 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: rebound 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   }
 
   .grid-title {
@@ -72,8 +76,6 @@ const isBlueColor = backgroundColor === "var(--clr-primary)";
     width: 100%;
     display: grid;
     place-items: center;
-
-    /* z-index: 1; */
   }
 
   h3 {
@@ -93,7 +95,7 @@ const isBlueColor = backgroundColor === "var(--clr-primary)";
     transform: translateX(-50%);
   }
 
-  @keyframes spring {
+  @keyframes rebound {
     0% {
       transform: rotate(0deg) scale(2);
     }

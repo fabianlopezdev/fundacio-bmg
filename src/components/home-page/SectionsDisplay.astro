@@ -1,0 +1,65 @@
+---
+import { SECTIONS } from "@data/SectionsData";
+
+import SectionItem from "@components/home-page/SectionItem.astro";
+
+const colors = ["var(--clr-accent)", "var(--clr-secondary)", "var(--clr-primary)"];
+
+function getBackgroundColor(index: number) {
+  const cycle = Math.floor(index / 3);
+  const positionInCycle = index % 3; 
+  const startingColorIndex = cycle % 3; 
+  const colorIndex = (startingColorIndex + positionInCycle) % 3; 
+  return colors[colorIndex];
+}
+---
+
+<section class="global-opposite-colors">
+  <h2 class="global-light-bold">
+    Descobreix <span class="global-bold">les nostres seccions</span>
+  </h2>
+  <div class="grid-container">
+    {
+      SECTIONS.map((section, index) => (
+        <SectionItem
+          imageSrc={section.imageSrc}
+          imageAlt={section.imageSrc}
+          label={section.label}
+          linkHref={section.linkHref}
+          backgroundColor={getBackgroundColor(index)}
+        />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  section {
+    --gap: 0.66875rem;
+    --length: 31.520625rem;
+  }
+
+  h2 {
+    font-size: var(--fnt-sz-m);
+    text-align: center;
+    padding-block: 7.8125rem;
+  }
+
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: var(--gap);
+    padding-bottom: var(--gap);
+  }
+ 
+</style>
