@@ -33,7 +33,7 @@ import ButtonIcon from "@components/buttons/ButtonIcon.astro";
   <div class="info-decoration outter"></div>
   <div class="info-decoration inner"></div>
   <div class="info-decoration image">
-    <Image src={playerDecoration} alt="" />
+    <Image class="player-decoration" src={playerDecoration} alt="" />
   </div>
 
   <div class="info-container">
@@ -88,7 +88,21 @@ import ButtonIcon from "@components/buttons/ButtonIcon.astro";
     animation: slide-from-left-img 0.6s 0.8s ease-in-out forwards;
   }
   .info-decoration.image {
+    position: absolute;
+    left: 0%;
+    top: 50%;
     transform: translate(45%, -50%);
+    width: calc(
+      var(--decoration-width) * 0.4
+    ); /* Adjust the multiplier as needed */
+    height: auto;
+    opacity: 0;
+  }
+
+  /* Ensure the image inside fills its container */
+  .info-decoration.image .player-decoration {
+    width: 100%;
+    height: auto;
   }
   .info-container {
     padding-left: 40%;
@@ -122,7 +136,7 @@ import ButtonIcon from "@components/buttons/ButtonIcon.astro";
       opacity: 0;
     }
     100% {
-      transform: translate(45%, -50%);
+      transform: translate(40%, -50%);
       opacity: 1;
     }
   }
