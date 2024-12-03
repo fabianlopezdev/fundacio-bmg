@@ -45,9 +45,13 @@ function getBackgroundColor(index: number) {
 <section id="sections-display" class="global-opposite-colors">
   <h2 class="global-light-bold">
     <span class="animated text" style="">Descobreix</span>
-    <span style="--delay: 100ms" class="global-bold animated text">les</span> 
-    <span style="--delay: 200ms" class="global-bold animated text"> nostres </span>
-    <span style="--delay: 300ms" class="global-bold animated text">seccions</span>
+    <span style="--delay: 100ms" class="global-bold animated text">les</span>
+    <span style="--delay: 200ms" class="global-bold animated text">
+      nostres
+    </span>
+    <span style="--delay: 300ms" class="global-bold animated text"
+      >seccions</span
+    >
   </h2>
   <div class="grid-container">
     {
@@ -87,10 +91,12 @@ function getBackgroundColor(index: number) {
   }
 
   .grid-container {
+    max-width: 1513px;
     display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: var(--gap);
     padding-bottom: var(--gap);
+    margin-inline: auto;
   }
 
   .text {
@@ -115,6 +121,12 @@ function getBackgroundColor(index: number) {
     100% {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @media (width > 1232px) {
+    .grid-container {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
     }
   }
 </style>
