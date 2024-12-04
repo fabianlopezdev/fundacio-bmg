@@ -20,15 +20,13 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
       <Image src={yellowArrow} alt="" loading="eager" />
     </a>
   </div>
-  <Image class="hero-image" src={heroImage} alt="" />
+  <Image class="global-hero-image" src={heroImage} alt="" />
 </section>
 
 <style>
   .hero-text {
     height: 100dvh;
     width: 100%;
-    padding-block: clamp(4rem, 5.7143rem + 1.4286vi, 4.5rem);
-    padding-inline: var(--space-x-xl);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,22 +34,10 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
     background-color: var(--clr-primary);
     margin-top: calc(var(--hg-header) * -1rem);
   }
-  .hero-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    aspect-ratio: 1512 / 751;
-  }
-
-  h1 {
-    font-size: var(--fnt-sz-xxl);
-    font-weight: var(--fnt-wg-light);
-    letter-spacing: -0.04em;
-    line-height: 1em;
-    position: relative;
-  }
-
+  
   .hero-arrow {
+    padding-right: var(--space-x-xl);
+    margin-bottom: clamp(4rem, 5.7143rem + 1.4286vi, 4.5rem);
     align-self: flex-end;
     display: flex;
     align-items: flex-end;

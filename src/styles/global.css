@@ -70,6 +70,17 @@ ul {
   list-style: none;
 }
 
+h1 {
+  font-size: var(--fnt-sz-xxl);
+  font-weight: var(--fnt-wg-light);
+  letter-spacing: -0.04em;
+  line-height: 1em;
+  padding-block: clamp(4rem, 5.7143rem + 1.4286vi, 4.5rem);
+  padding-inline: var(--space-x-xl);
+  /* margin-top: calc(var(--hg-header) * -1rem); */
+  position: relative;
+}
+
 :focus-visible {
   outline: 2px solid var(--clr-primary);
   outline-offset: 2px;
@@ -80,7 +91,7 @@ ul {
   color: var(--clr-primary);
 }
 
-.global-accent {
+.global-clr-accent {
   color: var(--clr-accent);
 }
 
@@ -96,6 +107,12 @@ ul {
   font-weight: var(--fnt-wg-bold);
 }
 /* Custom properties (CSS variables) */
+.global-hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1512 / 751;
+}
 
 :root {
   /* To allow Details Html Element to have transitions */
@@ -106,7 +123,6 @@ ul {
   /* Added without format because when using calc, mixes of px and rem don-t work*/
   --hg-header: 5.875;
   --hg-header-sm: 4.099375;
-
 
   /* Colors */
   --clr-primary: #223cc1;

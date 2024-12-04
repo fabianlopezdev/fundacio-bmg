@@ -1,10 +1,12 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 
-import { SECTIONS } from "@data/SectionsData"
+import { SECTIONS } from "@data/SectionsData";
+import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
+import heroImage from "@assets/image-3.webp";
 
 export async function getStaticPaths() {
-  
   return SECTIONS.map((page) => {
     return {
       params: { pages: page.linkHref },
@@ -19,5 +21,37 @@ export async function getStaticPaths() {
 ---
 
 <BaseLayout title="" description="">
-
+  <section>
+    <h1 class="global-clr-accent title-text">Projectes de cooperació</h1>
+    <nav class="hero-navigation-container">
+      <ul class="list-container">
+        <li>
+          <ButtonInternalPage text="Nigèria" slug="#nigeria" />
+        </li>
+        <li>
+          <ButtonInternalPage text="Senegal" slug="#senegal" />
+        </li>
+      </ul>
+    </nav>
+    <Image class="global-hero-image" src={heroImage} alt="" />
+  </section>
 </BaseLayout>
+
+<style>
+  .hero-navigation-container {
+    background-color: var(--clr-secondary);
+    height: 10.25rem;
+    display: flex;
+    align-items: center;
+    padding-inline: var(--space-x-xl);
+  }
+
+  .title-text {
+    font-weight: var(--fnt-wg-regular);
+  }
+
+  .list-container {
+    display: flex;
+    gap: 1.1875rem;
+  }
+</style>
