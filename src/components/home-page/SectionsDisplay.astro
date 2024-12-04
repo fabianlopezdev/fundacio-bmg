@@ -43,16 +43,18 @@ function getBackgroundColor(index: number) {
 </script>
 
 <section id="sections-display" class="global-opposite-colors">
-  <h2 class="global-light-bold">
-    <span class="animated text" style="">Descobreix</span>
-    <span style="--delay: 100ms" class="global-bold animated text">les</span>
-    <span style="--delay: 200ms" class="global-bold animated text">
-      nostres
-    </span>
-    <span style="--delay: 300ms" class="global-bold animated text"
-      >seccions</span
-    >
-  </h2>
+  <div class="section-title">
+    <h2>
+      <span class="animated text" style="">Descobreix</span>
+      <span style="--delay: 100ms" class="global-bold animated text">les</span>
+      <span style="--delay: 200ms" class="global-bold animated text">
+        nostres
+      </span>
+      <span style="--delay: 300ms" class="global-bold animated text"
+        >seccions</span
+      >
+    </h2>
+  </div>
   <div class="grid-container">
     {
       SECTIONS.map((section, index) => (
@@ -74,10 +76,9 @@ function getBackgroundColor(index: number) {
     --length: 31.520625rem;
   }
 
-  h2 {
-    font-size: var(--fnt-sz-m);
-    text-align: center;
+  .section-title {
     padding-block: 7.8125rem;
+    text-align: center;
   }
 
   .background-image {

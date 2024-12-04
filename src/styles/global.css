@@ -81,6 +81,14 @@ h1 {
   position: relative;
 }
 
+h2 {
+  font-size: var(--fnt-sz-m);
+  font-weight: var(--fnt-wg-light);
+  line-height: 1.2em;
+  text-wrap: pretty;
+  /* padding-block: 7.8125rem; */
+}
+
 :focus-visible {
   outline: 2px solid var(--clr-primary);
   outline-offset: 2px;
