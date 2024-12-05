@@ -33,6 +33,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /* outline: 1px solid red; */
 }
 
 html {
@@ -167,6 +168,10 @@ h2 {
 
   /* Radius */
   --radius-regular: 2.5rem;
+
+  --gap: 0.66875rem;
+
+  --slide-width: 37.0625rem;
 
   @media (width < 800px) {
     --space-x-m: 0.8125rem;

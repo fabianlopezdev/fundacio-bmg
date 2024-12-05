@@ -1,5 +1,5 @@
 ---
-import { SECTIONS } from "@data/SectionsData";
+import { PAGES } from "@data/pagesData";
 
 import SectionItem from "@components/home-page/SectionItem.astro";
 
@@ -55,24 +55,27 @@ function getBackgroundColor(index: number) {
       >
     </h2>
   </div>
-  <div class="grid-container">
-    {
-      SECTIONS.map((section, index) => (
-        <SectionItem
-          imageSrc={section.imageSrc}
-          imageAlt={section.imageSrc}
-          label={section.label}
-          linkHref={section.linkHref}
-          backgroundColor={getBackgroundColor(index)}
-        />
-      ))
-    }
-  </div>
+  <nav>
+    <ul class="grid-container">
+      {
+        PAGES.map((homePageMenuImg, index) => (
+          <li>
+            <SectionItem
+              imageSrc={homePageMenuImg.homePageMenuImg.imageSrc}
+              imageAlt={homePageMenuImg.homePageMenuImg.imageAlt}
+              label={homePageMenuImg.title}
+              linkHref={homePageMenuImg.linkHref}
+              backgroundColor={getBackgroundColor(index)}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </section>
 
 <style>
   section {
-    --gap: 0.66875rem;
     --length: 31.520625rem;
   }
 

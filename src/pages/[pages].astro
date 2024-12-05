@@ -2,27 +2,62 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 
-import { SECTIONS } from "@data/SectionsData";
+import { PAGES } from "@data/pagesData";
 import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
 import heroImage from "@assets/image-3.webp";
 
 export async function getStaticPaths() {
-  return SECTIONS.map((page) => {
+  return PAGES.map((page) => {
     return {
       params: { pages: page.linkHref },
       props: {
-        title: page.label,
+        title: page.title,
+        image: page.homePageMenuImg,
+        sections: page.sections,
         // content: formatHtml(page.content.rendered),
         // image: page.image,
       },
     };
   });
 }
+
+const page = Astro.props;
 ---
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const carousel = document.querySelector(".carousel");
+    const leftBtn = document.querySelector(".left-btn");
+    const rightBtn = document.querySelector(".right-btn");
+
+    // Get CSS variable values
+    const rootStyles = getComputedStyle(document.documentElement);
+    const slideWidthStr = rootStyles.getPropertyValue("--slide-width").trim();
+    const gapStr = rootStyles.getPropertyValue("--gap").trim();
+
+    // Remove "rem" and parse as numbers
+    const slideWidth = parseFloat(slideWidthStr.replace("rem", ""));
+    const gap = parseFloat(gapStr.replace("rem", "")) * 2;
+
+    console.log(gap);
+
+    const scrollAmount = slideWidth * 16;
+
+    console.log(scrollAmount); // Calculate scroll amount dynamically
+
+    leftBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+
+    rightBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+  });
+</script>
 
 <BaseLayout title="" description="">
   <section class="hero">
-    <h1 class="global-clr-accent title-text">Projectes de cooperació</h1>
+    <h1 class="global-clr-accent title-text">{page.title}</h1>
     <nav class="hero-navigation-container">
       <ul class="list-container">
         <li>
@@ -59,6 +94,25 @@ export async function getStaticPaths() {
         oportunitats internacionals per a joves esportistes.
       </p>
     </div>
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+      </div>
+      <button class="scroll-btn left-btn" aria-label="Scroll Left"
+        >&#8592;</button
+      >
+      <button class="scroll-btn right-btn" aria-label="Scroll Right"
+        >&#8594;</button
+      >
+    </div>
+
     <div id="senegal" class="paragraph">
       <h2 class="paragraph-title">
         Cooperació a la regió de Kédougou, Senegal
@@ -70,24 +124,22 @@ export async function getStaticPaths() {
         de Kédougou, al Senegal. A més, a la zona hi havia un equip femení que
         practicava handbol, i l'Ajuntament de Granollers, sota la direcció de
         l'alcalde Josep Mayoral, va establir lligams de col·laboració amb la
-        regió després d'una visita oficial. 
+        regió després d'una visita oficial.
         <br />
         <br />
-        Aquestes circumstàncies van ser
-        l’estímul per a que la Fundació BM Granollers i el Club engeguessin un
-        projecte de formació entre els anys 2017 i 2022, amb la participació de
-        tècnics com Pol García, David Ginesta i Aleix Caussa. Aquests formadors,
-        plens d’entusiasme, van treballar per promoure l’handbol femení a la
-        regió i ajudar a la formació de tècnics locals, amb l'objectiu de
-        fomentar trobades escolars d'handbol. 
+        Aquestes circumstàncies van ser l’estímul per a que la Fundació BM Granollers
+        i el Club engeguessin un projecte de formació entre els anys 2017 i 2022,
+        amb la participació de tècnics com Pol García, David Ginesta i Aleix Caussa.
+        Aquests formadors, plens d’entusiasme, van treballar per promoure l’handbol
+        femení a la regió i ajudar a la formació de tècnics locals, amb l'objectiu
+        de fomentar trobades escolars d'handbol.
         <br />
         <br />
-        Un moment destacat del projecte va
-        ser el Torneig de l’Amistat del 2019, on un equip femení del Club BM
-        Granollers va participar i va guanyar el títol de campiones. L'expedició
-        incloïa també la directiva Mireia Cammany i un representant de la
-        Universitat de Barcelona, reafirmant el compromís del club amb la
-        formació esportiva i la cooperació internacional.
+        Un moment destacat del projecte va ser el Torneig de l’Amistat del 2019,
+        on un equip femení del Club BM Granollers va participar i va guanyar el títol
+        de campiones. L'expedició incloïa també la directiva Mireia Cammany i un
+        representant de la Universitat de Barcelona, reafirmant el compromís del
+        club amb la formació esportiva i la cooperació internacional.
       </p>
     </div>
   </section>
@@ -114,24 +166,78 @@ export async function getStaticPaths() {
 
   .image {
     background-color: var(--clr-secondary);
-
   }
   .info-container {
     background-color: var(--clr-secondary);
+    overflow: hidden;
+    --slide-width: 37.0625rem;
+  }
+
+  .carousel-container {
+    width: 100vw;
+    overflow: hidden;
+    justify-content: center; /* Center the carousel horizontally */
+    overflow: hidden; /* Prevent scrollbars */
+    position: relative; /* Relative to center the slide */
+  }
+  .carousel {
+    display: flex;
+    gap: var(--gap); /* Gap between slides */
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    /* This makes it so that in screens of 1513px and shorter there is always one slide in the miggle*/
+    margin-left: calc(
+      ((100vw / 2) - (var(--slide-width) + var(--slide-width) / 2) - var(--gap))
+    );
+  }
+
+  .slide {
+    background-color: var(--clr-primary);
+    flex: 0 0 var(--slide-width);
+    aspect-ratio: 593 / 343;
+    max-width: 37.0625rem;
+    height: auto;
+    /* scroll-snap-align: center; */
   }
 
   .paragraph-title {
     min-width: 10ch;
     letter-spacing: -0.1rem;
   }
+
   .paragraph {
     max-width: 1516px;
     padding-inline: var(--space-x-xl);
     padding-block: 6.625rem;
-    margin-inline: auto;
+    /* margin-inline: auto; */
     color: var(--clr-primary);
     display: flex;
     gap: clamp(1rem, -12.499rem + 22.735vi, 9rem);
+  }
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--clr-secondary);
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    color: var(--clr-primary);
+    font-size: 1.5rem;
+  }
+
+  .scroll-btn.left-btn {
+    left: 1rem;
+  }
+
+  .scroll-btn.right-btn {
+    right: 1rem;
+  }
+  .scroll-btn:hover {
+    background-color: var(--clr-accent);
+    color: white;
   }
 
   p {
@@ -141,7 +247,7 @@ export async function getStaticPaths() {
     text-wrap: balance;
   }
 
-  @media(width < 950px) {
+  @media (width < 950px) {
     .paragraph {
       flex-direction: column;
     }
