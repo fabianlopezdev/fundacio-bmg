@@ -12,83 +12,87 @@ console.log("imagesAAAAAAAArr", imagesArr);
 ---
 
 <script>
-import Swiper from "swiper";
-import { EffectCards } from "swiper/modules";
+  import Swiper from "swiper";
+  import type { SwiperOptions } from "swiper/types";
 
-declare global {
-  interface HTMLElement {
-    swiper?: Swiper;
-  }
-}
+  import { EffectCards } from "swiper/modules";
 
-Swiper.use([EffectCards]);
+  Swiper.use([EffectCards]);
 
-// Wait for the DOM to be ready before initializing
-document.addEventListener("DOMContentLoaded", () => {
-  const initializeSwipers = () => {
-    // Select all swiper containers
-    const swiperContainers = document.querySelectorAll('.swiper');
+  // Wait for the DOM to be ready before initializing
+  document.addEventListener("DOMContentLoaded", () => {
+    const initializeSwipers = () => {
+      // Select all swiper containers
+      const swiperContainers = document.querySelectorAll(".swiper");
 
-    swiperContainers.forEach((container, index) => {
-      // Destroy any existing Swiper instance
-      const existingSwiper = (container as HTMLElement).swiper;
-      if (existingSwiper) existingSwiper.destroy(true, true);
+      swiperContainers.forEach((container, index) => {
+        // Destroy any existing Swiper instance
+        const existingSwiper = (container as any).swiper;
+        if (existingSwiper) existingSwiper.destroy(true, true);
 
-      // Check screen size and apply appropriate configuration
-      const isSmallScreen = window.matchMedia("(max-width: 710px)").matches;
+        // Check screen size and apply appropriate configuration
+        const isSmallScreen = window.matchMedia("(max-width: 710px)").matches;
 
-      const swiperConfig = isSmallScreen
-        ? {
-            effect: "cards",
-            slidesPerView: "auto",
-            grabCursor: true,
-            loop: true,
-            centeredSlides: true,
-            keyboard: true,
-            cardsEffect: {
-              slideShadows: true,
-              rotate: true,
-              perSlideRotate: 2,
-              perSlideOffset: 6,
-            },
-          }
-        : {
-            slidesPerView: "auto",
-            spaceBetween: 10,
-            grabCursor: true,
-            loop: true,
-            centeredSlides: true,
-            keyboard: true,
-          };
+        const swiperConfig = isSmallScreen
+          ? {
+              effect: "cards",
+              slidesPerView: "auto",
+              grabCursor: true,
+              loop: true,
+              centeredSlides: true,
+              keyboard: true,
+              cardsEffect: {
+                slideShadows: true,
+                rotate: true,
+                perSlideRotate: 2,
+                perSlideOffset: 6,
+              },
+            }
+          : {
+              slidesPerView: "auto",
+              spaceBetween: 10,
+              grabCursor: true,
+              loop: true,
+              centeredSlides: true,
+              keyboard: true,
+            };
 
-      // Initialize Swiper for this specific container
-      const swiperInstance = new Swiper(container, swiperConfig);
+        // Initialize Swiper for this specific container
 
-      // Find navigation buttons specific to this Swiper
-      const prevButton = container.closest('.swiper-container-wrapper')?.querySelector('.swiper-prev');
-      const nextButton = container.closest('.swiper-container-wrapper')?.querySelector('.swiper-next');
+        const swiperInstance = new Swiper(
+          container as HTMLElement,
+          swiperConfig as SwiperOptions,
+        );
 
-      // Add event listeners to navigation buttons
-      if (prevButton) {
-        prevButton.addEventListener('click', () => {
-          swiperInstance.slidePrev();
-        });
-      }
+        // Find navigation buttons specific to this Swiper
+        const prevButton = container
+          .closest(".swiper-container-wrapper")
+          ?.querySelector(".swiper-prev");
+        const nextButton = container
+          .closest(".swiper-container-wrapper")
+          ?.querySelector(".swiper-next");
 
-      if (nextButton) {
-        nextButton.addEventListener('click', () => {
-          swiperInstance.slideNext();
-        });
-      }
-    });
-  };
+        // Add event listeners to navigation buttons
+        if (prevButton) {
+          prevButton.addEventListener("click", () => {
+            swiperInstance.slidePrev();
+          });
+        }
 
-  // Initialize Swipers on load
-  initializeSwipers();
+        if (nextButton) {
+          nextButton.addEventListener("click", () => {
+            swiperInstance.slideNext();
+          });
+        }
+      });
+    };
 
-  // Reinitialize Swipers on window resize
-  window.addEventListener("resize", initializeSwipers);
-});
+    // Initialize Swipers on load
+    initializeSwipers();
+
+    // Reinitialize Swipers on window resize
+    window.addEventListener("resize", initializeSwipers);
+  });
 </script>
 
 <div class="swiper-container-wrapper">
