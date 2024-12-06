@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Explicitly cast to HTMLElement
     const htmlElement = element as HTMLElement;
     if (isChrome && !isMobile()) return;
-    console.log("jiopioiiiioooyayaay");
+
     console.log("isChrome", isChrome);
       console.log("istouch", !isMobile());
       

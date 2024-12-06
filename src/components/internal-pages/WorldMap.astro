@@ -1,0 +1,122 @@
+---
+import { JSDOM } from "jsdom";
+import fs from "node:fs";
+
+// Suppose you have a predefined list of countries that need a different fill color
+const highlightedCountries = [
+  "Andorra",
+  "Austria",
+  "Belgium",
+  "Bosnia",
+  "Bulgaria",
+  "Croatia",
+  "Czechia",
+  "Denmark",
+  "Estonia",
+  "Faroe Islands",
+  "Finland",
+  "France",
+  "Georgia",
+  "Germany",
+  "Greece",
+  "Great Britain",
+  "Hungary",
+  "Iceland",
+  "Italy",
+  "Latvia",
+  "Lithuania",
+  "Moldova",
+  "North Macedonia",
+  "Norway",
+  "Poland",
+  "Portugal",
+  "Romania",
+  "Russia",
+  "Scotland",
+  "Serbia",
+  "Slovenia",
+  "Spain",
+  "Sweden",
+  "Switzerland",
+];
+
+const highlightColor = "rgba(197, 220, 255, 1)";
+
+// Read the original SVG from a file
+const svgPath = "./src/assets/world.svg";
+const svgContent = fs.readFileSync(svgPath, "utf-8");
+
+// Parse SVG using JSDOM
+const dom = new JSDOM(svgContent);
+const doc = dom.window.document;
+
+// Loop through each highlighted country and set its fill attribute
+highlightedCountries.forEach((countryTitle) => {
+  const countryPath = doc.querySelector(`path[title="${countryTitle}"]`);
+  if (countryPath) {
+    countryPath.classList.add("highlighted");
+  }
+});
+
+// Convert back to string
+const finalSVG = doc.documentElement.outerHTML;
+
+console.log("finalSvg", finalSVG);
+---
+
+<script>
+  // Client-side script for interaction
+  document.addEventListener("DOMContentLoaded", () => {
+    const mapContainer = document.querySelector(".map-container");
+
+    // Detect if the device is touch-enabled
+    const isTouchableDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    console.log("isTouchableDevice", isTouchableDevice)
+    if (mapContainer && isTouchableDevice) {
+      // Find all highlighted paths
+      const highlightedPaths = mapContainer.querySelectorAll("path.highlighted");
+      let previouslySelected = null;
+
+      // Add event listener to each highlighted path
+      highlightedPaths.forEach((path) => {
+        path.addEventListener("click", () => {
+          // If the same country is clicked, toggle the fill
+          if (previouslySelected === path) {
+            path.style.fill = ""; // Reset to default color
+            previouslySelected = null; // Clear the reference
+          } else {
+            // Reset the previously selected country's color
+            if (previouslySelected) {
+              previouslySelected.style.fill = ""; // Clear custom fill
+            }
+
+            // Set the new country's color
+            path.style.fill = "var(--clr-accent)";
+            path.style.stroke = "black";
+            previouslySelected = path; // Update the reference
+          }
+        });
+      });
+    }
+  });
+</script>
+<!-- Now render the final SVG as-is -->
+<div class="map-container">
+  <div set:html={finalSVG} />
+</div>
+
+<style>
+
+
+  /* div {
+    width: 100%;
+  } */
+
+  div.map-container {
+    width: 100vw;
+    max-width: 1513px;
+    padding-inline: var(--space-x-m);
+    margin-inline: auto;
+  }
+</style>

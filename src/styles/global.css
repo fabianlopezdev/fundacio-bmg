@@ -95,6 +95,11 @@ h2 {
   outline-offset: 2px;
 }
 
+.global-colors {
+  background-color: var(--clr-primary);
+  color: var(--clr-secondary);
+}
+
 .global-opposite-colors {
   background-color: var(--clr-secondary);
   color: var(--clr-primary);
@@ -123,10 +128,9 @@ h2 {
   aspect-ratio: 1512 / 751;
 }
 
-.global-arrow-svg:hover circle{
+.global-arrow-svg:hover circle {
   fill: var(--clr-primary);
 }
-
 
 .global-arrow-svg:hover path {
   stroke: var(--clr-secondary);
@@ -136,6 +140,32 @@ h2 {
   color: var(--clr-accent);
   background-color: var(--clr-primary);
   font-weight: var(--fnt-wg-regular);
+}
+
+.global-pagging-block {
+  padding-block: 6.625rem;
+}
+
+.world-map path {
+  fill: rgba(197, 220, 255, 1);
+  stroke: black;
+  stroke-width: 0.5;
+}
+
+.world-map path.highlighted {
+  fill: var(--clr-primary);
+  stroke: white;
+  stroke-width: 1;
+  cursor: zoom-in;
+}
+
+@media (hover: hover) {
+  .world-map path.highlighted:hover {
+    fill: rgba(249, 220, 10, 1);
+    stroke: black;
+    stroke-width: 1;
+    /* opacity: 0.4; */
+  }
 }
 
 :root {

@@ -28,7 +28,7 @@ const page = Astro.props;
 const { sectionsLabels, sections } = page;
 ---
 
-<BaseLayout title="" description="">
+<BaseLayout title={page.title} description="">
   <div class="page-container">
     <section id="hero">
       <h1 class="global-h1-internal-page">{page.title}</h1>

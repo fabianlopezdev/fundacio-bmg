@@ -1,10 +1,13 @@
 ---
-const { sectionId, textTitle, textContent } = Astro.props;
+const { sectionId, textTitle, textContent, contrast } = Astro.props;
 ---
 
-<div id={sectionId} class="text-container">
-  <h2 class="text-title">{textTitle}</h2>
-  <p>
+<section
+  id={sectionId ? sectionId : ""}
+  class=`${contrast ? "global-colors" : ""} text-container`
+>
+  <h2 class=`${contrast ? "global-clr-accent" : ""} text-title`>{textTitle}</h2>
+  <p style={`color: ${contrast ? 'var(--clr-secondary)' : '#000000'}`} >
     {
       textContent.map((paragraph: string, i: number) =>
         i !== textContent.length - 1 ? (
@@ -19,7 +22,7 @@ const { sectionId, textTitle, textContent } = Astro.props;
       )
     }
   </p>
-</div>
+</section>
 
 <style>
   .text-container {
@@ -39,7 +42,7 @@ const { sectionId, textTitle, textContent } = Astro.props;
 
   p {
     font-size: clamp(1.125rem, 1.043rem + 0.351vi, 1.375rem);
-    color: #000000;
+
     text-wrap: balance;
   }
 

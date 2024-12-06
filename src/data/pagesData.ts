@@ -23,7 +23,6 @@ function slugify(text: string): string {
     .replace(/\-\-+/g, "-"); // Replace multiple dashes with a single dash
 }
 
-
 export const PAGES = [
   {
     title: "Un club amb valors",
@@ -31,6 +30,7 @@ export const PAGES = [
       imageSrc: maskImage,
       imageAlt: "",
     },
+    heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
     sectionsLabels: ["Nigèria", "Senegal"],
     sections: [
       {
@@ -84,6 +84,7 @@ export const PAGES = [
       imageSrc: maskImage2,
       imageAlt: "",
     },
+    heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
     sectionsLabels: ["Nigèria", "Senegal"],
     sections: [
       {
@@ -137,6 +138,7 @@ export const PAGES = [
       imageSrc: maskImage3,
       imageAlt: "",
     },
+    heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
     sectionsLabels: ["Nigèria", "Senegal"],
     sections: [
       {
@@ -169,6 +171,7 @@ export const PAGES = [
       imageSrc: maskImage4,
       imageAlt: "",
     },
+    heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
     sectionsLabels: ["Nigèria", "Senegal"],
     sections: [
       {
@@ -222,6 +225,7 @@ export const PAGES = [
       imageSrc: maskImage5,
       imageAlt: "",
     },
+    heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
     sectionsLabels: ["Nigèria", "Senegal"],
     sections: [
       {
@@ -275,6 +279,7 @@ export const PAGES = [
       imageSrc: maskImage6,
       imageAlt: "",
     },
+    heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
     sectionsLabels: ["Nigèria", "Senegal"],
     sections: [
       {
@@ -328,6 +333,7 @@ export const PAGES = [
       imageSrc: maskImage7,
       imageAlt: "",
     },
+    heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
     sectionsLabels: ["Nigèria", "Senegal"],
     sections: [
       {
@@ -381,6 +387,7 @@ export const PAGES = [
       imageSrc: maskImage8,
       imageAlt: "",
     },
+    heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
     sectionsLabels: ["Nigèria", "Senegal"],
     sections: [
       {
@@ -434,6 +441,7 @@ export const PAGES = [
       imageSrc: maskImage9,
       imageAlt: "",
     },
+    heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
     sectionsLabels: ["Nigèria", "Senegal"],
     sections: [
       {

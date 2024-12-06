@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+import Swiper from "@components/internal-pages/Swiper.astro";
+import Text from "@components/internal-pages/Text.astro";
+
+import WorldMap from "@components/internal-pages/WorldMap.astro";
+import { GRANOLLERS_CUP } from "@data/granollersCupPageData";
+
+const { title, heroImage, sections } = GRANOLLERS_CUP;
+---
+
+<BaseLayout title={title} description="">
+  <div class="page-container">
+    <section id="hero">
+      <h1 class="global-h1-internal-page">{title}</h1>
+
+      <div class="hero-image">
+        <Image
+          class="global-hero-image image"
+          src={heroImage.heroImageSrc}
+          alt={heroImage.heroImageAlt}
+        />
+      </div>
+    </section>
+    {
+      sections.map((content, i) => (
+        <Text
+          textTitle={content.title}
+          textContent={content.text}
+          contrast={content.contrast}
+        />
+      ))
+    }
+
+    <section class="global-padding-block">
+      <h2 style="visibility: hidden">Mapa interactiu de la Granollers Cup</h2>
+      <div class="map-instructions-container">
+        <div class="map-instructions global-colors">
+          Descobreix els països que han participat a la Granollers Cup:
+          <br />
+          <span class="global-clr-accent">
+            passa el cursor pel mapa interactiu per veure més detalls!
+          </span>
+        </div>
+      </div>
+
+      <WorldMap />
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding-bottom: 2.75rem;
+    background-color: var(--clr-secondary);
+  }
+
+  .map-instructions-container {
+    display: grid;
+    place-items: center;
+    padding-bottom: 2.75rem;
+  }
+  .map-instructions {
+    width: fit-content;
+    padding-block: 1.75rem;
+    padding-inline: 3.4375rem;
+    border-radius: 4rem;
+    text-align: center;
+    font-size: 1.375rem;
+  }
+</style>
