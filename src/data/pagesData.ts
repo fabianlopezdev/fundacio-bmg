@@ -33,6 +33,7 @@ export const PAGES = [
     sections: [
       {
         title: "Cooperació amb Nigèria",
+        label: "Nigèria",
         text: [
           "El 2006, la participació d'un equip masculí de Nigèria a la Granollers Cup va ser una fita destacable. Els jugadors van sorprendre tothom amb el seu joc explosiu i de gran qualitat, cosa que va obrir la porta a una col·laboració única. Aquest intercanvi va permetre iniciar un projecte de cooperació amb la Federació Nigeriana d’Handbol. L'objectiu era facilitar la formació esportiva d'aquests jugadors al Club BM Granollers i oferir-los la possibilitat de continuar els seus estudis en un entorn familiar, gràcies a la generosa acollida de famílies vinculades al club.",
           "El projecte es va materialitzar la temporada 2007/08 amb l'arribada de tres joves jugadors: Salisu Garba, A. Babangida i Alí Ahmed, que es van incorporar als equips Infantil A, Infantil Sporting i Aleví A, respectivament. Tot i que aquesta iniciativa només va tenir continuïtat durant una temporada, va ser una experiència enriquidora i va destacar per la seva ambició de crear oportunitats internacionals per a joves esportistes.",
@@ -54,6 +55,7 @@ export const PAGES = [
       },
       {
         title: "Cooperació a la regió de Kédougou, Senegal",
+        label: "Senegal",
         text: [
           "El projecte de cooperació a Kédougou va néixer impulsat per diversos factors. D'una banda, els germans Mamadou, Kaba i Gundo Gassama, esportistes del Club BM Granollers, tenien arrels familiars a la regió de Kédougou, al Senegal. A més, a la zona hi havia un equip femení que practicava handbol, i l'Ajuntament de Granollers, sota la direcció de l'alcalde Josep Mayoral, va establir lligams de col·laboració amb la regió després d'una visita oficial.",
           "Aquestes circumstàncies van ser l’estímul per a que la Fundació BM Granollers i el Club engeguessin un projecte de formació entre els anys 2017 i 2022, amb la participació de tècnics com Pol García, David Ginesta i Aleix Caussa. Aquests formadors, plens d’entusiasme, van treballar per promoure l’handbol femení a la regió i ajudar a la formació de tècnics locals, amb l'objectiu de fomentar trobades escolars d'handbol.",
@@ -85,6 +87,7 @@ export const PAGES = [
     sections: [
       {
         title: "Cooperació amb Nigèria",
+        label: "Nigèria",
         text: [
           "El 2006, la participació d'un equip masculí de Nigèria a la Granollers Cup va ser una fita destacable. Els jugadors van sorprendre tothom amb el seu joc explosiu i de gran qualitat, cosa que va obrir la porta a una col·laboració única. Aquest intercanvi va permetre iniciar un projecte de cooperació amb la Federació Nigeriana d’Handbol. L'objectiu era facilitar la formació esportiva d'aquests jugadors al Club BM Granollers i oferir-los la possibilitat de continuar els seus estudis en un entorn familiar, gràcies a la generosa acollida de famílies vinculades al club.",
           "El projecte es va materialitzar la temporada 2007/08 amb l'arribada de tres joves jugadors: Salisu Garba, A. Babangida i Alí Ahmed, que es van incorporar als equips Infantil A, Infantil Sporting i Aleví A, respectivament. Tot i que aquesta iniciativa només va tenir continuïtat durant una temporada, va ser una experiència enriquidora i va destacar per la seva ambició de crear oportunitats internacionals per a joves esportistes.",
@@ -106,6 +109,7 @@ export const PAGES = [
       },
       {
         title: "Cooperació a la regió de Kédougou, Senegal",
+        label: "Senegal",
         text: [
           "El projecte de cooperació a Kédougou va néixer impulsat per diversos factors. D'una banda, els germans Mamadou, Kaba i Gundo Gassama, esportistes del Club BM Granollers, tenien arrels familiars a la regió de Kédougou, al Senegal. A més, a la zona hi havia un equip femení que practicava handbol, i l'Ajuntament de Granollers, sota la direcció de l'alcalde Josep Mayoral, va establir lligams de col·laboració amb la regió després d'una visita oficial.",
           "Aquestes circumstàncies van ser l’estímul per a que la Fundació BM Granollers i el Club engeguessin un projecte de formació entre els anys 2017 i 2022, amb la participació de tècnics com Pol García, David Ginesta i Aleix Caussa. Aquests formadors, plens d’entusiasme, van treballar per promoure l’handbol femení a la regió i ajudar a la formació de tècnics locals, amb l'objectiu de fomentar trobades escolars d'handbol.",
@@ -137,6 +141,7 @@ export const PAGES = [
     sections: [
       {
         title: "Cooperació a la regió de Kédougou, Senegal",
+        label: "Senegal",
         text: [
           "El projecte de cooperació a Kédougou va néixer impulsat per diversos factors. D'una banda, els germans Mamadou, Kaba i Gundo Gassama, esportistes del Club BM Granollers, tenien arrels familiars a la regió de Kédougou, al Senegal. A més, a la zona hi havia un equip femení que practicava handbol, i l'Ajuntament de Granollers, sota la direcció de l'alcalde Josep Mayoral, va establir lligams de col·laboració amb la regió després d'una visita oficial.",
           "Aquestes circumstàncies van ser l’estímul per a que la Fundació BM Granollers i el Club engeguessin un projecte de formació entre els anys 2017 i 2022, amb la participació de tècnics com Pol García, David Ginesta i Aleix Caussa. Aquests formadors, plens d’entusiasme, van treballar per promoure l’handbol femení a la regió i ajudar a la formació de tècnics locals, amb l'objectiu de fomentar trobades escolars d'handbol.",
@@ -168,6 +173,7 @@ export const PAGES = [
     sections: [
       {
         title: "Cooperació amb Nigèria",
+        label: "Nigèria",
         text: [
           "El 2006, la participació d'un equip masculí de Nigèria a la Granollers Cup va ser una fita destacable. Els jugadors van sorprendre tothom amb el seu joc explosiu i de gran qualitat, cosa que va obrir la porta a una col·laboració única. Aquest intercanvi va permetre iniciar un projecte de cooperació amb la Federació Nigeriana d’Handbol. L'objectiu era facilitar la formació esportiva d'aquests jugadors al Club BM Granollers i oferir-los la possibilitat de continuar els seus estudis en un entorn familiar, gràcies a la generosa acollida de famílies vinculades al club.",
           "El projecte es va materialitzar la temporada 2007/08 amb l'arribada de tres joves jugadors: Salisu Garba, A. Babangida i Alí Ahmed, que es van incorporar als equips Infantil A, Infantil Sporting i Aleví A, respectivament. Tot i que aquesta iniciativa només va tenir continuïtat durant una temporada, va ser una experiència enriquidora i va destacar per la seva ambició de crear oportunitats internacionals per a joves esportistes.",
@@ -189,6 +195,7 @@ export const PAGES = [
       },
       {
         title: "Cooperació a la regió de Kédougou, Senegal",
+        label: "Senegal",
         text: [
           "El projecte de cooperació a Kédougou va néixer impulsat per diversos factors. D'una banda, els germans Mamadou, Kaba i Gundo Gassama, esportistes del Club BM Granollers, tenien arrels familiars a la regió de Kédougou, al Senegal. A més, a la zona hi havia un equip femení que practicava handbol, i l'Ajuntament de Granollers, sota la direcció de l'alcalde Josep Mayoral, va establir lligams de col·laboració amb la regió després d'una visita oficial.",
           "Aquestes circumstàncies van ser l’estímul per a que la Fundació BM Granollers i el Club engeguessin un projecte de formació entre els anys 2017 i 2022, amb la participació de tècnics com Pol García, David Ginesta i Aleix Caussa. Aquests formadors, plens d’entusiasme, van treballar per promoure l’handbol femení a la regió i ajudar a la formació de tècnics locals, amb l'objectiu de fomentar trobades escolars d'handbol.",
@@ -220,6 +227,7 @@ export const PAGES = [
     sections: [
       {
         title: "Cooperació amb Nigèria",
+        label: "Nigèria",
         text: [
           "El 2006, la participació d'un equip masculí de Nigèria a la Granollers Cup va ser una fita destacable. Els jugadors van sorprendre tothom amb el seu joc explosiu i de gran qualitat, cosa que va obrir la porta a una col·laboració única. Aquest intercanvi va permetre iniciar un projecte de cooperació amb la Federació Nigeriana d’Handbol. L'objectiu era facilitar la formació esportiva d'aquests jugadors al Club BM Granollers i oferir-los la possibilitat de continuar els seus estudis en un entorn familiar, gràcies a la generosa acollida de famílies vinculades al club.",
           "El projecte es va materialitzar la temporada 2007/08 amb l'arribada de tres joves jugadors: Salisu Garba, A. Babangida i Alí Ahmed, que es van incorporar als equips Infantil A, Infantil Sporting i Aleví A, respectivament. Tot i que aquesta iniciativa només va tenir continuïtat durant una temporada, va ser una experiència enriquidora i va destacar per la seva ambició de crear oportunitats internacionals per a joves esportistes.",
@@ -241,6 +249,7 @@ export const PAGES = [
       },
       {
         title: "Cooperació a la regió de Kédougou, Senegal",
+        label: "Senegal",
         text: [
           "El projecte de cooperació a Kédougou va néixer impulsat per diversos factors. D'una banda, els germans Mamadou, Kaba i Gundo Gassama, esportistes del Club BM Granollers, tenien arrels familiars a la regió de Kédougou, al Senegal. A més, a la zona hi havia un equip femení que practicava handbol, i l'Ajuntament de Granollers, sota la direcció de l'alcalde Josep Mayoral, va establir lligams de col·laboració amb la regió després d'una visita oficial.",
           "Aquestes circumstàncies van ser l’estímul per a que la Fundació BM Granollers i el Club engeguessin un projecte de formació entre els anys 2017 i 2022, amb la participació de tècnics com Pol García, David Ginesta i Aleix Caussa. Aquests formadors, plens d’entusiasme, van treballar per promoure l’handbol femení a la regió i ajudar a la formació de tècnics locals, amb l'objectiu de fomentar trobades escolars d'handbol.",
@@ -272,6 +281,7 @@ export const PAGES = [
     sections: [
       {
         title: "Cooperació amb Nigèria",
+        label: "Nigèria",
         text: [
           "El 2006, la participació d'un equip masculí de Nigèria a la Granollers Cup va ser una fita destacable. Els jugadors van sorprendre tothom amb el seu joc explosiu i de gran qualitat, cosa que va obrir la porta a una col·laboració única. Aquest intercanvi va permetre iniciar un projecte de cooperació amb la Federació Nigeriana d’Handbol. L'objectiu era facilitar la formació esportiva d'aquests jugadors al Club BM Granollers i oferir-los la possibilitat de continuar els seus estudis en un entorn familiar, gràcies a la generosa acollida de famílies vinculades al club.",
           "El projecte es va materialitzar la temporada 2007/08 amb l'arribada de tres joves jugadors: Salisu Garba, A. Babangida i Alí Ahmed, que es van incorporar als equips Infantil A, Infantil Sporting i Aleví A, respectivament. Tot i que aquesta iniciativa només va tenir continuïtat durant una temporada, va ser una experiència enriquidora i va destacar per la seva ambició de crear oportunitats internacionals per a joves esportistes.",
@@ -293,6 +303,7 @@ export const PAGES = [
       },
       {
         title: "Cooperació a la regió de Kédougou, Senegal",
+        label: "Senegal",
         text: [
           "El projecte de cooperació a Kédougou va néixer impulsat per diversos factors. D'una banda, els germans Mamadou, Kaba i Gundo Gassama, esportistes del Club BM Granollers, tenien arrels familiars a la regió de Kédougou, al Senegal. A més, a la zona hi havia un equip femení que practicava handbol, i l'Ajuntament de Granollers, sota la direcció de l'alcalde Josep Mayoral, va establir lligams de col·laboració amb la regió després d'una visita oficial.",
           "Aquestes circumstàncies van ser l’estímul per a que la Fundació BM Granollers i el Club engeguessin un projecte de formació entre els anys 2017 i 2022, amb la participació de tècnics com Pol García, David Ginesta i Aleix Caussa. Aquests formadors, plens d’entusiasme, van treballar per promoure l’handbol femení a la regió i ajudar a la formació de tècnics locals, amb l'objectiu de fomentar trobades escolars d'handbol.",
@@ -324,6 +335,7 @@ export const PAGES = [
     sections: [
       {
         title: "Cooperació amb Nigèria",
+        label: "Nigèria",
         text: [
           "El 2006, la participació d'un equip masculí de Nigèria a la Granollers Cup va ser una fita destacable. Els jugadors van sorprendre tothom amb el seu joc explosiu i de gran qualitat, cosa que va obrir la porta a una col·laboració única. Aquest intercanvi va permetre iniciar un projecte de cooperació amb la Federació Nigeriana d’Handbol. L'objectiu era facilitar la formació esportiva d'aquests jugadors al Club BM Granollers i oferir-los la possibilitat de continuar els seus estudis en un entorn familiar, gràcies a la generosa acollida de famílies vinculades al club.",
           "El projecte es va materialitzar la temporada 2007/08 amb l'arribada de tres joves jugadors: Salisu Garba, A. Babangida i Alí Ahmed, que es van incorporar als equips Infantil A, Infantil Sporting i Aleví A, respectivament. Tot i que aquesta iniciativa només va tenir continuïtat durant una temporada, va ser una experiència enriquidora i va destacar per la seva ambició de crear oportunitats internacionals per a joves esportistes.",
@@ -345,6 +357,7 @@ export const PAGES = [
       },
       {
         title: "Cooperació a la regió de Kédougou, Senegal",
+        label: "Senegal",
         text: [
           "El projecte de cooperació a Kédougou va néixer impulsat per diversos factors. D'una banda, els germans Mamadou, Kaba i Gundo Gassama, esportistes del Club BM Granollers, tenien arrels familiars a la regió de Kédougou, al Senegal. A més, a la zona hi havia un equip femení que practicava handbol, i l'Ajuntament de Granollers, sota la direcció de l'alcalde Josep Mayoral, va establir lligams de col·laboració amb la regió després d'una visita oficial.",
           "Aquestes circumstàncies van ser l’estímul per a que la Fundació BM Granollers i el Club engeguessin un projecte de formació entre els anys 2017 i 2022, amb la participació de tècnics com Pol García, David Ginesta i Aleix Caussa. Aquests formadors, plens d’entusiasme, van treballar per promoure l’handbol femení a la regió i ajudar a la formació de tècnics locals, amb l'objectiu de fomentar trobades escolars d'handbol.",
@@ -376,6 +389,7 @@ export const PAGES = [
     sections: [
       {
         title: "Cooperació amb Nigèria",
+        label: "Nigèria",
         text: [
           "El 2006, la participació d'un equip masculí de Nigèria a la Granollers Cup va ser una fita destacable. Els jugadors van sorprendre tothom amb el seu joc explosiu i de gran qualitat, cosa que va obrir la porta a una col·laboració única. Aquest intercanvi va permetre iniciar un projecte de cooperació amb la Federació Nigeriana d’Handbol. L'objectiu era facilitar la formació esportiva d'aquests jugadors al Club BM Granollers i oferir-los la possibilitat de continuar els seus estudis en un entorn familiar, gràcies a la generosa acollida de famílies vinculades al club.",
           "El projecte es va materialitzar la temporada 2007/08 amb l'arribada de tres joves jugadors: Salisu Garba, A. Babangida i Alí Ahmed, que es van incorporar als equips Infantil A, Infantil Sporting i Aleví A, respectivament. Tot i que aquesta iniciativa només va tenir continuïtat durant una temporada, va ser una experiència enriquidora i va destacar per la seva ambició de crear oportunitats internacionals per a joves esportistes.",
@@ -397,6 +411,7 @@ export const PAGES = [
       },
       {
         title: "Cooperació a la regió de Kédougou, Senegal",
+        label: "Senegal",
         text: [
           "El projecte de cooperació a Kédougou va néixer impulsat per diversos factors. D'una banda, els germans Mamadou, Kaba i Gundo Gassama, esportistes del Club BM Granollers, tenien arrels familiars a la regió de Kédougou, al Senegal. A més, a la zona hi havia un equip femení que practicava handbol, i l'Ajuntament de Granollers, sota la direcció de l'alcalde Josep Mayoral, va establir lligams de col·laboració amb la regió després d'una visita oficial.",
           "Aquestes circumstàncies van ser l’estímul per a que la Fundació BM Granollers i el Club engeguessin un projecte de formació entre els anys 2017 i 2022, amb la participació de tècnics com Pol García, David Ginesta i Aleix Caussa. Aquests formadors, plens d’entusiasme, van treballar per promoure l’handbol femení a la regió i ajudar a la formació de tècnics locals, amb l'objectiu de fomentar trobades escolars d'handbol.",
@@ -428,6 +443,7 @@ export const PAGES = [
     sections: [
       {
         title: "Cooperació amb Nigèria",
+        label: "Nigèria",
         text: [
           "El 2006, la participació d'un equip masculí de Nigèria a la Granollers Cup va ser una fita destacable. Els jugadors van sorprendre tothom amb el seu joc explosiu i de gran qualitat, cosa que va obrir la porta a una col·laboració única. Aquest intercanvi va permetre iniciar un projecte de cooperació amb la Federació Nigeriana d’Handbol. L'objectiu era facilitar la formació esportiva d'aquests jugadors al Club BM Granollers i oferir-los la possibilitat de continuar els seus estudis en un entorn familiar, gràcies a la generosa acollida de famílies vinculades al club.",
           "El projecte es va materialitzar la temporada 2007/08 amb l'arribada de tres joves jugadors: Salisu Garba, A. Babangida i Alí Ahmed, que es van incorporar als equips Infantil A, Infantil Sporting i Aleví A, respectivament. Tot i que aquesta iniciativa només va tenir continuïtat durant una temporada, va ser una experiència enriquidora i va destacar per la seva ambició de crear oportunitats internacionals per a joves esportistes.",
@@ -449,6 +465,7 @@ export const PAGES = [
       },
       {
         title: "Cooperació a la regió de Kédougou, Senegal",
+        label: "Senegal",
         text: [
           "El projecte de cooperació a Kédougou va néixer impulsat per diversos factors. D'una banda, els germans Mamadou, Kaba i Gundo Gassama, esportistes del Club BM Granollers, tenien arrels familiars a la regió de Kédougou, al Senegal. A més, a la zona hi havia un equip femení que practicava handbol, i l'Ajuntament de Granollers, sota la direcció de l'alcalde Josep Mayoral, va establir lligams de col·laboració amb la regió després d'una visita oficial.",
           "Aquestes circumstàncies van ser l’estímul per a que la Fundació BM Granollers i el Club engeguessin un projecte de formació entre els anys 2017 i 2022, amb la participació de tècnics com Pol García, David Ginesta i Aleix Caussa. Aquests formadors, plens d’entusiasme, van treballar per promoure l’handbol femení a la regió i ajudar a la formació de tècnics locals, amb l'objectiu de fomentar trobades escolars d'handbol.",
