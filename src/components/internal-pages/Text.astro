@@ -1,17 +1,13 @@
 ---
-const {sectionId, textTitle, textContent} = Astro.props;
-console.log("TextConteeeeent", textContent)
+const { sectionId, textTitle, textContent } = Astro.props;
 ---
 
-<div
-  id={sectionId}
-  class="text-container"
->
+<div id={sectionId} class="text-container">
   <h2 class="text-title">{textTitle}</h2>
   <p>
     {
-      textContent.map((paragraph, j) =>
-        j !== textContent.length - 1 ? (
+      textContent.map((paragraph: string, i: number) =>
+        i !== textContent.length - 1 ? (
           <>
             {paragraph}
             <br />

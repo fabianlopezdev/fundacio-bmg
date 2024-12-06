@@ -15,6 +15,12 @@ console.log("imagesAAAAAAAArr", imagesArr);
 import Swiper from "swiper";
 import { EffectCards } from "swiper/modules";
 
+declare global {
+  interface HTMLElement {
+    swiper?: Swiper;
+  }
+}
+
 Swiper.use([EffectCards]);
 
 // Wait for the DOM to be ready before initializing
@@ -25,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     swiperContainers.forEach((container, index) => {
       // Destroy any existing Swiper instance
-      const existingSwiper = container.swiper;
+      const existingSwiper = (container as HTMLElement).swiper;
       if (existingSwiper) existingSwiper.destroy(true, true);
 
       // Check screen size and apply appropriate configuration
