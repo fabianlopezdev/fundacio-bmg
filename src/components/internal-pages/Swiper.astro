@@ -8,16 +8,11 @@ import RightArrow from "@assets/Right-arrow.astro";
 
 const { imagesArr } = Astro.props;
 
-console.log("imagesAAAAAAAArr", imagesArr);
 ---
 
 <script>
   import Swiper from "swiper";
   import type { SwiperOptions } from "swiper/types";
-
-  import { EffectCards } from "swiper/modules";
-
-  Swiper.use([EffectCards]);
 
   // Wait for the DOM to be ready before initializing
   document.addEventListener("DOMContentLoaded", () => {
@@ -25,43 +20,27 @@ console.log("imagesAAAAAAAArr", imagesArr);
       // Select all swiper containers
       const swiperContainers = document.querySelectorAll(".swiper");
 
-      swiperContainers.forEach((container, index) => {
+      swiperContainers.forEach((container) => {
         // Destroy any existing Swiper instance
         const existingSwiper = (container as any).swiper;
         if (existingSwiper) existingSwiper.destroy(true, true);
 
         // Check screen size and apply appropriate configuration
-        const isSmallScreen = window.matchMedia("(max-width: 710px)").matches;
+   
 
-        const swiperConfig = isSmallScreen
-          ? {
-              effect: "cards",
-              slidesPerView: "auto",
-              grabCursor: true,
-              loop: true,
-              centeredSlides: true,
-              keyboard: true,
-              cardsEffect: {
-                slideShadows: true,
-                rotate: true,
-                perSlideRotate: 2,
-                perSlideOffset: 6,
-              },
-            }
-          : {
-              slidesPerView: "auto",
-              spaceBetween: 10,
-              grabCursor: true,
-              loop: true,
-              centeredSlides: true,
-              keyboard: true,
-            };
+        const swiperConfig = {
+          slidesPerView: "auto",
+          spaceBetween: 10, // Adjust spacing for smaller screens
+          grabCursor: true,
+          loop: true,
+          centeredSlides: true,
+          keyboard: true,
+        };
 
         // Initialize Swiper for this specific container
-
         const swiperInstance = new Swiper(
           container as HTMLElement,
-          swiperConfig as SwiperOptions,
+          swiperConfig as SwiperOptions
         );
 
         // Find navigation buttons specific to this Swiper
@@ -94,6 +73,7 @@ console.log("imagesAAAAAAAArr", imagesArr);
     window.addEventListener("resize", initializeSwipers);
   });
 </script>
+
 
 <div class="swiper-container-wrapper">
   <div class="swiper">
