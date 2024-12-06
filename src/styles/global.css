@@ -123,6 +123,15 @@ h2 {
   aspect-ratio: 1512 / 751;
 }
 
+.global-arrow-svg:hover circle{
+  fill: var(--clr-primary);
+}
+
+
+.global-arrow-svg:hover path {
+  stroke: var(--clr-secondary);
+}
+
 :root {
   /* To allow Details Html Element to have transitions */
   interpolate-size: allow-keywords;

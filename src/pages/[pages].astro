@@ -3,13 +3,15 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 
 // Import Swiper styles:
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/effect-cards";
 
 import { PAGES } from "@data/pagesData";
 import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
 import heroImage from "@assets/image-3.webp";
+
+import LeftArrow from "@assets/Left-arrow.astro";
+import RightArrow from "@assets/Right-arrow.astro";
 
 export async function getStaticPaths() {
   return PAGES.map((page) => {
@@ -19,6 +21,7 @@ export async function getStaticPaths() {
         title: page.title,
         image: page.homePageMenuImg,
         sections: page.sections,
+        sectionsLabels: page.sectionsLabels,
         // content: formatHtml(page.content.rendered),
         // image: page.image,
       },
@@ -27,144 +30,185 @@ export async function getStaticPaths() {
 }
 
 const page = Astro.props;
+
+const { sectionsLabels, sections } = page;
 ---
 
 <script>
-  import Swiper from 'swiper';
-  import { Navigation, Pagination } from 'swiper/modules';
+  import Swiper from "swiper";
+  import { EffectCards } from "swiper/modules";
 
-  Swiper.use([Navigation, Pagination]);
+  Swiper.use([EffectCards]);
 
   // Wait for the DOM to be ready before initializing
-  document.addEventListener('DOMContentLoaded', () => {
-    const swiper = new Swiper('.swiper', {
-      slidesPerView: 'auto',
-      spaceBetween: 10,
-      freeMode: true,
-      grabCursor: true, // Allows click-and-drag grabbing on desktop
-      loop: true,
-      centeredSlides: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      // pagination: {
-      //   el: '.swiper-pagination',
-      //   clickable: true,
-      // },
-    });
+  document.addEventListener("DOMContentLoaded", () => {
+    const initializeSwiper = () => {
+      // Destroy any existing Swiper instance
+      const existingSwiper = document.querySelector(".swiper").swiper;
+      if (existingSwiper) existingSwiper.destroy(true, true);
+
+      // Check screen size and apply appropriate configuration
+      const isSmallScreen = window.matchMedia("(max-width: 710px)").matches;
+
+      const swiperConfig = isSmallScreen
+        ? {
+            effect: "cards",
+            slidesPerView: "auto",
+            grabCursor: true,
+            loop: true,
+            centeredSlides: true,
+            keyboard: true,
+            cardsEffect: {
+              slideShadows: true,
+              rotate: true,
+              perSlideRotate: 2,
+              perSlideOffset: 6,
+            },
+          }
+        : {
+            slidesPerView: "auto",
+            spaceBetween: 10,
+            grabCursor: true,
+            loop: true,
+            centeredSlides: true,
+            keyboard: true,
+          };
+
+      const swiperInstance = new Swiper(".swiper", swiperConfig);
+
+      // Add navigation controls
+      document.querySelector(".swiper-prev").addEventListener("click", () => {
+        swiperInstance.slidePrev(); // Trigger slide animation
+      });
+
+      document.querySelector(".swiper-next").addEventListener("click", () => {
+        swiperInstance.slideNext(); // Trigger slide animation
+      });
+    };
+
+    // Initialize Swiper on load
+    initializeSwiper();
+
+    // Reinitialize Swiper on window resize
+    window.addEventListener("resize", initializeSwiper);
   });
 </script>
 
 <BaseLayout title="" description="">
-  <section class="hero">
-    <h1 class="global-clr-accent title-text">{page.title}</h1>
-    <nav class="hero-navigation-container">
-      <ul class="list-container">
-        {
-          page.sections.map((content) => (
-            <li>
-              <ButtonInternalPage
-                text={content.label}
-                slug={`#${content.label.normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
-              />
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-    <div class="image">
-      <Image
-        class="global-hero-image image"
-        src={page.image.imageSrc}
-        alt={page.image.imageAlt}
-      />
-    </div>
-  </section>
-  <section class="info-container">
-    {
-      page.sections.map((content) => (
-        <div
-          id={content.label.normalize("NFD").replace(/[\u0300-\u036f]/g, "")}
-          class="paragraph"
-        >
-          <h2 class="paragraph-title">{content.title}</h2>
-          <p>
-            {content.text.map((paragraph, i) =>
-              i !== content.text.length - 1 ? (
-                <>
-                  {paragraph}
-                  <br />
-                  <br />
-                </>
-              ) : (
-                paragraph
-              ),
-            )}
-          </p>
-        </div>
-      ))
-    }
-    <div class="trii">
+  <div class="page-container">
+    <section class="hero">
+      <div class="title-container">
+        <h1 class="global-clr-accent title-text">{page.title}</h1>
+      </div>
+      <nav class="hero-navigation-container">
+        <ul class="list-container">
+          {
+            sectionsLabels.map((label) => (
+              <li>
+                <ButtonInternalPage
+                  text={label}
+                  slug={`#${label.normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div class="hero-image">
+        <Image
+          class="global-hero-image image"
+          src={page.image.imageSrc}
+          alt={page.image.imageAlt}
+        />
+      </div>
+    </section>
+<section class="info-container">
+  {sections.map((content, i) => (
+    <>
+      <div
+        id={sectionsLabels[i].normalize("NFD").replace(/[\u0300-\u036f]/g, "")}
+        class="paragraph"
+      >
+        <h2 class="paragraph-title">{content.title}</h2>
+        <p>
+          {content.text.map((paragraph, j) =>
+            j !== content.text.length - 1 ? (
+              <>
+                {paragraph}
+                <br />
+                <br />
+              </>
+            ) : (
+              paragraph
+            )
+          )}
+        </p>
+      </div>
 
       <div class="swiper-container-wrapper">
         <div class="swiper">
           <div class="swiper-wrapper">
             {
-              page.sections.map((content) =>
-              content.sectionCarousel.map((image) => (
-                <div class="swiper-slide">
-                  <Image
-                    class="carousel-image"
-                    src={image.img}
-                    alt={image.imgAlt}
-                    />
-                </div>
-              ))
-            )
-          }
+  sections.map((content) =>
+  content.sectionCarousel.map((image) => (
+    <div class="swiper-slide">
+        <Image
+          class="carousel-image"
+          src={image.img}
+          alt={image.imgAlt}
+          />
+      </div>
+    )),
+  )
+}
+          </div>
+
+          <div class="swiper-controls">
+            <button class="swiper-prev">
+              <LeftArrow />
+            </button>
+            <button class="swiper-next">
+              <RightArrow />
+            </button>
+          </div>
         </div>
-        
-        <!-- Add Pagination and Navigation if desired -->
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev">&#8592;</div>
-        <div class="swiper-button-next">&#8594;</div>
       </div>
-      </div>
-      <!-- <div class="carousel-container">
-      <div class="carousel">
-        {
-          page.sections.map((content) =>
-            content.sectionCarousel.map((image) => (
-              <div class="slide">
-                <Image
-                  class="carousel-image"
-                  src={image.img}
-                  alt={image.imgAlt}
-                />
-              </div>
-            )),
-          )
-        }
-      </div>
-      <button class="scroll-btn left-btn" aria-label="Scroll Left"
-        >&#8592;</button
-      >
-      <button class="scroll-btn right-btn" aria-label="Scroll Right"
-        >&#8594;</button
-      >
-    </div> -->
-  </section>
+
+      {i !== sections.length - 1 && (
+        <div class="divider-container">
+          <div class="divider-line"></div>
+        </div>
+      )}
+    </>
+  ))}
+</section>
+
+  </div>
 </BaseLayout>
 
 <style>
-  .hero-navigation-container {
+  .page-container {
+    padding-bottom: 2.75rem;
     background-color: var(--clr-secondary);
+  }
+  .divider-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .divider-line {
+    height: 2px;
+    width: 85vw;
+    background-color: rgba(34, 34, 33, 0.2);
+  }
+  .global-clr-accent {
+    background-color: var(--clr-primary);
+  }
+  .hero-navigation-container {
     height: 10.25rem;
     display: flex;
     align-items: center;
     padding-inline: var(--space-x-xl);
-    /* flex-wrap: wrap; */
   }
 
   .title-text {
@@ -176,60 +220,31 @@ const page = Astro.props;
     gap: 1.1875rem;
   }
 
-  .image {
+  .hero-image {
     background-color: var(--clr-secondary);
   }
   .info-container {
     background-color: var(--clr-secondary);
-    /* overflow: hidden; */
     --slide-width: 37.0625rem;
-  }
-
-  .carousel-container {
-    width: 100vw;
-    /* overflow: hidden; */
-    justify-content: center; /* Center the carousel horizontally */
-    /* overflow: hidden;  */
-    position: relative; /* Relative to center the slide */
-  }
-  .carousel {
-    display: flex;
-    /* gap: var(--gap); Gap between slides */
-    /* scroll-snap-type: x mandatory; */
-    /* overflow-x: scroll; */
-    scrollbar-width: none;
-    /* This makes it so that in screens of 1513px and shorter there is always one slide in the miggle*/
-    /* margin-left: calc(
-      ((100vw / 2) - (var(--slide-width) + var(--slide-width) / 2) - var(--gap))
-    ); */
-  }
-
-  .trii {
-    overflow-x: hidden;
   }
 
   .swiper-container-wrapper {
     max-width: 100vw;
-    position: relative;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-      /* margin-left: calc(
-      ((100vw / 2) - (var(--slide-width) + var(--slide-width) / 2) - var(--gap))
-    ); */
   }
 
-  .swiper {
-    width: 100%;
-    /* overflow: hidden; Ensures a tidy horizontal scroll area */
-  }
-
-  /* Each slide can have a fixed width, or you can let content define it */
   .swiper-slide {
-    flex-shrink: 0; /* Prevents slides from shrinking */
-    width: var(--slide-width); /* Example fixed width; adjust as desired */
+    width: var(--slide-width);
+    aspect-ratio: 593 / 343;
+    height: 21.4375rem;
+    border-radius: 1rem;
+  }
+
+  .swiper-controls {
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    gap: 1.75rem;
+    padding-block: 2.75rem;
   }
   .carousel-image {
     width: 100%;
@@ -239,10 +254,9 @@ const page = Astro.props;
   .slide {
     background-color: var(--clr-primary);
     flex: 0 0 var(--slide-width);
-    aspect-ratio: 593 / 343;
+    /* aspect-ratio: 593 / 343; */
     max-width: 37.0625rem;
     height: auto;
-    /* scroll-snap-align: center; */
   }
 
   .paragraph-title {
@@ -254,40 +268,15 @@ const page = Astro.props;
     max-width: 1516px;
     padding-inline: var(--space-x-xl);
     padding-block: 6.625rem;
-    /* margin-inline: auto; */
+    margin-inline: auto;
     color: var(--clr-primary);
     display: flex;
     gap: clamp(1rem, -12.499rem + 22.735vi, 9rem);
-  }
-  .scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--clr-secondary);
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    z-index: 10;
-    color: var(--clr-primary);
-    font-size: 1.5rem;
-  }
-
-  .scroll-btn.left-btn {
-    left: 1rem;
-  }
-
-  .scroll-btn.right-btn {
-    right: 1rem;
-  }
-  .scroll-btn:hover {
-    background-color: var(--clr-accent);
-    color: white;
   }
 
   p {
     font-size: clamp(1.125rem, 1.043rem + 0.351vi, 1.375rem);
     color: #000000;
-    /* font-weight: var(--ftn-wg-light); */
     text-wrap: balance;
   }
 
@@ -298,6 +287,20 @@ const page = Astro.props;
 
     .paragraph-title {
       text-align: center;
+    }
+  }
+
+  @media (width < 710px) {
+    .swiper-slide {
+      width: 85vw;
+      height: auto;
+      aspect-ratio: 593 / 343;
+      border-radius: 1rem;
+    }
+
+    .carousel-image {
+      width: 100%;
+      height: 100%;
     }
   }
 </style>
