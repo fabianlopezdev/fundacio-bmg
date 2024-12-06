@@ -1,18 +1,13 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 
-// Import Swiper styles:
-import "swiper/css";
-import "swiper/css/effect-cards";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
+import Swiper from "@components/internal-pages/Swiper.astro";
+import Text from "@components/internal-pages/Text.astro";
 
 import { PAGES } from "@data/pagesData";
-import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
-import heroImage from "@assets/image-3.webp";
-
-import LeftArrow from "@assets/Left-arrow.astro";
-import RightArrow from "@assets/Right-arrow.astro";
-import Swiper from "@components/internal-pages/Swiper.astro";
 
 export async function getStaticPaths() {
   return PAGES.map((page) => {
@@ -23,8 +18,6 @@ export async function getStaticPaths() {
         image: page.homePageMenuImg,
         sections: page.sections,
         sectionsLabels: page.sectionsLabels,
-        // content: formatHtml(page.content.rendered),
-        // image: page.image,
       },
     };
   });
@@ -35,74 +28,13 @@ const page = Astro.props;
 const { sectionsLabels, sections } = page;
 ---
 
-<script>
-  import Swiper from "swiper";
-  import { EffectCards } from "swiper/modules";
-
-  Swiper.use([EffectCards]);
-
-  // Wait for the DOM to be ready before initializing
-  document.addEventListener("DOMContentLoaded", () => {
-    const initializeSwiper = () => {
-      // Destroy any existing Swiper instance
-      const existingSwiper = document.querySelector(".swiper").swiper;
-      if (existingSwiper) existingSwiper.destroy(true, true);
-
-      // Check screen size and apply appropriate configuration
-      const isSmallScreen = window.matchMedia("(max-width: 710px)").matches;
-
-      const swiperConfig = isSmallScreen
-        ? {
-            effect: "cards",
-            slidesPerView: "auto",
-            grabCursor: true,
-            loop: true,
-            centeredSlides: true,
-            keyboard: true,
-            cardsEffect: {
-              slideShadows: true,
-              rotate: true,
-              perSlideRotate: 2,
-              perSlideOffset: 6,
-            },
-          }
-        : {
-            slidesPerView: "auto",
-            spaceBetween: 10,
-            grabCursor: true,
-            loop: true,
-            centeredSlides: true,
-            keyboard: true,
-          };
-
-      const swiperInstance = new Swiper(".swiper", swiperConfig);
-
-      // Add navigation controls
-      document.querySelector(".swiper-prev").addEventListener("click", () => {
-        swiperInstance.slidePrev(); // Trigger slide animation
-      });
-
-      document.querySelector(".swiper-next").addEventListener("click", () => {
-        swiperInstance.slideNext(); // Trigger slide animation
-      });
-    };
-
-    // Initialize Swiper on load
-    initializeSwiper();
-
-    // Reinitialize Swiper on window resize
-    window.addEventListener("resize", initializeSwiper);
-  });
-</script>
-
 <BaseLayout title="" description="">
   <div class="page-container">
-    <section class="hero">
-      <div class="title-container">
-        <h1 class="global-clr-accent title-text">{page.title}</h1>
-      </div>
+    <section id="hero">
+      <h1 class="global-h1-internal-page">{page.title}</h1>
+
       <nav class="hero-navigation-container">
-        <ul class="list-container">
+        <ul class="nav-buttons-container">
           {
             sectionsLabels.map((label) => (
               <li>
@@ -115,6 +47,7 @@ const { sectionsLabels, sections } = page;
           }
         </ul>
       </nav>
+
       <div class="hero-image">
         <Image
           class="global-hero-image image"
@@ -123,40 +56,27 @@ const { sectionsLabels, sections } = page;
         />
       </div>
     </section>
-<section class="info-container">
-  {sections.map((content, i) => (
-    <>
-      <div
-        id={sectionsLabels[i].normalize("NFD").replace(/[\u0300-\u036f]/g, "")}
-        class="paragraph"
-      >
-        <h2 class="paragraph-title">{content.title}</h2>
-        <p>
-          {content.text.map((paragraph, j) =>
-            j !== content.text.length - 1 ? (
-              <>
-                {paragraph}
-                <br />
-                <br />
-              </>
-            ) : (
-              paragraph
-            )
-          )}
-        </p>
-      </div>
-      
-      <Swiper imagesArr={content.sectionCarousel}/>
+    {
+      sections.map((content, i) => (
+          <Text
+            sectionId={sectionsLabels[i]
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")}
+            textTitle={content.title}
+            textContent={content.text}
+          />
 
-      {i !== sections.length - 1 && (
-        <div class="divider-container">
-          <div class="divider-line"></div>
-        </div>
-      )}
-    </>
-  ))}
-</section>
+          <Swiper imagesArr={content.sectionCarousel} />
 
+          <>
+            {i !== sections.length - 1 && (
+              <div class="divider-container">
+                <div class="divider-line" />
+              </div>
+            )}
+          </>
+      ))
+    }
   </div>
 </BaseLayout>
 
@@ -165,6 +85,23 @@ const { sectionsLabels, sections } = page;
     padding-bottom: 2.75rem;
     background-color: var(--clr-secondary);
   }
+
+  .hero-navigation-container {
+    height: 10.25rem;
+    display: flex;
+    align-items: center;
+    padding-inline: var(--space-x-xl);
+  }
+
+  .nav-buttons-container {
+    display: flex;
+    gap: 1.1875rem;
+  }
+
+  .hero-image {
+    background-color: var(--clr-secondary);
+  }
+
   .divider-container {
     display: flex;
     justify-content: center;
@@ -175,72 +112,4 @@ const { sectionsLabels, sections } = page;
     width: 85vw;
     background-color: rgba(34, 34, 33, 0.2);
   }
-  .global-clr-accent {
-    background-color: var(--clr-primary);
-  }
-  .hero-navigation-container {
-    height: 10.25rem;
-    display: flex;
-    align-items: center;
-    padding-inline: var(--space-x-xl);
-  }
-
-  .title-text {
-    font-weight: var(--fnt-wg-regular);
-  }
-
-  .list-container {
-    display: flex;
-    gap: 1.1875rem;
-  }
-
-  .hero-image {
-    background-color: var(--clr-secondary);
-  }
-  .info-container {
-    background-color: var(--clr-secondary);
-    --slide-width: 37.0625rem;
-  }
-
- 
-  .slide {
-    background-color: var(--clr-primary);
-    flex: 0 0 var(--slide-width);
-    /* aspect-ratio: 593 / 343; */
-    max-width: 37.0625rem;
-    height: auto;
-  }
-
-  .paragraph-title {
-    min-width: 10ch;
-    letter-spacing: -0.1rem;
-  }
-
-  .paragraph {
-    max-width: 1516px;
-    padding-inline: var(--space-x-xl);
-    padding-block: 6.625rem;
-    margin-inline: auto;
-    color: var(--clr-primary);
-    display: flex;
-    gap: clamp(1rem, -12.499rem + 22.735vi, 9rem);
-  }
-
-  p {
-    font-size: clamp(1.125rem, 1.043rem + 0.351vi, 1.375rem);
-    color: #000000;
-    text-wrap: balance;
-  }
-
-  @media (width < 950px) {
-    .paragraph {
-      flex-direction: column;
-    }
-
-    .paragraph-title {
-      text-align: center;
-    }
-  }
-
- 
 </style>

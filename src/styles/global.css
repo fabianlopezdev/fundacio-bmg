@@ -132,6 +132,12 @@ h2 {
   stroke: var(--clr-secondary);
 }
 
+.global-h1-internal-page {
+  color: var(--clr-accent);
+  background-color: var(--clr-primary);
+  font-weight: var(--fnt-wg-regular);
+}
+
 :root {
   /* To allow Details Html Element to have transitions */
   interpolate-size: allow-keywords;

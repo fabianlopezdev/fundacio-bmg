@@ -1,0 +1,59 @@
+---
+const {sectionId, textTitle, textContent} = Astro.props;
+console.log("TextConteeeeent", textContent)
+---
+
+<div
+  id={sectionId}
+  class="text-container"
+>
+  <h2 class="text-title">{textTitle}</h2>
+  <p>
+    {
+      textContent.map((paragraph, j) =>
+        j !== textContent.length - 1 ? (
+          <>
+            {paragraph}
+            <br />
+            <br />
+          </>
+        ) : (
+          paragraph
+        ),
+      )
+    }
+  </p>
+</div>
+
+<style>
+  .text-container {
+    max-width: 1516px;
+    padding-inline: var(--space-x-xl);
+    padding-block: 6.625rem;
+    margin-inline: auto;
+    color: var(--clr-primary);
+    display: flex;
+    gap: clamp(1rem, -12.499rem + 22.735vi, 9rem);
+  }
+
+  .text-title {
+    min-width: 10ch;
+    letter-spacing: -0.1rem;
+  }
+
+  p {
+    font-size: clamp(1.125rem, 1.043rem + 0.351vi, 1.375rem);
+    color: #000000;
+    text-wrap: balance;
+  }
+
+  @media (width < 950px) {
+    .text-container {
+      flex-direction: column;
+    }
+
+    .text-title {
+      text-align: center;
+    }
+  }
+</style>
