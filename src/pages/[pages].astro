@@ -12,6 +12,7 @@ import heroImage from "@assets/image-3.webp";
 
 import LeftArrow from "@assets/Left-arrow.astro";
 import RightArrow from "@assets/Right-arrow.astro";
+import Swiper from "@components/internal-pages/Swiper.astro";
 
 export async function getStaticPaths() {
   return PAGES.map((page) => {
@@ -144,35 +145,8 @@ const { sectionsLabels, sections } = page;
           )}
         </p>
       </div>
-
-      <div class="swiper-container-wrapper">
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            {
-  sections.map((content) =>
-  content.sectionCarousel.map((image) => (
-    <div class="swiper-slide">
-        <Image
-          class="carousel-image"
-          src={image.img}
-          alt={image.imgAlt}
-          />
-      </div>
-    )),
-  )
-}
-          </div>
-
-          <div class="swiper-controls">
-            <button class="swiper-prev">
-              <LeftArrow />
-            </button>
-            <button class="swiper-next">
-              <RightArrow />
-            </button>
-          </div>
-        </div>
-      </div>
+      
+      <Swiper imagesArr={content.sectionCarousel}/>
 
       {i !== sections.length - 1 && (
         <div class="divider-container">
@@ -228,29 +202,7 @@ const { sectionsLabels, sections } = page;
     --slide-width: 37.0625rem;
   }
 
-  .swiper-container-wrapper {
-    max-width: 100vw;
-  }
-
-  .swiper-slide {
-    width: var(--slide-width);
-    aspect-ratio: 593 / 343;
-    height: 21.4375rem;
-    border-radius: 1rem;
-  }
-
-  .swiper-controls {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 1.75rem;
-    padding-block: 2.75rem;
-  }
-  .carousel-image {
-    width: 100%;
-    object-fit: cover;
-  }
-
+ 
   .slide {
     background-color: var(--clr-primary);
     flex: 0 0 var(--slide-width);
@@ -290,17 +242,5 @@ const { sectionsLabels, sections } = page;
     }
   }
 
-  @media (width < 710px) {
-    .swiper-slide {
-      width: 85vw;
-      height: auto;
-      aspect-ratio: 593 / 343;
-      border-radius: 1rem;
-    }
-
-    .carousel-image {
-      width: 100%;
-      height: 100%;
-    }
-  }
+ 
 </style>

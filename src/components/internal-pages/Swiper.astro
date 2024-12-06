@@ -1,0 +1,153 @@
+---
+import "swiper/css";
+import "swiper/css/effect-cards";
+import { Image } from "astro:assets";
+
+import LeftArrow from "@assets/Left-arrow.astro";
+import RightArrow from "@assets/Right-arrow.astro";
+
+const { imagesArr } = Astro.props;
+
+console.log("imagesAAAAAAAArr", imagesArr);
+---
+
+<script>
+import Swiper from "swiper";
+import { EffectCards } from "swiper/modules";
+
+Swiper.use([EffectCards]);
+
+// Wait for the DOM to be ready before initializing
+document.addEventListener("DOMContentLoaded", () => {
+  const initializeSwipers = () => {
+    // Select all swiper containers
+    const swiperContainers = document.querySelectorAll('.swiper');
+
+    swiperContainers.forEach((container, index) => {
+      // Destroy any existing Swiper instance
+      const existingSwiper = container.swiper;
+      if (existingSwiper) existingSwiper.destroy(true, true);
+
+      // Check screen size and apply appropriate configuration
+      const isSmallScreen = window.matchMedia("(max-width: 710px)").matches;
+
+      const swiperConfig = isSmallScreen
+        ? {
+            effect: "cards",
+            slidesPerView: "auto",
+            grabCursor: true,
+            loop: true,
+            centeredSlides: true,
+            keyboard: true,
+            cardsEffect: {
+              slideShadows: true,
+              rotate: true,
+              perSlideRotate: 2,
+              perSlideOffset: 6,
+            },
+          }
+        : {
+            slidesPerView: "auto",
+            spaceBetween: 10,
+            grabCursor: true,
+            loop: true,
+            centeredSlides: true,
+            keyboard: true,
+          };
+
+      // Initialize Swiper for this specific container
+      const swiperInstance = new Swiper(container, swiperConfig);
+
+      // Find navigation buttons specific to this Swiper
+      const prevButton = container.closest('.swiper-container-wrapper')?.querySelector('.swiper-prev');
+      const nextButton = container.closest('.swiper-container-wrapper')?.querySelector('.swiper-next');
+
+      // Add event listeners to navigation buttons
+      if (prevButton) {
+        prevButton.addEventListener('click', () => {
+          swiperInstance.slidePrev();
+        });
+      }
+
+      if (nextButton) {
+        nextButton.addEventListener('click', () => {
+          swiperInstance.slideNext();
+        });
+      }
+    });
+  };
+
+  // Initialize Swipers on load
+  initializeSwipers();
+
+  // Reinitialize Swipers on window resize
+  window.addEventListener("resize", initializeSwipers);
+});
+</script>
+
+<div class="swiper-container-wrapper">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {
+        [...imagesArr, ...imagesArr].map((image) => (
+          <div class="swiper-slide">
+            <Image
+              class="swiper-slide-image"
+              src={image.img}
+              alt={image.imgAlt}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="swiper-controls">
+      <button class="swiper-prev">
+        <LeftArrow />
+      </button>
+      <button class="swiper-next">
+        <RightArrow />
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .swiper-container-wrapper {
+    max-width: 100vw;
+  }
+
+  .swiper-slide {
+    width: var(--slide-width);
+    aspect-ratio: 593 / 343;
+    height: 21.4375rem;
+    border-radius: 1rem;
+  }
+
+  .swiper-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1.75rem;
+    padding-block: 2.75rem;
+  }
+
+  .swiper-slide-image {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media (width < 710px) {
+    .swiper-slide {
+      width: 85vw;
+      height: auto;
+      aspect-ratio: 593 / 343;
+      border-radius: 1rem;
+    }
+
+    .swiper-slide-image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+</style>
