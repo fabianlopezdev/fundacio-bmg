@@ -1,6 +1,6 @@
 ---
 import { JSDOM } from "jsdom";
-import fs from "node:fs";
+import fs from "fs";
 
 // Suppose you have a predefined list of countries that need a different fill color
 const highlightedCountries = [
@@ -70,13 +70,17 @@ console.log("finalSvg", finalSVG);
     const mapContainer = document.querySelector(".map-container");
 
     // Detect if the device is touch-enabled
-    const isTouchableDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    const isTouchableDevice =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
-    console.log("isTouchableDevice", isTouchableDevice)
+    console.log("isTouchableDevice", isTouchableDevice);
     if (mapContainer && isTouchableDevice) {
       // Find all highlighted paths
-      const highlightedPaths = mapContainer.querySelectorAll("path.highlighted");
-      let previouslySelected = null;
+      const highlightedPaths = mapContainer.querySelectorAll(
+        "path.highlighted",
+      ) as NodeListOf<SVGPathElement>;
+        
+      let previouslySelected =  SVGPathElement | null = null;
 
       // Add event listener to each highlighted path
       highlightedPaths.forEach((path) => {
@@ -107,8 +111,6 @@ console.log("finalSvg", finalSVG);
 </div>
 
 <style>
-
-
   /* div {
     width: 100%;
   } */
