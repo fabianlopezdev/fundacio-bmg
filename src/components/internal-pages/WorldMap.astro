@@ -79,8 +79,8 @@ console.log("finalSvg", finalSVG);
       const highlightedPaths = mapContainer.querySelectorAll(
         "path.highlighted",
       ) as NodeListOf<SVGPathElement>;
-        
-      let previouslySelected =  SVGPathElement | null = null;
+
+     let previouslySelected: SVGPathElement | null = null;
 
       // Add event listener to each highlighted path
       highlightedPaths.forEach((path) => {
