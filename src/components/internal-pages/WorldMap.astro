@@ -5,40 +5,11 @@ import fs from "fs";
 import handballBall from "@assets/handball-ball.svg";
 
 // Suppose you have a predefined list of countries that need a different fill color
-const highlightedCountries = [
-  "Argentina", "Australia", "Austria", "Belgium", "Bosnia", "Brazil", "Bulgaria",
-  "Canada", "Chile", "China", "Colombia", "Croatia", "Czechia", "Denmark",
-  "Egypt", "England", "Estonia", "Faroe Islands", "Finland", "France", "Georgia",
-  "Germany", "Greece", "Guatemala", "Hungary", "Iceland", "India", "Israel",
-  "Italy", "Kenya", "Latvia", "Lithuania", "Macedonia", "Mexico", "Moldova",
-  "Morocco", "Nigeria", "Norway", "Poland", "Portugal", "Romania", "Russia",
-  "Scotland", "Serbia", "Slovenia", "South Korea", "Spain", "Sweden",
-  "Switzerland", "Taiwan", "Tunisia", "United States", "Uruguay", "Venezuela",
-];
 
-const africa = ["Egypt", "Kenya", "Morocco", "Nigeria", "Tunisia"];
-const asia = ["China", "India", "Israel", "South Korea", "Taiwan"];
-const europe = [
-  "Austria", "Belgium", "Bosnia", "Bulgaria", "Croatia", "Czechia", "Denmark",
-  "England", "Estonia", "Faroe Islands", "Finland", "France", "Georgia",
-  "Germany", "Greece", "Hungary", "Iceland", "Italy", "Latvia", "Lithuania",
-  "Macedonia", "Moldova", "Norway", "Poland", "Portugal", "Romania", "Russia",
-  "Scotland", "Serbia", "Slovenia", "Spain", "Sweden", "Switzerland",
-];
-const northAmerica = ["Canada", "Guatemala", "Mexico", "United States"];
-const southAmerica = ["Argentina", "Brazil", "Chile", "Colombia", "Uruguay", "Venezuela"];
-const oceania = ["Australia"];
-
-const continentMap = {
-  africa: new Set(africa),
-  asia: new Set(asia),
-  europe: new Set(europe),
-  "north-america": new Set(northAmerica),
-  "south-america": new Set(southAmerica),
-  oceania: new Set(oceania),
-};
-
-const highlightColor = "rgba(197, 220, 255, 1)";
+import {
+  allCountriesThatPlayed,
+  countriesInContinents,
+} from "@data/countriesData";
 
 // Read the original SVG from a file
 const svgPath = "./src/assets/world.svg";
@@ -49,116 +20,190 @@ const dom = new JSDOM(svgContent);
 const doc = dom.window.document;
 
 // Loop through each highlighted country and set its fill attribute
-highlightedCountries.forEach((countryTitle) => {
-  const countryPath = doc.querySelector(`path[title="${countryTitle}"]`);
-  if (!countryPath) return;
+allCountriesThatPlayed.forEach((countryTitle) => {
+  const country = doc.querySelector(`path[title="${countryTitle}"]`);
+  if (!country) return;
 
-  // Add base highlight class
-  countryPath.classList.add("highlighted");
+  country.classList.add("highlighted");
 
-  // Find which continent the country belongs to and add appropriate class
-  Object.entries(continentMap).forEach(([continent, countries]) => {
+  Object.entries(countriesInContinents).forEach(([continent, countries]) => {
     if (countries.has(countryTitle)) {
-      countryPath.classList.add(continent);
+      country.classList.add(continent);
     }
   });
 });
 
-// Convert back to string
+const formatContinentName = (continent: string): string => {
+  const nameMap: { [key: string]: string } = {
+    europe: "Europa",
+    asia: "Àsia",
+    africa: "Àfrica",
+    "north-america": "Amèrica del Nord",
+    "south-america": "Amèrica del Sud",
+    oceania: "Oceania",
+  };
+  return nameMap[continent] || continent;
+};
+
+// Generate continent info elements
+const continentInfoElements = Object.entries(countriesInContinents).map(
+  ([continent, countries]) => ({
+    id: continent,
+    name: formatContinentName(continent),
+    countriesCount: countries.size,
+    countriesList: Array.from(countries).join(", "),
+  }),
+);
+
 const finalSVG = doc.documentElement.outerHTML;
 ---
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const mapContainer = document.querySelector(".map-container");
-    const continentInfo = document.querySelector(".continent-info") as HTMLElement;
-    
-    // Add mousemove event listener to track cursor
+    const continentInfos = document.querySelectorAll(".continent-info");
+
+    // Add variables to track cursor position
+    let currentX = 0;
+    let currentY = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    // Animation function using requestAnimationFrame
+    function animatePosition() {
+      const activeInfo = document.querySelector(
+        ".continent-info.active",
+      ) as HTMLElement;
+
+      if (activeInfo) {
+        // Interpolate between current and target positions
+        currentX += (targetX - currentX) * 0.15;
+        currentY += (targetY - currentY) * 0.15;
+
+        // Apply position
+        activeInfo.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+      }
+
+      requestAnimationFrame(animatePosition);
+    }
+
+    // Start animation loop
+    animatePosition();
+
     document.addEventListener("mousemove", (e) => {
-      if (continentInfo.style.opacity === "1") {
-        const padding = 20; // Distance from cursor
-        let left = e.clientX + padding;
-        let top = e.clientY + padding;
-        
-        // Check if tooltip would go off-screen to the right
+      const activeInfo = document.querySelector(
+        ".continent-info.active",
+      ) as HTMLElement;
+      if (activeInfo) {
+        const cursorDistance = 15;
+        let left = e.clientX + cursorDistance;
+        let top = e.clientY + cursorDistance;
+
         if (left + 408 > window.innerWidth) {
-          left = e.clientX - 428; // Position to the left of the cursor
+          left = e.clientX - 428;
         }
-        
-        // Check if tooltip would go off-screen at the bottom
-        if (top + continentInfo.offsetHeight > window.innerHeight) {
-          top = e.clientY - continentInfo.offsetHeight - padding;
+
+        if (top + activeInfo.offsetHeight > window.innerHeight) {
+          top = e.clientY - activeInfo.offsetHeight - cursorDistance;
         }
-        
-        continentInfo.style.left = `${left}px`;
-        continentInfo.style.top = `${top}px`;
+
+        // Update target positions instead of directly setting style
+        targetX = left;
+        targetY = top;
       }
     });
 
-    const isTouchableDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    const isTouchableDevice =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
-    if (mapContainer) {
-      if (isTouchableDevice) {
-        // Your existing touch device handling remains the same...
-      } else {
-        // Modified mouse device handling
-        const continents = ["europe", "asia", "africa", "north-america", "south-america", "oceania"];
-        
-        continents.forEach(continent => {
-          const paths = mapContainer.querySelectorAll(`path.${continent}`);
-          
-          paths.forEach(path => {
-            path.addEventListener("mouseenter", () => {
+    if (mapContainer && !isTouchableDevice) {
+      const continents = [
+        "europe",
+        "asia",
+        "africa",
+        "north-america",
+        "south-america",
+        "oceania",
+      ];
+
+      continents.forEach((continent) => {
+        const paths = mapContainer.querySelectorAll(`path.${continent}`);
+        const continentInfo = document.querySelector(
+          `.continent-info[data-continent="${continent}"]`,
+        ) as HTMLElement;
+
+        paths.forEach((path) => {
+          path.addEventListener("mouseenter", () => {
+            // Hide all continent infos
+            continentInfos.forEach((info) => {
+              (info as HTMLElement).style.opacity = "0";
+              info.classList.remove("active");
+            });
+
+            // Show current continent info
+            if (continentInfo) {
               continentInfo.style.opacity = "1";
               continentInfo.style.pointerEvents = "none";
-            });
-            
-            path.addEventListener("mouseleave", () => {
+              continentInfo.classList.add("active");
+
+              // Reset current position to prevent jumping
+              const rect = path.getBoundingClientRect();
+              currentX = rect.left;
+              currentY = rect.top;
+              targetX = currentX;
+              targetY = currentY;
+            }
+          });
+
+          path.addEventListener("mouseleave", () => {
+            if (continentInfo) {
               continentInfo.style.opacity = "0";
-            });
+              continentInfo.classList.remove("active");
+            }
           });
         });
-      }
+      });
     }
   });
 </script>
 <div class="relative">
   <div class="map-container" set:html={finalSVG} />
-  
-  <article class="continent-info">
-    <header>
-      <h3>
-        <span class="country-name">Europa</span>
-        <span class="countries-number">(34 països)</span>
-      </h3>
-      <Image src={handballBall} alt="" />
-    </header>
-    <p>
-      Alemanya, Andorra, Àustria, Bèlgica, Bòsnia, Bulgària, Croàcia, Dinamarca,
-      Escòcia, Eslovènia, Espanya, Estònia, Finlàndia, França, Geòrgia, Grècia,
-      Gran Bretanya, Hongria, Illes Feroe, Islàndia, Itàlia, Letònia, Lituània,
-      Macedònia, Moldàvia, Noruega, Polònia, Portugal, Romania, Rússia, Sèrbia,
-      Suècia, Suïssa, Txèquia,
-    </p>
-  </article>
+
+  {
+    continentInfoElements.map(({ id, name, countriesCount, countriesList }) => (
+      <article class="continent-info" data-continent={id}>
+        <header>
+          <h3>
+            <span class="continent-name">{name}</span>
+            <span class="countries-number">
+              ({countriesCount} {countriesCount === 1 ? "país" : "països"})
+            </span>
+          </h3>
+          <Image src={handballBall} alt="" />
+        </header>
+        <p>{countriesList}</p>
+      </article>
+    ))
+  }
 </div>
 
 <style>
   div.map-container {
     width: 100vw;
-  max-width: 1513px;
-  padding-inline: var(--space-x-m);
-  margin-inline: auto;
-  position: relative;
-  overflow: visible; 
+    max-width: 1513px;
+    padding-inline: var(--space-x-m);
+    margin-inline: auto;
+    position: relative;
+    overflow: visible;
   }
 
   .relative {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
   .continent-info {
-    position: fixed; /* Changed from absolute to fixed for smoother following */
+    position: fixed;
     width: 408px;
     color: var(--clr-primary);
     border: 1px solid var(--clr-primary);
@@ -167,9 +212,15 @@ const finalSVG = doc.documentElement.outerHTML;
     background-color: white;
     z-index: 999;
     opacity: 0;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.3s ease-out;
     pointer-events: none;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Remove left/top positioning and use transform instead */
+    left: 0;
+    top: 0;
+    transform: translate3d(0, 0, 0);
+    /* Use hardware acceleration */
+    will-change: transform;
   }
 
   h3 {
