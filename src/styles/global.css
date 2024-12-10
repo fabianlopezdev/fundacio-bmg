@@ -167,66 +167,6 @@ h2 {
     stroke-width: 1;
   } */
 
-  .map-container:has(path.north-america:hover) path.north-america {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
-  
-  .map-container:has(path.south-america:hover) path.south-america {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
-  
-  .map-container:has(path.europe:hover) path.europe {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
-  
-  .map-container:has(path.asia:hover) path.asia {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
-  
-  .map-container:has(path.africa:hover) path.africa {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
-  
-  .map-container:has(path.oceania:hover) path.oceania {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
-  
-  /* Optional: Add active state for touch devices */
-  .map-container:has(path.north-america:active) path.north-america {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
-  
-  .map-container:has(path.south-america:active) path.south-america {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
-  
-  .map-container:has(path.europe:active) path.europe {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
-  
-  .map-container:has(path.asia:active) path.asia {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
-  
-  .map-container:has(path.africa:active) path.africa {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
-  
-  .map-container:has(path.oceania:active) path.oceania {
-    fill: var(--clr-accent) ;
-    stroke: black;
-  }
 }
 
 :root {
