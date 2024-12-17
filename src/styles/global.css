@@ -148,14 +148,14 @@ h2 {
 
 .world-map path {
   fill: rgba(197, 220, 255, 1);
-  stroke: black;
+  stroke: white;
   stroke-width: 0.5;
 }
 
 .world-map path.highlighted {
   fill: var(--clr-primary);
   stroke: white;
-  stroke-width: 1;
+  stroke-width: 0.5;
   cursor: url("/public/handball-ball.svg"), auto;
   transition: fill 0.2s ease-in-out;
 }
