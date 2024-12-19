@@ -2,6 +2,8 @@
 import blueArrow from "@assets/small-blue-arrow.png";
 import whiteArrow from "@assets/small-white-arrow.webp";
 import { Image } from "astro:assets";
+
+import RightArrow from "@components/RightArrow.astro";
 const { href, text, newTab, isBlueArrow } = Astro.props as {
   href: string;
   text: string;
@@ -20,11 +22,9 @@ const { href, text, newTab, isBlueArrow } = Astro.props as {
     class="button-container"
     style=`${isBlueArrow ? "--clr-background: var(--clr-secondary)" : "--clr-background: var(--clr-primary)"}`
   >
-    <Image
-      class="button-image"
-      src={isBlueArrow ? blueArrow : whiteArrow}
-      alt=""
-    />
+    <div class="button-image">
+      <RightArrow isBlueColor={isBlueArrow} />
+    </div>
   </div>
 </a>
 
@@ -33,15 +33,17 @@ const { href, text, newTab, isBlueArrow } = Astro.props as {
     display: grid;
     place-items: center;
     --button-radius: 2rem;
-    width: fit-content;
+    width: clamp(4.583rem, 4.451rem + 1.109vi, 5.5rem);
+    height: clamp(2.813rem, 2.732rem + 0.68vi, 3.375rem);
     background-color: var(--clr-background);
     border-radius: var(--button-radius);
     transition:
       background-color 0.2s ease,
       color 0.3s ease,
       transform 0.2s ease;
-    padding-inline: 1.3625em;
-    padding-block: 0.5em;
+    /* padding-inline: 1.3625em;
+    padding-block: 0.5em; */
+
   }
 
   .button-container:hover .button-image,
@@ -50,10 +52,10 @@ const { href, text, newTab, isBlueArrow } = Astro.props as {
   }
 
   .button-image {
+    height: 100%;
+    display: grid;
+    place-items: center;
     transform: translateX(0);
     transition: transform 0.2s ease-in-out;
-    max-width: 100%;
-    height: auto;
-    width: clamp(0.5rem, 4vw, 2rem);
   }
 </style>

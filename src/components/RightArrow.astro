@@ -1,0 +1,30 @@
+---
+const { isBlueColor } = Astro.props;
+---
+
+<svg
+  width="28"
+  height="33"
+  viewBox="0 0 28 33"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M25.5481 16.6315L1.1478 16.6304"
+    stroke={`${isBlueColor ? "var(--clr-primary)" : "var(--clr-secondary)"}`}
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+  <path
+    d="M17.1387 7.44098L26.1748 16.4771"
+    stroke={`${isBlueColor ? "var(--clr-primary)" : "var(--clr-secondary)"}`}
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+  <path
+    d="M17.1382 25.5134L26.1743 16.4772"
+    stroke={`${isBlueColor ? "var(--clr-primary)" : "var(--clr-secondary)"}`}
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+</svg>
