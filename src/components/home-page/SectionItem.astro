@@ -1,22 +1,46 @@
 ---
 import { Image } from "astro:assets";
-
 import ButtonArrow from "@components/buttons/ButtonArrow.astro";
 import HandBallBall from "@components/HandballBall.astro";
-// import handballBall from "assets/"
 
 const { imageSrc, imageAlt, label, linkHref, backgroundColor } = Astro.props;
-
 const isBlueColor = backgroundColor === "var(--clr-primary)";
-console.log("isBlueColor", isBlueColor);
 ---
+
+<script>
+  const isTouchDevice = () => {
+    return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  };
+
+  const gridItems = document.querySelectorAll('.grid-item');
+  
+  gridItems.forEach(item => {
+    if (isTouchDevice()) {
+      item.classList.add('touch-device');
+      // Remove hover layout for touch devices
+      const hoverContent = item.querySelector('.hover-layout');
+      if (hoverContent) {
+        hoverContent.remove();
+      }
+    } else {
+      item.classList.add('non-touch-device');
+      // Remove touch layout for non-touch devices
+      const touchContent = item.querySelector('.touch-layout');
+      if (touchContent) {
+        touchContent.remove();
+      }
+    }
+  });
+</script>
 
 <article class="grid-item" style={`--background-color: ${backgroundColor};`}>
   <Image class="background-image" src={imageSrc} alt={imageAlt} />
-  <div class="grid-content">
-      <h3 style={`${isBlueColor && "--text-color: var(--clr-secondary)"}`}>
-        {label}
-      </h3>
+  
+  <!-- Touch Layout -->
+  <div class="grid-content touch-layout">
+    <h3 style={`${isBlueColor && "--text-color: var(--clr-secondary)"}`}>
+      {label}
+    </h3>
     <div class="button-and-ball-container">
       <div class="grid-button">
         <ButtonArrow href={linkHref} isBlueArrow={isBlueColor} />
@@ -26,11 +50,9 @@ console.log("isBlueColor", isBlueColor);
       </div>
     </div>
   </div>
-</article>
 
-<!-- <article class="grid-item" style={`--background-color: ${backgroundColor};`}>
-  <Image class="background-image" src={imageSrc} alt={imageAlt} />
-  <div class="grid-content">
+  <!-- Hover Layout -->
+  <div class="grid-content hover-layout">
     <div class="handball-ball">
       <HandBallBall isBlueColor={isBlueColor} />
     </div>
@@ -43,7 +65,7 @@ console.log("isBlueColor", isBlueColor);
       <ButtonArrow href={linkHref} isBlueArrow={isBlueColor} />
     </div>
   </div>
-</article> -->
+</article>
 
 <style>
   .grid-item {
@@ -52,23 +74,6 @@ console.log("isBlueColor", isBlueColor);
     overflow: hidden;
   }
 
-  .grid-content {
-    position: absolute;
-    background-color: transparent;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    /* height: 40%; */
-    overflow: hidden;
-    padding-block: 1.875rem;
-    padding-inline: 1.5625rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--background-color);
-    gap: 1.25rem;
-  }
-
   .background-image {
     position: absolute;
     top: 0;
@@ -77,127 +82,102 @@ console.log("isBlueColor", isBlueColor);
     height: 100%;
     object-fit: cover;
     object-position: center;
-  }
-
-  /* .grid-content::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    transform: rotate(0deg) scale(1);
- 
-  } */
-
-  .button-and-ball-container {
-    height: fit-content; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-block: auto;
-
-  }
-
-  h3 {
-    font-size: 30px;
-    font-weight: var(--fnt-wg-light);
-    color: var(--text-color);
-    text-wrap: balance;
-    line-height: 1.1em;
-  }
-
-  .handball-ball {
-    padding-top: 0.5rem;
-/* background-color: red; */
-  }
-
-
-  @keyframes rebound {
-    0% {
-      transform: rotate(0deg) scale(2);
-    }
-    50% {
-      transform: rotate(45deg) scale(0.85);
-    }
-
-    100% {
-      transform: rotate(45deg) scale(1);
-    }
-  }
-  /* .grid-item {
-    aspect-ratio: 1 /1;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .grid-content {
-    position: absolute;
-    background-color: transparent;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .grid-content::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--background-color);
-    transform: rotate(0deg) scale(1);
-  }
-
-  .grid-item:hover .grid-content {
-    opacity: 1;
-  }
-
-  .grid-item:hover .grid-content::before {
-    animation: rebound 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  }
-
-  .grid-title {
-    position: relative;
-    height: 100%;
-    width: 100%;
- display: grid;
- place-items: center;
   }
 
   h3 {
     font-size: clamp(1.044rem, -0.039rem + 2.817vi, 2.625rem);
     font-weight: var(--fnt-wg-light);
     color: var(--text-color);
-    text-align: center;
     text-wrap: balance;
-    padding-inline: 2em;
     line-height: 1.1em;
   }
 
-  .handball-ball {
+  /* Touch Device Styles */
+  .touch-device .hover-layout {
+    display: none;
+  }
+
+  .touch-device .touch-layout {
+    position: absolute;
+    background-color: var(--background-color);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-block: 1.875rem;
+    padding-inline: 1.5625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+
+  .touch-device .button-and-ball-container {
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: auto;
+  }
+
+  .touch-device .handball-ball {
+    padding-top: 0.5rem;
+  }
+
+  /* Non-Touch Device Styles */
+  .non-touch-device .touch-layout {
+    display: none;
+  }
+
+  .non-touch-device .hover-layout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .non-touch-device .hover-layout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    transform: rotate(0deg) scale(1);
+  }
+
+  .non-touch-device:hover .hover-layout {
+    opacity: 1;
+  }
+
+  .non-touch-device:hover .hover-layout::before {
+    animation: rebound 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+
+  .non-touch-device .grid-title {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .non-touch-device h3 {
+    text-align: center;
+    padding-inline: 2em;
+  }
+
+  .non-touch-device .handball-ball {
     position: absolute;
     top: 2em;
     left: 50%;
     transform: translateX(-50%);
   }
-  .grid-button {
+
+  .non-touch-device .grid-button {
     position: absolute;
     bottom: 2em;
     left: 50%;
@@ -211,9 +191,8 @@ console.log("isBlueColor", isBlueColor);
     50% {
       transform: rotate(45deg) scale(0.85);
     }
-
     100% {
       transform: rotate(45deg) scale(1);
     }
-  } */
+  }
 </style>
