@@ -1,25 +1,30 @@
-const countriesInAfrica = ["Egypt", "Kenya", "Morocco", "Nigeria", "Tunisia"];
-const countriesInAsia = ["China", "India", "Israel", "South Korea", "Taiwan"];
+const countriesInAfrica = ["Egipte", "Kenya", "Marroc", "Nigèria", "Tunísia"];
+
+const countriesInAsia = ["Xina", "Índia", "Israel", "Corea del Sud", "Taiwan"];
+
 const countriesInEurope = [
-  "Austria", "Belgium", "Bosnia", "Bulgaria", "Croatia", "Czechia", "Denmark",
-  "England", "Estonia", "Faroe Islands", "Finland", "France", "Georgia",
-  "Germany", "Greece", "Hungary", "Iceland", "Italy", "Latvia", "Lithuania",
-  "Macedonia", "Moldova", "Norway", "Poland", "Portugal", "Romania", "Russia",
-  "Scotland", "Serbia", "Slovenia", "Spain", "Sweden", "Switzerland",
+  "Àustria", "Bèlgica", "Bòsnia", "Bulgària", "Croàcia", "Txèquia", "Dinamarca",
+  "Anglaterra", "Estònia", "Illes Fèroe", "Finlàndia", "França", "Geòrgia",
+  "Alemanya", "Grècia", "Hongria", "Islàndia", "Itàlia", "Letònia", "Lituània",
+  "Macedònia", "Moldàvia", "Noruega", "Polònia", "Portugal", "Romania", "Rússia",
+  "Escòcia", "Sèrbia", "Eslovènia", "Espanya", "Suècia", "Suïssa"
 ];
-const countriesInNorthAmerica = ["Canada", "Guatemala", "Mexico", "United States"];
-const countriesInSouthAmerica = ["Argentina", "Brazil", "Chile", "Colombia", "Uruguay", "Venezuela"];
-const countriesInOceania = ["Australia"];
+
+const countriesInNorthAmerica = ["Canadà", "Guatemala", "Mèxic", "Estats Units"];
+
+const countriesInSouthAmerica = ["Argentina", "Brasil", "Xile", "Colòmbia", "Uruguai", "Veneçuela"];
+
+const countriesInOceania = ["Austràlia"];
 
 export const allCountriesThatPlayed = [
-"Argentina", "Australia", "Austria", "Belgium", "Bosnia", "Brazil", "Bulgaria",
-  "Canada", "Chile", "China", "Colombia", "Croatia", "Czechia", "Denmark",
-  "Egypt", "England", "Estonia", "Faroe Islands", "Finland", "France", "Georgia",
-  "Germany", "Greece", "Guatemala", "Hungary", "Iceland", "India", "Israel",
-  "Italy", "Kenya", "Latvia", "Lithuania", "Macedonia", "Mexico", "Moldova",
-  "Morocco", "Nigeria", "Norway", "Poland", "Portugal", "Romania", "Russia",
-  "Scotland", "Serbia", "Slovenia", "South Korea", "Spain", "Sweden",
-  "Switzerland", "Taiwan", "Tunisia", "United States", "Uruguay", "Venezuela",
+  "Argentina", "Austràlia", "Àustria", "Bèlgica", "Bòsnia", "Brasil", "Bulgària",
+  "Canadà", "Xile", "Xina", "Colòmbia", "Croàcia", "Txèquia", "Dinamarca",
+  "Egipte", "Anglaterra", "Estònia", "Illes Fèroe", "Finlàndia", "França", "Geòrgia",
+  "Alemanya", "Grècia", "Guatemala", "Hongria", "Islàndia", "Índia", "Israel",
+  "Itàlia", "Kenya", "Letònia", "Lituània", "Macedònia", "Mèxic", "Moldàvia",
+  "Marroc", "Nigèria", "Noruega", "Polònia", "Portugal", "Romania", "Rússia",
+  "Escòcia", "Sèrbia", "Eslovènia", "Corea del Sud", "Espanya", "Suècia",
+  "Suïssa", "Taiwan", "Tunísia", "Estats Units", "Uruguai", "Veneçuela"
 ];
 
 export const countriesInContinents = {
@@ -30,6 +35,26 @@ export const countriesInContinents = {
   "south-america": new Set(countriesInSouthAmerica),
   oceania: new Set(countriesInOceania),
 };
+const formatContinentName = (continent) => {
+  const nameMap = {
+    europe: "Europa",
+    asia: "Àsia",
+    africa: "Àfrica",
+    "north-america": "Amèrica del Nord",
+    "south-america": "Amèrica del Sud",
+    oceania: "Oceania",
+  };
+  return nameMap[continent] || continent;
+};
+
+export const continentInfoElements = Object.entries(countriesInContinents).map(
+  ([continent, countries]) => ({
+    id: continent,
+    name: formatContinentName(continent),
+    countriesCount: countries.size,
+    countriesList: Array.from(countries).join(", "),
+  }),
+);
 
 // A more comprehensive list of countries by continent
 // You can refine these lists based on the definition/source you use for continent groupings
@@ -37,7 +62,7 @@ export const countriesInContinents = {
 const allCountriesInAfrica = [
   "Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde",
   "Cameroon", "Central African Republic", "Chad", "Comoros", "Congo, Republic of the",
-  "Congo, Democratic Republic of the", "Côte d'Ivoire", "Djibouti", "Egypt", "Equatorial Guinea",
+  "Congo, Democratic Republic of Congo", "Côte d'Ivoire", "Djibouti", "Egypt", "Equatorial Guinea",
   "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau",
   "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali",
   "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria",
@@ -58,7 +83,7 @@ const allCountriesInAsia = [
 
 const allCountriesInEurope = [
   "Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bosnia and Herzegovina",
-  "Bulgaria", "Croatia", "Czech Republic (Czechia)", "Denmark", "Estonia", "Finland",
+  "Bulgaria", "Croatia", "Czech Republic", "Denmark", "Estonia", "Finland",
   "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Kosovo",
   "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco",
   "Montenegro", "Netherlands", "North Macedonia", "Norway", "Poland", "Portugal",

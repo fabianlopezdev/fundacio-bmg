@@ -5,32 +5,10 @@ import fs from "fs";
 import handballBall from "@assets/handball-ball.svg";
 import WorldSVG from "@assets/WorldSVG.astro";
 import {
-  allCountriesThatPlayed,
-  countriesInContinents,
-  allCountriesByContinent,
+ continentInfoElements
 } from "@data/countriesData";
 
-// // Generate continent info elements
-const formatContinentName = (continent) => {
-  const nameMap = {
-    europe: "Europa",
-    asia: "Àsia",
-    africa: "Àfrica",
-    "north-america": "Amèrica del Nord",
-    "south-america": "Amèrica del Sud",
-    oceania: "Oceania",
-  };
-  return nameMap[continent] || continent;
-};
 
-const continentInfoElements = Object.entries(countriesInContinents).map(
-  ([continent, countries]) => ({
-    id: continent,
-    name: formatContinentName(continent),
-    countriesCount: countries.size,
-    countriesList: Array.from(countries).join(", "),
-  }),
-);
 ---
 
 <script>
