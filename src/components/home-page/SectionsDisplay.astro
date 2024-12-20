@@ -134,4 +134,17 @@ function getBackgroundColor(index: number) {
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
     }
   }
+
+  @media (width < 769px) {
+    .section-title {
+    padding-block: 4rem;
+  }
+  }
+
+  @media (width < 391px) {
+    .grid-container {
+      gap: 1.125rem;
+      padding-bottom: 1.125rem;
+  }
+  }
 </style>
