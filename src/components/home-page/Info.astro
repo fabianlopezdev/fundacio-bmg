@@ -49,7 +49,7 @@ import ButtonIcon from "@components/buttons/ButtonIcon.astro";
 </section>
 
 <style>
-  #info {
+   #info {
     --decoration-width: 45vw;
     --decoration-gap: 2.5rem;
     position: relative;
@@ -76,34 +76,22 @@ import ButtonIcon from "@components/buttons/ButtonIcon.astro";
     transform: translate(-50%, -50%) rotate(45deg);
   }
 
-  #info.animate .info-decoration.outter {
-    animation: slide-from-left 0.6s 0.2s ease-in-out forwards;
-  }
-
-  #info.animate .info-decoration.inner {
-    animation: slide-from-left 0.6s 0.4s ease-in-out forwards;
-  }
-
-  #info.animate .info-decoration.image {
-    animation: slide-from-left-img 0.6s 0.8s ease-in-out forwards;
-  }
   .info-decoration.image {
     position: absolute;
-    left: 0%;
-    top: 50%;
     transform: translate(45%, -50%);
     width: calc(
       var(--decoration-width) * 0.4
-    ); /* Adjust the multiplier as needed */
+    ); 
     height: auto;
     opacity: 0;
   }
 
-  /* Ensure the image inside fills its container */
   .info-decoration.image .player-decoration {
     width: 100%;
     height: auto;
   }
+
+
   .info-container {
     padding-left: 40%;
     padding-right: var(--space-x-xl);
@@ -116,8 +104,27 @@ import ButtonIcon from "@components/buttons/ButtonIcon.astro";
     font-weight: var(--fnt-wg-light);
     letter-spacing: 0.019em;
     margin-bottom: 4.375rem;
-    /* text-wrap:; */
+
   }
+  
+  
+
+
+
+  #info.animate .info-decoration.outter {
+    animation: slide-from-left 0.6s 0.2s ease-in-out forwards;
+  }
+
+  #info.animate .info-decoration.inner {
+    animation: slide-from-left 0.6s 0.4s ease-in-out forwards;
+  }
+
+  #info.animate .info-decoration.image {
+    animation: slide-from-left-img 0.6s 0.8s ease-in-out forwards;
+  }
+
+
+
 
   @keyframes slide-from-left {
     0% {
@@ -139,5 +146,51 @@ import ButtonIcon from "@components/buttons/ButtonIcon.astro";
       transform: translate(40%, -50%);
       opacity: 1;
     }
+  } 
+
+  @media (width < 769px) {
+    #info {
+      --decoration-width: 32vw;
+      --decoration-gap: 0.8rem;
+      padding-inline: var(--space-x-xl);
+      padding-top: calc((var(--decoration-width) * 0.7) + 2.54rem);
+      padding-bottom: 2.48rem;
+    }
+
+    .info-decoration {
+      left: 50%;
+      top: 0;
+    }
+
+    .info-decoration.image {
+    transform: translate(-50%, -50%);
+    width: calc(var(--decoration-width) * 0.57);
+  }
+
+  .info-container {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .info-text {
+    font-size: clamp(1.25rem, 0.038rem + 4.974vi, 2.425rem);
+    text-wrap: pretty;
+    letter-spacing: 0.019em;
+    margin-bottom: 2.5rem;
+  }
+
+  @keyframes slide-from-left-img {
+    0% {
+      transform: translate(-100%, -50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  } 
+
   }
 </style>

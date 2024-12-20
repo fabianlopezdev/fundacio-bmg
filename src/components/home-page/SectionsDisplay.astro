@@ -81,6 +81,7 @@ function getBackgroundColor(index: number) {
 
   .section-title {
     padding-block: 7.8125rem;
+    padding-inline: var( --space-x-xl);
     text-align: center;
   }
 
@@ -97,7 +98,7 @@ function getBackgroundColor(index: number) {
   .grid-container {
     max-width: 1513px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 390px), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%,350px), 1fr));
     gap: var(--gap);
     padding-bottom: var(--gap);
     margin-inline: auto;

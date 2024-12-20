@@ -5,6 +5,7 @@ import HandBallBall from "@components/HandballBall.astro";
 
 const { imageSrc, imageAlt, label, linkHref, backgroundColor } = Astro.props;
 const isBlueColor = backgroundColor === "var(--clr-primary)";
+const isBottomShadow = backgroundColor === "var(--clr-secondary)";
 ---
 
 <script>
@@ -13,7 +14,7 @@ const isBlueColor = backgroundColor === "var(--clr-primary)";
   };
 
   const gridItems = document.querySelectorAll('.grid-item');
-  
+
   gridItems.forEach(item => {
     if (isTouchDevice()) {
       item.classList.add('touch-device');
@@ -33,9 +34,12 @@ const isBlueColor = backgroundColor === "var(--clr-primary)";
   });
 </script>
 
-<article class="grid-item" style={`--background-color: ${backgroundColor};`}>
+<article 
+  class={`grid-item ${isBottomShadow ? "bottom-shadow" : ""}`} 
+  style={`--background-color: ${backgroundColor};`}
+>
   <Image class="background-image" src={imageSrc} alt={imageAlt} />
-  
+
   <!-- Touch Layout -->
   <div class="grid-content touch-layout">
     <h3 style={`${isBlueColor && "--text-color: var(--clr-secondary)"}`}>
@@ -69,7 +73,7 @@ const isBlueColor = backgroundColor === "var(--clr-primary)";
 
 <style>
   .grid-item {
-    aspect-ratio: 1 /1;
+    aspect-ratio: 1 / 1;
     position: relative;
     overflow: hidden;
   }
@@ -104,7 +108,7 @@ const isBlueColor = backgroundColor === "var(--clr-primary)";
     left: 0;
     width: 100%;
     padding-block: 1.875rem;
-    padding-inline: 1.5625rem;
+    padding-inline: var( --space-x-xl);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -193,6 +197,13 @@ const isBlueColor = backgroundColor === "var(--clr-primary)";
     }
     100% {
       transform: rotate(45deg) scale(1);
+    }
+  }
+
+  /* Apply bottom shadow only for screens smaller than 430px and when the class is applied */
+  @media (max-width: 710px) {
+    .grid-item.bottom-shadow {
+      box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.15);
     }
   }
 </style>
