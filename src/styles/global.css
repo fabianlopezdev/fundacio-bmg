@@ -146,28 +146,8 @@ h2 {
   padding-block: 6.625rem;
 }
 
-.world-map path {
-  fill: rgba(197, 220, 255, 1);
-  stroke: white;
-  stroke-width: 0.5;
-}
 
-.world-map path.highlighted {
-  fill: var(--clr-primary);
-  stroke: white;
-  stroke-width: 0.5;
-  cursor: url("/public/handball-ball.svg"), auto;
-  transition: fill 0.2s ease-in-out;
-}
 
-@media (hover: hover) {
-  /* .world-map path.highlighted:hover {
-    fill: rgba(249, 220, 10, 1);
-    stroke: black;
-    stroke-width: 1;
-  } */
-
-}
 
 :root {
   /* To allow Details Html Element to have transitions */

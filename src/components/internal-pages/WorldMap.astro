@@ -4,11 +4,10 @@ import { JSDOM } from "jsdom";
 import fs from "fs";
 import handballBall from "@assets/handball-ball.svg";
 
-// Suppose you have a predefined list of countries that need a different fill color
-
 import {
   allCountriesThatPlayed,
   countriesInContinents,
+  allCountriesByContinent,
 } from "@data/countriesData";
 
 // Read the original SVG from a file
@@ -19,20 +18,56 @@ const svgContent = fs.readFileSync(svgPath, "utf-8");
 const dom = new JSDOM(svgContent);
 const doc = dom.window.document;
 
-// Loop through each highlighted country and set its fill attribute
-allCountriesThatPlayed.forEach((countryTitle) => {
-  const country = doc.querySelector(`path[title="${countryTitle}"]`);
-  if (!country) return;
+// Create a <g> for each continent and insert it into the SVG
+const rootSvg = doc.querySelector("svg");
+const defs = rootSvg.querySelector("defs");
+const continentGroups = {};
 
-  country.classList.add("highlighted");
+Object.keys(allCountriesByContinent).forEach((continent) => {
+  const g = doc.createElementNS("http://www.w3.org/2000/svg", "g");
+  g.classList.add(continent);
 
-  Object.entries(countriesInContinents).forEach(([continent, countries]) => {
-    if (countries.has(countryTitle)) {
-      country.classList.add(continent);
+  // Insert the group after <defs>, if present
+  if (defs && defs.nextSibling) {
+    rootSvg.insertBefore(g, defs.nextSibling);
+  } else {
+    rootSvg.appendChild(g);
+  }
+
+  continentGroups[continent] = g;
+});
+
+// Move each country's <path> into its corresponding continent <g>
+Object.entries(allCountriesByContinent).forEach(([continent, countrySet]) => {
+  countrySet.forEach((countryName) => {
+    const countryPath = doc.querySelector(`path[title="${countryName}"]`);
+    if (countryPath) {
+      continentGroups[continent].appendChild(countryPath);
     }
   });
 });
 
+// Assign a continent class to all countries of that continent
+Object.entries(allCountriesByContinent).forEach(([continent, countrySet]) => {
+  countrySet.forEach((countryName) => {
+    const countryElement = continentGroups[continent].querySelector(
+      `path[title="${countryName}"]`
+    );
+    if (countryElement) {
+      countryElement.classList.add(continent);
+    }
+  });
+});
+
+// Highlight countries that played
+allCountriesThatPlayed.forEach((countryTitle) => {
+  const country = doc.querySelector(`path[title="${countryTitle}"]`);
+  if (country) {
+    country.classList.add("highlighted");
+  }
+});
+
+// Generate continent info elements
 const formatContinentName = (continent: string): string => {
   const nameMap: { [key: string]: string } = {
     europe: "Europa",
@@ -45,7 +80,6 @@ const formatContinentName = (continent: string): string => {
   return nameMap[continent] || continent;
 };
 
-// Generate continent info elements
 const continentInfoElements = Object.entries(countriesInContinents).map(
   ([continent, countries]) => ({
     id: continent,
@@ -56,6 +90,9 @@ const continentInfoElements = Object.entries(countriesInContinents).map(
 );
 
 const finalSVG = doc.documentElement.outerHTML;
+
+export { finalSVG, continentInfoElements };
+
 ---
 
 <script>
@@ -63,37 +100,26 @@ const finalSVG = doc.documentElement.outerHTML;
     const mapContainer = document.querySelector(".map-container");
     const continentInfos = document.querySelectorAll(".continent-info");
 
-    // Add variables to track cursor position
+    // Variables for smooth position animation
     let currentX = 0;
     let currentY = 0;
     let targetX = 0;
     let targetY = 0;
 
-    // Animation function using requestAnimationFrame
     function animatePosition() {
-      const activeInfo = document.querySelector(
-        ".continent-info.active",
-      ) as HTMLElement;
-
+      const activeInfo = document.querySelector(".continent-info.active");
       if (activeInfo) {
-        // Interpolate between current and target positions
         currentX += (targetX - currentX) * 0.15;
         currentY += (targetY - currentY) * 0.15;
-
-        // Apply position
         activeInfo.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
       }
-
       requestAnimationFrame(animatePosition);
     }
 
-    // Start animation loop
     animatePosition();
 
     document.addEventListener("mousemove", (e) => {
-      const activeInfo = document.querySelector(
-        ".continent-info.active",
-      ) as HTMLElement;
+      const activeInfo = document.querySelector(".continent-info.active");
       if (activeInfo) {
         const cursorDistance = 15;
         let left = e.clientX + cursorDistance;
@@ -107,14 +133,12 @@ const finalSVG = doc.documentElement.outerHTML;
           top = e.clientY - activeInfo.offsetHeight - cursorDistance;
         }
 
-        // Update target positions instead of directly setting style
         targetX = left;
         targetY = top;
       }
     });
 
-    const isTouchableDevice =
-      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    const isTouchableDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
     if (mapContainer && !isTouchableDevice) {
       const continents = [
@@ -127,45 +151,39 @@ const finalSVG = doc.documentElement.outerHTML;
       ];
 
       continents.forEach((continent) => {
-        const paths = mapContainer.querySelectorAll(`path.${continent}`);
+        const group = mapContainer.querySelector(`g.${continent}`);
         const continentInfo = document.querySelector(
-          `.continent-info[data-continent="${continent}"]`,
-        ) as HTMLElement;
+          `.continent-info[data-continent="${continent}"]`
+        );
 
-        paths.forEach((path) => {
-          path.addEventListener("mouseenter", () => {
-            // Hide all continent infos
+        if (group && continentInfo) {
+          group.addEventListener("mouseenter", () => {
             continentInfos.forEach((info) => {
-              (info as HTMLElement).style.opacity = "0";
+              info.style.opacity = "0";
               info.classList.remove("active");
             });
 
-            // Show current continent info
-            if (continentInfo) {
-              continentInfo.style.opacity = "1";
-              continentInfo.style.pointerEvents = "none";
-              continentInfo.classList.add("active");
+            continentInfo.style.opacity = "1";
+            continentInfo.style.pointerEvents = "none";
+            continentInfo.classList.add("active");
 
-              // Reset current position to prevent jumping
-              const rect = path.getBoundingClientRect();
-              currentX = rect.left;
-              currentY = rect.top;
-              targetX = currentX;
-              targetY = currentY;
-            }
+            const rect = group.getBoundingClientRect();
+            currentX = rect.left;
+            currentY = rect.top;
+            targetX = currentX;
+            targetY = currentY;
           });
 
-          path.addEventListener("mouseleave", () => {
-            if (continentInfo) {
-              continentInfo.style.opacity = "0";
-              continentInfo.classList.remove("active");
-            }
+          group.addEventListener("mouseleave", () => {
+            continentInfo.style.opacity = "0";
+            continentInfo.classList.remove("active");
           });
-        });
+        }
       });
     }
   });
 </script>
+
 <div class="relative">
   <div class="map-container" set:html={finalSVG} />
 
@@ -215,11 +233,9 @@ const finalSVG = doc.documentElement.outerHTML;
     transition: opacity 0.3s ease-out;
     pointer-events: none;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Remove left/top positioning and use transform instead */
     left: 0;
     top: 0;
     transform: translate3d(0, 0, 0);
-    /* Use hardware acceleration */
     will-change: transform;
   }
 
@@ -239,10 +255,6 @@ const finalSVG = doc.documentElement.outerHTML;
     align-items: center;
   }
 
-  .country-name {
-    font-size: 30px;
-  }
-
   .countries-number {
     font-size: var(--fnt-sz-sm);
   }
@@ -251,80 +263,20 @@ const finalSVG = doc.documentElement.outerHTML;
     padding: 1.5rem;
   }
 
-  .world-map path {
+  :global(.world-map path) {
     fill: rgba(197, 220, 255, 1);
-    stroke: black;
+    stroke: white;
     stroke-width: 0.5;
   }
 
-  .world-map path.highlighted {
-    fill: var(--clr-primary);
-    stroke: white;
-    stroke-width: 1;
-    cursor: zoom-in;
-    transition: fill 0.2s ease-in-out;
-  }
-
   @media (hover: hover) {
-    :global(.map-container:has(path.north-america:hover) path.north-america) {
-      fill: var(--clr-accent);
-      stroke: white;
-    }
-
-    :global(.map-container:has(path.south-america:hover) path.south-america) {
-      fill: var(--clr-accent);
-      stroke: black;
-    }
-
-    :global(.map-container:has(path.europe:hover) path.europe) {
-      fill: var(--clr-accent);
-      stroke: black;
-    }
-
-    :global(.map-container:has(path.asia:hover) path.asia) {
-      fill: var(--clr-accent);
-      stroke: black;
-    }
-
-    :global(.map-container:has(path.africa:hover) path.africa) {
-      fill: var(--clr-accent);
-      stroke: black;
-    }
-
-    :global(.map-container:has(path.oceania:hover) path.oceania) {
-      fill: var(--clr-accent);
-      stroke: black;
-    }
-
-    /* Optional: Add active state for touch devices */
-    :global(.map-container:has(path.north-america:active) path.north-america) {
-      fill: var(--clr-accent);
-      stroke: black;
-    }
-
-    :global(.map-container:has(path.south-america:active) path.south-america) {
-      fill: var(--clr-accent);
-      stroke: black;
-    }
-
-    :global(.map-container:has(path.europe:active) path.europe) {
-      fill: var(--clr-accent);
-      stroke: black;
-    }
-
-    :global(.map-container:has(path.asia:active) path.asia) {
-      fill: var(--clr-accent);
-      stroke: black;
-    }
-
-    :global(.map-container:has(path.africa:active) path.africa) {
-      fill: var(--clr-accent);
-      stroke: black;
-    }
-
-    :global(.map-container:has(path.oceania:active) path.oceania) {
-      fill: var(--clr-accent);
-      stroke: black;
+    :global(.map-container:has(g.europe:hover) path.europe.highlighted),
+    :global(.map-container:has(g.asia:hover) path.asia.highlighted),
+    :global(.map-container:has(g.africa:hover) path.africa.highlighted),
+    :global(.map-container:has(g.north-america:hover) path.north-america.highlighted),
+    :global(.map-container:has(g.south-america:hover) path.south-america.highlighted),
+    :global(.map-container:has(g.oceania:hover) path.oceania.highlighted) {
+      fill: var(--clr-primary);
     }
   }
 </style>
