@@ -3,10 +3,14 @@ import { Image } from "astro:assets";
 import { JSDOM } from "jsdom";
 import fs from "fs";
 import handballBall from "@assets/handball-ball.svg";
-import WorldSVG from "@assets/WorldSVG.astro";
+import WorldSVG from "@assets/world.svg";
 import {
- continentInfoElements
+ continentInfoElements,
 } from "@data/countriesData";
+
+import path from "path";
+
+const rawSVG = fs.readFileSync(path.resolve("./src/assets/world.svg"), "utf8");
 
 
 ---
@@ -166,8 +170,7 @@ import {
 
 <div class="relative">
   <!-- <div class="map-container" set:html={worldSVG}></div> -->
-  <div class="map-container">
-    <WorldSVG />
+  <div class="map-container" set:html={rawSVG}>
   </div>
 
   {
