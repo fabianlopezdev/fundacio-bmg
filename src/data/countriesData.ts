@@ -35,6 +35,7 @@ export const countriesInContinents = {
   "south-america": new Set(countriesInSouthAmerica),
   oceania: new Set(countriesInOceania),
 };
+// @ts-ignore
 const formatContinentName = (continent) => {
   const nameMap = {
     europe: "Europa",
@@ -44,6 +45,7 @@ const formatContinentName = (continent) => {
     "south-america": "Amèrica del Sud",
     oceania: "Oceania",
   };
+  // @ts-ignore
   return nameMap[continent] || continent;
 };
 
