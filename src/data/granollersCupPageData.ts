@@ -1,4 +1,7 @@
 import maskImage from "@assets/Mask-group-(1).webp";
+import carousel1 from "@assets/carousel-1.png";
+import carousel2 from "@assets/carousel-2.png";
+import carousel3 from "@assets/carousel-3.png";
 export const GRANOLLERS_CUP = {
   title: "Granollers Cup",
   homePageMenuImg: {
@@ -22,6 +25,20 @@ export const GRANOLLERS_CUP = {
         "L’any 1999 s’inicia el torneig de la Granollers Cup en què hi participen 55 equips, 43 dels quals eren catalans, 4 equips de la resta d’Espanya i 8 equips venien d’altres països.",
         "El quadre següent il·lustra l’evolució extraordinàriament positiva pel que fa a esportistes, equips i països participants fins arribar a les xifres de l’edició de 2024 amb 468 equips dels quals 216 eren femenins, uns 7.000 esportistes i tècnics participants procedents de 21 països.",
       ],
+    },
+  ],
+  sectionCarousel: [
+    {
+      img: carousel1,
+      imgAlt: "",
+    },
+    {
+      img: carousel2,
+      imgAlt: "",
+    },
+    {
+      img: carousel3,
+      imgAlt: "",
     },
   ],
 };
