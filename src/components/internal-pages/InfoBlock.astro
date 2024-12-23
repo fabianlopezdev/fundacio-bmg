@@ -1,0 +1,88 @@
+---
+import Button from "@components/buttons/Button.astro";
+import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
+import Swiper from "@components/internal-pages/Swiper.astro";
+
+const { sectionId, textTitle, textContent, contrast, images, links } =
+  Astro.props;
+---
+
+<section
+  id={sectionId ? sectionId : ""}
+  class=`${contrast ? "global-colors" : ""} info-block`
+>
+  <div class="info-container global-max-width">
+    <h2 class=`${contrast ? "global-clr-accent" : ""} text-title`>
+      {textTitle}
+    </h2>
+    <div class="text-container">
+      {
+        textContent.map((paragraph: string) => (
+          <p style={`color: ${contrast ? "var(--clr-secondary)" : "#000000"}`}>
+            {paragraph}
+          </p>
+        ))
+      }
+      {
+        links && (
+          <div class="links-container">
+            {links.map((link) => (
+              <ButtonInternalPage text={link.text} slug={link.slug} />
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </div>
+  {images && <Swiper imagesArr={images} />}
+</section>
+
+<style>
+  .info-block {
+    background-color: var(--clr-secondary);
+    /* color: var(--clr-primary); */
+  }
+  .info-container {
+    max-width: 1513px;
+    padding-inline: var(--space-x-xl);
+    padding-block: 7rem;
+    display: flex;
+    gap: clamp(1rem, -12.499rem + 22.735vi, 6.5rem);
+  }
+  .text-title {
+    color: var(--clr-primary);
+    min-width: 11ch;
+    max-width: 11ch;
+    letter-spacing: -0.1rem;
+    font-weight: var(--fnt-wg-regular);
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .links-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
+  }
+  p {
+    font-size: clamp(1.125rem, 1.043rem + 0.351vi, 1.375rem);
+    letter-spacing: 0.0004rem;
+
+    /* text-wrap: balance; */
+  }
+
+  @media (width < 950px) {
+    .info-block {
+      flex-direction: column;
+    }
+
+    .text-title {
+      text-align: center;
+    }
+  }
+</style>

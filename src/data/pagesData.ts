@@ -11,7 +11,7 @@ import carousel1 from "@assets/carousel-1.png";
 import carousel2 from "@assets/carousel-2.png";
 import carousel3 from "@assets/carousel-3.png";
 
-function slugify(text: string): string {
+export function slugify(text: string): string {
   return text
     .toString() // Ensure it's a string
     .normalize("NFD") // Decompose accents from letters

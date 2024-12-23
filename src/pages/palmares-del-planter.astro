@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+import InfoBlock from "@components/internal-pages/InfoBlock.astro";
+import DividerCup from "@components/internal-pages/palmares/DividerCup.astro";
+import SectionDivider from "@components/internal-pages/SectionDivider.astro";
+
+import { PALMARES } from "@data/palmaresData";
+import HeroNavigatorContainer from "@components/internal-pages/HeroNavigatorContainer.astro";
+
+import cupImage from "@assets/cup.svg";
+
+import {slugify} from "@data/pagesData";
+
+const { title, heroImage, sections, palmares } = PALMARES;
+
+type Title = {
+  team: string;
+  titlesNum: string;
+  seasons?: string; // Optional since some titles do not have seasons
+};
+
+type PalmaresSection = {
+  titleKind: string;
+  titlesNum: string;
+  titles: Title[];
+};
+
+type Palmares = PalmaresSection[];
+---
+
+<BaseLayout title={title} description="">
+  <section id="hero">
+    <h1 class="global-h1-internal-page">{title}</h1>
+
+    <HeroNavigatorContainer
+      sectionsLabels={sections.map((section) => section.title)}
+    />
+
+    <div class="hero-image">
+      <Image
+        class="global-hero-image image"
+        src={heroImage.heroImageSrc}
+        alt={heroImage.heroImageAlt}
+      />
+    </div>
+  </section>
+
+  <section
+    id="palmares"
+    class="global-colors global-internal-page-section-padding palmares"
+  >
+    <p class="intro-text">{palmares.introText}</p>
+
+    {
+      palmares.data.map((palmaresSection: PalmaresSection, i) => {
+        const midIndex = Math.ceil(palmaresSection.titles.length / 2);
+        const firstBlock = palmaresSection.titles.slice(0, midIndex);
+        const secondBlock = palmaresSection.titles.slice(midIndex);
+
+        return (
+          <>
+            <DividerCup
+            index={i}
+              number={palmaresSection.titlesNum}
+              heading={palmaresSection.titleKind}
+            />
+            <div class="text-container">
+              {/* First block of titles */}
+              <div class="text-block">
+                {firstBlock.map((title) => (
+                  <div>
+                    <h4>
+                      {title.team}:{" "}
+                      <span class="global-clr-accent">{title.titlesNum}</span>
+                    </h4>
+                    {title.seasons && <p>({title.seasons})</p>}
+                  </div>
+                ))}
+              </div>
+
+              {/* Second block of titles */}
+              <div class="text-block">
+                {secondBlock.map((title) => (
+                  <div>
+                    <h4>
+                      {title.team}:{" "}
+                      <span class="global-clr-accent">{title.titlesNum}</span>
+                    </h4>
+                    {title.seasons && <p>({title.seasons})</p>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        );
+      })
+    }
+  </section>
+
+  {
+    sections.map((content, i) => (
+      <InfoBlock
+        sectionId={slugify(content.title)}
+        textTitle={content.title}
+        textContent={content.text}
+        images={content.images}
+        links={content.links}
+      />
+      <>
+            {i !== sections.length - 1 && (
+              <SectionDivider />
+            )}
+          </>
+    ))
+  }
+</BaseLayout>
+
+<style>
+  .intro-text {
+    font-size: clamp(1.125rem, 0.891rem + 1.041vi, 1.875rem);
+    letter-spacing: 0.0004rem;
+  }
+  .text-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+  }
+
+  .text-block {
+    max-width: 35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+</style>

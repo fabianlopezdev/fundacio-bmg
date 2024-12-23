@@ -5,7 +5,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
 import Swiper from "@components/internal-pages/Swiper.astro";
-import Text from "@components/internal-pages/Text.astro";
+import InfoBlock from "@components/internal-pages/InfoBlock.astro";
+import HeroNavigatorContainer from "@components/internal-pages/HeroNavigatorContainer.astro";
 
 import { PAGES } from "@data/pagesData";
 
@@ -33,20 +34,7 @@ const { sectionsLabels, sections } = page;
     <section id="hero">
       <h1 class="global-h1-internal-page">{page.title}</h1>
 
-      <nav class="hero-navigation-container">
-        <ul class="nav-buttons-container">
-          {
-            sectionsLabels.map((label) => (
-              <li>
-                <ButtonInternalPage
-                  text={label}
-                  slug={`#${label.normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
-                />
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
+      <HeroNavigatorContainer sectionsLabels={sectionsLabels} />
 
       <div class="hero-image">
         <Image
@@ -58,7 +46,7 @@ const { sectionsLabels, sections } = page;
     </section>
     {
       sections.map((content, i) => (
-          <Text
+          <InfoBlock
             sectionId={sectionsLabels[i]
               .normalize("NFD")
               .replace(/[\u0300-\u036f]/g, "")}
@@ -84,18 +72,6 @@ const { sectionsLabels, sections } = page;
   .page-container {
     padding-bottom: 2.75rem;
     background-color: var(--clr-secondary);
-  }
-
-  .hero-navigation-container {
-    height: 10.25rem;
-    display: flex;
-    align-items: center;
-    padding-inline: var(--space-x-xl);
-  }
-
-  .nav-buttons-container {
-    display: flex;
-    gap: 1.1875rem;
   }
 
   .hero-image {

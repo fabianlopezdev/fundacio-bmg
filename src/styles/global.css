@@ -142,6 +142,11 @@ h2 {
   font-weight: var(--fnt-wg-regular);
 }
 
+.global-internal-page-section-padding {
+  padding-inline: var(--space-x-xl);
+  padding-block: 6.625rem;
+}
+
 .global-pagging-block {
   padding-block: 6.625rem;
 }
@@ -171,6 +176,8 @@ h2 {
   --space-x-sm: 2.875rem;
   --space-x-m: 3.875rem;
   --space-x-xl: calc(var(--space-x-sm) + var(--space-x-m));
+
+  --space-y-page-section: 7rem;
 
   /* Fonts */
 

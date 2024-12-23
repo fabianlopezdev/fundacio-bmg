@@ -1,0 +1,41 @@
+---
+import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
+import { slugify } from "@data/pagesData";
+
+const { sectionsLabels } = Astro.props;
+---
+
+<nav class="hero-navigation-container">
+  <ul class="nav-buttons-container">
+    {
+      sectionsLabels.map((label) => (
+        <li>
+          <ButtonInternalPage
+            text={label}
+            slug={`#${slugify(label)}`}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .hero-navigation-container {
+    /* height: 10.25rem; */
+    background-color: var(--clr-secondary);
+    padding-inline: var(--space-x-xl);
+    padding-block: 3.3125rem;
+}
+
+li {
+    /* height: 100%; */
+    display: flex;
+}
+
+.nav-buttons-container {
+    display: flex;
+    gap: 1.1875rem;
+    flex-wrap: wrap;
+  }
+</style>
