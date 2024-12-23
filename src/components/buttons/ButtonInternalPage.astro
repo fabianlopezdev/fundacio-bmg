@@ -21,7 +21,7 @@ const { slug, text, newTab } = Astro.props as {
     --button-radius: 1.25rem;
     background-color: var(--clr-primary);
     color: var(--clr-secondary);
-    border-radius: calc(var(--button-radius) + 1rem);
+    border-radius: calc(var(--button-radius) + 2rem);
     padding-inline: 1.1875rem;
     padding-block: 1.0625rem;
     font-size: var(--fnt-sz-sm);
@@ -31,6 +31,7 @@ const { slug, text, newTab } = Astro.props as {
       background-color 0.3s ease,
       color 0.3s ease,
       transform 0.2s ease;
+      cursor: pointer;
   }
 
   .button:hover {

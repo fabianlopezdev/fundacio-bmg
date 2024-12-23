@@ -28,7 +28,6 @@ type PalmaresSection = {
   titles: Title[];
 };
 
-type Palmares = PalmaresSection[];
 ---
 
 <BaseLayout title={title} description="">
@@ -72,7 +71,7 @@ type Palmares = PalmaresSection[];
               <div class="text-block">
                 {firstBlock.map((title) => (
                   <div>
-                    <h4>
+                    <h4 class="title-heading">
                       {title.team}:{" "}
                       <span class="global-clr-accent">{title.titlesNum}</span>
                     </h4>
@@ -85,7 +84,7 @@ type Palmares = PalmaresSection[];
               <div class="text-block">
                 {secondBlock.map((title) => (
                   <div>
-                    <h4>
+                    <h4 class="title-heading">
                       {title.team}:{" "}
                       <span class="global-clr-accent">{title.titlesNum}</span>
                     </h4>
@@ -130,11 +129,23 @@ type Palmares = PalmaresSection[];
     row-gap: 2rem;
   }
 
+  .title-heading {
+    font-size: var(--fnt-sz-internal-page);
+    letter-spacing: 0.0004rem;
+
+  }
+
   .text-block {
-    max-width: 35rem;
+    max-width: clamp(24rem, 0.965rem + 35.992vi, 35rem);
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
+
+@media (width < 1024px) {
+  .text-block {
+    max-width: 100%;
+  }
+}
 
 </style>

@@ -1,5 +1,4 @@
 ---
-import Button from "@components/buttons/Button.astro";
 import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
 import Swiper from "@components/internal-pages/Swiper.astro";
 
@@ -26,7 +25,7 @@ const { sectionId, textTitle, textContent, contrast, images, links } =
       {
         links && (
           <div class="links-container">
-            {links.map((link) => (
+            {links.map((link: {text: string, slug: string}) => (
               <ButtonInternalPage text={link.text} slug={link.slug} />
             ))}
           </div>
@@ -40,15 +39,18 @@ const { sectionId, textTitle, textContent, contrast, images, links } =
 <style>
   .info-block {
     background-color: var(--clr-secondary);
-    /* color: var(--clr-primary); */
   }
   .info-container {
     max-width: 1513px;
     padding-inline: var(--space-x-xl);
-    padding-block: 7rem;
+    padding-block: var(--space-y-page-section);
     display: flex;
+    flex-wrap: wrap;
     gap: clamp(1rem, -12.499rem + 22.735vi, 6.5rem);
+    font-size: var(--fnt-sz-internal-page);
+    letter-spacing: 0.0004rem;
   }
+  
   .text-title {
     color: var(--clr-primary);
     min-width: 11ch;
@@ -69,20 +71,11 @@ const { sectionId, textTitle, textContent, contrast, images, links } =
     flex-wrap: wrap;
     padding-top: 1.5rem;
   }
-  p {
-    font-size: clamp(1.125rem, 1.043rem + 0.351vi, 1.375rem);
-    letter-spacing: 0.0004rem;
-
-    /* text-wrap: balance; */
-  }
+ 
 
   @media (width < 950px) {
-    .info-block {
+    .info-container {
       flex-direction: column;
-    }
-
-    .text-title {
-      text-align: center;
     }
   }
 </style>

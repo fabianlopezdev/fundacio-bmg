@@ -18,7 +18,7 @@ const { number, heading, index } = Astro.props;
 <style>
   .titles-heading {
     font-weight: var(--fnt-wg-regular);
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 1.188rem + 1.388vi, 2.5rem);
     color: var(--clr-accent);
     letter-spacing: -0.06rem;
     padding-top: 5.4375rem;
@@ -26,9 +26,9 @@ const { number, heading, index } = Astro.props;
 
   .titles-num {
     font-weight: var(--fnt-wg-bold);
-    padding-right: 1rem;
+    padding-right: clamp(0.5rem, 0.344rem + 0.694vi, 1rem);
     color: var(--clr-secondary);
-    font-size: 5rem;
+    font-size: clamp(2.6rem, 1.851rem + 3.33vi, 5rem);
   }
 
   .divider-container {
@@ -47,5 +47,7 @@ const { number, heading, index } = Astro.props;
     position: absolute;
     bottom: -0.0447rem;
     right: -1.05rem;
+    width: clamp(3.5rem, 2.329rem + 5.204vi, 7.25rem);
+    height: auto;
   }
 </style>
