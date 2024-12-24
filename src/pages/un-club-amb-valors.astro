@@ -4,15 +4,15 @@ import { Image } from "astro:assets";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 import { VALORS } from "@data/valorsData";
-import HeroNavigatorContainer from "@components/internal-pages/HeroNavigatorContainer.astro";
 
 import HeroInternal from "@components/internal-pages/HeroInternal.astro";
 import SpecialSectionHeading from "@components/internal-pages/SpecialSectionHeading.astro";
 
-import { slugify } from "@data/pagesData";
+
 
 import InfoBlock from "@components/internal-pages/InfoBlock.astro";
 import Swiper from "@components/internal-pages/Swiper.astro";
+import ChartSection from "@components/internal-pages/ChartSection.astro";
 
 const { title, heroImage, sections, chartSection, images } = VALORS;
 ---
@@ -23,20 +23,8 @@ const { title, heroImage, sections, chartSection, images } = VALORS;
   <div class="infoblock-container">
     <InfoBlock textTitle={sections.title} textContent={sections.text} />
   </div>
-  <section class="charts-container global-internal-page-section-padding">
-    <SpecialSectionHeading title={chartSection.chartIntro} />
-    <div class="charts-wrapper">
-      {
-        chartSection.charts.map((chart) => (
-          <Image
-            class="chart-image"
-            src={chart.chartImg}
-            alt={chart.chartAlt}
-          />
-        ))
-      }
-    </div>
-  </section>
+
+  <ChartSection chartSection={chartSection}/>
 
   <section class="swiper-container global-opposite-colors">
     <Swiper imagesArr={images} />
@@ -44,29 +32,13 @@ const { title, heroImage, sections, chartSection, images } = VALORS;
 </BaseLayout>
 
 <style>
-  .charts-container {
-    position: relative;
-}
+
 
 .infoblock-container {
       background-color: var(--clr-secondary);
     
   }
 
-  .charts-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1513px;
-    gap: var(--space-y-page-section);
-    margin-inline: auto;
-  }
-
-  .chart-image {
-    width: 100%;
-    max-width: 59.375rem;
-    height: auto;
-  }
 
   .swiper-container {
     padding-top: var(--space-y-page-section);
@@ -74,9 +46,6 @@ const { title, heroImage, sections, chartSection, images } = VALORS;
   @media (width < 800px) {
     .infoblock-container {
       padding-bottom: var(--space-y-page-section);
-    }
-    .charts-wrapper {
-        padding-top: calc(var(--space-y-page-section) + 3rem);
     }
   }
 </style>

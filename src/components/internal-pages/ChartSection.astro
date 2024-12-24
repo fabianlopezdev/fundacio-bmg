@@ -2,29 +2,25 @@
 import { Image } from "astro:assets";
 import SpecialSectionHeading from "@components/internal-pages/SpecialSectionHeading.astro";
 
-const { chartSection } = Astro.props
+const { chartSection } = Astro.props;
 ---
 
 <section class="charts-container global-internal-page-section-padding">
-    <SpecialSectionHeading title={chartSection.chartIntro} />
-    <div class="charts-wrapper">
-      {
-        chartSection.charts.map((chart) => (
-          <Image
-            class="chart-image"
-            src={chart.chartImg}
-            alt={chart.chartAlt}
-          />
-        ))
-      }
-    </div>
-  </section>
+  <SpecialSectionHeading title={chartSection.chartIntro} />
+  <div class="charts-wrapper">
+    {
+      chartSection.charts.map((chart) => (
+        <Image class="chart-image" src={chart.chartImg} alt={chart.chartAlt} />
+      ))
+    }
+  </div>
+</section>
 
-  <style>
-      .charts-container {
+<style>
+  .charts-container {
     position: relative;
-}
-      .charts-wrapper {
+  }
+  .charts-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,8 +37,7 @@ const { chartSection } = Astro.props
 
   @media (width < 800px) {
     .charts-wrapper {
-        padding-top: calc(var(--space-y-page-section) + 3rem);
+      padding-top: calc(var(--space-y-page-section) + 3rem);
     }
   }
-
-  </style>
+</style>

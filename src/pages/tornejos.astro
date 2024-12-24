@@ -32,11 +32,14 @@ const sectionsLabels = Object.values(sections).map(
       textTitle={granollersCup.infoSection.title}
       textContent={granollersCup.infoSection.text}
     />
-    <InfoBlock
-      textTitle={granollersCup.additionalSections[0].title}
-      textContent={granollersCup.additionalSections[0].text}
-      contrast
-    />
+
+    <div class="infoblock-container before-map">
+      <InfoBlock
+        textTitle={granollersCup.additionalSections[0].title}
+        textContent={granollersCup.additionalSections[0].text}
+        contrast
+      />
+    </div>
 
     <WorldMap />
 
@@ -57,11 +60,12 @@ const sectionsLabels = Object.values(sections).map(
   <SectionDivider />
 
   <section id={slugify(sectionsLabels[1])}>
-    <InfoBlock
-      textTitle={torneigEscolar.infoSection.title}
-      textContent={torneigEscolar.infoSection.text}
-    />
-
+    <div class="infoblock-container">
+      <InfoBlock
+        textTitle={torneigEscolar.infoSection.title}
+        textContent={torneigEscolar.infoSection.text}
+      />
+    </div>
     <ChartSection chartSection={torneigEscolar.chartSection} />
 
     <div class="swiper-container second-swiper">
@@ -70,10 +74,12 @@ const sectionsLabels = Object.values(sections).map(
   </section>
 
   <section id={slugify(sectionsLabels[2])}>
-    <InfoBlock
-      textTitle={miniHandbol.infoSection.title}
-      textContent={miniHandbol.infoSection.text}
-    />
+    <div class="infoblock-container">
+      <InfoBlock
+        textTitle={miniHandbol.infoSection.title}
+        textContent={miniHandbol.infoSection.text}
+      />
+    </div>
 
     <ChartSection chartSection={miniHandbol.chartSection} />
 
@@ -82,7 +88,6 @@ const sectionsLabels = Object.values(sections).map(
     </div>
   </section>
 </BaseLayout>
-
 
 <style>
   .buttons-container {
@@ -97,7 +102,7 @@ const sectionsLabels = Object.values(sections).map(
 
   .section-divider-container {
     background-color: var(--clr-secondary);
-    padding-top: var(--space-y-page-section)
+    padding-top: var(--space-y-page-section);
   }
 
   .swiper-container {
@@ -106,5 +111,18 @@ const sectionsLabels = Object.values(sections).map(
 
   .second-swiper {
     padding-top: var(--space-y-page-section);
+  }
+
+  .infoblock-container {
+    background-color: var(--clr-secondary);
+  }
+
+  .before-map {
+    background-color: var(--clr-primary);
+  }
+  @media (width < 800px) {
+    .infoblock-container {
+      padding-bottom: var(--space-y-page-section);
+    }
   }
 </style>
