@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+import Swiper from "@components/internal-pages/Swiper.astro";
+import InfoBlock from "@components/internal-pages/InfoBlock.astro";
+
+import WorldMap from "@components/internal-pages/WorldMap.astro";
+import { TORNEJOS } from "@data/tornejos";
+import Button from "@components/buttons/button.astro";
+import HeroInternal from "@components/internal-pages/HeroInternal.astro";
+import { slugify } from "@data/pagesData";
+import SpecialSectionHeading from "@components/internal-pages/SpecialSectionHeading.astro";
+import SectionDivider from "@components/internal-pages/SectionDivider.astro";
+import ChartSection from "@components/internal-pages/ChartSection.astro";
+
+const { title, heroImage, sections } = TORNEJOS;
+
+const { granollersCup, torneigEscolar, miniHandbol } = sections;
+
+const sectionsLabels = Object.values(sections).map(
+  (section) => section.infoSection.title,
+);
+---
+
+<BaseLayout title={title} description="">
+  <HeroInternal {title} {heroImage} {sectionsLabels} />
+
+  <section id={slugify(sectionsLabels[0])}>
+    <InfoBlock
+      textTitle={granollersCup.infoSection.title}
+      textContent={granollersCup.infoSection.text}
+    />
+    <InfoBlock
+      textTitle={granollersCup.additionalSections[0].title}
+      textContent={granollersCup.additionalSections[0].text}
+      contrast
+    />
+
+    <WorldMap />
+
+    <div class="section-divider-container">
+      <SectionDivider />
+    </div>
+
+    <div class="buttons-container">
+      <Button text="Veure Vídeo Granollers Cup 2017" slug="/" />
+      <Button text="Veure Vídeo Granollers Cup 2013" slug="/" />
+    </div>
+
+    <div class="swiper-container">
+      <Swiper imagesArr={granollersCup.images} />
+    </div>
+  </section>
+
+  <SectionDivider />
+
+  <section id={slugify(sectionsLabels[1])}>
+    <InfoBlock
+      textTitle={torneigEscolar.infoSection.title}
+      textContent={torneigEscolar.infoSection.text}
+    />
+
+    <ChartSection chartSection={torneigEscolar.chartSection} />
+
+    <div class="swiper-container second-swiper">
+      <Swiper imagesArr={torneigEscolar.images} />
+    </div>
+  </section>
+
+  <section id={slugify(sectionsLabels[2])}>
+    <InfoBlock
+      textTitle={miniHandbol.infoSection.title}
+      textContent={miniHandbol.infoSection.text}
+    />
+
+    <ChartSection chartSection={miniHandbol.chartSection} />
+
+    <div class="swiper-container second-swiper">
+      <Swiper imagesArr={miniHandbol.images} />
+    </div>
+  </section>
+</BaseLayout>
+
+
+<style>
+  .buttons-container {
+    display: flex;
+    background-color: var(--clr-secondary);
+    justify-content: center;
+    gap: 1rem;
+    padding-block: var(--space-y-page-section);
+    flex-wrap: wrap;
+    padding-inline: var(--space-x-sm);
+  }
+
+  .section-divider-container {
+    background-color: var(--clr-secondary);
+    padding-top: var(--space-y-page-section)
+  }
+
+  .swiper-container {
+    background-color: var(--clr-secondary);
+  }
+
+  .second-swiper {
+    padding-top: var(--space-y-page-section);
+  }
+</style>

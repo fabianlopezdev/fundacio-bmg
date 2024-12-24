@@ -96,8 +96,8 @@ h2 {
 }
 
 .global-colors {
-  background-color: var(--clr-primary);
-  color: var(--clr-secondary);
+  background-color: var(--clr-primary) !important;
+  color: var(--clr-secondary) !important;
 }
 
 .global-opposite-colors {
@@ -106,7 +106,7 @@ h2 {
 }
 
 .global-clr-accent {
-  color: var(--clr-accent);
+  color: var(--clr-accent) !important;
 }
 
 .global-light-bold {

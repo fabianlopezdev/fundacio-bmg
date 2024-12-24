@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import SpecialSectionHeading from "@components/internal-pages/SpecialSectionHeading.astro";
+
+const { chartSection } = Astro.props
+---
+
+<section class="charts-container global-internal-page-section-padding">
+    <SpecialSectionHeading title={chartSection.chartIntro} />
+    <div class="charts-wrapper">
+      {
+        chartSection.charts.map((chart) => (
+          <Image
+            class="chart-image"
+            src={chart.chartImg}
+            alt={chart.chartAlt}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <style>
+      .charts-container {
+    position: relative;
+}
+      .charts-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1513px;
+    gap: var(--space-y-page-section);
+    margin-inline: auto;
+  }
+
+  .chart-image {
+    width: 100%;
+    max-width: 59.375rem;
+    height: auto;
+  }
+
+  @media (width < 800px) {
+    .charts-wrapper {
+        padding-top: calc(var(--space-y-page-section) + 3rem);
+    }
+  }
+
+  </style>

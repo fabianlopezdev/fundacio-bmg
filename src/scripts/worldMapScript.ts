@@ -1,19 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
   const mapContainer = document.querySelector(".map-container");
   const overlay = document.querySelector(".continent-overlay");
-  const instructions = document.querySelector(".map-instructions") as HTMLElement;
+  const mapInstructionsSpecificText = document.querySelector(".map-instructions span") as HTMLElement;
+  // const mapInstructionsHighlighted = mapInstructionsWrapper?.querySelector("h2 span") as HTMLElement;
   const closeBtnSelector = ".close-overlay-button";
   const isTouchableDevice =
     "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
   // Update map instructions based on device type
-  if (instructions) {
-      if (isTouchableDevice) {
-          instructions.innerText = "Toca el mapa interactiu per veure més detalls!";
-      } else {
-          instructions.innerText = "Passa el cursor pel mapa interactiu per veure més detalls!";
-      }
-  }
+  if (mapInstructionsSpecificText) {
+
+
+    const instructionText = isTouchableDevice 
+        ? "Toca el mapa interactiu per veure més detalls!"
+        : "Passa el cursor pel mapa interactiu per veure més detalls!";
+    
+    mapInstructionsSpecificText.innerText = instructionText;
+
+}
 
   const continents = [
     "europe",
