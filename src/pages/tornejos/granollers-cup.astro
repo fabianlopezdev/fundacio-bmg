@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 import Swiper from "@components/internal-pages/Swiper.astro";
-import Text from "@components/internal-pages/Text.astro";
+import InfoBlock from "@components/internal-pages/InfoBlock.astro";
 
 import WorldMap from "@components/internal-pages/WorldMap.astro";
 import { GRANOLLERS_CUP } from "@data/granollersCupPageData";
@@ -28,7 +28,7 @@ const { title, heroImage, sections, sectionCarousel } = GRANOLLERS_CUP;
     </section>
     {
       sections.map((content, i) => (
-        <Text
+        <InfoBlock
           textTitle={content.title}
           textContent={content.text}
           contrast={content.contrast}

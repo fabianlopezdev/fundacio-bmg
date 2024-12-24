@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+
+import HeroNavigatorContainer from "@components/internal-pages/HeroNavigatorContainer.astro";
+
+const { title, heroImage, sectionsLabels } = Astro.props;
+console.log("sectionsLabels", sectionsLabels);
+
+---
+
+<section id="hero">
+    <h1 class="global-h1-internal-page">{title}</h1>
+
+    {sectionsLabels?.length && <HeroNavigatorContainer
+        sectionsLabels={sectionsLabels}
+      />}
+
+    <div class="hero-image">
+      <Image
+        class="global-hero-image image"
+        src={heroImage.heroImageSrc}
+        alt={heroImage.heroImageAlt}
+      />
+    </div>
+  </section>
+
+  <style>
+    #hero {
+      line-height: 0;
+    }
+  </style>
