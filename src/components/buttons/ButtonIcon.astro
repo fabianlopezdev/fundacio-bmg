@@ -8,19 +8,20 @@ const { slug, text, newTab } = Astro.props as {
 };
 ---
 
-<div class="button">
+
     <a
     href={slug}
+    class="button"
     rel={newTab ? "noopener noreferrer" : undefined}
     aria-label={`Navega a la pàgina ${text}${newTab ? ", s'obre en una nova pestanya" : ""}`}
     target={newTab ? "_blank" : ""}
     >
     {text}
-</a>
-<div class="button-arrow">
-    <Image src={buttonArrow} alt=""/>
-</div>
-</div>
+    <div class="button-arrow">
+      <Image src={buttonArrow} alt=""/>
+    </div>
+  </a>
+
 
 <style>
   .button {

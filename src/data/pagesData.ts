@@ -1,3 +1,5 @@
+import { slugify } from "@utils/index";
+
 import heroCooperacio from "@assets/hero-images/cooperacio.webp";
 import heroResidencia from "@assets/hero-images/residencia.webp";
 import heroVeterans from "@assets/hero-images/veterans.webp";
@@ -26,18 +28,6 @@ import veteransCarousel1_4 from "@assets/carousel-images/veterans/veterans_carru
 import llegatCarousel1_1 from "@assets/carousel-images/llegat/llegat_carrusel_1.webp";
 import llegatCarousel1_2 from "@assets/carousel-images/llegat/llegat_carrusel_2.webp";
 import llegatCarousel1_3 from "@assets/carousel-images/llegat/llegat_carrusel_3.webp";
-
-export function slugify(text: string): string {
-  return text
-    .toString() // Ensure it's a string
-    .normalize("NFD") // Decompose accents from letters
-    .replace(/[\u0300-\u036f]/g, "") // Remove diacritical marks (accents)
-    .toLowerCase() // Convert to lowercase
-    .trim() // Remove whitespace from both ends
-    .replace(/\s+/g, "-") // Replace spaces with dashes
-    .replace(/[^\w\-]+/g, "") // Remove all non-word characters
-    .replace(/\-\-+/g, "-"); // Replace multiple dashes with a single dash
-}
 
 export const PAGES = [
   {

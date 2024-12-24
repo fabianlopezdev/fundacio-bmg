@@ -1,7 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import yellowArrow from "@assets/yellow-arrow.png";
-import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
+
+import {HOMEPAGE} from "@data/homePageData";
+
+const { heroImage} = HOMEPAGE;
+
 ---
 
 <!-- <script src="/src/scripts/heroAnimationsScript.ts"></script> -->
@@ -20,7 +24,7 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
       <Image src={yellowArrow} alt="" loading="eager" />
     </a>
   </div>
-  <Image class="global-hero-image" src={heroImage} alt="" />
+  <Image class="hero-image" src={heroImage.img} alt={heroImage.alt} />
 </section>
 
 <style>
@@ -30,6 +34,13 @@ import heroImage from "@assets/equip-femeni-balonmano-granollers.webp";
   /* display: flex;
   flex-direction: column; */
 }
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1512 / 751;
+  }
   .hero-text {
     height: 100dvh;
     width: 100%;

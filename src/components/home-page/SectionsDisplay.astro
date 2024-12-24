@@ -3,6 +3,10 @@ import { PAGES } from "@data/pagesData";
 
 import SectionItem from "@components/home-page/SectionItem.astro";
 
+import { HOMEPAGE } from "@data/homePageData"; 
+
+const { sections } = HOMEPAGE; 
+
 const colors = [
   "var(--clr-accent)",
   "var(--clr-secondary)",
@@ -58,13 +62,13 @@ function getBackgroundColor(index: number) {
   <nav>
     <ul class="grid-container">
       {
-        PAGES.map((homePageMenuImg, index) => (
+        sections.map((section, index) => (
           <li>
             <SectionItem
-              imageSrc={homePageMenuImg.homePageMenuImg.imageSrc}
-              imageAlt={homePageMenuImg.homePageMenuImg.imageAlt}
-              label={homePageMenuImg.title}
-              linkHref={homePageMenuImg.linkHref}
+              imageSrc={section.image.img}
+              imageAlt={section.image.alt}
+              label={section.label}
+              linkHref={section.url}
               backgroundColor={getBackgroundColor(index)}
             />
           </li>

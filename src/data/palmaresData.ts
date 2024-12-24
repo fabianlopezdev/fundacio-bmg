@@ -18,9 +18,6 @@ import carousel3_4 from "@assets/carousel-images/palmares/supercampiones/superca
 import carousel3_5 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_5.webp";
 import carousel3_6 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_6.webp";
 
-import carousel2 from "@assets/carousel-2.png";
-import carousel3 from "@assets/carousel-3.png";
-
 export const PALMARES = {
   title: "Palmarès del planter",
 

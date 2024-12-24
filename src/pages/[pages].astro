@@ -1,18 +1,13 @@
 ---
-import { Image } from "astro:assets";
-
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
-import Swiper from "@components/internal-pages/Swiper.astro";
 import InfoBlock from "@components/internal-pages/InfoBlock.astro";
-import HeroNavigatorContainer from "@components/internal-pages/HeroNavigatorContainer.astro";
-
-import { slugify } from "@data/pagesData"
-
-import { PAGES } from "@data/pagesData";
 import HeroInternal from "@components/internal-pages/HeroInternal.astro";
 import SectionDivider from "@components/internal-pages/SectionDivider.astro";
+
+import { slugify } from "@utils/index"
+
+import { PAGES } from "@data/pagesData";
 
 export async function getStaticPaths() {
   return PAGES.map((page) => {
