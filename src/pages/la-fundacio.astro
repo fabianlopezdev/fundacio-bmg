@@ -8,22 +8,14 @@ import InfoBlock from "@components/internal-pages/InfoBlock.astro";
 
 import WorldMap from "@components/internal-pages/WorldMap.astro";
 import { LA_FUNDACIO } from "@data/laFundacioData";
+import HeroInternal from "@components/internal-pages/HeroInternal.astro";
 
 const { title, heroImage, sections } = LA_FUNDACIO;
 ---
 
 <BaseLayout title={title} description="">
-  <div class="page-container">
-    <section id="hero">
-      <h1 class="global-h1-internal-page">{title}</h1>
+  <HeroInternal {title} {heroImage}/>
 
-      <div class="hero-image">
-        <Image
-          class="global-hero-image image"
-          src={heroImage.heroImageSrc}
-          alt={heroImage.heroImageAlt}
-        />
-      </div>
     </section>
 
     <InfoBlock textTitle={sections[0].title} textContent={sections[0].text} />
@@ -127,7 +119,7 @@ const { title, heroImage, sections } = LA_FUNDACIO;
         }
       </p>
     </section>
-  </div>
+
 </BaseLayout>
 
 <style>

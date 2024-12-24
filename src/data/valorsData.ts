@@ -1,18 +1,15 @@
-import carousel1 from "@assets/carousel-1.png";
-import carousel2 from "@assets/carousel-2.png";
-import carousel3 from "@assets/carousel-3.png";
+import heroImage from "@assets/hero-images/valors.webp";
+import carousel1 from "@assets/carousel-images/valors/valors_carrusel_1.webp";
+import carousel2 from "@assets/carousel-images/valors/valors_carrusel_2.webp";
+import carousel3 from "@assets/carousel-images/valors/valors_carrusel_3.webp";
+import carousel4 from "@assets/carousel-images/valors/valors_carrusel_4.webp";
+
 import valorsChart1 from "@assets/charts/valors/jugadors-i-jugadores-chart.svg";
 import valorsChart2 from "@assets/charts/valors/jugadors-chart.svg";
 import valorsChart3 from "@assets/charts/valors/jugadores-chart.svg";
-
-import maskImage from "@assets/Mask-group-(1).webp";
 export const VALORS = {
   title: "Un club amb valors",
-  homePageMenuImg: {
-    imageSrc: maskImage,
-    imageAlt: "",
-  },
-  heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
+  heroImage: { heroImageSrc: heroImage, heroImageAlt: "Tots els jugadors i jugadors de totes les categories, entrenadors i membres del Balonmano Granollers" },
   sections: {
     title: "Un club amb valors",
     text: [
@@ -51,6 +48,10 @@ export const VALORS = {
     },
     {
       img: carousel3,
+      imgAlt: "",
+    },
+    {
+      img: carousel4,
       imgAlt: "",
     },
   ],

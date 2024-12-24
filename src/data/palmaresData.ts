@@ -1,15 +1,30 @@
-import carousel1 from "@assets/carousel-1.png";
+import heroImage from "@assets/hero-images/palmares.webp";
+
+import carousel1_1 from "@assets/carousel-images/palmares/catalunya/plecampionats_carrusel_1.webp";
+import carousel1_2 from "@assets/carousel-images/palmares/catalunya/plecampionats_carrusel_2.webp";
+import carousel1_3 from "@assets/carousel-images/palmares/catalunya/plecampionats_carrusel_3.webp";
+import carousel1_4 from "@assets/carousel-images/palmares/catalunya/plecampionats_carrusel_4.webp";
+import carousel1_5 from "@assets/carousel-images/palmares/catalunya/plecampionats_carrusel_5.webp";
+import carousel1_6 from "@assets/carousel-images/palmares/catalunya/plecampionats_carrusel_6.webp";
+
+import carousel2_1 from "@assets/carousel-images/palmares/generacio-or/generacio_carrusel_1.webp";
+import carousel2_2 from "@assets/carousel-images/palmares/generacio-or/generacio_carrusel_2.webp";
+import carousel2_3 from "@assets/carousel-images/palmares/generacio-or/generacio_carrusel_3.webp";
+
+import carousel3_1 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_1.webp";
+import carousel3_2 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_2.webp";
+import carousel3_3 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_3.webp";
+import carousel3_4 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_4.webp";
+import carousel3_5 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_5.webp";
+import carousel3_6 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_6.webp";
+
 import carousel2 from "@assets/carousel-2.png";
 import carousel3 from "@assets/carousel-3.png";
 
-import maskImage from "@assets/Mask-group-(1).webp";
 export const PALMARES = {
   title: "Palmarès del planter",
-  homePageMenuImg: {
-    imageSrc: maskImage, // Ensure maskImage is defined
-    imageAlt: "",
-  },
-  heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
+
+  heroImage: { heroImageSrc: heroImage, heroImageAlt: "" },
   sections: [
     {
       title: "Ple de campionats de Catalunya",
@@ -19,15 +34,27 @@ export const PALMARES = {
       ],
       images: [
         {
-          img: carousel1,
+          img: carousel1_1,
           imgAlt: "",
         },
         {
-          img: carousel2,
+          img: carousel1_2,
           imgAlt: "",
         },
         {
-          img: carousel3,
+          img: carousel1_3,
+          imgAlt: "",
+        },
+        {
+          img: carousel1_4,
+          imgAlt: "",
+        },
+        {
+          img: carousel1_5,
+          imgAlt: "",
+        },
+        {
+          img: carousel1_6,
           imgAlt: "",
         },
       ],
@@ -39,18 +66,20 @@ export const PALMARES = {
         "Un dels seus jugadors, Sergi Navarro, va elaborar el documental “La generació d’or” com a treball de síntesi de secundària:",
       ],
       images: [
+      
         {
-          img: carousel1,
+          img: carousel2_1,
           imgAlt: "",
         },
         {
-          img: carousel2,
+          img: carousel2_2,
           imgAlt: "",
         },
         {
-          img: carousel3,
+          img: carousel2_3,
           imgAlt: "",
         },
+        
       ],
       links: [
         {
@@ -76,15 +105,27 @@ export const PALMARES = {
       ],
       images: [
         {
-          img: carousel1,
+          img: carousel3_1,
           imgAlt: "",
         },
         {
-          img: carousel2,
+          img: carousel3_2,
           imgAlt: "",
         },
         {
-          img: carousel3,
+          img: carousel3_3,
+          imgAlt: "",
+        },
+        {
+          img: carousel3_4,
+          imgAlt: "",
+        },
+        {
+          img: carousel3_5,
+          imgAlt: "",
+        },
+        {
+          img: carousel3_6,
           imgAlt: "",
         },
       ],

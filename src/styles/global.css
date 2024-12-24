@@ -121,12 +121,6 @@ h2 {
   font-weight: var(--fnt-wg-bold);
 }
 /* Custom properties (CSS variables) */
-.global-hero-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  aspect-ratio: 1512 / 751;
-}
 
 .global-arrow-svg:hover circle {
   fill: var(--clr-primary);
@@ -136,11 +130,7 @@ h2 {
   stroke: var(--clr-secondary);
 }
 
-.global-h1-internal-page {
-  color: var(--clr-accent);
-  background-color: var(--clr-primary);
-  font-weight: var(--fnt-wg-regular);
-}
+
 
 .global-internal-page-section-padding {
   padding-inline: var(--space-x-xl);

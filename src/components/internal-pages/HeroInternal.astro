@@ -5,27 +5,40 @@ import HeroNavigatorContainer from "@components/internal-pages/HeroNavigatorCont
 
 const { title, heroImage, sectionsLabels } = Astro.props;
 console.log("sectionsLabels", sectionsLabels);
-
 ---
 
 <section id="hero">
-    <h1 class="global-h1-internal-page">{title}</h1>
+  <h1 class="h1-internal-page">{title}</h1>
 
-    {sectionsLabels?.length && <HeroNavigatorContainer
-        sectionsLabels={sectionsLabels}
-      />}
+  {
+    sectionsLabels?.length && (
+      <HeroNavigatorContainer sectionsLabels={sectionsLabels} />
+    )
+  }
 
-    <div class="hero-image">
-      <Image
-        class="global-hero-image image"
-        src={heroImage.heroImageSrc}
-        alt={heroImage.heroImageAlt}
-      />
-    </div>
-  </section>
+  <Image
+    class="hero-image"
+    src={heroImage.heroImageSrc}
+    alt={heroImage.heroImageAlt}
+  />
+</section>
 
-  <style>
-    #hero {
-      line-height: 0;
-    }
-  </style>
+<style>
+  #hero {
+    line-height: 0;
+  }
+
+  .h1-internal-page {
+    color: var(--clr-accent);
+    background-color: var(--clr-primary);
+    font-weight: var(--fnt-wg-regular);
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    aspect-ratio: 1512 / 751;
+  }
+</style>

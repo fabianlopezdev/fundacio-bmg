@@ -1,11 +1,7 @@
-import maskImage from "@assets/Mask-group-(1).webp";
+import heroImage from "@assets/hero-images/la-fundacio.webp"
 export const LA_FUNDACIO = {
   title: "Fundació BM Granollers",
-  homePageMenuImg: {
-    imageSrc: maskImage, // Ensure maskImage is defined
-    imageAlt: "",
-  },
-  heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
+  heroImage: { heroImageSrc: heroImage, heroImageAlt: "Grup de directius de la fundació del balonmano Granollers" },
   sections: [
     {
       title: "La Fundació",

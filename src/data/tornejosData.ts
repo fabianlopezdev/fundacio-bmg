@@ -1,7 +1,25 @@
-import maskImage from "@assets/Mask-group-(1).webp";
-import carousel1 from "@assets/carousel-1.png";
-import carousel2 from "@assets/carousel-2.png";
-import carousel3 from "@assets/carousel-3.png";
+import heroImage from "@assets/hero-images/tornejos.webp";
+
+import carousel1_1 from "@assets/carousel-images/tornejos/granollers-cup/granollerscup_carrusel_1.webp";
+import carousel1_2 from "@assets/carousel-images/tornejos/granollers-cup/granollerscup_carrusel_2.webp";
+import carousel1_3 from "@assets/carousel-images/tornejos/granollers-cup/granollerscup_carrusel_3.webp";
+import carousel1_4 from "@assets/carousel-images/tornejos/granollers-cup/granollerscup_carrusel_4.webp";
+import carousel1_5 from "@assets/carousel-images/tornejos/granollers-cup/granollerscup_carrusel_5.webp";
+import carousel1_6 from "@assets/carousel-images/tornejos/granollers-cup/granollerscup_carrusel_6.webp";
+
+import carousel2_1 from "@assets/carousel-images/tornejos/handbol-escolar/handbolescolar_carrusel_1.webp";
+import carousel2_2 from "@assets/carousel-images/tornejos/handbol-escolar/handbolescolar_carrusel_2.webp";
+import carousel2_3 from "@assets/carousel-images/tornejos/handbol-escolar/handbolescolar_carrusel_3.webp";
+import carousel2_4 from "@assets/carousel-images/tornejos/handbol-escolar/handbolescolar_carrusel_4.webp";
+import carousel2_5 from "@assets/carousel-images/tornejos/handbol-escolar/handbolescolar_carrusel_5.webp";
+
+import carousel3_1 from "@assets/carousel-images/tornejos/minihandbol/minihandbol_carrusel_1.webp";
+import carousel3_2 from "@assets/carousel-images/tornejos/minihandbol/minihandbol_carrusel_2.webp";
+import carousel3_3 from "@assets/carousel-images/tornejos/minihandbol/minihandbol_carrusel_3.webp";
+import carousel3_4 from "@assets/carousel-images/tornejos/minihandbol/minihandbol_carrusel_4.webp";
+import carousel3_5 from "@assets/carousel-images/tornejos/minihandbol/minihandbol_carrusel_5.webp";
+import carousel3_6 from "@assets/carousel-images/tornejos/minihandbol/minihandbol_carrusel_6.webp";
+
 
 import tornejosChart1 from "@assets/charts/tornejos/coaliment-players-chart.svg";
 import tornejosChart2 from "@assets/charts/tornejos/coaliment-teams-chart.svg";
@@ -9,10 +27,7 @@ import tornejosChart3 from "@assets/charts/tornejos/coaliment-minihandbol.svg";
 
 export const TORNEJOS = {
   title: "Tornejos",
-  homePageMenuImg: {
-    imageSrc: maskImage,
-  },
-  heroImage: { heroImageSrc: maskImage, heroImageAlt: "" },
+  heroImage: { heroImageSrc: heroImage, heroImageAlt: "" },
   sections: {
     granollersCup: {
       infoSection: {
@@ -34,15 +49,27 @@ export const TORNEJOS = {
       ],
       images: [
         {
-          img: carousel1,
+          img: carousel1_1,
           imgAlt: "",
         },
         {
-          img: carousel2,
+          img: carousel1_2,
           imgAlt: "",
         },
         {
-          img: carousel3,
+          img: carousel1_3,
+          imgAlt: "",
+        },
+        {
+          img: carousel1_4,
+          imgAlt: "",
+        },
+        {
+          img: carousel1_5,
+          imgAlt: "",
+        },
+        {
+          img: carousel1_6,
           imgAlt: "",
         },
       ],
@@ -73,15 +100,23 @@ export const TORNEJOS = {
       },
       images: [
         {
-          img: carousel1,
+          img: carousel2_1,
           imgAlt: "",
         },
         {
-          img: carousel2,
+          img: carousel2_2,
           imgAlt: "",
         },
         {
-          img: carousel3,
+          img: carousel2_3,
+          imgAlt: "",
+        },
+        {
+          img: carousel2_4,
+          imgAlt: "",
+        },
+        {
+          img: carousel2_5,
           imgAlt: "",
         },
       ],
@@ -107,15 +142,27 @@ export const TORNEJOS = {
       },
       images: [
         {
-          img: carousel1,
+          img: carousel3_1,
           imgAlt: "",
         },
         {
-          img: carousel2,
+          img: carousel3_2,
           imgAlt: "",
         },
         {
-          img: carousel3,
+          img: carousel3_3,
+          imgAlt: "",
+        },
+        {
+          img: carousel3_4,
+          imgAlt: "",
+        },
+        {
+          img: carousel3_5,
+          imgAlt: "",
+        },
+        {
+          img: carousel3_6,
           imgAlt: "",
         },
       ],

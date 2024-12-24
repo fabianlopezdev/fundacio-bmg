@@ -13,6 +13,7 @@ import HeroNavigatorContainer from "@components/internal-pages/HeroNavigatorCont
 
 
 import {slugify} from "@data/pagesData";
+import HeroInternal from "@components/internal-pages/HeroInternal.astro";
 
 const { title, heroImage, sections, palmares } = PALMARES;
 
@@ -31,21 +32,7 @@ type PalmaresSection = {
 ---
 
 <BaseLayout title={title} description="">
-  <section id="hero">
-    <h1 class="global-h1-internal-page">{title}</h1>
-
-    <HeroNavigatorContainer
-      sectionsLabels={sections.map((section) => section.title)}
-    />
-
-    <div class="hero-image">
-      <Image
-        class="global-hero-image image"
-        src={heroImage.heroImageSrc}
-        alt={heroImage.heroImageAlt}
-      />
-    </div>
-  </section>
+  <HeroInternal {title} {heroImage} />
 
   <section
     id="palmares"
