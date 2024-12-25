@@ -166,7 +166,6 @@ export const PAGES = [
     heroImage: { heroImageSrc: heroLlegat, heroImageAlt: "" },
     sections: [
       {
-        title: "El llegat de 25 anys",
         text: [
           " El 13 de juny de 2024 es va celebrar un acte especial amb fundadors, empreses i institucions que han donat suport a la Fundació BM Granollers durant els primers vint-i-cinc anys d’història. La trobada es va dur a terme a l’Espai BMG, al Palau d’Esports de Granollers, on actualment s’exposa la història del club. Aquest acte va permetre reconèixer i agrair la dedicació d’aquelles persones i entitats que han contribuït al creixement i a la tasca de la Fundació BM Granollers. Avui, com des del primer dia, la Fundació col·labora amb el Club BM Granollers per promoure l’handbol, fomentar valors en les noves generacions i treballar per un esport i una societat més inclusius.",
           "La Fundació vol expressar un agraïment especial a les institucions i empreses que han estat al seu costat durant aquest temps:",

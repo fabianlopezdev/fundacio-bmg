@@ -20,7 +20,13 @@ import carousel3_6 from "@assets/carousel-images/palmares/supercampiones/superca
 
 export const PALMARES = {
   title: "Palmarès del planter",
-
+  sectionsLabels: [
+    "Palmarès",
+    "Campionats de Catalunya",
+    "La generació d'or",
+    "Campiones de Catalunya i subcampiones d'Espanya",
+    "Subcampiones de Catalunya",
+  ],
   heroImage: { heroImageSrc: heroImage, heroImageAlt: "" },
   sections: [
     {
@@ -63,7 +69,6 @@ export const PALMARES = {
         "Un dels seus jugadors, Sergi Navarro, va elaborar el documental “La generació d’or” com a treball de síntesi de secundària:",
       ],
       images: [
-      
         {
           img: carousel2_1,
           imgAlt: "",
@@ -76,7 +81,6 @@ export const PALMARES = {
           img: carousel2_3,
           imgAlt: "",
         },
-        
       ],
       links: [
         {

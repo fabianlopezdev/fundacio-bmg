@@ -15,7 +15,7 @@ import { PALMARES } from "@data/palmaresData";
 import {slugify} from "@utils/index";
 import HeroInternal from "@components/internal-pages/HeroInternal.astro";
 
-const { title, heroImage, sections, palmares } = PALMARES;
+const { title, heroImage, sections, palmares, sectionsLabels } = PALMARES;
 
 type Title = {
   team: string;
@@ -32,7 +32,7 @@ type PalmaresSection = {
 ---
 
 <BaseLayout title={title} description="">
-  <HeroInternal {title} {heroImage} />
+  <HeroInternal {title} {heroImage} {sectionsLabels}/>
 
   <section
     id="palmares"
@@ -89,7 +89,7 @@ type PalmaresSection = {
   {
     sections.map((content, i) => (
       <InfoBlock
-        sectionId={slugify(content.title)}
+        sectionId={sectionsLabels?.length && slugify(sectionsLabels[i])}
         textTitle={content.title}
         textContent={content.text}
         images={content.images}

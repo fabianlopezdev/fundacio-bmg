@@ -1,126 +1,50 @@
 ---
-import { Image } from "astro:assets";
-
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-import Swiper from "@components/internal-pages/Swiper.astro";
 import InfoBlock from "@components/internal-pages/InfoBlock.astro";
-
-import WorldMap from "@components/internal-pages/WorldMap.astro";
-import { LA_FUNDACIO } from "@data/laFundacioData";
 import HeroInternal from "@components/internal-pages/HeroInternal.astro";
+import SpecialSectionHeading from "@components/internal-pages/SpecialSectionHeading.astro";
 
-const { title, heroImage, sections } = LA_FUNDACIO;
+import { LA_FUNDACIO } from "@data/fundacioData";
+
+const { title, heroImage, sections, foundersSections } = LA_FUNDACIO;
 ---
 
 <BaseLayout title={title} description="">
-  <HeroInternal {title} {heroImage}/>
+  <HeroInternal {title} {heroImage} />
 
-    </section>
 
-    <InfoBlock textTitle={sections[0].title} textContent={sections[0].text} />
+<InfoBlock textTitle={sections[0].title} textContent={sections[0].text} />
 
-    <section class="founders-section">
-      <div class="founders-wrapper global-max-width">
-        <div class="h2-wrapper">
-          <div class="h2-container">
-            <h2>
-              Aquestes són les persones, empreses i entitats que van crear la <span
-                class="global-clr-accent">Fundació BM Granollers</span
-              >
-            </h2>
+<section class="founders-section">
+  <div class="founders-wrapper global-max-width">
+    <SpecialSectionHeading
+      title="Aquestes són les persones, empreses i entitats que van crear la"
+      highlighted="Fundació BM Granollers"
+    />
+    {
+      foundersSections.map((section, index) => (
+        <>
+          <h3 class="founders-heading">{section.foundersKind}</h3>
+          <div class="divider-line" />
+          <div class={`text-container ${index === 1 ? 'empreses' : ''}`}>
+            {section.text.map((column) => (
+              <p>
+                {column.map((textUnit) => (
+                  <>{textUnit}<br /></>
+                ))}
+              </p>
+            ))}
           </div>
-        </div>
-        <h3 class="founders-heading">Persones</h3>
-        <div class="divider-line"></div>
-        <div class="text-container">
-          <p>
-            Jaume Anfruns Janer<br />
-            Josep Lluís Badia Olivé<br />
-            Joan Barbany Pujol<br />
-            Manel Baró Muntaña<br />
-            Josep Blanchart Santacreu<br />
-            Rafael Enrique Bonet Monllor<br />
-            José Antonio Cabrera Sánchez<br />
-            Josep Camp Puigdomèch<br />
-            Francisco de Asís Camp Gutiérrez<br />
-          </p>
-          <p>
-            Pere Canal Baliu<br />
-            Josep Espona Massana<br />
-            Josep Maria Guiteras Mestres<br />
-            Joan Guitet Tramunt<br />
-            Pere Julià Coromina<br />
-            Josep Maria Lloreda Piña<br />
-            Joan Lloreda Pujol<br />
-            Josep Marata Janer<br />
-            Juan María Miralles Grau<br />
-          </p>
-          <p>
-            Ramon Mora Florit<br />
-            Ricard Mumany Vila<br />
-            Juan María Pérez Ortiz<br />
-            Juan Alfonso Piferrer Margarit<br />
-            Joaquim Raga Galia<br />
-            Josep Ramoneda Esteve<br />
-            Jaume Rodríguez Bertiz<br />
-            Josep Saperas Martí<br />
-            Juan Solé Olivé
-          </p>
-        </div>
-        <h3 class="founders-heading">Empreses</h3>
-        <div class="divider-line"></div>
-        <div class="text-container empreses">
-          <p>
-            Geroni Ginestí Avellana, Glave SA<br />
-            Josep LLeonart Ganduxé, Prefabricados Lomar<br />
-            Pere Lleonart Ganduxé. Lomigest (Hotel Granollers)<br />
-            Josefa Maymó Cirera, Ballestas JJM SA<br />
-            Joan Maynou Font, Maynou SL<br />
-            Josep Oriol Murtra Garrell, Germans Murtra SL<br />
-            Jordi Solé Forés, SOP Selecció SL<br />
-            Juan Solé Olivé, Instituts Odontològics Associats SL<br />
-            Pep Vega Martínez<br />
-            Jordi Velilla Jané
-          </p>
-          <p>
-            Villà Viatges SA<br />
-            BIMBO SA<br />
-            Blanes 2000 SL<br />
-            Electrp Pla Granollers SA<br />
-            INMOGRA SA<br />
-            Letona SA<br />
-            Vallès Service ESCP
-          </p>
-        </div>
-        <h3 class="founders-heading">Entitats</h3>
-        <div class="divider-line"></div>
-        <p>
-          Carme Esplugues Martí, Ajuntament de Granollers<br />
-          Ramon Font Terrades, Club Balonmano Granollers
-        </p>
-      </div>
-    </section>
+        </>
+      ))
+    }
+  </div>
+</section>
 
-    <section class="global-max-width">
-      <p class="extra-text">
-        {
-          sections[1].text.map((paragraph: string, i: number) =>
-            i !== sections[1].text.length - 1 ? (
-              <>
-                {paragraph}
-                <br />
-                <br />
-              </>
-            ) : (
-              paragraph
-            ),
-          )
-        }
-      </p>
-    </section>
-
+<InfoBlock textContent={sections[1].text} />
 </BaseLayout>
+
 
 <style>
   .page-container {
@@ -145,35 +69,6 @@ const { title, heroImage, sections } = LA_FUNDACIO;
   .founders-wrapper {
     padding-inline: var(--space-x-xl);
     padding-block: 5.9375rem;
-  }
-
-  .h2-wrapper {
-    /* margin-inline: var(--space-x-xl); */
-    width: 100%;
-    position: absolute;
-    padding-inline: var(--space-x-xl);
-    left: 50%;
-    top: -4rem;
-    transform: translateX(-50%);
-    z-index: 9999;
-    display: grid;
-    place-items: center;
-  }
-  .h2-container {
-    background-color: var(--clr-primary);
-
-    border-radius: 5rem;
-    width: 100%;
-    max-width: 47.3125rem;
-  }
-
-  h2 {
-    padding-block: 2.375rem;
-    padding-inline: min(var(--space-x-xl), 2.375rem);
-
-    font-size: clamp(1.125rem, 1.043rem + 0.351vi, 1.375rem);
-    font-weight: var(--fnt-wg-regular);
-    text-align: center;
   }
 
   .founders-heading {
