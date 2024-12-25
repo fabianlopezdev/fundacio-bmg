@@ -151,6 +151,17 @@ export const PAGES = [
     ],
   },
   {
+    title: "Acompanyant el club",
+    sections: [
+      {
+        text: [
+          "La Fundació BM Granollers i el Club BM Granollers comparteixen una missió fonamental: la formació esportiva i en valors. Tal com recull el codi ètic de la Fundació, la seva tasca té un doble objectiu: formar esportistes tant en l'àmbit esportiu, ajudant-los a desenvolupar les seves capacitats fins a poder arribar en alguns casos a l'elit, com en l’àmbit personal, impulsant valors cívics i democràtics com el respecte, el compromís, l'esforç i el treball en equip. Aquests valors ajuden a arrelar els esportistes a l’entitat i a la ciutat. El creixement dels jugadors i jugadores i els títols aconseguits fins ara són testimoni d’aquesta tasca de formació contínua.",
+          "En moments clau, especialment des de la crisi de la temporada 2010-11, la Fundació ha estat també un pilar essencial d’estabilitat institucional i econòmica per al Club BM Granollers. Gràcies a una gestió rigorosa i a l’esforç conjunt d'empreses i particulars, l’any 2021 es va poder encaminar la recuperació de la solidesa financera de l’entitat.",
+        ],
+      },
+    ],
+  },
+  {
     title: "El llegat de 25 anys",
     heroImage: { heroImageSrc: heroLlegat, heroImageAlt: "" },
     sections: [

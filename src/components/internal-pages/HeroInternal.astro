@@ -16,11 +16,12 @@ console.log("sectionsLabels", sectionsLabels);
     )
   }
 
-  <Image
-    class="hero-image"
-    src={heroImage.heroImageSrc}
-    alt={heroImage.heroImageAlt}
-  />
+{heroImage && <Image
+  class="hero-image"
+  src={heroImage.heroImageSrc}
+  alt={heroImage.heroImageAlt}
+/>}
+  
 </section>
 
 <style>

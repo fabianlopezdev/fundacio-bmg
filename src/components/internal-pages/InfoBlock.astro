@@ -11,9 +11,12 @@ const { sectionId, textTitle, textContent, contrast, images, links } =
   class=`info-block ${contrast ? "global-colors" : ""} info-block`
 >
   <div class="info-container global-max-width">
-    <h2 class=`${contrast ? "global-clr-accent" : ""} text-title`>
-      {textTitle}
-    </h2>
+    {textTitle && 
+      <h2 class={`${contrast ? "global-clr-accent" : ""} text-title`}>
+        {textTitle}
+      </h2>
+    }
+    
     <div class="text-container">
       {
         textContent.map((paragraph: string) => (

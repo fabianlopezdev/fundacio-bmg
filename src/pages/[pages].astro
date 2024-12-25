@@ -33,12 +33,14 @@ const { title, heroImage, sectionsLabels, sections } = page;
  
     {
       sections.map((content, i) => (
-          <InfoBlock
-            sectionId={slugify(content.title)}
-            textTitle={content.title}
-            textContent={content.text}
-            images={content.images}
-          />
+         
+            <InfoBlock
+              sectionId={'title' in content ? slugify(content.title) : ''}
+              textTitle={'title' in content ? content.title : ''}
+              textContent={content.text}
+              images={'images' in content ? content.images : ""}
+            />
+         
 
           <>
             {i !== sections.length - 1 && (
