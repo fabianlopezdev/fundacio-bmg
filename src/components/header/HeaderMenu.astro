@@ -64,9 +64,10 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
   .non-scrollable {
     position: sticky;
     top: 0;
-    height: calc(var(--header-height) * 1rem);
+    height: calc(var(--hg-header) * 1rem);
+    width: 100%;
     background-color: var(--clr-bg-menu);
-    z-index: 3;
+    z-index: 9999;
   }
 
   .mobile-header-button {
@@ -90,6 +91,7 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     transition: transform 0.3s ease-in-out;
     z-index: 2;
     overflow: scroll;
+  
   }
 
   .menu.active {
@@ -99,7 +101,7 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
 
   .menu-nav {
     padding-left: calc(var(--space-x-xl) + 1.95rem);
-    padding-top: var(--space-x-m);
+    padding-top: 3.4375rem;
   }
 
   .standalone-link {
