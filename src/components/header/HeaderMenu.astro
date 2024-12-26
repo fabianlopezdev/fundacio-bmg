@@ -1,8 +1,6 @@
 ---
 import CollapsibleArrow from "@assets/arrows/CollapsibleArrow.astro";
-
 import Button from "@components/buttons/Button.astro";
-
 import { HEADER_MENU_LINKS } from "@data/headerMenuData";
 ---
 
@@ -12,7 +10,7 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     <Button slug="https://bmgranollers.cat/cat" text="BM. Granollers" newTab />
   </div>
   <nav class="menu-nav">
-    <ul>
+    <ul class="menu-flex">
       {
         HEADER_MENU_LINKS.map((link) => (
           <li>
@@ -79,19 +77,24 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     top: 0;
     left: 0;
     height: 100dvh;
-    width: clamp(18.75rem, 12.505rem + 27.754vi, 38.75rem);
+    width:clamp(22rem, 15.716rem + 27.927vi, 42.125rem);
     background-color: var(--clr-bg-menu);
     border-top-right-radius: var(--radius-regular);
     border-bottom-right-radius: var(--radius-regular);
     pointer-events: none;
-    font-size: var(--fnt-sz-regular);
+    font-size: clamp(1.4rem, 1.174rem + 1.006vi, 2.125rem);
     font-weight: var(--fnt-wg-light);
-    line-height: 3.8125rem;
+    line-height: 3.825rem;
     transform: translate(-100%);
     transition: transform 0.3s ease-in-out;
     z-index: 2;
     overflow: scroll;
-  
+  }
+
+  .menu-flex{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .menu.active {
@@ -110,11 +113,16 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
 
   details > summary {
     list-style: none;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    gap: 0.5rem;
   }
 
   summary::-webkit-details-marker {
     display: none;
   }
+
 
   details > summary > .arrow {
     position: relative;
@@ -129,6 +137,7 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
   details[open] > summary {
     color: var(--clr-hover-active);
   }
+
   details[open] > summary > .arrow {
     transform: rotate(-180deg);
     transition: 0.45s transform ease-in-out;
@@ -136,7 +145,7 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
 
   details::details-content {
     block-size: 0;
-    margin-left: calc(
+    margin-inline: calc(
       ((var(--space-x-xl) + 0.1rem) + (var(--mg-left-nested-link) * -1)) * -1
     );
     padding-left: calc(var(--space-x-sm) + var(--space-x-xl) - 1rem);
@@ -150,13 +159,14 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
   details[open]::details-content {
     block-size: auto;
   }
+
   .sub-menu {
     margin-left: calc(
       ((var(--space-x-xl) + 0.1rem) + (var(--mg-left-nested-link) * -1)) * -1
     );
-
     background-color: var(--clr-primary);
   }
+
   .sub-menu a {
     color: var(--clr-secondary);
     padding-left: calc(var(--space-x-sm) + var(--space-x-xl));
@@ -188,6 +198,35 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     pointer-events: auto;
   }
 
+  .open-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+    color: var(--clr-primary);
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in-out forwards;
+    height: 100%;
+  }
+
+  .open-link svg {
+    height: 0.8em;
+    width: 0.8em;
+    position: relative;
+    top: -0.05em;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   @media (hover: hover) {
     details > summary:hover {
       color: var(--clr-hover-active);
@@ -201,13 +240,22 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     .sub-menu a:hover {
       color: var(--clr-accent);
     }
+
+    .open-link:hover {
+      color: var(--clr-hover-active);
+    }
   }
 
   @media (width < 800px) {
     .non-scrollable {
-      height: calc(var(--header-height-sm) * 1rem);
+      height: calc(var(--hg-header-sm) * 1rem);
+      
     }
 
+    .menu-nav {
+    padding-top: 1rem;
+    /* padding-right: calc(var(--space-x-xl)); */
+  }
     .sub-menu a {
       padding-left: calc(
         ((var(--space-x-xl) + 1rem) + (var(--mg-left-nested-link) * -1))
@@ -228,5 +276,16 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     .logo-container {
       justify-content: end;
     }
+  }
+
+  @media (width < 431px) {
+    .menu-nav {
+    padding-left: calc(var(--space-x-xl) + 1rem);
+    /* padding-right: calc(var(--space-x-xl)); */
+  }
+
+  .menu-flex {
+    gap: 0.01rem;
+  }
   }
 </style>
