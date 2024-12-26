@@ -8,12 +8,9 @@ const { sectionsLabels } = Astro.props;
 <nav class="hero-navigation-container">
   <ul class="nav-buttons-container">
     {
-      sectionsLabels.map((label) => (
+      sectionsLabels.map((label: string) => (
         <li>
-          <ButtonInternalPage
-            text={label}
-            slug={`#${slugify(label)}`}
-          />
+          <ButtonInternalPage text={label} slug={`#${slugify(label)}`} />
         </li>
       ))
     }
@@ -22,18 +19,16 @@ const { sectionsLabels } = Astro.props;
 
 <style>
   .hero-navigation-container {
-    /* height: 10.25rem; */
     background-color: var(--clr-secondary);
     padding-inline: var(--space-x-xl);
     padding-block: 3.3125rem;
-}
+  }
 
-li {
-    /* height: 100%; */
+  li {
     display: flex;
-}
+  }
 
-.nav-buttons-container {
+  .nav-buttons-container {
     display: flex;
     gap: 1.1875rem;
     flex-wrap: wrap;

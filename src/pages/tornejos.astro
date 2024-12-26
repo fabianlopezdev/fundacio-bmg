@@ -46,8 +46,11 @@ const sectionsLabels = Object.values(sections).map(
     </div>
 
     <div class="buttons-container">
-      <Button text="Veure Vídeo Granollers Cup 2017" slug="/" />
-      <Button text="Veure Vídeo Granollers Cup 2013" slug="/" />
+      {
+        granollersCup.linksSection.map((link) => (
+          <Button text={link.linkLabel} slug={link.linkSlug} />
+        ))
+      }
     </div>
 
     <div class="swiper-container">

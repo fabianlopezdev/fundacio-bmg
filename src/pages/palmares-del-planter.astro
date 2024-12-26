@@ -1,19 +1,14 @@
 ---
-
-
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 import InfoBlock from "@components/internal-pages/InfoBlock.astro";
 import DividerCup from "@components/internal-pages/palmares/DividerCup.astro";
 import SectionDivider from "@components/internal-pages/SectionDivider.astro";
+import HeroInternal from "@components/internal-pages/HeroInternal.astro";
 
 import { PALMARES } from "@data/palmaresData";
 
-
-
-
 import {slugify} from "@utils/index";
-import HeroInternal from "@components/internal-pages/HeroInternal.astro";
 
 const { title, heroImage, sections, palmares, sectionsLabels } = PALMARES;
 

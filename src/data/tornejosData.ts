@@ -20,7 +20,6 @@ import carousel3_4 from "@assets/carousel-images/tornejos/minihandbol/minihandbo
 import carousel3_5 from "@assets/carousel-images/tornejos/minihandbol/minihandbol_carrusel_5.webp";
 import carousel3_6 from "@assets/carousel-images/tornejos/minihandbol/minihandbol_carrusel_6.webp";
 
-
 import tornejosChart1 from "@assets/charts/tornejos/coaliment-players-chart.svg";
 import tornejosChart2 from "@assets/charts/tornejos/coaliment-teams-chart.svg";
 import tornejosChart3 from "@assets/charts/tornejos/coaliment-minihandbol.svg";
@@ -30,6 +29,16 @@ export const TORNEJOS = {
   heroImage: { heroImageSrc: heroImage, heroImageAlt: "" },
   sections: {
     granollersCup: {
+      linksSection: [
+        {
+          linkLabel: "Veure Vídeo Granollers Cup 2017",
+          linkSlug: "/",
+        },
+        {
+          linkLabel: "Veure Vídeo Granollers Cup 2013",
+          linkSlug: "/",
+        },
+      ],
       infoSection: {
         title: "Granollers Cup",
         text: [

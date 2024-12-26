@@ -1,18 +1,12 @@
 ---
-import { Image } from "astro:assets";
-
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-import { VALORS } from "@data/valorsData";
-
 import HeroInternal from "@components/internal-pages/HeroInternal.astro";
-import SpecialSectionHeading from "@components/internal-pages/SpecialSectionHeading.astro";
-
-
-
 import InfoBlock from "@components/internal-pages/InfoBlock.astro";
 import Swiper from "@components/internal-pages/Swiper.astro";
 import ChartSection from "@components/internal-pages/ChartSection.astro";
+
+import { VALORS } from "@data/valorsData";
 
 const { title, heroImage, sections, chartSection, images } = VALORS;
 ---
@@ -24,7 +18,7 @@ const { title, heroImage, sections, chartSection, images } = VALORS;
     <InfoBlock textTitle={sections.title} textContent={sections.text} />
   </div>
 
-  <ChartSection chartSection={chartSection}/>
+  <ChartSection chartSection={chartSection} />
 
   <section class="swiper-container global-opposite-colors">
     <Swiper imagesArr={images} />
@@ -32,13 +26,9 @@ const { title, heroImage, sections, chartSection, images } = VALORS;
 </BaseLayout>
 
 <style>
-
-
-.infoblock-container {
-      background-color: var(--clr-secondary);
-    
+  .infoblock-container {
+    background-color: var(--clr-secondary);
   }
-
 
   .swiper-container {
     padding-top: var(--space-y-page-section);

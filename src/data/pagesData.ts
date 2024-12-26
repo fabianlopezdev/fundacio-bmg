@@ -3,6 +3,7 @@ import { slugify } from "@utils/index";
 import heroCooperacio from "@assets/hero-images/cooperacio.webp";
 import heroResidencia from "@assets/hero-images/residencia.webp";
 import heroVeterans from "@assets/hero-images/veterans.webp";
+import heroSpecial from "@assets/hero-images/special.webp"
 import heroLlegat from "@assets/hero-images/llegat.webp";
 
 import cooperacioCarousel1_1 from "@assets/carousel-images/cooperacio/nigeria/nigeria_carrusel_1.webp";
@@ -24,6 +25,11 @@ import veteransCarousel1_1 from "@assets/carousel-images/veterans/veterans_carru
 import veteransCarousel1_2 from "@assets/carousel-images/veterans/veterans_carrusel_2.webp";
 import veteransCarousel1_3 from "@assets/carousel-images/veterans/veterans_carrusel_3.webp";
 import veteransCarousel1_4 from "@assets/carousel-images/veterans/veterans_carrusel_4.webp";
+
+import specialCarousel1_1 from "@assets/carousel-images/special/equipspecial_carrusel_1.webp";
+import specialCarousel1_2 from "@assets/carousel-images/special/equipspecial_carrusel_2.webp";
+import specialCarousel1_3 from "@assets/carousel-images/special/equipspecial_carrusel_3.webp";
+import specialCarousel1_4 from "@assets/carousel-images/special/equipspecial_carrusel_4.webp";
 
 import llegatCarousel1_1 from "@assets/carousel-images/llegat/llegat_carrusel_1.webp";
 import llegatCarousel1_2 from "@assets/carousel-images/llegat/llegat_carrusel_2.webp";
@@ -190,7 +196,37 @@ export const PAGES = [
       },
     ],
   },
+  {
+    title: "Equip Especial",
+    heroImage: { heroImageSrc: heroSpecial, heroImageAlt: "" },
+    sections: [
+      {
+        text: [
+        "Segons els estatuts de la Fundació BM Granollers i amb l'objectiu de millorar la salut i el benestar de les persones amb diversitat funcional, es crea l'equip Magic’s la temporada 2018/19. Des d’aleshores participa en les lligues de la Fundació DeManoenMano per donar visibilitat a nois i noies amb necessitats especials. L'equip Magic’s ofereix un espai per a la pràctica de l'esport, l'exercici físic i fomenta la relació i convivència entre els seus membres.",  
+        ],
+        images: [
+          {
+            img: specialCarousel1_1,
+            imgAlt: "",
+          },
+          {
+            img: specialCarousel1_2,
+            imgAlt: "",
+          },
+          {
+            img: specialCarousel1_3,
+            imgAlt: "",
+          },
+          {
+            img: specialCarousel1_4,
+            imgAlt: "",
+          },
+        ],
+    
+      },
+    ],
+  },
 ].map((page) => ({
   ...page,
-  linkHref: slugify(page.title), // Generate slug for each section title
+  linkHref: slugify(page.title), 
 }));

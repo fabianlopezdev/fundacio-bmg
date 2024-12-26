@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mapContainer = document.querySelector(".map-container");
   const overlay = document.querySelector(".continent-overlay");
   const mapInstructionsSpecificText = document.querySelector(".map-instructions span") as HTMLElement;
-  // const mapInstructionsHighlighted = mapInstructionsWrapper?.querySelector("h2 span") as HTMLElement;
+
   const closeBtnSelector = ".close-overlay-button";
   const isTouchableDevice =
     "ontouchstart" in window || navigator.maxTouchPoints > 0;
