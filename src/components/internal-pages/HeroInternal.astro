@@ -12,10 +12,12 @@ const titleWords = title.split(" ");
 const lastWordTiming = (titleWords.length - 1) * 300;
 
 const totalDelay = Math.max(1500, lastWordTiming + 200);
+
+const objectPositionTop = title === "Palmarès del planter";
+const objectPositionCenter = title === "La residència";
 ---
 
 <script src="/src/scripts/heroInternalAnimationsScript.ts"></script>
-
 
 <section id="hero" style={`--total-delay: ${totalDelay}ms`}>
   <div class="hero-text">
@@ -40,6 +42,7 @@ const totalDelay = Math.max(1500, lastWordTiming + 200);
     heroImage && (
       <Image
         class="hero-image"
+        style={`object-position: ${objectPositionTop ? 'top' : objectPositionCenter ? 'center' : 'bottom'}`}
         src={heroImage.heroImageSrc}
         alt={heroImage.heroImageAlt}
       />
