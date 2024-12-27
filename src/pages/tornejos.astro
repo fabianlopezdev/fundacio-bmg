@@ -20,6 +20,11 @@ const { granollersCup, torneigEscolar, miniHandbol } = sections;
 const sectionsLabels = Object.values(sections).map(
   (section) => section.infoSection.title,
 );
+
+const teamsGranollersCup = {
+  text: "Descarregar quadre equips participants",
+  slug: "/granollers-cup-equips",
+}
 ---
 
 <BaseLayout title={title} description="">
@@ -35,6 +40,7 @@ const sectionsLabels = Object.values(sections).map(
       <InfoBlock
         textTitle={granollersCup.additionalSections[0].title}
         textContent={granollersCup.additionalSections[0].text}
+        downloadButton={teamsGranollersCup}
         contrast
       />
     </div>

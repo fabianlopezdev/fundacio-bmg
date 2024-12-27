@@ -84,7 +84,7 @@ type PalmaresSection = {
   {
     sections.map((content, i) => (
       <InfoBlock
-        sectionId={sectionsLabels?.length && slugify(sectionsLabels[i])}
+        sectionId={sectionsLabels?.length && slugify(sectionsLabels[i + 1])}
         textTitle={content.title}
         textContent={content.text}
         images={content.images}
@@ -100,6 +100,10 @@ type PalmaresSection = {
 </BaseLayout>
 
 <style>
+  .palmares {
+    max-width: 1513px;
+    margin: auto;
+  }
   .intro-text {
     font-size: clamp(1.125rem, 0.891rem + 1.041vi, 1.875rem);
     letter-spacing: 0.0004rem;

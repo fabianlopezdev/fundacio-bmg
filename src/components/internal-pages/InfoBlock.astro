@@ -1,19 +1,28 @@
 ---
 import Button from "@components/buttons/Button.astro";
+import ButtonDownload from "@components/buttons/ButtonDownload.astro";
 import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
 import Swiper from "@components/internal-pages/Swiper.astro";
 
-const { sectionId, textTitle, textContent, contrast, images, links } = Astro.props;
+const {
+  sectionId,
+  textTitle,
+  textContent,
+  contrast,
+  images,
+  links,
+  downloadButton,
+} = Astro.props;
 
 // Split the title into words if it exists
-const titleWords = textTitle ? textTitle.split(' ') : [];
+const titleWords = textTitle ? textTitle.split(" ") : [];
 ---
 
 <script>
   if (typeof window !== "undefined") {
     window.addEventListener("DOMContentLoaded", () => {
-      const infoBlocks = document.querySelectorAll('.info-block');
-      
+      const infoBlocks = document.querySelectorAll(".info-block");
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -26,12 +35,12 @@ const titleWords = textTitle ? textTitle.split(' ') : [];
             }
           });
         },
-        { 
-          threshold: 0.1,  // Increased threshold to trigger later
-        }
+        {
+          threshold: 0.1, // Increased threshold to trigger later
+        },
       );
 
-      infoBlocks.forEach(block => observer.observe(block));
+      infoBlocks.forEach((block) => observer.observe(block));
     });
   }
 </script>
@@ -41,19 +50,18 @@ const titleWords = textTitle ? textTitle.split(' ') : [];
   class=`info-block ${contrast ? "global-colors" : ""}`
 >
   <div class="info-container global-max-width">
-    {textTitle && 
-      <h2 class={`${contrast ? "global-clr-accent" : ""} text-title`}>
-        {titleWords.map((word: string, index: number) => (
-          <span 
-            class="animated text" 
-            style={`--delay: ${index * 100}ms`}
-          >
-            {word}
-          </span>
-        ))}
-      </h2>
+    {
+      textTitle && (
+        <h2 class={`${contrast ? "global-clr-accent" : ""} text-title`}>
+          {titleWords.map((word: string, index: number) => (
+            <span class="animated text" style={`--delay: ${index * 100}ms`}>
+              {word}
+            </span>
+          ))}
+        </h2>
+      )
     }
-    
+
     <div class="text-container">
       {
         textContent.map((paragraph: string) => (
@@ -65,9 +73,19 @@ const titleWords = textTitle ? textTitle.split(' ') : [];
       {
         links && (
           <div class="links-container">
-            {links.map((link: {text: string, slug: string}) => (
+            {links.map((link: { text: string; slug: string }) => (
               <Button text={link.text} slug={link.slug} />
             ))}
+          </div>
+        )
+      }
+
+      {
+        downloadButton && (
+          <div class="links-container">
+            
+              <ButtonDownload text={downloadButton.text} slug={downloadButton.slug} />
+          
           </div>
         )
       }
@@ -80,7 +98,7 @@ const titleWords = textTitle ? textTitle.split(' ') : [];
   .info-block {
     background-color: var(--clr-secondary);
   }
-  
+
   .info-container {
     max-width: 1513px;
     padding-inline: var(--space-x-xl);
@@ -90,7 +108,7 @@ const titleWords = textTitle ? textTitle.split(' ') : [];
     font-size: var(--fnt-sz-internal-page);
     letter-spacing: 0.0004rem;
   }
-  
+
   .text-title {
     color: var(--clr-primary);
     min-width: 11ch;
@@ -111,7 +129,8 @@ const titleWords = textTitle ? textTitle.split(' ') : [];
   }
 
   .info-block.animate .text.animated {
-    animation: animate-lines 0.2s var(--delay, 0ms) cubic-bezier(0, 0, 0.58, 1.2) forwards;
+    animation: animate-lines 0.2s var(--delay, 0ms)
+      cubic-bezier(0, 0, 0.58, 1.2) forwards;
   }
 
   @keyframes animate-lines {

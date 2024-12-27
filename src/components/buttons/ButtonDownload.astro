@@ -1,4 +1,6 @@
 ---
+import DownArrow from "@assets/arrows/Down-arrow.astro";
+
 const { slug, text, newTab } = Astro.props as {
   slug: string;
   text: string;
@@ -13,29 +15,48 @@ const { slug, text, newTab } = Astro.props as {
   aria-label={`Navega a la pàgina ${text}${newTab ? ", s'obre en una nova pestanya" : ""}`}
   target={newTab ? "_blank" : ""}
 >
-  {text}
+{text}
+<div class="icon">
+    <DownArrow />
+</div>
 </a>
 
 <style>
  .button {
   --button-radius: 1.25rem;
-  background-color: var(--clr-primary);
-  color: var(--clr-secondary);
+  background-color: var(--clr-secondary);
+  color: var(--clr-primary);
   border-radius: calc(var(--button-radius) + 2rem);
   padding-inline: 1.3rem;
   padding-block: 0.6rem;
   height: fit-content;
   font-size: var(--fnt-sz-sm);
   font-weight: var(--fnt-wg-regular);
-  border: 2px solid var(--clr-primary);
+  border: 2px solid var(--clr-secondary);
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
   line-height: normal; 
-}
+  display:flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      transform 0.6s ease;
+  }
 
+.icon {
+    display: grid;
+    place-items: center;
+}
 .button:hover {
-  background-color: var(--clr-secondary);
-  color: var(--clr-primary);
+  background-color: var(--clr-primary);
+  color: var(--clr-secondary);
 }
 
+
+.button:hover .icon {
+    color: var(--clr-secondary);
+    transform: translateY(5%);
+  }
 </style>
