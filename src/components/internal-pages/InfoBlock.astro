@@ -1,4 +1,5 @@
 ---
+import Button from "@components/buttons/Button.astro";
 import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
 import Swiper from "@components/internal-pages/Swiper.astro";
 
@@ -65,7 +66,7 @@ const titleWords = textTitle ? textTitle.split(' ') : [];
         links && (
           <div class="links-container">
             {links.map((link: {text: string, slug: string}) => (
-              <ButtonInternalPage text={link.text} slug={link.slug} />
+              <Button text={link.text} slug={link.slug} />
             ))}
           </div>
         )
@@ -140,7 +141,7 @@ const titleWords = textTitle ? textTitle.split(' ') : [];
     padding-top: 1.5rem;
   }
 
-  @media (width < 950px) {
+  @media (width < 1091px) {
     .info-container {
       flex-direction: column;
     }

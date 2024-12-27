@@ -13,8 +13,9 @@ const { title, heroImage, sections, foundersSections } = LA_FUNDACIO;
 <BaseLayout title={title} description="">
   <HeroInternal {title} {heroImage} />
 
-
-<InfoBlock textTitle={sections[0].title} textContent={sections[0].text} />
+<div class="infoblock-container">
+  <InfoBlock textTitle={sections[0].title} textContent={sections[0].text} />
+</div>
 
 <section class="founders-section">
   <div class="founders-wrapper global-max-width">
@@ -108,5 +109,14 @@ const { title, heroImage, sections, foundersSections } = LA_FUNDACIO;
 
   .text-container.empreses p:nth-child(2) {
     padding-right: 0rem;
+  }
+  .infoblock-container {
+    background-color: var(--clr-secondary);
+  }
+
+  @media( width < 800px) {
+    .infoblock-container {
+      padding-bottom: var(--space-y-page-section);
+    }
   }
 </style>
