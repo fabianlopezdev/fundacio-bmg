@@ -41,8 +41,9 @@ const objectPositionCenter = title === "La residència";
   {
     heroImage && (
       <Image
+        loading="eager"
         class="hero-image"
-        style={`object-position: ${objectPositionTop ? 'top' : objectPositionCenter ? 'center' : 'bottom'}`}
+        style={`object-position: ${objectPositionTop ? "top" : objectPositionCenter ? "center" : "bottom"}`}
         src={heroImage.heroImageSrc}
         alt={heroImage.heroImageAlt}
       />

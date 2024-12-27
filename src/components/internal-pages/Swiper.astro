@@ -80,15 +80,22 @@ const { imagesArr } = Astro.props;
   <div class="swiper">
     <div class="swiper-wrapper">
       {
-        [...imagesArr, ...imagesArr].map((image) => (
-          <div class="swiper-slide">
-            <Image
-              class="swiper-slide-image"
-              src={image.img}
-              alt={image.imgAlt}
-            />
-          </div>
-        ))
+        [...imagesArr, ...imagesArr].map((image, index) => {
+          const originalArrayLength = imagesArr.length * 2;
+    
+          const isEagerLoad = index < 2 || index === (originalArrayLength - 1) ;
+          
+          return (
+            <div class="swiper-slide">
+              <Image
+                class="swiper-slide-image"
+                src={image.img}
+                alt={image.imgAlt}
+                loading={isEagerLoad ? "eager" : "lazy"}
+              />
+            </div>
+          );
+        })
       }
     </div>
 
