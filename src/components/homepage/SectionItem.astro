@@ -3,30 +3,43 @@ import { Image } from "astro:assets";
 import ButtonArrow from "@components/buttons/ButtonArrow.astro";
 import HandBallBall from "@assets/miscellaneous/HandballBall.astro";
 
-const { imageSrc, imageAlt, label, linkHref, backgroundColor } = Astro.props;
+const { imageSrc, imageAlt, label, linkHref, backgroundColor, index } =
+  Astro.props;
 const isBlueColor = backgroundColor === "var(--clr-primary)";
 const isBottomShadow = backgroundColor === "var(--clr-secondary)";
 ---
 
 <script>
-  const isTouchDevice = () => {
-    return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-  };
+  const isTouchDevice = () =>
+    "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
-  const gridItems = document.querySelectorAll('.grid-item');
+  const gridItems = document.querySelectorAll(".grid-item");
+  const excludedIndexes = [0, 1, 5]; // Indices that should *not* get extra bottom-padding
 
-  gridItems.forEach(item => {
+  gridItems.forEach((item) => {
     if (isTouchDevice()) {
-      item.classList.add('touch-device');
+      item.classList.add("touch-device");
       // Remove hover layout for touch devices
-      const hoverContent = item.querySelector('.hover-layout');
+      const hoverContent = item.querySelector(".hover-layout");
       if (hoverContent) {
         hoverContent.remove();
       }
+
+      // Conditionally add 10rem bottom-padding if index is not excluded
+      const element = item as HTMLElement;
+      const dataIndex = parseInt(element.dataset?.index || "-1", 10);
+      if (!excludedIndexes.includes(dataIndex)) {
+        const backgroundImage = item.querySelector(
+          ".background-image",
+        ) as HTMLElement;
+        if (backgroundImage) {
+          backgroundImage.style.paddingBottom = "10rem";
+        }
+      }
     } else {
-      item.classList.add('non-touch-device');
+      item.classList.add("non-touch-device");
       // Remove touch layout for non-touch devices
-      const touchContent = item.querySelector('.touch-layout');
+      const touchContent = item.querySelector(".touch-layout");
       if (touchContent) {
         touchContent.remove();
       }
@@ -34,9 +47,10 @@ const isBottomShadow = backgroundColor === "var(--clr-secondary)";
   });
 </script>
 
-<article 
-  class={`grid-item ${isBottomShadow ? "bottom-shadow" : ""}`} 
+<article
+  class={`grid-item ${isBottomShadow ? "bottom-shadow" : ""}`}
   style={`--background-color: ${backgroundColor};`}
+  data-index={index}
 >
   <Image class="background-image" src={imageSrc} alt={imageAlt} />
 
@@ -76,6 +90,7 @@ const isBottomShadow = backgroundColor === "var(--clr-secondary)";
     aspect-ratio: 1 / 1;
     position: relative;
     overflow: hidden;
+    container-type: inline-size;
   }
 
   .background-image {
@@ -86,6 +101,7 @@ const isBottomShadow = backgroundColor === "var(--clr-secondary)";
     height: 100%;
     object-fit: cover;
     object-position: center;
+    /* padding-bottom: 10rem; */
   }
 
   h3 {
@@ -96,6 +112,23 @@ const isBottomShadow = backgroundColor === "var(--clr-secondary)";
     line-height: 1.1em;
   }
 
+  @container (width < 706px) {
+    .touch-layout h3 {
+      font-size: 2.5rem;
+    }
+  }
+
+  @container (width < 500px) {
+    .touch-layout h3 {
+      font-size: 2rem;
+    }
+  }
+
+  @container (width < 431px) {
+    .touch-layout h3 {
+      font-size: 1.7rem;
+    }
+  }
   /* Touch Device Styles */
   .touch-device .hover-layout {
     display: none;
@@ -108,7 +141,7 @@ const isBottomShadow = backgroundColor === "var(--clr-secondary)";
     left: 0;
     width: 100%;
     padding-block: 1.875rem;
-    padding-inline: var( --space-x-xl);
+    padding-inline: 0.8125rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

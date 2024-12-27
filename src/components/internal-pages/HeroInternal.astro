@@ -6,35 +6,35 @@ const { title, heroImage, sectionsLabels } = Astro.props;
 console.log("sectionsLabels", sectionsLabels);
 
 // Split the title into words
-const titleWords = title.split(' ');
+const titleWords = title.split(" ");
 
 // Calculate the total time needed for all words to appear
 const lastWordTiming = (titleWords.length - 1) * 300;
 
-// If the last word appears before 2500ms, pad the delay to match 2500ms
-// If the last word appears after 2500ms, add 200ms buffer after last word
 const totalDelay = Math.max(1500, lastWordTiming + 200);
 ---
+
+<script src="/src/scripts/heroInternalAnimationsScript.ts"></script>
+
 
 <section id="hero" style={`--total-delay: ${totalDelay}ms`}>
   <div class="hero-text">
     <h1 class="h1-internal-page">
-      {titleWords.map((word, index) => (
-        <span 
-          class="animated text" 
-          style={`--delay: ${index * 300}ms`}
-        >
-          {word}
-        </span>
-      ))}
+      {
+        titleWords.map((word: string, index: number) => (
+          <span class="animated text" style={`--delay: ${index * 300}ms`}>
+            {word}
+          </span>
+        ))
+      }
     </h1>
   </div>
 
-    {
-      sectionsLabels?.length && (
-        <HeroNavigatorContainer sectionsLabels={sectionsLabels} />
-      )
-    }
+  {
+    sectionsLabels?.length && (
+      <HeroNavigatorContainer sectionsLabels={sectionsLabels} />
+    )
+  }
 
   {
     heroImage && (
@@ -55,7 +55,7 @@ const totalDelay = Math.max(1500, lastWordTiming + 200);
   .h1-internal-page {
     color: var(--clr-accent);
     background-color: var(--clr-primary);
-    font-weight: var(--fnt-wg-regular);
+    font-weight: var(--fnt-wg-bold);
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -68,7 +68,8 @@ const totalDelay = Math.max(1500, lastWordTiming + 200);
   }
 
   .text.animated {
-    animation: animate-lines 0.6s var(--delay, 0ms) cubic-bezier(0, 0, 0.58, 1.2) forwards;
+    animation: animate-lines 0.6s var(--delay, 0ms)
+      cubic-bezier(0, 0, 0.58, 1.2) forwards;
   }
 
   @keyframes animate-lines {
