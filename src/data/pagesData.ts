@@ -103,7 +103,6 @@ export const PAGES = [
     heroImage: { heroImageSrc: heroResidencia, heroImageAlt: "" },
     sections: [
       {
-        title: "La Residència",
         text: [
           "L'any 2008, gràcies a un acord urbanístic impulsat el 1999 per la junta directiva presidida per Ramon Font, es va inaugurar la residència de jugadors joves al carrer de l’Enginyer, a Granollers. Aquesta instal·lació va néixer amb l'objectiu d'acollir joves talents en formació, oferint-los l'oportunitat de perfeccionar les seves habilitats esportives a la ciutat, en un entorn adequat per al seu desenvolupament.",
           "Al llarg dels anys la residència ha estat la llar de jugadors com Juan Del Arco, José Rial, Mikel Muguerza, Saúl Campo, David Herrera, Pep Reixach i Carlos Barbero. Recentment, amb l'ascens de l'equip sènior femení a la màxima categoria de l'handbol espanyol, la residència també ha acollit destacades jugadores de l’equip femení com Giulia Guareiro, Tilda Mathis, Nicole Wiggins, Carmen Prelchi, Lora Sarandeva, Ana González i Lea Kofler.",

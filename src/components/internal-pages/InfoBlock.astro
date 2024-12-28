@@ -13,13 +13,36 @@ const {
   downloadButton,
 } = Astro.props;
 
+// Split the title into words if it exists
 const titleWords = textTitle ? textTitle.split(" ") : [];
 ---
 
-<script
-  src="/src/scripts/observerAnimateScript.ts"
-  data-target-class=".info-block"
-  data-threshold="0.5"></script>
+<script>
+  if (typeof window !== "undefined") {
+    window.addEventListener("DOMContentLoaded", () => {
+      const infoBlocks = document.querySelectorAll(".info-block");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Add a delay before starting the animation
+              setTimeout(() => {
+                entry.target.classList.add("animate");
+              }, 200);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1, 
+        },
+      );
+
+      infoBlocks.forEach((block) => observer.observe(block));
+    });
+  }
+</script>
 
 <section
   id={sectionId ? sectionId : ""}
@@ -117,19 +140,6 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
       cubic-bezier(0, 0, 0.58, 1.2) forwards;
   }
 
-  .text-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .links-container {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding-top: 1.5rem;
-  }
-
   @keyframes animate-lines {
     0% {
       opacity: 0;
@@ -142,6 +152,19 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .links-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
   }
 
   @media (width < 1091px) {

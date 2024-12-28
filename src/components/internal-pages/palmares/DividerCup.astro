@@ -6,9 +6,9 @@ const { number, heading } = Astro.props;
 ---
 
 
-  <h3 class="titles-heading" >
+  <h2 class="titles-heading" >
     <span class="titles-num">{number}</span>{heading}
-  </h3>
+  </h2>
   <div class="divider-container">
     <Image class="cup" src={cupImage} alt="copa" />
     <div class="divider-line"></div>
@@ -22,6 +22,7 @@ const { number, heading } = Astro.props;
     color: var(--clr-accent);
     letter-spacing: -0.06rem;
     padding-top: 5.4375rem;
+    line-height: normal;
   }
 
   .titles-num {

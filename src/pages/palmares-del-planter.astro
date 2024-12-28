@@ -53,10 +53,10 @@ type PalmaresSection = {
               <div class="text-block">
                 {firstBlock.map((title) => (
                   <div>
-                    <h4 class="title-heading">
+                    <h3 class="title-heading">
                       {title.team}:{" "}
                       <span class="global-clr-accent">{title.titlesNum}</span>
-                    </h4>
+                    </h3>
                     {title.seasons && <p>({title.seasons})</p>}
                   </div>
                 ))}
@@ -66,10 +66,10 @@ type PalmaresSection = {
               <div class="text-block">
                 {secondBlock.map((title) => (
                   <div>
-                    <h4 class="title-heading">
+                    <h3 class="title-heading">
                       {title.team}:{" "}
                       <span class="global-clr-accent">{title.titlesNum}</span>
-                    </h4>
+                    </h3>
                     {title.seasons && <p>({title.seasons})</p>}
                   </div>
                 ))}
