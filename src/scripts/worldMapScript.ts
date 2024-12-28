@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const mapContainer = document.querySelector(".map-container");
   const overlay = document.querySelector(".continent-overlay");
-  const mapInstructionsSpecificText = document.querySelector(".map-instructions span") as HTMLElement;
+  const mapInstructionsSpecificText = document.querySelector(
+    ".map-instructions span",
+  ) as HTMLElement;
 
   const closeBtnSelector = ".close-overlay-button";
   const isTouchableDevice =
@@ -9,15 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Update map instructions based on device type
   if (mapInstructionsSpecificText) {
+    const instructionText = isTouchableDevice
+      ? "Toca el mapa interactiu per veure més detalls!"
+      : "Passa el cursor pel mapa interactiu per veure més detalls!";
 
-
-    const instructionText = isTouchableDevice 
-        ? "Toca el mapa interactiu per veure més detalls!"
-        : "Passa el cursor pel mapa interactiu per veure més detalls!";
-    
     mapInstructionsSpecificText.innerText = instructionText;
-
-}
+  }
 
   const continents = [
     "europe",

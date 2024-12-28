@@ -131,7 +131,6 @@ export const PAGES = [
     heroImage: { heroImageSrc: heroVeterans, heroImageAlt: "" },
     sections: [
       {
-        title: "Equips de veteranes i veterans",
         text: [
           "La Fundació i el Club BM Granollers han impulsat la continuïtat en la pràctica de l'handbol i l’exercici físic per a aquells jugadors i jugadores que desitgen seguir competint. Tot i que durant un temps es van mantenir equips tant de veterans com de veteranes, actualment és l'equip de veteranes el que segueix actiu. Aquest equip ha aconseguit importants fites, incloent diversos campionats de Catalunya, i es va proclamar campió d’Europa al torneig celebrat a Granollers l'any 2022. ",
         ],

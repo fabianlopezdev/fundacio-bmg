@@ -18,13 +18,11 @@ const { chartSection } = Astro.props as Props;
 <section class="charts-container global-internal-page-section-padding">
   <SpecialSectionHeading title={chartSection.chartIntro} />
   <div class="charts-wrapper">
-    {chartSection.charts.map((chart) => (
-      <Image
-        class="chart-image"
-        src={chart.chartImg}
-        alt={chart.chartAlt}
-      />
-    ))}
+    {
+      chartSection.charts.map((chart) => (
+        <Image class="chart-image" src={chart.chartImg} alt={chart.chartAlt} />
+      ))
+    }
   </div>
 </section>
 
@@ -36,7 +34,7 @@ const { chartSection } = Astro.props as Props;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1513px;
+    max-width: var(--wd-max);
     gap: var(--space-y-page-section);
     margin-inline: auto;
   }

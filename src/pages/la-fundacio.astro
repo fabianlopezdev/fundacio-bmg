@@ -13,52 +13,45 @@ const { title, heroImage, sections, foundersSections } = LA_FUNDACIO;
 <BaseLayout title={title} description="">
   <HeroInternal {title} {heroImage} />
 
-<div class="infoblock-container">
-  <InfoBlock textTitle={sections[0].title} textContent={sections[0].text} />
-</div>
-
-<section class="founders-section">
-  <div class="founders-wrapper global-max-width">
-    <SpecialSectionHeading
-      title="Aquestes són les persones, empreses i entitats que van crear la"
-      highlighted="Fundació BM Granollers"
-    />
-    {
-      foundersSections.map((section, index) => (
-        <>
-          <h3 class="founders-heading">{section.foundersKind}</h3>
-          <div class="divider-line" />
-          <div class={`text-container ${index === 1 ? 'empreses' : ''}`}>
-            {section.text.map((column) => (
-              <p>
-                {column.map((textUnit) => (
-                  <>{textUnit}<br /></>
-                ))}
-              </p>
-            ))}
-          </div>
-        </>
-      ))
-    }
+  <div class="infoblock-container">
+    <InfoBlock textTitle={sections[0].title} textContent={sections[0].text} />
   </div>
-</section>
 
-<InfoBlock textContent={sections[1].text} />
+  <section class="founders-section">
+    <div class="founders-wrapper global-max-width">
+      <SpecialSectionHeading
+        title="Aquestes són les persones, empreses i entitats que van crear la"
+        highlighted="Fundació BM Granollers"
+      />
+      {
+        foundersSections.map((section, index) => (
+          <>
+            <h3 class="founders-heading">{section.foundersKind}</h3>
+            <div class="divider-line" />
+            <div class={`text-container ${index === 1 ? "empreses" : ""}`}>
+              {section.text.map((column) => (
+                <p>
+                  {column.map((textUnit) => (
+                    <>
+                      {textUnit}
+                      <br />
+                    </>
+                  ))}
+                </p>
+              ))}
+            </div>
+          </>
+        ))
+      }
+    </div>
+  </section>
+
+  <InfoBlock textContent={sections[1].text} />
 </BaseLayout>
 
-
 <style>
-  .page-container {
+  .infoblock-container {
     background-color: var(--clr-secondary);
-    font-size: clamp(1.125rem, 1.043rem + 0.351vi, 1.375rem);
-    color: rgba(0, 0, 0, 1);
-    letter-spacing: 0.0004rem;
-  }
-  .extra-text {
-    font-size: clamp(1.125rem, 1.043rem + 0.351vi, 1.375rem);
-    padding-inline: var(--space-x-xl);
-    padding-block: 6.625rem;
-    font-weight: 100;
   }
 
   .founders-section {
@@ -110,11 +103,8 @@ const { title, heroImage, sections, foundersSections } = LA_FUNDACIO;
   .text-container.empreses p:nth-child(2) {
     padding-right: 0rem;
   }
-  .infoblock-container {
-    background-color: var(--clr-secondary);
-  }
 
-  @media( width < 800px) {
+  @media (width < 800px) {
     .infoblock-container {
       padding-bottom: var(--space-y-page-section);
     }

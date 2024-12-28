@@ -134,13 +134,18 @@ export const TORNEJOS = {
       infoSection: {
         title: "Torneig de Minihandbol",
         text: [
-          "Des de 1995, el Club BM Granollers primer, i posteriorment també la Fundació BM Granollers, han promogut un torneig d'handbol escolar. L'objectiu és donar a conèixer aquest esport, iniciar els nens i nenes en la seva pràctica i transmetre els seus valors. Aquest torneig inclou equips dels centres educatius de Granollers i altres municipis de la comarca. Els participants, nens i nenes d'entre 5 i 12 anys, reben formació, material i equipament per participar.",
-          "Des dels inicis, l'empresa de distribució alimentària Coaliment ha estat un patrocinador clau, gràcies al suport decisiu del seu president, el senyor Josep Saperas.",
+          "El minihandbol es regeix per tres principis que reflecteixen la seva filosofia educativa: ",
+          [
+            "· La progressió en el joc és més important que el resultat.",
+            "· Tots els jugadors/es de l’equip han de participar activament en el joc.",
+            "· El treball en valors complementa el treball esportiu.",
+          ],
+          "El minihandbol, igual que l’handbol, és un esport educatiu. Ajuda els nens i les nenes a aprendre conceptes, habilitats, valors i a divertir-se. Es tracta d’una activitat lúdica, participativa i pedagògica, que fomenta la sana competició i la superació personal i de grup.",
         ],
       },
       chartSection: {
         chartIntro:
-          "Els gràfics següents permeten veure l’evolució creixent del nombre de nois i noies i equips participants. ",
+          "El gràfic següent permeten veure l’evolució del Torneig.",
         charts: [
           {
             chartImg: tornejosChart3,

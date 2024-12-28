@@ -24,7 +24,7 @@ const sectionsLabels = Object.values(sections).map(
 const teamsGranollersCup = {
   text: "Descarregar quadre equips participants",
   slug: "/granollers-cup-equips",
-}
+};
 ---
 
 <BaseLayout title={title} description="">
@@ -80,6 +80,8 @@ const teamsGranollersCup = {
     </div>
   </section>
 
+  <SectionDivider />
+
   <section id={slugify(sectionsLabels[2])}>
     <div class="infoblock-container">
       <InfoBlock
@@ -97,6 +99,19 @@ const teamsGranollersCup = {
 </BaseLayout>
 
 <style>
+  .infoblock-container {
+    background-color: var(--clr-secondary);
+  }
+
+  .before-map {
+    background-color: var(--clr-primary);
+  }
+
+  .section-divider-container {
+    background-color: var(--clr-secondary);
+    padding-top: var(--space-y-page-section);
+  }
+
   .buttons-container {
     display: flex;
     background-color: var(--clr-secondary);
@@ -107,11 +122,6 @@ const teamsGranollersCup = {
     padding-inline: var(--space-x-sm);
   }
 
-  .section-divider-container {
-    background-color: var(--clr-secondary);
-    padding-top: var(--space-y-page-section);
-  }
-
   .swiper-container {
     background-color: var(--clr-secondary);
   }
@@ -120,13 +130,6 @@ const teamsGranollersCup = {
     padding-top: var(--space-y-page-section);
   }
 
-  .infoblock-container {
-    background-color: var(--clr-secondary);
-  }
-
-  .before-map {
-    background-color: var(--clr-primary);
-  }
   @media (width < 800px) {
     .infoblock-container {
       padding-bottom: var(--space-y-page-section);

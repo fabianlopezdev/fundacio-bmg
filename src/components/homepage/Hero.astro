@@ -2,10 +2,9 @@
 import { Image } from "astro:assets";
 import yellowArrow from "@assets/arrows/yellow-arrow.png";
 
-import {HOMEPAGE} from "@data/homePageData";
+import { HOMEPAGE } from "@data/homePageData";
 
-const { heroImage} = HOMEPAGE;
-
+const { heroImage } = HOMEPAGE;
 ---
 
 <script src="/src/scripts/heroAnimationsScript.ts"></script>
@@ -24,17 +23,21 @@ const { heroImage} = HOMEPAGE;
       <Image src={yellowArrow} alt="" loading="eager" />
     </a>
   </div>
-  <Image loading="eager" class="hero-image" src={heroImage.img} alt={heroImage.alt} />
+  <Image
+    loading="eager"
+    class="hero-image"
+    src={heroImage.img}
+    alt={heroImage.alt}
+  />
 </section>
 
 <style>
-#hero-section {
-  line-height: 0; /* This removes any line-height spacing */
-  font-size: 0; /* This removes any font-based spacing */
-  /* display: flex;
-  flex-direction: column; */
-}
-.hero-image {
+  #hero-section {
+    line-height: 0;
+    font-size: 0;
+  }
+
+  .hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -51,7 +54,7 @@ const { heroImage} = HOMEPAGE;
     background-color: var(--clr-primary);
     margin-top: calc(var(--hg-header) * -1rem);
   }
-  
+
   .hero-arrow {
     padding-right: var(--space-x-xl);
     margin-bottom: clamp(4rem, 5.7143rem + 1.4286vi, 4.5rem);
@@ -90,7 +93,6 @@ const { heroImage} = HOMEPAGE;
   }
   @media (width < 800px) {
     .hero-text {
-      /* padding-block: clamp(2rem, 1.6667rem + 1.6667vi, 3.75rem); */
       margin-top: calc(var(--hg-header-sm) * -1rem);
     }
   }

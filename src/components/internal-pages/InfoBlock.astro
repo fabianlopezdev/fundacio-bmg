@@ -1,7 +1,6 @@
 ---
 import Button from "@components/buttons/Button.astro";
 import ButtonDownload from "@components/buttons/ButtonDownload.astro";
-import ButtonInternalPage from "@components/buttons/ButtonInternalPage.astro";
 import Swiper from "@components/internal-pages/Swiper.astro";
 
 const {
@@ -14,36 +13,13 @@ const {
   downloadButton,
 } = Astro.props;
 
-// Split the title into words if it exists
 const titleWords = textTitle ? textTitle.split(" ") : [];
 ---
 
-<script>
-  if (typeof window !== "undefined") {
-    window.addEventListener("DOMContentLoaded", () => {
-      const infoBlocks = document.querySelectorAll(".info-block");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Add a delay before starting the animation
-              setTimeout(() => {
-                entry.target.classList.add("animate");
-              }, 200);
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.1, // Increased threshold to trigger later
-        },
-      );
-
-      infoBlocks.forEach((block) => observer.observe(block));
-    });
-  }
-</script>
+<script
+  src="/src/scripts/observerAnimateScript.ts"
+  data-target-class=".info-block"
+  data-threshold="0.5"></script>
 
 <section
   id={sectionId ? sectionId : ""}
@@ -66,7 +42,14 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
       {
         textContent.map((paragraph: string) => (
           <p style={`color: ${contrast ? "var(--clr-secondary)" : "#000000"}`}>
-            {paragraph}
+            {Array.isArray(paragraph)
+              ? paragraph.map((textline, index) => (
+                  <>
+                    {textline}
+                    {index < paragraph.length - 1 && <br />}
+                  </>
+                ))
+              : paragraph}
           </p>
         ))
       }
@@ -83,9 +66,10 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
       {
         downloadButton && (
           <div class="links-container">
-            
-              <ButtonDownload text={downloadButton.text} slug={downloadButton.slug} />
-          
+            <ButtonDownload
+              text={downloadButton.text}
+              slug={downloadButton.slug}
+            />
           </div>
         )
       }
@@ -100,7 +84,7 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
   }
 
   .info-container {
-    max-width: 1513px;
+    max-width: var(--wd-max);
     padding-inline: var(--space-x-xl);
     padding-block: var(--space-y-page-section);
     display: flex;
@@ -133,6 +117,19 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
       cubic-bezier(0, 0, 0.58, 1.2) forwards;
   }
 
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .links-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
+  }
+
   @keyframes animate-lines {
     0% {
       opacity: 0;
@@ -145,19 +142,6 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  .text-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .links-container {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding-top: 1.5rem;
   }
 
   @media (width < 1091px) {

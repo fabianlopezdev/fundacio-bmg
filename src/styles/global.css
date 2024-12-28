@@ -33,7 +33,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* outline: 1px solid red; */
 }
 
 html {
@@ -78,7 +77,6 @@ h1 {
   line-height: 1em;
   padding-block: clamp(4rem, 5.7143rem + 1.4286vi, 4.5rem);
   padding-inline: var(--space-x-xl);
-  /* margin-top: calc(var(--hg-header) * -1rem); */
   position: relative;
 }
 
@@ -130,22 +128,15 @@ h2 {
   stroke: var(--clr-secondary);
 }
 
-
-
 .global-internal-page-section-padding {
   padding-inline: var(--space-x-xl);
   padding-block: var(--space-y-page-section);
 }
 
-.global-pagging-block {
-  padding-block: 6.625rem;
-}
-
 .global-max-width {
-  max-width: 1513px;
+  max-width: var(--wd-max);
   margin-inline: auto;
 }
-
 
 :root {
   /* To allow Details Html Element to have transitions */
@@ -153,7 +144,8 @@ h2 {
 
   /* Heights */
 
-  /* Added without format because when using calc, mixes of px and rem don-t work*/
+  --wd-max: 94.5625rem;
+
   --hg-header: 5.875;
   --hg-header-sm: 4.099375;
 

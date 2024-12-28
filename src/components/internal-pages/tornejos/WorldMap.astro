@@ -8,14 +8,20 @@ import { continentInfoElements } from "@data/countriesData";
 import path from "path";
 import SpecialSectionHeading from "@components/internal-pages/SpecialSectionHeading.astro";
 
-const rawSVG = fs.readFileSync(path.resolve("./src/assets/miscellaneous/world.svg"), "utf8");
+const rawSVG = fs.readFileSync(
+  path.resolve("./src/assets/miscellaneous/world.svg"),
+  "utf8",
+);
 ---
 
 <script src="/src/scripts/worldMapScript.ts"></script>
 
 <div class="relative">
   <div class="map-instructions">
-    <SpecialSectionHeading title="Descobreix els països que han participat a la Granollers Cup:" highlighted="sth" />
+    <SpecialSectionHeading
+      title="Descobreix els països que han participat a la Granollers Cup:"
+      highlighted="sth"
+    />
   </div>
   <div class="map-container" set:html={rawSVG} />
 
@@ -83,11 +89,12 @@ const rawSVG = fs.readFileSync(path.resolve("./src/assets/miscellaneous/world.sv
 
   .map-container {
     width: 100vw;
-    max-width: 1513px;
+    max-width: var(--wd-max);
     padding-inline: var(--space-x-m);
     margin-inline: auto;
     position: relative;
     overflow: visible;
+    cursor: pointer;
   }
 
   :global(.world-map path) {

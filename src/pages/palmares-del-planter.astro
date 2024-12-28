@@ -101,13 +101,15 @@ type PalmaresSection = {
 
 <style>
   .palmares {
-    max-width: 1513px;
+    max-width: var(--wd-max);
     margin: auto;
   }
+
   .intro-text {
     font-size: clamp(1.125rem, 0.891rem + 1.041vi, 1.875rem);
     letter-spacing: 0.0004rem;
   }
+
   .text-container {
     display: flex;
     justify-content: space-between;
@@ -115,17 +117,17 @@ type PalmaresSection = {
     row-gap: 2rem;
   }
 
-  .title-heading {
-    font-size: var(--fnt-sz-internal-page);
-    letter-spacing: 0.0004rem;
-
-  }
-
   .text-block {
     max-width: clamp(24rem, 0.965rem + 35.992vi, 35rem);
     display: flex;
     flex-direction: column;
     gap: 2rem;
+  }
+
+  .title-heading {
+    font-size: var(--fnt-sz-internal-page);
+    letter-spacing: 0.0004rem;
+
   }
 
 @media (width < 1024px) {

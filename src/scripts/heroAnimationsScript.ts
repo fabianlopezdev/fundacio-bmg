@@ -62,8 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isChrome && !isMobile()) return;
 
     console.log("isChrome", isChrome);
-      console.log("istouch", !isMobile());
-      
+    console.log("istouch", !isMobile());
+
     if (!htmlElement || !(htmlElement instanceof HTMLElement)) {
       console.error("Invalid element passed to animateHeight");
       return undefined;

@@ -11,8 +11,8 @@ export function slugify(text: string): string {
 }
 
 function createAnchorWithIcon(): HTMLAnchorElement {
-  const anchor = document.createElement('a');
-  anchor.className = 'open-link';
+  const anchor = document.createElement("a");
+  anchor.className = "open-link";
   anchor.innerHTML = `
     <svg 
       width="0.8em" 
@@ -34,13 +34,13 @@ function createAnchorWithIcon(): HTMLAnchorElement {
 }
 
 function handleDetailsToggle(detail: HTMLDetailsElement) {
-  const summary = detail.querySelector('summary');
+  const summary = detail.querySelector("summary");
   if (!summary) return;
 
-  const existingAnchor = summary.querySelector('.open-link');
-  
+  const existingAnchor = summary.querySelector(".open-link");
+
   if (detail.open && !existingAnchor) {
-    const text = summary.textContent?.trim() || '';
+    const text = summary.textContent?.trim() || "";
     const slug = slugify(text);
     const anchor = createAnchorWithIcon();
     anchor.href = `/${slug}`;
@@ -51,7 +51,9 @@ function handleDetailsToggle(detail: HTMLDetailsElement) {
 }
 
 function initializeMenu() {
-  const menuToggle = document.getElementById("menu-toggle") as HTMLButtonElement;
+  const menuToggle = document.getElementById(
+    "menu-toggle",
+  ) as HTMLButtonElement;
   const menu = document.getElementById("menu") as HTMLElement;
   const backdrop = document.getElementById("backdrop") as HTMLElement;
 
@@ -91,11 +93,11 @@ function initializeMenu() {
 }
 
 // Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   // Initialize details toggle functionality
-  const details = document.querySelectorAll<HTMLDetailsElement>('details');
-  details.forEach(detail => {
-    detail.addEventListener('toggle', () => handleDetailsToggle(detail));
+  const details = document.querySelectorAll<HTMLDetailsElement>("details");
+  details.forEach((detail) => {
+    detail.addEventListener("toggle", () => handleDetailsToggle(detail));
   });
 
   // Initialize menu toggle functionality
