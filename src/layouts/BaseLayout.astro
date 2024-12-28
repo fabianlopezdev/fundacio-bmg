@@ -1,16 +1,22 @@
 ---
 // Import styles
 import "@styles/global.css";
-
+import { SEO } from "astro-seo";
 import Header from "@components/header/Header.astro";
 import Footer from "@components/Footer.astro";
+import { structuredData } from "@data/structuredData";
 
 interface Props {
   title: string;
   description: string;
+  currentPath?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, currentPath = "" } = Astro.props;
+const canonical = `https://fundacio.bmgranollers.cat/${currentPath}`;
+
+// Convert structured data to a string with proper formatting
+const structuredDataString = JSON.stringify(structuredData, null, 2);
 ---
 
 <!doctype html>
@@ -25,7 +31,45 @@ const { title, description } = Astro.props;
       href="/fundacio-balonmano-granollers-favicon.png"
     />
     <meta name="generator" content={Astro.generator} />
-    <title>{`${title} | Fundació Balonmano Granollers`}</title>
+
+    <meta name="robots" content="index,follow" />
+    <meta
+      name="googlebot"
+      content="index,follow, max-snippet:-1, max-image-preview:large"
+    />
+
+    <!-- SEO Component -->
+    <SEO
+      title={title.includes("Fundació del Balonmano Granollers")
+        ? title
+        : `${title} | Fundació del Balonmano Granollers`}
+      description={description}
+      canonical={canonical}
+      openGraph={{
+        basic: {
+          title: title.includes("Fundació del Balonmano Granollers")
+            ? title
+            : `${title} | Fundació del Balonmano Granollers`,
+          type: "website",
+          image: `/og-image.png`,
+          url: canonical,
+        },
+        optional: {
+          locale: "ca",
+          siteName: "Fundació del Balonmano Granollers",
+          description: description,
+        },
+      }}
+      extend={{
+        link: [{ rel: "alternate", hreflang: "ca", href: canonical }],
+        meta: [
+          { name: "author", content: "Fundació del Balonmano Granollers" },
+        ],
+      }}
+    />
+
+    <!-- Structured Data Script -->
+    <script type="application/ld+json" set:html={structuredDataString} />
   </head>
   <body>
     <Header />

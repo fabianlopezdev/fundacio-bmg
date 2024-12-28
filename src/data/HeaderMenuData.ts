@@ -10,7 +10,7 @@ export const HEADER_MENU_LINKS = [
     ariaLabel: "",
   },
   {
-    label: "Palmarès del plater",
+    label: "Palmarès del planter",
     url: "/palmares-del-planter",
     ariaLabel: "",
   },
