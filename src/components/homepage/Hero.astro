@@ -12,12 +12,12 @@ const { heroImage } = HOMEPAGE;
 <section id="hero-section">
   <div class="hero-text">
     <h1>
-      <span class="accent animated text" style="--delay: 100ms">25 anys</span
-      ><br /><span class="animated text" style="--delay: 900ms"
-        >defensant els colors</span
-      ><br /><span class="animated text" style="--delay: 1700ms"
-        >que estimem.</span
-      >
+      <span class="accent animated text" style="--delay: 100ms">25 anys</span>
+      <span class="text-container">
+        <span class="animated text" style="--delay: 900ms">defensant</span>
+        <span class="animated text" style="--delay: 900ms">els colors</span>
+      </span>
+      <span class="animated text" style="--delay: 1700ms">que estimem.</span>
     </h1>
     <a href="#info" aria-label="Ves a la primera secció de la pàgina" class="hero-arrow animated" style="--delay: 3100ms">
       <Image src={yellowArrow} alt="" loading="eager" />
@@ -91,6 +91,7 @@ const { heroImage } = HOMEPAGE;
     animation: animate-arrow 0.6s var(--delay, 0ms) cubic-bezier(0.8, 0, 0.2, 1)
       forwards;
   }
+  
   @media (width < 800px) {
     .hero-text {
       margin-top: calc(var(--hg-header-sm) * -1rem);

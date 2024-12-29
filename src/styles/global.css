@@ -71,7 +71,7 @@ ul {
 }
 
 h1 {
-  font-size: var(--fnt-sz-xxl);
+  font-size: clamp(2.5rem, 1.427rem + 4.77vi, 5.938rem);
   font-weight: var(--fnt-wg-light);
   letter-spacing: -0.04em;
   line-height: 1em;
