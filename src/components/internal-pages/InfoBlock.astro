@@ -121,7 +121,7 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
     color: var(--clr-primary);
     min-width: 11ch;
     max-width: 11ch;
-    letter-spacing: -0.1rem;
+    letter-spacing: -0.03em;
     font-weight: var(--fnt-wg-regular);
     line-height: 1.1;
   }
@@ -134,8 +134,13 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
     opacity: 0;
     transform: translateY(50%);
     display: inline-block;
+    padding-right: 0.4rem;
+
   }
 
+  .text:last-child {
+    padding-right: 0;
+  }
   .info-block.animate .text.animated {
     animation: animate-lines 0.2s var(--delay, 0ms)
       cubic-bezier(0, 0, 0.58, 1.2) forwards;
@@ -176,5 +181,14 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
       width: 100%;
       max-width: 100%;
     }
+
+    .text {
+    padding-right: 0.1rem;
+
+  }
+
+  .text:last-child {
+    padding-right: 0;
+  }
   }
 </style>

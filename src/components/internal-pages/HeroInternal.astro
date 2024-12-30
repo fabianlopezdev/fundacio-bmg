@@ -25,7 +25,7 @@ const objectPositionCenter = title === "La residència";
       {
         titleWords.map((word: string, index: number) => (
           <span class="animated text" style={`--delay: ${index * 300}ms`}>
-            {word}
+            {`${word}`}
           </span>
         ))
       }
@@ -58,6 +58,8 @@ const objectPositionCenter = title === "La residència";
   }
 
   .h1-internal-page {
+    /* letter-spacing: -0.03em; */
+    word-spacing: 1rem !important;
     color: var(--clr-accent);
     background-color: var(--clr-primary);
     font-weight: var(--fnt-wg-bold);
@@ -70,6 +72,7 @@ const objectPositionCenter = title === "La residència";
     opacity: 0;
     transform: translateY(50%);
     display: inline-block;
+    padding-right: 0.5rem;
   }
 
   .text.animated {
@@ -123,6 +126,15 @@ const objectPositionCenter = title === "La residència";
       /* padding-block: clamp(2rem, 1.6667rem + 1.6667vi, 3.75rem); */
       margin-top: calc(var(--hg-header-sm) * -1rem);
     }
+
+    .text {
+    padding-right: 0.2rem;
+
+  }
+
+  .text:last-child {
+    padding-right: 0;
+  }
   }
 
   @media (width < 769px) {
