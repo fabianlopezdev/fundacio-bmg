@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 import playerDecoration from "@assets/homepage/jugador-icona-fundacio-balonmano-granollers.png";
+import PlayerImage from "@assets/homepage/PlayerImage.astro";
 
 import ButtonIcon from "@components/buttons/ButtonIcon.astro";
 ---
@@ -33,7 +34,8 @@ import ButtonIcon from "@components/buttons/ButtonIcon.astro";
   <div class="info-decoration outter"></div>
   <div class="info-decoration inner"></div>
   <div class="info-decoration image">
-    <Image class="player-decoration" src={playerDecoration} alt="" />
+    <!-- <Image class="player-decoration" src={playerDecoration} alt="" /> -->
+     <PlayerImage />
   </div>
 
   <div class="info-container">
@@ -86,11 +88,22 @@ import ButtonIcon from "@components/buttons/ButtonIcon.astro";
     opacity: 0;
   }
 
-  .info-decoration.image .player-decoration {
-    width: 100%;
+  .info-decoration.image {
+    position: absolute;
+    transform: translate(45%, -50%);
+    width: calc(var(--decoration-width) * 0.4); 
     height: auto;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
+  .info-decoration.image :global(svg) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
   .info-container {
     padding-left: 40%;

@@ -3,7 +3,7 @@ import { slugify } from "@utils/index";
 import heroCooperacio from "@assets/hero-images/cooperacio.webp";
 import heroResidencia from "@assets/hero-images/residencia.webp";
 import heroVeterans from "@assets/hero-images/veterans.webp";
-import heroSpecial from "@assets/hero-images/special.webp"
+import heroSpecial from "@assets/hero-images/special.webp";
 import heroLlegat from "@assets/hero-images/llegat.webp";
 
 import cooperacioCarousel1_1 from "@assets/carousel-images/cooperacio/nigeria/nigeria_carrusel_1.webp";
@@ -166,7 +166,7 @@ export const PAGES = [
     ],
   },
   {
-    title: "El llegat de 25 anys",
+    title: "El llegat dels 25 anys",
     heroImage: { heroImageSrc: heroLlegat, heroImageAlt: "" },
     sections: [
       {
@@ -200,7 +200,7 @@ export const PAGES = [
     sections: [
       {
         text: [
-        "Segons els estatuts de la Fundació BM Granollers i amb l'objectiu de millorar la salut i el benestar de les persones amb diversitat funcional, es crea l'equip Magic’s la temporada 2018/19. Des d’aleshores participa en les lligues de la Fundació DeManoenMano per donar visibilitat a nois i noies amb necessitats especials. L'equip Magic’s ofereix un espai per a la pràctica de l'esport, l'exercici físic i fomenta la relació i convivència entre els seus membres.",  
+          "Segons els estatuts de la Fundació BM Granollers i amb l'objectiu de millorar la salut i el benestar de les persones amb diversitat funcional, es crea l'equip Magic’s la temporada 2018/19. Des d’aleshores participa en les lligues de la Fundació DeManoenMano per donar visibilitat a nois i noies amb necessitats especials. L'equip Magic’s ofereix un espai per a la pràctica de l'esport, l'exercici físic i fomenta la relació i convivència entre els seus membres.",
         ],
         images: [
           {
@@ -220,11 +220,10 @@ export const PAGES = [
             imgAlt: "",
           },
         ],
-    
       },
     ],
   },
 ].map((page) => ({
   ...page,
-  linkHref: slugify(page.title), 
+  linkHref: slugify(page.title),
 }));

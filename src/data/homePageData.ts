@@ -1,20 +1,20 @@
-import homePageHero from "@assets/homepage/homepage.webp"
+import homePageHero from "@assets/homepage/homepage.webp";
 
-import valorsImgSection from "@assets/homepage/sections/valors-section.webp"
-import palmaresImgSection from "@assets/homepage/sections/palmares-section.webp"
-import tornejosImgSection from "@assets/homepage/sections/tornejos-section.webp"
-import especialImgSection from "@assets/homepage/sections/equip-especial-section.webp"
-import cooperacioImgSection from "@assets/homepage/sections/cooperacio-section.webp"
-import residenciaImgSection from "@assets/homepage/sections/residencia-section.webp"
-import veteransImgSection from "@assets/homepage/sections/veterans-section.webp"
-import acompanyantImgSection from "@assets/homepage/sections/acompanyant-section.webp"
-import llegatImgSection from "@assets/homepage/sections/llegat-section.webp"
+import valorsImgSection from "@assets/homepage/sections/valors-section.webp";
+import palmaresImgSection from "@assets/homepage/sections/palmares-section.webp";
+import tornejosImgSection from "@assets/homepage/sections/tornejos-section.webp";
+import especialImgSection from "@assets/homepage/sections/equip-especial-section.webp";
+import cooperacioImgSection from "@assets/homepage/sections/cooperacio-section.webp";
+import residenciaImgSection from "@assets/homepage/sections/residencia-section.webp";
+import veteransImgSection from "@assets/homepage/sections/veterans-section.webp";
+import acompanyantImgSection from "@assets/homepage/sections/acompanyant-section.webp";
+import llegatImgSection from "@assets/homepage/sections/llegat-section.webp";
 
 export const HOMEPAGE = {
-    heroImage: {
-        img: homePageHero,
-        alt: "",
-    },
+  heroImage: {
+    img: homePageHero,
+    alt: "",
+  },
   sections: [
     {
       label: "Un club amb valors",
@@ -81,7 +81,7 @@ export const HOMEPAGE = {
       url: "acompanyant-el-club",
     },
     {
-      label: "El llegat de 25 anys",
+      label: "El llegat dels 25 anys",
       image: {
         img: llegatImgSection,
         alt: "",
