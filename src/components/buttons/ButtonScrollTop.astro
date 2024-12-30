@@ -1,0 +1,66 @@
+---
+import TopArrow from "@assets/arrows/Top-arrow.astro"
+import { Image } from "astro:assets";
+const { slug, text, newTab } = Astro.props as {
+  slug: string;
+  text: string;
+  newTab?: boolean;
+};
+---
+
+
+    <a
+    href={slug}
+    class="button"
+    rel={newTab ? "noopener noreferrer" : undefined}
+    aria-label={`Navega a la pàgina ${text}${newTab ? ", s'obre en una nova pestanya" : ""}`}
+    target={newTab ? "_blank" : ""}
+    >
+    {text}
+    <div class="button-arrow">
+      <TopArrow />
+    </div>
+  </a>
+
+
+<style>
+.button {
+  --button-radius: 2rem;
+  width: fit-content;
+  background-color: var(--clr-primary);
+  color: var(--clr-secondary);
+  border-radius: var(--button-radius);
+  padding-inline: 1.5625rem;
+  padding-block: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: var(--fnt-wg-regular);
+  letter-spacing: 0.0004rem;
+  border: 2px solid var(--clr-primary);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.button-arrow {
+  display: flex;
+  align-items: center;
+  transform: translateY(0);
+  /* Add a delay of 0.15s to start after the color transition begins */
+  transition: transform 0.2s ease-in-out 0.15s;
+}
+
+.button:hover {
+  background-color: var(--clr-secondary);
+  color: var(--clr-primary);
+  cursor: pointer;
+}
+
+.button:hover .button-arrow {
+  transform: translateY(-10%);
+}
+</style>
