@@ -195,7 +195,7 @@ export const PAGES = [
     ],
   },
   {
-    title: "Equip Especial",
+    title: "Equip Special",
     heroImage: { heroImageSrc: heroSpecial, heroImageAlt: "" },
     sections: [
       {

@@ -12,6 +12,7 @@ import ChartSection from "@components/internal-pages/ChartSection.astro";
 import { TORNEJOS } from "@data/tornejosData";
 
 import { slugify } from "@utils/index";
+import ScrollToTop from "@components/ScrollToTop.astro";
 
 const { title, heroImage, sections } = TORNEJOS;
 
@@ -97,6 +98,7 @@ const teamsGranollersCup = {
       <Swiper imagesArr={miniHandbol.images} />
     </div>
   </section>
+  <ScrollToTop/>
 </BaseLayout>
 
 <style>

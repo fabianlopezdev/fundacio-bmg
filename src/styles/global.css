@@ -37,9 +37,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
+  overflow-x: hidden;
   display: grid;
   min-height: 100dvh;
   grid-template-rows: auto 1fr auto;

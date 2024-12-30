@@ -77,7 +77,7 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     top: 0;
     left: 0;
     height: 100dvh;
-    width:clamp(22rem, 15.716rem + 27.927vi, 42.125rem);
+    width: clamp(22rem, 15.716rem + 27.927vi, 42.125rem);
     background-color: var(--clr-bg-menu);
     border-top-right-radius: var(--radius-regular);
     border-bottom-right-radius: var(--radius-regular);
@@ -88,13 +88,34 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     transform: translate(-100%);
     transition: transform 0.3s ease-in-out;
     z-index: 2;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    /* Scrollbar styling for Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--clr-primary) transparent;
   }
 
-  .menu-flex{
+  /* Scrollbar styling for Webkit browsers */
+  .menu::-webkit-scrollbar {
+    width: 8px; /* Made thinner */
+  }
+
+  .menu::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  .menu::-webkit-scrollbar-thumb {
+    background-color: rgba(34, 60, 193, 0.85);
+    border-radius: 12px; 
+  }
+
+  .menu-flex {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .menu.active {
@@ -105,6 +126,8 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
   .menu-nav {
     padding-left: calc(var(--space-x-xl) + 1.95rem);
     padding-top: 3.4375rem;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .standalone-link {
@@ -122,7 +145,6 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
   summary::-webkit-details-marker {
     display: none;
   }
-
 
   details > summary > .arrow {
     position: relative;
@@ -165,6 +187,8 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
       ((var(--space-x-xl) + 0.1rem) + (var(--mg-left-nested-link) * -1)) * -1
     );
     background-color: var(--clr-primary);
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .sub-menu a {
@@ -249,13 +273,12 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
   @media (width < 800px) {
     .non-scrollable {
       height: calc(var(--hg-header-sm) * 1rem);
-      
     }
 
     .menu-nav {
-    padding-top: 1rem;
-    /* padding-right: calc(var(--space-x-xl)); */
-  }
+      padding-top: 1rem;
+    }
+    
     .sub-menu a {
       padding-left: calc(
         ((var(--space-x-xl) + 1rem) + (var(--mg-left-nested-link) * -1))
@@ -280,12 +303,11 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
 
   @media (width < 431px) {
     .menu-nav {
-    padding-left: calc(var(--space-x-xl) + 1rem);
-    /* padding-right: calc(var(--space-x-xl)); */
-  }
+      padding-left: calc(var(--space-x-xl) + 1rem);
+    }
 
-  .menu-flex {
-    gap: 0.01rem;
-  }
+    .menu-flex {
+      gap: 0.01rem;
+    }
   }
 </style>

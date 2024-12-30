@@ -5,7 +5,6 @@ import { SEO } from "astro-seo";
 import Header from "@components/header/Header.astro";
 import Footer from "@components/Footer.astro";
 import { structuredData } from "@data/structuredData";
-import ScrollToTop from "@components/ScrollToTop.astro";
 
 
 interface Props {
@@ -77,7 +76,6 @@ const structuredDataString = JSON.stringify(structuredData, null, 2);
     <Header />
     <main>
       <slot />
-      <ScrollToTop/>
     </main>
     <Footer />
   </body>

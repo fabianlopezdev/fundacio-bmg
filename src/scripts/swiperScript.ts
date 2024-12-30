@@ -1,60 +1,91 @@
 import Swiper from "swiper";
-  import type { SwiperOptions } from "swiper/types";
+import type { SwiperOptions } from "swiper/types";
 
-  // Wait for the DOM to be ready before initializing
-  document.addEventListener("DOMContentLoaded", () => {
-    const initializeSwipers = () => {
-      // Select all swiper containers
-      const swiperContainers = document.querySelectorAll(".swiper");
+document.addEventListener("DOMContentLoaded", () => {
+  /* Image container touch/click handling removed until details content is available
+  const initializeImageContainers = () => {
+    const imageContainers: NodeListOf<ImageContainer> = document.querySelectorAll('.image-container');
+    let activeContainer: ImageContainer | null = null;
 
-      swiperContainers.forEach((container) => {
-        // Destroy any existing Swiper instance
-        const existingSwiper = (container as any).swiper;
-        if (existingSwiper) existingSwiper.destroy(true, true);
+    imageContainers.forEach((container: ImageContainer) => {
+      const tapIndicator = container.querySelector('.tap-indicator');
 
-        // Check screen size and apply appropriate configuration
-
-        const swiperConfig = {
-          slidesPerView: "auto",
-          spaceBetween: 10, // Adjust spacing for smaller screens
-          grabCursor: true,
-          loop: true,
-          centeredSlides: true,
-          keyboard: true,
-        };
-
-        // Initialize Swiper for this specific container
-        const swiperInstance = new Swiper(
-          container as HTMLElement,
-          swiperConfig as SwiperOptions,
-        );
-
-        // Find navigation buttons specific to this Swiper
-        const prevButton = container
-          .closest(".swiper-container-wrapper")
-          ?.querySelector(".swiper-prev");
-        const nextButton = container
-          .closest(".swiper-container-wrapper")
-          ?.querySelector(".swiper-next");
-
-        // Add event listeners to navigation buttons
-        if (prevButton) {
-          prevButton.addEventListener("click", () => {
-            swiperInstance.slidePrev();
-          });
+      tapIndicator?.addEventListener('click', (e: Event) => {
+        e.stopPropagation();
+        
+        if (activeContainer && activeContainer !== container) {
+          activeContainer.classList.remove('active');
+          const prevTapIndicator = activeContainer.querySelector('.tap-indicator');
+          if (prevTapIndicator) {
+            prevTapIndicator.classList.remove('hidden');
+          }
         }
-
-        if (nextButton) {
-          nextButton.addEventListener("click", () => {
-            swiperInstance.slideNext();
-          });
-        }
+        
+        container.classList.add('active');
+        tapIndicator.classList.add('hidden');
+        activeContainer = container;
       });
-    };
+    });
 
-    // Initialize Swipers on load
+    document.addEventListener('click', (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.tap-indicator') && activeContainer) {
+        activeContainer.classList.remove('active');
+        const tapIndicator = activeContainer.querySelector('.tap-indicator');
+        if (tapIndicator) {
+          tapIndicator.classList.remove('hidden');
+        }
+        activeContainer = null;
+      }
+    });
+  };
+  */
+
+  // Swiper initialization
+  const initializeSwipers = () => {
+    const swiperContainers = document.querySelectorAll(".swiper");
+
+    swiperContainers.forEach((container) => {
+      const existingSwiper = (container as any).swiper;
+      if (existingSwiper) existingSwiper.destroy(true, true);
+
+      const swiperConfig: SwiperOptions = {
+        slidesPerView: "auto",
+        spaceBetween: 10,
+        grabCursor: true,
+        loop: true,
+        centeredSlides: true,
+        keyboard: true,
+      };
+
+      const swiperInstance = new Swiper(
+        container as HTMLElement,
+        swiperConfig
+      );
+
+      const wrapper = container.closest(".swiper-container-wrapper");
+      const prevButton = wrapper?.querySelector(".swiper-prev");
+      const nextButton = wrapper?.querySelector(".swiper-next");
+
+      if (prevButton) {
+        prevButton.addEventListener("click", () => {
+          swiperInstance.slidePrev();
+        });
+      }
+
+      if (nextButton) {
+        nextButton.addEventListener("click", () => {
+          swiperInstance.slideNext();
+        });
+      }
+    });
+  };
+
+  // Initialize Swiper only (image container handling removed)
+  initializeSwipers();
+
+  // Reinitialize Swipers on window resize
+  window.addEventListener("resize", () => {
     initializeSwipers();
-
-    // Reinitialize Swipers on window resize
-    window.addEventListener("resize", initializeSwipers);
   });
+});

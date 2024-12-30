@@ -41,7 +41,7 @@ export const HOMEPAGE = {
       url: "/tornejos",
     },
     {
-      label: "Equip Especial",
+      label: "Equip Special",
       image: {
         img: especialImgSection,
         alt: "",

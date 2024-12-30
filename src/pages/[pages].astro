@@ -4,6 +4,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import InfoBlock from "@components/internal-pages/InfoBlock.astro";
 import HeroInternal from "@components/internal-pages/HeroInternal.astro";
 import SectionDivider from "@components/internal-pages/SectionDivider.astro";
+import ScrollToTop from "@components/ScrollToTop.astro";
 
 import { slugify } from "@utils/index"
 
@@ -49,5 +50,7 @@ const { title, heroImage, sectionsLabels, sections } = page;
           </>
       ))
     }
+    {sectionsLabels?.length &&  <ScrollToTop />}
+   
 </BaseLayout>
 

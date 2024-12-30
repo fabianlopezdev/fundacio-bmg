@@ -9,6 +9,7 @@ import HeroInternal from "@components/internal-pages/HeroInternal.astro";
 import { PALMARES } from "@data/palmaresData";
 
 import {slugify} from "@utils/index";
+import ScrollToTop from "@components/ScrollToTop.astro";
 
 const { title, heroImage, sections, palmares, sectionsLabels } = PALMARES;
 
@@ -80,15 +81,15 @@ type PalmaresSection = {
       })
     }
   </section>
-
+  
   {
     sections.map((content, i) => (
       <InfoBlock
-        sectionId={sectionsLabels?.length && slugify(sectionsLabels[i + 1])}
-        textTitle={content.title}
-        textContent={content.text}
-        images={content.images}
-        links={content.links}
+      sectionId={sectionsLabels?.length && slugify(sectionsLabels[i + 1])}
+      textTitle={content.title}
+      textContent={content.text}
+      images={content.images}
+      links={content.links}
       />
       <>
             {i !== sections.length - 1 && (
@@ -97,6 +98,7 @@ type PalmaresSection = {
           </>
     ))
   }
+  <ScrollToTop/>
 </BaseLayout>
 
 <style>

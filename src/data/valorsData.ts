@@ -9,7 +9,11 @@ import valorsChart2 from "@assets/charts/valors/jugadors-chart.svg";
 import valorsChart3 from "@assets/charts/valors/jugadores-chart.svg";
 export const VALORS = {
   title: "Un club amb valors",
-  heroImage: { heroImageSrc: heroImage, heroImageAlt: "Tots els jugadors i jugadors de totes les categories, entrenadors i membres del Balonmano Granollers" },
+  heroImage: {
+    heroImageSrc: heroImage,
+    heroImageAlt:
+      "Tots els jugadors i jugadors de totes les categories, entrenadors i membres del Balonmano Granollers",
+  },
   sections: {
     title: "Un club amb valors",
     text: [
@@ -41,6 +45,8 @@ export const VALORS = {
     {
       img: carousel1,
       imgAlt: "",
+      details:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in porta nibh. Etiam in fringilla nulla. Quisque ornare nisl id.",
     },
     {
       img: carousel2,

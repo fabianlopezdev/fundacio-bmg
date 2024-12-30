@@ -35,8 +35,8 @@ export const HEADER_MENU_LINKS = [
     ],
   },
   {
-    label: "Equip especial",
-    url: "/equip-especial",
+    label: "Equip special",
+    url: "/equip-special",
     ariaLabel: "",
   },
   {
