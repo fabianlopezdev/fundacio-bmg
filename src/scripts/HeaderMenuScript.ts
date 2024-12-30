@@ -10,44 +10,8 @@ export function slugify(text: string): string {
     .replace(/\-\-+/g, "-");
 }
 
-function createAnchorWithIcon(): HTMLAnchorElement {
-  const anchor = document.createElement("a");
-  anchor.className = "open-link";
-  anchor.innerHTML = `
-    <svg 
-      width="0.8em" 
-      height="0.8em" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="black" 
-      stroke-width="2"
-      stroke-linecap="round" 
-      stroke-linejoin="round"
-      class="icon-link"
-    >
-      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-      <polyline points="15 3 21 3 21 9"></polyline>
-      <line x1="10" y1="14" x2="21" y2="3"></line>
-    </svg>
-  `;
-  return anchor;
-}
-
 function handleDetailsToggle(detail: HTMLDetailsElement) {
-  const summary = detail.querySelector("summary");
-  if (!summary) return;
-
-  const existingAnchor = summary.querySelector(".open-link");
-
-  if (detail.open && !existingAnchor) {
-    const text = summary.textContent?.trim() || "";
-    const slug = slugify(text);
-    const anchor = createAnchorWithIcon();
-    anchor.href = `/${slug}`;
-    summary.appendChild(anchor);
-  } else if (!detail.open && existingAnchor) {
-    existingAnchor.remove();
-  }
+  // Empty function since we don't need to add/remove anchors anymore
 }
 
 function initializeMenu() {

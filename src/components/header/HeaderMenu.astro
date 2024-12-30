@@ -90,7 +90,7 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     z-index: 2;
     overflow-y: auto;
     overflow-x: hidden;
-    
+
     /* Scrollbar styling for Firefox */
     scrollbar-width: thin;
     scrollbar-color: var(--clr-primary) transparent;
@@ -107,7 +107,34 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
 
   .menu::-webkit-scrollbar-thumb {
     background-color: rgba(34, 60, 193, 0.85);
-    border-radius: 12px; 
+    border-radius: 12px;
+  }
+
+  .menu {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: rgba(34, 60, 193, 0.85) transparent; /* thumb | track */
+  }
+
+  /* For WebKit */
+  .menu::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .menu::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  .menu::-webkit-scrollbar-thumb {
+    background-color: rgba(34, 60, 193, 0.85);
+    border-radius: 12px;
+  }
+
+  .menu::-webkit-scrollbar-corner {
+    background: none;
+  }
+
+  .menu::-webkit-scrollbar-button {
+    display: none;
   }
 
   .menu-flex {
@@ -125,7 +152,7 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
 
   .menu-nav {
     padding-left: calc(var(--space-x-xl) + 1.95rem);
-    padding-top: 3.4375rem;
+    /* padding-top: 3.4375rem; */
     max-width: 100%;
     box-sizing: border-box;
   }
@@ -270,6 +297,12 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     }
   }
 
+  @media (width < 1280px) {
+    .menu-nav {
+      padding-left: var(--space-x-xl);
+    }
+  }
+
   @media (width < 800px) {
     .non-scrollable {
       height: calc(var(--hg-header-sm) * 1rem);
@@ -278,7 +311,7 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     .menu-nav {
       padding-top: 1rem;
     }
-    
+
     .sub-menu a {
       padding-left: calc(
         ((var(--space-x-xl) + 1rem) + (var(--mg-left-nested-link) * -1))
