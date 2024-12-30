@@ -54,7 +54,7 @@ const teamsGranollersCup = {
     <div class="buttons-container">
       {
         granollersCup.linksSection.map((link) => (
-          <Button text={link.linkLabel} slug={link.linkSlug} />
+          <Button text={link.linkLabel} slug={link.linkSlug} newTab={link.newTab} />
         ))
       }
     </div>

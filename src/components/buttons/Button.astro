@@ -1,16 +1,20 @@
 ---
-const { slug, text, newTab } = Astro.props as {
+const { slug, text, newTab, label } = Astro.props as {
   slug: string;
   text: string;
   newTab?: boolean;
+  label?: string;
 };
+console.log(text, newTab)
 ---
 
 <a
   class="button"
   href={slug}
   rel={newTab ? "noopener noreferrer" : undefined}
-  aria-label={`Navega a la pàgina ${text}${newTab ? ", s'obre en una nova pestanya" : ""}`}
+  aria-label={label
+    ? label
+    : `Navega a la pàgina ${text}${newTab ? ", s'obre en una nova pestanya" : ""}`}
   target={newTab ? "_blank" : ""}
 >
   {text}

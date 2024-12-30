@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import fundacioBMGLogo from "@assets/logos/fundacio-balonmano-granollers-logo.svg";
 import diputacioBCNLogo from "@assets/logos/diputacio-de-barcelona-logo.svg";
 import BMGLogo from "@assets/logos/balonmano-granollers-logo.svg";
+import ajuntamentGranollersLogo from "@assets/logos/ajuntament-de-granollers-logo.svg"
 
 import { CREDITS } from "@data/creditsData";
 ---
@@ -38,6 +39,9 @@ import { CREDITS } from "@data/creditsData";
       </a>
       <a aria-label="Ves a la pàgina de la Diputació de Barcelona" href="https://www.diba.cat/" target="_blank" rel="noopener">
         <Image class="logo" src={diputacioBCNLogo} alt="" />
+      </a>
+      <a aria-label="Ves a la pàgina de l'ajuntament de Granollers" href="https://seuelectronica.granollers.cat/portal/sede/se_principal1.jsp?language=ca&codResi=1" target="_blank" rel="noopener">
+        <Image class="logo" src={ajuntamentGranollersLogo} alt="" />
       </a>
     </div>
   </section>
@@ -92,16 +96,27 @@ import { CREDITS } from "@data/creditsData";
   .bottom-footer {
     height: 7.5rem;
     background-color: var(--clr-secondary);
-    display: flex;
+    /* padding-inline: var(--space-x-xl); */
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    display: grid;
+    place-items: center;
+  }
+
+  a {
+    display: flex;
+    align-items: center;;
   }
 
   .logos-container {
     display: flex;
     justify-content: space-between;
-    width: 75%;
-    max-width: 61rem;
+    align-items: center;
+    padding-inline: var(--space-x-m);
+    width: 100%;
+    max-width: 85rem;
+    /* max-width: 61rem; */
   }
 
   @media (width < 1289px) {
@@ -144,6 +159,7 @@ import { CREDITS } from "@data/creditsData";
 
   @media (width < 800px) {
     .logo {
+      align-self:center;
       width: 123.5px;
       height: auto;
     }
@@ -174,18 +190,22 @@ import { CREDITS } from "@data/creditsData";
       margin-inline: 0rem !important; /* Space between the text and the bar */ /* Space between the bar and the next item */
     }
 
-    .bottom-footer {
-      /* height: fit-content; */
-      padding-block: 4.5rem;
-    }
-
+   
+    
     .logos-container {
+      padding-inline: var(--space-x-sm);
       width: 100%;
       justify-content: center;
       flex-wrap: wrap;
       gap: 1rem;
       /* gap: 2rem; */
       column-gap: 2rem;
+    }
+  }
+
+  @media (width < 616px) {
+    .bottom-footer {
+      height: 10rem;
     }
   }
 </style>

@@ -31,13 +31,11 @@ export const TORNEJOS = {
     granollersCup: {
       linksSection: [
         {
-          linkLabel: "Veure Vídeo Granollers Cup 2017",
-          linkSlug: "/",
-        },
-        {
-          linkLabel: "Veure Vídeo Granollers Cup 2013",
-          linkSlug: "/",
-        },
+          linkLabel: "Veure Vídeos Granollers Cup",
+          linkSlug: "https://www.youtube.com/playlist?list=PLh2urI9OLLyZma8WG1LahypZc2BSJzbxj",
+          linkAriaLabel: "Ves a la llista de reproducció de vídeos de la Granollers Cup a la compte oficial de Youtube del Balonmano Granollers",
+          newTab: true,
+        }
       ],
       infoSection: {
         title: "Granollers Cup",

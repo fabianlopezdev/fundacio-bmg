@@ -79,8 +79,8 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
       {
         links && (
           <div class="links-container">
-            {links.map((link: { text: string; slug: string }) => (
-              <Button text={link.text} slug={link.slug} />
+            {links.map((link: { text: string; slug: string; ariaLabel: string; newTab: boolean }) => (
+              <Button text={link.text} slug={link.slug} label={link.ariaLabel} newTab={link.newTab} />
             ))}
           </div>
         )

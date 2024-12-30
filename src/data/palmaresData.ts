@@ -85,11 +85,15 @@ export const PALMARES = {
       links: [
         {
           text: "Veure trailer",
-          url: "/",
+          slug: "/",
+          ariaLabel: "Veure el trailer del documental de la generació d'or del Balonmano Granollers",
+          newTab: true,
         },
         {
           text: "Veure documental",
-          url: "/",
+          slug: "https://votv.cat/generacio-dor/",
+          ariaLabel: "Veure el documental de la generació d'or del Balonmano Granollers",
+          newTab: true,
         },
       ],
     },
