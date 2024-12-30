@@ -8,6 +8,11 @@ import LeftArrow from "@assets/arrows/Left-arrow.astro";
 import RightArrow from "@assets/arrows/Right-arrow.astro";
 
 const { imagesArr } = Astro.props;
+
+// Determine how many times to repeat the array based on its length
+// so that we always fill the swiper with images even if the screen is too big
+const repetitions = imagesArr.length === 2 ? 3 : 2;
+const repeatedImages = Array(repetitions).fill(imagesArr).flat();
 ---
 
 <script src="/src/scripts/swiperScript.ts"></script>
@@ -16,7 +21,7 @@ const { imagesArr } = Astro.props;
   <div class="swiper">
     <div class="swiper-wrapper">
       {
-        [...imagesArr, ...imagesArr].map((image, index) => {
+        repeatedImages.map((image, index) => {
           const originalArrayLength = imagesArr.length * 2;
           const isEagerLoad = index < 2 || index === originalArrayLength - 1;
 

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import yellowArrow from "@assets/arrows/yellow-arrow.png";
+import YellowArrow from "@assets/arrows/YellowArrow.astro";
 
 import { HOMEPAGE } from "@data/homePageData";
 
@@ -20,7 +20,7 @@ const { heroImage } = HOMEPAGE;
       <span class="animated text" style="--delay: 1700ms">que estimem.</span>
     </h1>
     <a href="#info" aria-label="Ves a la primera secció de la pàgina" class="hero-arrow animated" style="--delay: 3100ms">
-      <Image src={yellowArrow} alt="" loading="eager" />
+       <YellowArrow />
     </a>
   </div>
   <Image
