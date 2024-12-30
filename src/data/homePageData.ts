@@ -3,7 +3,7 @@ import homePageHero from "@assets/homepage/homepage.webp";
 import valorsImgSection from "@assets/homepage/sections/valors-section.webp";
 import palmaresImgSection from "@assets/homepage/sections/palmares-section.webp";
 import tornejosImgSection from "@assets/homepage/sections/tornejos-section.webp";
-import especialImgSection from "@assets/homepage/sections/equip-especial-section.webp";
+import especialImgSection from "@assets/homepage/sections/equip-special-section.webp";
 import cooperacioImgSection from "@assets/homepage/sections/cooperacio-section.webp";
 import residenciaImgSection from "@assets/homepage/sections/residencia-section.webp";
 import veteransImgSection from "@assets/homepage/sections/veterans-section.webp";
@@ -46,7 +46,7 @@ export const HOMEPAGE = {
         img: especialImgSection,
         alt: "",
       },
-      url: "equip-especial",
+      url: "equip-special",
     },
     {
       label: "Projectes de cooperació",
@@ -86,7 +86,7 @@ export const HOMEPAGE = {
         img: llegatImgSection,
         alt: "",
       },
-      url: "el-llegat-de-25-anys",
+      url: "el-llegat-dels-25-anys",
     },
   ],
 };

@@ -66,7 +66,7 @@ export const HEADER_MENU_LINKS = [
   },
   {
     label: "El llegat dels 25 anys",
-    url: "/el-llegat-de-25-anys",
+    url: "/el-llegat-dels-25-anys",
     ariaLabel: "",
   },
 ];

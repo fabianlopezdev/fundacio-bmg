@@ -7,11 +7,11 @@ Allow: /la-fundacio
 Allow: /un-club-amb-valors
 Allow: /palmares-del-planter
 Allow: /tornejos
-Allow: /equip-especial
+Allow: /equip-special
 Allow: /projectes-de-cooperacio
 Allow: /la-residencia
 Allow: /equips-de-veteranes-i-veterans
-Allow: /el-llegat-de-25-anys
+Allow: /el-llegat-dels-25-anys
 
 # Point search engines to your sitemap
 Sitemap: https://fundacio.bmgranollers.cat/sitemap.xml

@@ -1,6 +1,6 @@
 ---
-import buttonArrow from "@assets/arrows/button-blue-arrow.png"
-import { Image } from "astro:assets";
+import RightArrowButtonIcon from "@assets/arrows/RightArrowButtonIcon.astro";
+
 const { slug, text, newTab } = Astro.props as {
   slug: string;
   text: string;
@@ -8,20 +8,18 @@ const { slug, text, newTab } = Astro.props as {
 };
 ---
 
-
-    <a
-    href={slug}
-    class="button"
-    rel={newTab ? "noopener noreferrer" : undefined}
-    aria-label={`Navega a la pàgina ${text}${newTab ? ", s'obre en una nova pestanya" : ""}`}
-    target={newTab ? "_blank" : ""}
-    >
-    {text}
-    <div class="button-arrow">
-      <Image src={buttonArrow} alt=""/>
-    </div>
-  </a>
-
+<a
+  href={slug}
+  class="button"
+  rel={newTab ? "noopener noreferrer" : undefined}
+  aria-label={`Navega a la pàgina ${text}${newTab ? ", s'obre en una nova pestanya" : ""}`}
+  target={newTab ? "_blank" : ""}
+>
+  {text}
+  <div class="button-arrow">
+    <RightArrowButtonIcon />
+  </div>
+</a>
 
 <style>
   .button {
@@ -38,9 +36,9 @@ const { slug, text, newTab } = Astro.props as {
       background-color 0.2s ease,
       color 0.3s ease,
       transform 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
   }
 
   .button-arrow {

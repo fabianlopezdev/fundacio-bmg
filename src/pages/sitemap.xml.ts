@@ -32,7 +32,7 @@ const pages = [
     changefreq: "weekly",
   },
   {
-    url: "/equip-especial",
+    url: "/equip-special",
     lastMod: new Date().toISOString().split("T")[0],
     priority: 0.9,
     changefreq: "monthly",
@@ -56,7 +56,7 @@ const pages = [
     changefreq: "monthly",
   },
   {
-    url: "/el-llegat-de-25-anys",
+    url: "/el-llegat-dels-25-anys",
     lastMod: new Date().toISOString().split("T")[0],
     priority: 0.9,
     changefreq: "monthly",
