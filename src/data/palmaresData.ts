@@ -11,12 +11,14 @@ import carousel2_1 from "@assets/carousel-images/palmares/generacio-or/generacio
 import carousel2_2 from "@assets/carousel-images/palmares/generacio-or/generacio_carrusel_2.webp";
 import carousel2_3 from "@assets/carousel-images/palmares/generacio-or/generacio_carrusel_3.webp";
 
-import carousel3_1 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_1.webp";
-import carousel3_2 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_2.webp";
-import carousel3_3 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_3.webp";
-import carousel3_4 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_4.webp";
-import carousel3_5 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_5.webp";
-import carousel3_6 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_6.webp";
+import carousel3_1 from "@assets/carousel-images/palmares/campiones/campiones_carrusel_1.webp";
+import carousel3_2 from "@assets/carousel-images/palmares/campiones/campiones_carrusel_2.webp";
+
+import carousel4_1 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_1.webp";
+import carousel4_2 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_2.webp";
+import carousel4_3 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_3.webp";
+import carousel4_4 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_4.webp";
+
 
 export const PALMARES = {
   title: "Palmarès del planter",
@@ -102,12 +104,6 @@ export const PALMARES = {
       text: [
         "La temporada 2023/24 l’equip juvenil femení va quedar campió de Catalunya i subcampió d’Espanya.",
       ],
-    },
-    {
-      title: "Supercampiones de Catalunya",
-      text: [
-        "L’equip sènior femení des del seu ascens a la màxima categoria de l’handbol estatal la temporada 2013/14 ha guanyat de manera consecutiva tots els títols de la Supercopa de Catalunya des de la temporada esmentada i fins a l’actual 2023/24.",
-      ],
       images: [
         {
           img: carousel3_1,
@@ -117,20 +113,28 @@ export const PALMARES = {
           img: carousel3_2,
           imgAlt: "",
         },
+      ],
+    },
+    {
+      title: "Supercampiones de Catalunya",
+      text: [
+        "L’equip sènior femení des del seu ascens a la màxima categoria de l’handbol estatal la temporada 2013/14 ha guanyat de manera consecutiva tots els títols de la Supercopa de Catalunya des de la temporada esmentada i fins a l’actual 2023/24.",
+      ],
+      images: [
         {
-          img: carousel3_3,
+          img: carousel4_1,
           imgAlt: "",
         },
         {
-          img: carousel3_4,
+          img: carousel4_2,
           imgAlt: "",
         },
         {
-          img: carousel3_5,
+          img: carousel4_3,
           imgAlt: "",
         },
         {
-          img: carousel3_6,
+          img: carousel4_4,
           imgAlt: "",
         },
       ],
