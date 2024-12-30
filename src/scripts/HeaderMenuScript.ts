@@ -10,8 +10,33 @@ export function slugify(text: string): string {
     .replace(/\-\-+/g, "-");
 }
 
+// Store the initial scroll position
+let scrollPosition = 0;
+
 function handleDetailsToggle(detail: HTMLDetailsElement) {
   // Empty function since we don't need to add/remove anchors anymore
+}
+
+function lockScroll() {
+  // Store current scroll position
+  scrollPosition = window.scrollY;
+  
+  // Add styles to body to prevent scroll
+  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.width = '100%';
+}
+
+function unlockScroll() {
+  // Remove styles from body
+  document.body.style.removeProperty('overflow');
+  document.body.style.removeProperty('position');
+  document.body.style.removeProperty('top');
+  document.body.style.removeProperty('width');
+  
+  // Restore scroll position
+  window.scrollTo(0, scrollPosition);
 }
 
 function initializeMenu() {
@@ -29,6 +54,7 @@ function initializeMenu() {
       menu.classList.add("active");
       backdrop.classList.add("active");
       menuToggle.classList.add("active");
+      lockScroll(); // Lock scroll when menu opens
     }
 
     function closeMenu() {
@@ -38,6 +64,7 @@ function initializeMenu() {
       menu.classList.remove("active");
       backdrop.classList.remove("active");
       menuToggle.classList.remove("active");
+      unlockScroll(); // Unlock scroll when menu closes
       menuToggle.focus();
     }
 
