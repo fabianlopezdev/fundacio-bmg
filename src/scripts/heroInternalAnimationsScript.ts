@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Initialize animation states
+  const textElements = document.querySelectorAll('.text');
+  textElements.forEach(el => {
+    // Add the data-animate attribute to trigger CSS visibility
+    el.setAttribute('data-animate', '');
+    // Add animated class with a slight delay to ensure initial state is rendered
+    requestAnimationFrame(() => {
+      el.classList.add('animated');
+    });
+  });
+
   // Disable scroll restoration
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";

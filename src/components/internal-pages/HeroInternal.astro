@@ -4,7 +4,6 @@ import HeroNavigatorContainer from "@components/internal-pages/HeroNavigatorCont
 
 const { title, heroImage, sectionsLabels } = Astro.props;
 
-
 // Split the title into words
 const titleWords = title.split(" ");
 
@@ -24,7 +23,15 @@ const objectPositionCenter = title === "La residència";
     <h1 class="h1-internal-page">
       {
         titleWords.map((word: string, index: number) => (
-          <span class="animated text" style={`--delay: ${index * 300}ms`}>
+          <span 
+            class="text" 
+            style={`
+              --delay: ${index * 300}ms; 
+              visibility: hidden;
+              opacity: 0;
+            `}
+            data-animate
+          >
             {`${word}`}
           </span>
         ))
@@ -58,7 +65,6 @@ const objectPositionCenter = title === "La residència";
   }
 
   .h1-internal-page {
-    /* letter-spacing: -0.03em; */
     word-spacing: 1rem !important;
     color: var(--clr-accent);
     background-color: var(--clr-primary);
@@ -70,9 +76,15 @@ const objectPositionCenter = title === "La residència";
 
   .text {
     opacity: 0;
+    visibility: hidden;
     transform: translateY(50%);
     display: inline-block;
     padding-right: 0.5rem;
+    will-change: transform, opacity, visibility;
+  }
+
+  .text[data-animate] {
+    visibility: visible;
   }
 
   .text.animated {
@@ -83,13 +95,16 @@ const objectPositionCenter = title === "La residència";
   @keyframes animate-lines {
     0% {
       opacity: 0;
+      visibility: visible;
       transform: translateY(50%);
     }
     1% {
       opacity: 1;
+      visibility: visible;
     }
     100% {
       opacity: 1;
+      visibility: visible;
       transform: translateY(0);
     }
   }
@@ -123,18 +138,16 @@ const objectPositionCenter = title === "La residència";
 
   @media (width < 800px) {
     .hero-text {
-      /* padding-block: clamp(2rem, 1.6667rem + 1.6667vi, 3.75rem); */
       margin-top: calc(var(--hg-header-sm) * -1rem);
     }
 
     .text {
-    padding-right: 0.2rem;
+      padding-right: 0.2rem;
+    }
 
-  }
-
-  .text:last-child {
-    padding-right: 0;
-  }
+    .text:last-child {
+      padding-right: 0;
+    }
   }
 
   @media (width < 769px) {

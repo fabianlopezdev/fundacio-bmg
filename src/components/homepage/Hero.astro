@@ -12,14 +12,14 @@ const { heroImage } = HOMEPAGE;
 <section id="hero-section">
   <div class="hero-text">
     <h1>
-      <span class="accent animated text" style="--delay: 100ms">25 anys</span>
+      <span class="accent text" style="--delay: 100ms">25 anys</span>
       <span class="text-container">
-        <span class="animated text" style="--delay: 900ms">defensant</span>
-        <span class="animated text" style="--delay: 900ms">els colors</span>
+        <span class="text" style="--delay: 900ms">defensant</span>
+        <span class="text" style="--delay: 900ms">els colors</span>
       </span>
-      <span class="animated text" style="--delay: 1700ms">que estimem.</span>
+      <span class="text" style="--delay: 1700ms">que estimem.</span>
     </h1>
-    <a href="#info" aria-label="Ves a la primera secció de la pàgina" class="hero-arrow animated" style="--delay: 3100ms">
+    <a href="#info" aria-label="Ves a la primera secció de la pàgina" class="hero-arrow" style="--delay: 3100ms">
        <YellowArrow />
     </a>
   </div>
@@ -65,6 +65,7 @@ const { heroImage } = HOMEPAGE;
     opacity: 0;
     transition: transform 0.2s ease-in-out;
     transform: translateY(0);
+    will-change: transform, opacity;
   }
 
   .hero-arrow:hover {
@@ -79,9 +80,13 @@ const { heroImage } = HOMEPAGE;
     display: inline-block;
     text-align: start;
   }
+  
   .text {
     opacity: 0;
+    transform: translateY(50%);
+    will-change: transform, opacity;
   }
+
   .text.animated {
     animation: animate-lines 0.2s var(--delay, 0ms)
       cubic-bezier(0, 0, 0.58, 1.2) forwards;
