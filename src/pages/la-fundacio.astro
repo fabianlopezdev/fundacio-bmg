@@ -86,6 +86,7 @@ const { title, heroImage, sections, foundersSections } = LA_FUNDACIO;
 
   .text-container p {
     line-height: 2;
+    text-wrap: pretty;
   }
 
   .text-container p:nth-child(1),
@@ -103,6 +104,12 @@ const { title, heroImage, sections, foundersSections } = LA_FUNDACIO;
 
   .text-container.empreses p:nth-child(2) {
     padding-right: 0rem;
+  }
+
+  @media (width < 967px) {
+    .text-container.empreses p:nth-child(1) {
+      padding-right: 0rem;
+    }
   }
 
   @media (width < 800px) {
