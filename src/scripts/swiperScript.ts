@@ -2,12 +2,12 @@ import Swiper from "swiper";
 import type { SwiperOptions } from "swiper/types";
 
 document.addEventListener("DOMContentLoaded", () => {
-  /* Image container touch/click handling removed until details content is available
-  const initializeImageContainers = () => {
-    const imageContainers: NodeListOf<ImageContainer> = document.querySelectorAll('.image-container');
-    let activeContainer: ImageContainer | null = null;
 
-    imageContainers.forEach((container: ImageContainer) => {
+  const initializeImageContainers = () => {
+    const imageContainers: NodeListOf<HTMLElement> = document.querySelectorAll('.image-container');
+    let activeContainer: HTMLElement | null = null;
+
+    imageContainers.forEach((container: HTMLElement) => {
       const tapIndicator = container.querySelector('.tap-indicator');
 
       tapIndicator?.addEventListener('click', (e: Event) => {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   };
-  */
+  
 
   // Swiper initialization
   const initializeSwipers = () => {
@@ -83,9 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize Swiper only (image container handling removed)
   initializeSwipers();
+  initializeImageContainers();
 
   // Reinitialize Swipers on window resize
   window.addEventListener("resize", () => {
     initializeSwipers();
+    initializeImageContainers();
   });
 });

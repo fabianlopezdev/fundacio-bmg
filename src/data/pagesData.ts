@@ -51,15 +51,18 @@ export const PAGES = [
         images: [
           {
             img: cooperacioCarousel1_1,
-            imgAlt: "",
+            imgAlt: "Els tres joves jugadoes, A. Babangida , Alí Hamed i Salisu Garba amb el representant de la Federació de Nigèria d’Handbol al Palau d’Esports.",
+            details: "Els tres joves jugadoes, A. Babangida , Alí Hamed i Salisu Garba amb el representant de la Federació de Nigèria d’Handbol al Palau d’Esports.",
           },
           {
             img: cooperacioCarousel1_2,
-            imgAlt: "",
+            imgAlt: "Presentació dels tres joves nigerians a la Sala de premsa del Palau d’Esports",
+            details: "Presentació dels tres joves nigerians a la Sala de premsa del Palau d’Esports",
           },
           {
             img: cooperacioCarousel1_3,
-            imgAlt: "",
+            imgAlt: "Presentació dels tres joves nigerians a la Sala de premsa del Palau d’Esports",
+            details: "Presentació dels tres joves nigerians a la Sala de premsa del Palau d’Esports",
           },
         ],
       },
@@ -74,26 +77,32 @@ export const PAGES = [
           {
             img: cooperacioCarousel2_1,
             imgAlt: "",
+            details: "",
           },
           {
             img: cooperacioCarousel2_2,
             imgAlt: "",
+            details: "",
           },
           {
             img: cooperacioCarousel2_3,
             imgAlt: "",
+            details: "",
           },
           {
             img: cooperacioCarousel2_4,
             imgAlt: "",
+            details: "",
           },
           {
             img: cooperacioCarousel2_5,
             imgAlt: "",
+            details: "",
           },
           {
             img: cooperacioCarousel2_6,
             imgAlt: "",
+            details: "",
           },
         ],
       },
@@ -112,15 +121,23 @@ export const PAGES = [
         images: [
           {
             img: residenciaCarousel1_1,
-            imgAlt: "",
+            imgAlt: "Interior de la Residència",
+            details: "Interior de la Residència",
           },
           {
             img: residenciaCarousel1_2,
             imgAlt: "",
+            details: "Inauguració de la Residència amb l’assistència de l’alcalde de Granollers, Josep Mayoral, la Secretaria General de l’Esport de la Generalitat, Anna Pruna, el Diputat d’esports de la Diputació de Barcelona, Josep Monràs i els presidents del Club i la Fundació BM Granollers, Juan María Pérez Ortiz i Josep Pujadas",
           },
           {
             img: residenciaCarousel1_3,
-            imgAlt: "",
+            imgAlt: "Entrada a la Residència",
+            details: "Entrada a la Residència",
+          },
+          {
+            img: heroResidencia,
+            imgAlt: "L’alcalde Granollers, la Secretària General d’Esport i el President del Club amb tres dels primers residents: José Rial, Mikel Muguerza, Juan Del Arco",
+            details: "L’alcalde Granollers, la Secretària General d’Esport i el President del Club amb tres dels primers residents: José Rial, Mikel Muguerza, Juan Del Arco",
           },
         ],
       },
@@ -137,19 +154,28 @@ export const PAGES = [
         images: [
           {
             img: veteransCarousel1_1,
-            imgAlt: "",
+            imgAlt: "L’equip de veteranes del Club campiones de Catalunya de 2015/16",
+            details: "L’equip de veteranes del Club campiones de Catalunya de 2015/16",
           },
           {
             img: veteransCarousel1_2,
-            imgAlt: "",
+            imgAlt: "L’equip de veterans del club de l’any 1999",
+            details: "L’equip de veterans del club de l’any 1999",
           },
           {
             img: veteransCarousel1_3,
-            imgAlt: "",
+            imgAlt: "L’equip de veterans del Club durant el campionat d’Europa de Màsters de 2005",
+            details: "L’equip de veterans del Club durant el campionat d’Europa de Màsters de 2005",
           },
           {
             img: veteransCarousel1_4,
-            imgAlt: "",
+            imgAlt: "L’equip de veteranes del Club durant el campionat d’Europa de Màsters de 2005",
+            details: "L’equip de veteranes del Club durant el campionat d’Europa de Màsters de 2005",
+          },
+          {
+            img: heroVeterans,
+            imgAlt: "L’equip de veteranes del Club celebrant el títol de l’European Masters de 2022",
+            details: "L’equip de veteranes del Club celebrant el títol de l’European Masters de 2022",
           },
         ],
       },
@@ -172,7 +198,7 @@ export const PAGES = [
     sections: [
       {
         text: [
-          " El 13 de juny de 2024 es va celebrar un acte especial amb fundadors, empreses i institucions que han donat suport a la Fundació BM Granollers durant els primers vint-i-cinc anys d’història. La trobada es va dur a terme a l’Espai BMG, al Palau d’Esports de Granollers, on actualment s’exposa la història del club. Aquest acte va permetre reconèixer i agrair la dedicació d’aquelles persones i entitats que han contribuït al creixement i a la tasca de la Fundació BM Granollers. Avui, com des del primer dia, la Fundació col·labora amb el Club BM Granollers per promoure l’handbol, fomentar valors en les noves generacions i treballar per un esport i una societat més inclusius.",
+          "El 13 de juny de 2024 es va celebrar un acte especial amb fundadors, empreses i institucions que han donat suport a la Fundació BM Granollers durant els primers vint-i-cinc anys d’història. La trobada es va dur a terme a l’Espai BMG, al Palau d’Esports de Granollers, on actualment s’exposa la història del club. Aquest acte va permetre reconèixer i agrair la dedicació d’aquelles persones i entitats que han contribuït al creixement i a la tasca de la Fundació BM Granollers. Avui, com des del primer dia, la Fundació col·labora amb el Club BM Granollers per promoure l’handbol, fomentar valors en les noves generacions i treballar per un esport i una societat més inclusius.",
           "La Fundació vol expressar un agraïment especial a les institucions i empreses que han estat al seu costat durant aquest temps:",
           "Institucions: Ajuntament de Granollers, Ajuntaments de Canovelles, Les Franqueses del Vallès, Cardedeu, Montornès del Vallès i Vilanova del Vallès; Diputació de Barcelona; Consell Comarcal del Vallès Oriental i Consell Català de l’Esport.",
           "Empreses: Advisoria, Aparthotel Atenea, BBVA, CaixaBank, Caprabo, Coaliment, Consorci de Gestió de Residus del Vallès Oriental, Covalco, La Mútua de Granollers, Electro Pla Granollers SA, Estabanell Energia, Fraikin, Kiloutou, KH-7, Top Toys i Vilor.",
@@ -181,15 +207,18 @@ export const PAGES = [
         images: [
           {
             img: llegatCarousel1_1,
-            imgAlt: "",
+            imgAlt: "Acte de celebració dels 25 anys de la Fundació BM Granollers",
+            details: "Acte de celebració dels 25 anys de la Fundació BM Granollers",
           },
           {
             img: llegatCarousel1_2,
-            imgAlt: "",
+            imgAlt: "Imatge dels dos presidents de la Fundació durant aquest període de 25 anys, Pere Lleonart i Josep Pujadas i de Juan María Pérez Ortiz actual vicepresident de la Fundació i antic president del Club BM Granollers",
+            details: "Imatge dels dos presidents de la Fundació durant aquest període de 25 anys, Pere Lleonart i Josep Pujadas i de Juan María Pérez Ortiz actual vicepresident de la Fundació i antic president del Club BM Granollers",
           },
           {
             img: llegatCarousel1_3,
-            imgAlt: "",
+            imgAlt: "Fundadors i patrons de la Fundació BM Granollers amb motiu del seu 25è aniversari",
+            details: "Fundadors i patrons de la Fundació BM Granollers amb motiu del seu 25è aniversari",
           },
         ],
       },
@@ -206,23 +235,38 @@ export const PAGES = [
         images: [
           {
             img: specialCarousel1_1,
-            imgAlt: "",
+            imgAlt: "L’equip special de la temporada 2018/19",
+            details: "L’equip special de la temporada 2018/19",
           },
+
           {
             img: specialCarousel1_2,
-            imgAlt: "",
+  imgAlt: "Acte de signatura de l’acord de patrocini amb l’empresa Kiloutou",
+  details: "Acte de signatura de l’acord de patrocini amb l’empresa Kiloutou",
           },
           {
             img: specialCarousel1_3,
-            imgAlt: "",
+             imgAlt: "L’equip special amb altres jugadors del planter del Club",
+             details: "L’equip special amb altres jugadors del planter del Club",
           },
           {
             img: specialCarousel1_4,
-            imgAlt: "",
+            imgAlt: "L’equip special de la temporada 2019/20 amb el jugador del primer equip Marc Garcia",
+            details: "L’equip special de la temporada 2019/20 amb el jugador del primer equip Marc Garcia",
           },
           {
             img: specialCarousel1_5,
-            imgAlt: "",
+            imgAlt: "Visita de l’equip special a les intal·lacions de l’empresa Kiloutou",
+            details: "Visita de l’equip special a les intal·lacions de l’empresa Kiloutou",
+          },
+
+        ],
+        links: [
+          {
+            text: "Fundació DeManoenMano",
+            slug: "https://demanoenmano.net/",
+            ariaLabel: "Ves a la pàgina web de la Fundació DeManoenMano",
+            newTab: true,
           },
         ],
       },

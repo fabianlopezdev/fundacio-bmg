@@ -20,7 +20,6 @@ import carousel4_3 from "@assets/carousel-images/palmares/supercampiones/superca
 import carousel4_4 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_4.webp";
 import carousel4_5 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_5.webp";
 
-
 export const PALMARES = {
   title: "Palmarès del planter",
   sectionsLabels: [
@@ -28,9 +27,13 @@ export const PALMARES = {
     "Campionats de Catalunya",
     "La generació d'or",
     "Campiones de Catalunya i subcampiones d'Espanya",
-    "Subcampiones de Catalunya",
+    "Supercampiones de Catalunya",
   ],
-  heroImage: { heroImageSrc: heroImage, heroImageAlt: "" },
+  heroImage: {
+    heroImageSrc: heroImage,
+    heroImageAlt:
+      "L’equip juvenil masculí campió d’Espanya de la temporada 2021/22, saludant a l’afició des del balcó de l’Ajuntament de Granollers.",
+  },
   sections: [
     {
       title: "Ple de campionats de Catalunya",
@@ -41,27 +44,33 @@ export const PALMARES = {
       images: [
         {
           img: carousel1_1,
-          imgAlt: "",
+          imgAlt: "L’equip juvenil masculí de la temporada 2016/2017",
+          details: "L’equip juvenil masculí de la temporada 2016/2017",
         },
         {
           img: carousel1_2,
-          imgAlt: "",
+          imgAlt: "L’equip juvenil femení de la temporada 2016/2017",
+          details: "L’equip juvenil femení de la temporada 2016/2017",
         },
         {
           img: carousel1_3,
-          imgAlt: "",
+          imgAlt: "L’equip cadet masculí de la temporada 2016/2017",
+          details: "L’equip cadet masculí de la temporada 2016/2017",
         },
         {
           img: carousel1_4,
-          imgAlt: "",
+          imgAlt: "L’equip cadet femení de la temporada 2016/2017",
+          details: "L’equip cadet femení de la temporada 2016/2017",
         },
         {
           img: carousel1_5,
-          imgAlt: "",
+          imgAlt: "L’equip infantil masculí de la temporada 2016/2017",
+          details: "L’equip infantil masculí de la temporada 2016/2017",
         },
         {
           img: carousel1_6,
-          imgAlt: "",
+          imgAlt: "L’equip infantil femení de la temporada 2016/2017",
+          details: "L’equip infantil femení de la temporada 2016/2017",
         },
       ],
     },
@@ -74,22 +83,26 @@ export const PALMARES = {
       images: [
         {
           img: carousel2_1,
-          imgAlt: "",
+          imgAlt: "L’equip infantil amb motiu de la recepció a l’Ajuntament de Granollers per haver aconseguit el campionat d’Espanya de la temporada 2012/13",
+          details: "L’equip infantil amb motiu de la recepció a l’Ajuntament de Granollers per haver aconseguit el campionat d’Espanya de la temporada 2012/13",
         },
         {
           img: carousel2_2,
-          imgAlt: "",
+          imgAlt: "L’equip cadet masculí celebrant el campionat d’Espanya de la temporada 2014/15",
+          details: "L’equip cadet masculí celebrant el campionat d’Espanya de la temporada 2014/15",
         },
         {
           img: carousel2_3,
-          imgAlt: "",
+          imgAlt: "L’equip juvenil masculí celebrant el campionat d’Espanya de la temporada 2016/17",
+          details: "L’equip juvenil masculí celebrant el campionat d’Espanya de la temporada 2016/17",
         },
       ],
       links: [
         {
           text: "Veure documental",
           slug: "https://votv.cat/generacio-dor/",
-          ariaLabel: "Veure el documental de la generació d'or del Balonmano Granollers",
+          ariaLabel:
+            "Veure el documental de la generació d'or del Balonmano Granollers",
           newTab: true,
         },
       ],
@@ -102,39 +115,46 @@ export const PALMARES = {
       images: [
         {
           img: carousel3_1,
-          imgAlt: "",
+          imgAlt: "L’equip juvenil femení campió de Catalunya de la temporada 2023/24",
+          details: "L’equip juvenil femení campió de Catalunya de la temporada 2023/24",
         },
         {
           img: carousel3_2,
-          imgAlt: "",
+          imgAlt: "L’equip juvenil femení subcampió d’Espanya de la temporada 2023/24",
+          details: "L’equip juvenil femení subcampió d’Espanya de la temporada 2023/24",
         },
       ],
     },
     {
       title: "Supercampiones de Catalunya",
       text: [
-        "L’equip sènior femení des del seu ascens a la màxima categoria de l’handbol estatal la temporada 2013/14 ha guanyat de manera consecutiva tots els títols de la Supercopa de Catalunya des de la temporada esmentada i fins a l’actual 2023/24.",
+        "L’equip sènior femení, des del seu ascens a la màxima categoria de l’handbol estatal la temporada 2013/14, ha guanyat de manera consecutiva tots els títols de la Supercopa de Catalunya des de la temporada esmentada i fins la 2023/24.",
       ],
       images: [
         {
           img: carousel4_1,
-          imgAlt: "",
+          imgAlt: "L’equip sènior femení campió de la Supercopa de Catalunya de la temporada 2014/15",
+          details: "L’equip sènior femení campió de la Supercopa de Catalunya de la temporada 2014/15",
         },
         {
           img: carousel4_2,
-          imgAlt: "",
+          imgAlt: "Imatge del partit en el que l’equip sènior femení guanya la Supercopa de Catalunya 2015/16 davant de l’equip del CH Amposta",
+          details: "Imatge del partit en el que l’equip sènior femení guanya la Supercopa de Catalunya 2015/16 davant de l’equip del CH Amposta",
         },
         {
           img: carousel4_3,
-          imgAlt: "",
+          imgAlt: "L’equip sènior femení  campió de la Supercopa de Catalunya de la temporada 2020/21",
+          details: "L’equip sènior femení  campió de la Supercopa de Catalunya de la temporada 2020/21",
         },
         {
           img: carousel4_4,
-          imgAlt: "",
+          imgAlt: "Imatge del partit en el que l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
+          details: "Imatge del partit en el que l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
         },
         {
           img: carousel4_5,
-          imgAlt: "",
+          imgAlt: "L’equip sènior femení campió de la Supercopa de Catalunya de la temporada 2020/21",
+          details: "L’equip sènior femení campió de la Supercopa de Catalunya de la temporada 2020/21",
         },
       ],
     },

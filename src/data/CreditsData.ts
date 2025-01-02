@@ -5,7 +5,7 @@ export const CREDITS = [
     },
     {
         label: "Adaptació de textos",
-        text: "Imma Juncà Rossell" 
+        text: "Imma Juncà Rosell" 
     },
     {
         label: "Disseny web",

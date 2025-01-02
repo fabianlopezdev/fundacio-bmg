@@ -15,7 +15,7 @@ const { title, heroImage, sections, chartSection, images } = VALORS;
   <HeroInternal {title} {heroImage} />
 
   <div class="infoblock-container">
-    <InfoBlock textTitle={sections.title} textContent={sections.text} />
+    <InfoBlock textContent={sections.text} boldTerms={sections.boldTerms}/>
   </div>
 
   <ChartSection chartSection={chartSection} />

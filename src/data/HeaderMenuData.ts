@@ -2,17 +2,17 @@ export const HEADER_MENU_LINKS = [
   {
     label: "La fundació",
     url: "/la-fundacio",
-    ariaLabel: "",
+    ariaLabel: "Ves a la pàgina amb més informació de la fundació de la web de la Fundació del Balonmano Granollers",
   },
   {
     label: "Un club amb valors",
     url: "/un-club-amb-valors",
-    ariaLabel: "",
+    ariaLabel: "Ves a la pàgina d'un club amb valors de la web de la Fundació del Balonmano Granollers",
   },
   {
     label: "Palmarès del planter",
     url: "/palmares-del-planter",
-    ariaLabel: "",
+    ariaLabel: "Ves a la pàgina de palmarès del planter de la web de la Fundació del Balonmano Granollers",
     nested: [
       {
         label: "Veure tot",
@@ -50,10 +50,10 @@ export const HEADER_MENU_LINKS = [
           "Ves a la secció de campiones de Catalunya i subcampiones d'Espanya de la pàgina palmarès del planter",
       },
       {
-        label: "Subcampiones de Catalunya",
-        url: "/palmares-del-planter#subcampiones-de-catalunya",
+        label: "Supercampiones de Catalunya",
+        url: "/palmares-del-planter#supercampiones-de-catalunya",
         ariaLabel:
-          "Ves a la secció de subcampiones de Catalunya de la pàgina palmarès del planter",
+          "Ves a la secció de supercampiones de Catalunya de la pàgina palmarès del planter",
       },
     ],
   },
@@ -114,16 +114,21 @@ export const HEADER_MENU_LINKS = [
   {
     label: "La residència",
     url: "/la-residencia",
-    ariaLabel: "",
+    ariaLabel: "Ves a la pàgina de la residència de la web de la Fundació del Balonmano Granollers",
   },
   {
     label: "Veterans",
     url: "/equips-de-veteranes-i-veterans",
-    ariaLabel: "",
+    ariaLabel: "Ves a la pàgina d'equips de veterans i veteranes de la web de la Fundació del Balonmano Granollers",
+  },
+  {
+    label: "Acompanyant el club",
+    url: "/acompanyant-el-club",
+    ariaLabel: "Ves a la pàgina d'acompanyant el club de la web de la Fundació del Balonmano Granollers",
   },
   {
     label: "El llegat dels 25 anys",
     url: "/el-llegat-dels-25-anys",
-    ariaLabel: "",
+    ariaLabel: "Ves a la pàgina del llegat dels 25 anys de la web de la Fundació del Balonmano Granollers",
   },
 ];

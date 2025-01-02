@@ -11,10 +11,12 @@ const {
   images,
   links,
   downloadButton,
+  boldTerms,
 } = Astro.props;
 
 // Split the title into words if it exists
 const titleWords = textTitle ? textTitle.split(" ") : [];
+
 ---
 
 <script>
@@ -24,7 +26,7 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
 
       const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry) => {
+          entries.forEach((entry) => { 
             if (entry.isIntersecting) {
               // Add a delay before starting the animation
               setTimeout(() => {
@@ -35,7 +37,7 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
           });
         },
         {
-          threshold: 0.1, 
+          threshold: 0.1,
         },
       );
 
@@ -53,7 +55,7 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
       textTitle && (
         <h2 class={`${contrast ? "global-clr-accent" : ""} text-title`}>
           {titleWords.map((word: string, index: number) => (
-            <span class="animated text" style={`--delay: ${index * 100}ms`}>
+            <span class="info-block-text animated" style={`--delay: ${index * 100}ms`}>
               {word}
             </span>
           ))}
@@ -72,16 +74,39 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
                     {index < paragraph.length - 1 && <br />}
                   </>
                 ))
-              : paragraph}
+              : boldTerms
+                ? boldTerms.reduce(
+                    (text: string, term: string) =>
+                      text.split(term).map((part, index, array) => (
+                        <>
+                          {part}
+                          {index < array.length - 1 && <strong>{term}</strong>}
+                        </>
+                      )),
+                    paragraph,
+                  )
+                : paragraph}
           </p>
         ))
       }
       {
         links && (
           <div class="links-container">
-            {links.map((link: { text: string; slug: string; ariaLabel: string; newTab: boolean }) => (
-              <Button text={link.text} slug={link.slug} label={link.ariaLabel} newTab={link.newTab} />
-            ))}
+            {links.map(
+              (link: {
+                text: string;
+                slug: string;
+                ariaLabel: string;
+                newTab: boolean;
+              }) => (
+                <Button
+                  text={link.text}
+                  slug={link.slug}
+                  label={link.ariaLabel}
+                  newTab={link.newTab}
+                />
+              ),
+            )}
           </div>
         )
       }
@@ -130,23 +155,22 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
     margin-right: 0.25rem;
   }
 
-  .text {
+  .info-block-text {
     opacity: 0;
     transform: translateY(50%);
     display: inline-block;
     padding-right: 0.4rem;
-
   }
 
-  .text:last-child {
+  .info-block-text:last-child {
     padding-right: 0;
   }
-  .info-block.animate .text.animated {
-    animation: animate-lines 0.2s var(--delay, 0ms)
+  .info-block.animate .info-block-text.animated {
+    animation: animate-info-lines 0.2s var(--delay, 0ms)
       cubic-bezier(0, 0, 0.58, 1.2) forwards;
   }
 
-  @keyframes animate-lines {
+  @keyframes animate-info-lines {
     0% {
       opacity: 0;
       transform: translateY(50%);
@@ -183,12 +207,15 @@ const titleWords = textTitle ? textTitle.split(" ") : [];
     }
 
     .text {
-    padding-right: 0.1rem;
+      padding-right: 0.1rem;
+    }
 
-  }
+    .text:last-child {
+      padding-right: 0;
+    }
 
-  .text:last-child {
-    padding-right: 0;
-  }
+    .links-container {
+      justify-content: center;
+    }
   }
 </style>

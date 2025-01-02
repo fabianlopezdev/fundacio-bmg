@@ -13,6 +13,8 @@ const { imagesArr } = Astro.props;
 // so that we always fill the swiper with images even if the screen is too big
 const repetitions = imagesArr.length === 2 ? 3 : 2;
 const repeatedImages = Array(repetitions).fill(imagesArr).flat();
+
+
 ---
 
 <script src="/src/scripts/swiperScript.ts"></script>
@@ -34,26 +36,29 @@ const repeatedImages = Array(repetitions).fill(imagesArr).flat();
                   alt={image.imgAlt}
                   loading={isEagerLoad ? "eager" : "lazy"}
                 />
-                {/* Hover details and tap indicator removed until details content is available
-                <div class="tap-indicator">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="tap-icon"
-                  >
-                    <line x1="12" y1="5" x2="12" y2="19" />
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                  </svg>
-                </div>
-                <div class="hover-details">
-                  <p class="details-text">{image.details}</p>
-                </div>
-                */}
+
+                {image.details && (
+                  <>
+                    <div class="tap-indicator">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="tap-icon"
+                      >
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                    </div>
+                    <div class="hover-details">
+                      <p class="details-text">{image.details}</p>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           );
@@ -108,7 +113,6 @@ const repeatedImages = Array(repetitions).fill(imagesArr).flat();
     outline: none;
   }
 
-  /* Hover details styles commented out until content is available
   .hover-details {
     position: absolute;
     bottom: 0;
@@ -153,7 +157,6 @@ const repeatedImages = Array(repetitions).fill(imagesArr).flat();
     font-size: clamp(0.755rem, 0.138rem + 2.743vi, 0.875rem);
     line-height: 1.4;
   }
-  */
 
   .swiper-controls {
     width: 100%;
@@ -170,7 +173,6 @@ const repeatedImages = Array(repetitions).fill(imagesArr).flat();
     object-position: bottom;
   }
 
-  /* Hover and touch interactions commented out until details content is available
   @media (hover: hover) {
     .image-container:hover .hover-details {
       transform: translateY(0);
@@ -202,7 +204,7 @@ const repeatedImages = Array(repetitions).fill(imagesArr).flat();
       display: none;
     }
   }
-  */
+ 
 
   @media (width < 710px) {
     .swiper-slide {

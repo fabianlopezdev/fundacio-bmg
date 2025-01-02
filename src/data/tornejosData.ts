@@ -16,7 +16,7 @@ import carousel1_13 from "@assets/carousel-images/tornejos/granollers-cup/granol
 import carousel1_14 from "@assets/carousel-images/tornejos/granollers-cup/granollerscup_carrusel_14.webp";
 import carousel1_15 from "@assets/carousel-images/tornejos/granollers-cup/granollerscup_carrusel_15.webp";
 import carousel1_16 from "@assets/carousel-images/tornejos/granollers-cup/granollerscup_carrusel_16.webp";
-import carousel1_17 from "@assets/carousel-images/tornejos/granollers-cup/granollerscup_carrusel_17.webp";
+
 
 import carousel2_1 from "@assets/carousel-images/tornejos/handbol-escolar/handbolescolar_carrusel_1.webp";
 import carousel2_2 from "@assets/carousel-images/tornejos/handbol-escolar/handbolescolar_carrusel_2.webp";
@@ -36,7 +36,7 @@ import carousel3_7 from "@assets/carousel-images/tornejos/minihandbol/minihandbo
 import tornejosChart1 from "@assets/charts/tornejos/coaliment-players-chart.svg";
 import tornejosChart2 from "@assets/charts/tornejos/coaliment-teams-chart.svg";
 import tornejosChart3 from "@assets/charts/tornejos/coaliment-minihandbol.svg";
-import { imageConfig } from "astro:assets";
+
 
 export const TORNEJOS = {
   title: "Tornejos",
@@ -69,27 +69,33 @@ export const TORNEJOS = {
       images: [
         {
           img: carousel2_1,
-          imgAlt: "",
+          imgAlt: "Jornada de cloenda del torneig d’handbol escolar Coaliment de l’any 2015",
+          details: "Jornada de cloenda del torneig d’handbol escolar Coaliment de l’any 2015",
         },
         {
           img: carousel2_2,
-          imgAlt: "",
+          imgAlt: "Imatge d’un dels partits del torneig d’handbol escolar Coaliment de 2016",
+          details: "Imatge d’un dels partits del torneig d’handbol escolar Coaliment de 2016",
         },
         {
           img: carousel2_3,
-          imgAlt: "",
+          imgAlt: "Jornada de  cloenda del torneig d’handbol escolar Coaliment de 2016",
+          details: "Jornada de  cloenda del torneig d’handbol escolar Coaliment de 2016",
         },
         {
           img: carousel2_4,
-          imgAlt: "",
+          imgAlt: "Imatge d’un dels partits del torneig d’handbol escolar Coaliment de 2017",
+          details: "Imatge d’un dels partits del torneig d’handbol escolar Coaliment de 2017",
         },
         {
           img: carousel2_5,
-          imgAlt: "",
+          imgAlt: "Jornada de cloenda del torneig d’handbol escolar Coaliment de l’any 2009",
+          details: "Jornada de cloenda del torneig d’handbol escolar Coaliment de l’any 2009",
         },
         {
           img: carousel2_6,
-          imgAlt: "",
+          imgAlt: "Jornada de cloenda del torneig d’handbol escolar Coaliment de l’any 2005 ",
+          details: "Jornada de cloenda del torneig d’handbol escolar Coaliment de l’any 2005 ",
         },
       ],
     },
@@ -107,7 +113,7 @@ export const TORNEJOS = {
         ],
       },
       chartSection: {
-        chartIntro: "El gràfic següent permeten veure l'evolució del Torneig.",
+        chartIntro: "El gràfic següent permet veure l'evolució del torneig.",
         charts: [
           {
             chartImg: tornejosChart3,
@@ -119,31 +125,38 @@ export const TORNEJOS = {
       images: [
         {
           img: carousel3_1,
-          imgAlt: "",
+          imgAlt: "Jugadores i jugadors dels primers equips femení i masculí amb jugadors participants del torneig de 2019",
+          details: "Jugadores i jugadors dels primers equips femení i masculí amb jugadors participants del torneig de 2019",
         },
         {
           img: carousel3_2,
-          imgAlt: "",
+          imgAlt: "Imatge  d’un dels partits del torneig de minihandbol de 2015",
+          details: "Imatge  d’un dels partits del torneig de minihandbol de 2015",
         },
         {
           img: carousel3_3,
-          imgAlt: "",
+          imgAlt: "Imatge d’un dels partits del torneig de minihandbol de 2018",
+          details: "Imatge d’un dels partits del torneig de minihandbol de 2018",
         },
         {
           img: carousel3_4,
-          imgAlt: "",
+          imgAlt: "Imatge d’un dels partits del torneig de mini-handbol de 2018",
+          details: "Imatge d’un dels partits del torneig de mini-handbol de 2018",
         },
         {
           img: carousel3_5,
-          imgAlt: "",
+          imgAlt: "Imatge del torneig de l’any 2012 a la pista exterior del Palau d’Esports",
+          details: "Imatge del torneig de l’any 2012 a la pista exterior del Palau d’Esports",
         },
         {
           img: carousel3_6,
-          imgAlt: "",
+          imgAlt: "Imatge de dos equips participants del torneig de 2012",
+          details: "Imatge de dos equips participants del torneig de 2012",
         },
         {
           img: carousel3_7,
-          imgAlt: "",
+          imgAlt: "Imatge d’un dels partits del torneig de minihandbol de 2015",
+          details: "Imatge d’un dels partits del torneig de minihandbol de 2015",
         },
       ],
     },
@@ -163,7 +176,7 @@ export const TORNEJOS = {
         text: [
           "La Granollers Cup s'inspira en la famosa Partille Cup de Göteborg, Suècia, organitzada pel club IK Sävehof. Aquest torneig internacional busca aplegar jugadors i jugadores joves d'arreu del món, facilitant l'intercanvi cultural i la convivència entre persones de diferents llengües i creences.",
           "Al llarg dels anys, la Granollers Cup ha experimentat un creixement constant en nombre de participants i equips. Això és possible gràcies a la capacitat organitzativa del club; el bon nivell arbitral; les excel·lents instal·lacions esportives a Granollers, Canovelles, Cardedeu, Les Franqueses, Montornès i Vilanova del Vallès; i la tasca dels més de 200 voluntaris/es que fan possible l'esdeveniment. També compta amb el suport d'institucions, federacions i empreses privades.",
-          "A més de la repercussió esportiva, la Granollers Cup té un resultat econòmic significatiu a Granollers i les poblacions veïnes. Un estudi de la Diputació de Barcelona de 2019 va estimar que aquest impacte superava els 3 milions d'euros",
+          "A més de la repercussió esportiva, la Granollers Cup té un resultat econòmic significatiu a Granollers i les poblacions veïnes. Un estudi de la Diputació de Barcelona de 2019 va estimar que aquest impacte superava els 3 milions d'euros.",
         ],
       },
       additionalSections: [
@@ -178,68 +191,85 @@ export const TORNEJOS = {
       images: [
         {
           img: carousel1_1,
-          imgAlt: "",
+          imgAlt: "Una jove jugadora de la Granollers Cup",
+          details: "Una jove jugadora de la Granollers Cup",
         },
         {
           img: carousel1_2,
-          imgAlt: "",
+          imgAlt: "Els ambaixadors de la Granollers Cup de 2017, la jugadora noruega Nora Mork i el jugador català Ferran Solé",
+          details: "Els ambaixadors de la Granollers Cup de 2017, la jugadora noruega Nora Mork i el jugador català Ferran Solé",
         },
         {
           img: carousel1_3,
-          imgAlt: "",
+          imgAlt: "El carrer Ansel Clavé de Granollers durant la Granollers Cup de 2023",
+          details: "El carrer Ansel Clavé de Granollers durant la Granollers Cup de 2023",
         },
         {
           img: carousel1_4,
-          imgAlt: "",
+          imgAlt: "Cerimònia d’inauguració de la Granollers Cup de 2023 al Palau d’Esports",
+          details: "Cerimònia d’inauguració de la Granollers Cup de 2023 al Palau d’Esports",
         },
         {
           img: carousel1_5,
-          imgAlt: "",
+          imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló del barri Congost de Granollers",
+          details: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló del barri Congost de Granollers",
         },
         {
           img: carousel1_6,
-          imgAlt: "",
+          imgAlt: "Cerimònia d’inauguració de la Granollers Cup 2024 al Palau d’Esports",
+          details: "Cerimònia d’inauguració de la Granollers Cup 2024 al Palau d’Esports",
         },
         {
           img: carousel1_7,
-          imgAlt: "",
+          imgAlt: "La plaça de la Porxada plena en la inauguració de la Granollers Cup de 2017",
+          details: "La plaça de la Porxada plena en la inauguració de la Granollers Cup de 2017",
         },
         {
           img: carousel1_8,
-          imgAlt: "",
+          imgAlt: "Cerimònia d’inauguració de la Granollers Cup de 2017 al Palau d’Esports",
+          details: "Cerimònia d’inauguració de la Granollers Cup de 2017 al Palau d’Esports",
         },
         {
           img: carousel1_9,
-          imgAlt: "",
+          imgAlt: "Cerimònia d’Inauguració de la Granollers Cup 2017 al Palau d’Esports",
+          details: "Cerimònia d’Inauguració de la Granollers Cup 2017 al Palau d’Esports",
         },
         {
           img: carousel1_10,
-          imgAlt: "",
+          imgAlt: "Els ambaixadors de la Granollers Cup de 2023, la jugadora espanyola Alexandrina Barbosa I el jugador català Antonio Garcia",
+          details: "Els ambaixadors de la Granollers Cup de 2023, la jugadora espanyola Alexandrina Barbosa I el jugador català Antonio Garcia",
         },
         {
           img: carousel1_11,
-          imgAlt: "",
+          imgAlt: "Cerimònia d’inauguració de la Granollers Cup de 2023 al Palau d’Esports",
+          details: "Cerimònia d’inauguració de la Granollers Cup de 2023 al Palau d’Esports",
         },
         {
           img: carousel1_12,
-          imgAlt: "",
+          imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 a la plaça de la Porxada",
+          details: "Imatge d’un dels partits de la Granollers Cup 2023 a la plaça de la Porxada",
         },
         {
           img: carousel1_13,
-          imgAlt: "",
+          imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Canovelles",
+          details: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Canovelles",
         },
         {
           img: carousel1_14,
-          imgAlt: "",
+          imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Les Franqueses del Vallès",
+          details: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Les Franqueses del Vallès",
         },
         {
           img: carousel1_15,
-          imgAlt: "",
+          imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló municipal del carrer Lluís Companys de Granollers",
+          details: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló municipal del carrer Lluís Companys de Granollers",
         },
         {
           img: carousel1_16,
-          imgAlt: "",
+          imgAlt: "Els dos ambaixadors de la Granollers Cup 2024, Martina Capdevila i Ian Tarrafeta",
+          details: "Els dos ambaixadors de la Granollers Cup 2024, Martina Capdevila i Ian Tarrafeta",
         },
+       
       ],
     },
   },

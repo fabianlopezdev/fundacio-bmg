@@ -7,7 +7,6 @@ export const LA_FUNDACIO = {
   },
   sections: [
     {
-      title: "La Fundació",
       text: [
         "L’1 de juny de 1999 es va constituir la Fundació BM Granollers, per iniciativa del Club Balonmano Granollers, i d’una sèrie de persones, empreses, entitats i institucions com l’Ajuntament de Granollers.",
         "En un moment de canvis legislatius en l’àmbit de l’esport es plantejava la possibilitat que l’handbol de màxima categoria es convertís en una lliga professional. Això hauria obligat els clubs a transformar-se en societats anònimes. Clubs com el nostre es veien en la necessitat de reunir un capital social molt gran, amb el risc de perdre el seu sentit històric com a clubs de socis. En aquest context va néixer la Fundació BM Granollers, amb l'objectiu, segons l’article 4t. dels seus estatuts, de promoure l’esport de l’handbol en totes les seves categories, especialment les formatives. També es va comprometre a promocionar i donar suport a activitats esportives per a persones amb diversitat funcional.",
