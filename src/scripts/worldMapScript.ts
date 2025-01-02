@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "asia",
     "africa",
     "north-america",
+    "center-america",
     "south-america",
     "oceania",
   ];

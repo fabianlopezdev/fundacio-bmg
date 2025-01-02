@@ -30,6 +30,7 @@ import specialCarousel1_1 from "@assets/carousel-images/special/equipspecial_car
 import specialCarousel1_2 from "@assets/carousel-images/special/equipspecial_carrusel_2.webp";
 import specialCarousel1_3 from "@assets/carousel-images/special/equipspecial_carrusel_3.webp";
 import specialCarousel1_4 from "@assets/carousel-images/special/equipspecial_carrusel_4.webp";
+import specialCarousel1_5 from "@assets/carousel-images/special/equipspecial_carrusel_5.webp";
 
 import llegatCarousel1_1 from "@assets/carousel-images/llegat/llegat_carrusel_1.webp";
 import llegatCarousel1_2 from "@assets/carousel-images/llegat/llegat_carrusel_2.webp";
@@ -174,7 +175,7 @@ export const PAGES = [
           " El 13 de juny de 2024 es va celebrar un acte especial amb fundadors, empreses i institucions que han donat suport a la Fundació BM Granollers durant els primers vint-i-cinc anys d’història. La trobada es va dur a terme a l’Espai BMG, al Palau d’Esports de Granollers, on actualment s’exposa la història del club. Aquest acte va permetre reconèixer i agrair la dedicació d’aquelles persones i entitats que han contribuït al creixement i a la tasca de la Fundació BM Granollers. Avui, com des del primer dia, la Fundació col·labora amb el Club BM Granollers per promoure l’handbol, fomentar valors en les noves generacions i treballar per un esport i una societat més inclusius.",
           "La Fundació vol expressar un agraïment especial a les institucions i empreses que han estat al seu costat durant aquest temps:",
           "Institucions: Ajuntament de Granollers, Ajuntaments de Canovelles, Les Franqueses del Vallès, Cardedeu, Montornès del Vallès i Vilanova del Vallès; Diputació de Barcelona; Consell Comarcal del Vallès Oriental i Consell Català de l’Esport.",
-          "Empreses: Advisoria, Aparthotel Atenea, BBVA, Caixabank, Caprabo, Coaliment, Consorci de Gestió de Residus del Vallès Oriental, Covalco, La Mútua de Granollers, Electro Pla Granollers SA, Estabanell Energia, Fraikin, Kiloutou, KH-7, Top Toys i Vilor.",
+          "Empreses: Advisoria, Aparthotel Atenea, BBVA, CaixaBank, Caprabo, Coaliment, Consorci de Gestió de Residus del Vallès Oriental, Covalco, La Mútua de Granollers, Electro Pla Granollers SA, Estabanell Energia, Fraikin, Kiloutou, KH-7, Top Toys i Vilor.",
           "Gràcies per ser-hi i per fer possible la nostra història!",
         ],
         images: [
@@ -217,6 +218,10 @@ export const PAGES = [
           },
           {
             img: specialCarousel1_4,
+            imgAlt: "",
+          },
+          {
+            img: specialCarousel1_5,
             imgAlt: "",
           },
         ],

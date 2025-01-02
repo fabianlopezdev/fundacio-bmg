@@ -112,6 +112,10 @@ const rawSVG = fs.readFileSync(
         .map-container:has(g.north-america:hover) path.north-america.highlighted
       ),
     :global(
+        .map-container:has(g.center-america:hover)
+          path.center-america.highlighted
+      ),
+    :global(
         .map-container:has(g.south-america:hover) path.south-america.highlighted
       ),
     :global(.map-container:has(g.oceania:hover) path.oceania.highlighted) {
@@ -244,6 +248,10 @@ const rawSVG = fs.readFileSync(
   :global(.continent-overlay-map:has(g.africa) path.africa.highlighted),
   :global(
       .continent-overlay-map:has(g.north-america) path.north-america.highlighted
+    ),
+  :global(
+      .continent-overlay-map:has(g.center-america)
+        path.center-america.highlighted
     ),
   :global(
       .continent-overlay-map:has(g.south-america) path.south-america.highlighted

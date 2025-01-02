@@ -28,72 +28,74 @@ export const LA_FUNDACIO = {
         [
           "Jaume Anfruns Janer",
           "Josep Lluís Badia Olivé",
+          "Amadeu Barbany Grau",
           "Joan Barbany Pujol",
           "Manel Baró Muntaña",
           "Josep Blanchart Santacreu",
           "Rafael Enrique Bonet Monllor",
           "José Antonio Cabrera Sánchez",
           "Josep Camp Puigdomèch",
-          "Francisco de Asís Camp Gutiérrez"
+          "Francisco de Asís Camp Gutiérrez",
+          "Pere Canal Baliu",
         ],
         [
-          "Pere Canal Baliu",
           "Josep Espona Massana",
+          "Manel García López",
           "Josep Maria Guiteras Mestres",
           "Joan Guitet Tramunt",
           "Pere Julià Coromina",
           "Josep Maria Lloreda Piña",
           "Joan Lloreda Pujol",
           "Josep Marata Janer",
-          "Juan María Miralles Grau"
-        ],
-        [
+          "Juan María Miralles Grau",
           "Ramon Mora Florit",
           "Ricard Mumany Vila",
+        ],
+        [
+          "Albert Murtra Garrell",
           "Juan María Pérez Ortiz",
           "Juan Alfonso Piferrer Margarit",
           "Joaquim Raga Galia",
           "Josep Ramoneda Esteve",
           "Jaume Rodríguez Bertiz",
           "Josep Saperas Martí",
-          "Juan Solé Olivé"
-        ]
-      ]
+          "Pep Vega Martínez",
+          "Jordi Velilla Jané",
+        ],
+      ],
     },
     {
       foundersKind: "Empreses",
       text: [
         [
-          "Geroni Ginestí Avellana, Glave SA",
-          "Josep LLeonart Ganduxé, Prefabricados Lomar",
-          "Pere Lleonart Ganduxé. Lomigest (Hotel Granollers)",
-          "Josefa Maymó Cirera, Ballestas JJM SA",
-          "Joan Maynou Font, Maynou SL",
-          "Josep Oriol Murtra Garrell, Germans Murtra SL",
-          "Jordi Solé Forés, SOP Selecció SL",
-          "Juan Solé Olivé, Instituts Odontològics Associats SL",
-          "Pep Vega Martínez",
-          "Jordi Velilla Jané"
+          "Ballestas JJM SA, Josefa Maymó Cirera",
+          "BIMBO SA",
+          "Blanes 2000 SL, Marta Blanch Herrerías",
+          "Electro Pla Granollers SA, Ismael Balltondre Sans",
+          "Germans Murtra SL, Josep Oriol Murtra Garrell",
+          "Glave SA, Geroni Ginestí Avellana",
+          "INMOGRA SA, Santiago Puig Olivé",
+          "Instituts Odontològics Associats SL, Juan Solé Olivé",
         ],
         [
-          "Villà Viatges SA",
-          "BIMBO SA",
-          "Blanes 2000 SL",
-          "Electrp Pla Granollers SA",
-          "INMOGRA SA",
-          "Letona SA",
-          "Vallès Service ESCP"
-        ]
-      ]
+          "Letona SA, Jose Antonio Sellés García",
+          "Lomigest (Hotel Granollers), Pere Lleonart Ganduxé",
+          "Maynou SL, Joan Maynou Font",
+          "Prefabricados Lomar, Josep LLeonart Ganduxé ",
+          "SOP Selecció SL, Jordi Solé Forés",
+          "Vallès Service ESCP, Diego Martínez Artero",
+          "Villà Viatges SA, Carles Villà Ganduxé",
+        ],
+      ],
     },
     {
       foundersKind: "Entitats",
       text: [
         [
-          "Carme Esplugues Martí, Ajuntament de Granollers",
-          "Ramon Font Terrades, Club Balonmano Granollers"
-        ]
-      ]
-    }
-  ]
+          "Ajuntament de Granollers, Carme Esplugas Martí",
+          "Club Balonmano Granollers, Ramon Font Terrades",
+        ],
+      ],
+    },
+  ],
 };

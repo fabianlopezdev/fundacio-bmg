@@ -18,6 +18,7 @@ import carousel4_1 from "@assets/carousel-images/palmares/supercampiones/superca
 import carousel4_2 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_2.webp";
 import carousel4_3 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_3.webp";
 import carousel4_4 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_4.webp";
+import carousel4_5 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_5.webp";
 
 
 export const PALMARES = {
@@ -129,6 +130,10 @@ export const PALMARES = {
         },
         {
           img: carousel4_4,
+          imgAlt: "",
+        },
+        {
+          img: carousel4_5,
           imgAlt: "",
         },
       ],

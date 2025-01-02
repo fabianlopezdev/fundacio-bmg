@@ -10,7 +10,9 @@ const countriesInEurope = [
   "Escòcia", "Sèrbia", "Eslovènia", "Espanya", "Suècia", "Suïssa"
 ];
 
-const countriesInNorthAmerica = ["Canadà", "Guatemala", "Mèxic", "Estats Units"];
+const countriesInNorthAmerica = ["Canadà", "Mèxic", "Estats Units"];
+
+const countriesInCenterAmerica = ["Guatemala"];
 
 const countriesInSouthAmerica = ["Argentina", "Brasil", "Xile", "Colòmbia", "Uruguai", "Veneçuela"];
 
@@ -32,6 +34,7 @@ export const countriesInContinents = {
   asia: new Set(countriesInAsia),
   europe: new Set(countriesInEurope),
   "north-america": new Set(countriesInNorthAmerica),
+  "center-america": new Set(countriesInCenterAmerica),
   "south-america": new Set(countriesInSouthAmerica),
   oceania: new Set(countriesInOceania),
 };
@@ -42,6 +45,7 @@ const formatContinentName = (continent) => {
     asia: "Àsia",
     africa: "Àfrica",
     "north-america": "Amèrica del Nord",
+    "center-america": "Amèrica Central",
     "south-america": "Amèrica del Sud",
     oceania: "Oceania",
   };
@@ -94,11 +98,13 @@ const allCountriesInEurope = [
 ];
 
 const allCountriesInNorthAmerica = [
-  "Antigua and Barbuda", "Bahamas", "Barbados", "Belize", "Canada", "Costa Rica",
-  "Cuba", "Dominica", "Dominican Republic", "El Salvador", "Grenada", "Guatemala",
-  "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Saint Kitts and Nevis",
+  "Antigua and Barbuda", "Bahamas", "Barbados", "Canada",
+  "Cuba", "Dominica", "Dominican Republic", "Grenada",
+  "Haiti", "Jamaica", "Mexico", "Saint Kitts and Nevis",
   "Saint Lucia", "Saint Vincent and the Grenadines", "Trinidad and Tobago", "United States"
 ];
+
+const allCountriesInCenterAmerica = [ "Belize", "Costa Rica", "El Salvador", "Guatemala", "Honduras", "Nicaragua", "Panama" ];
 
 const allCountriesInSouthAmerica = [
   "Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador", "Guyana",
@@ -117,6 +123,7 @@ export const allCountriesByContinent = {
   asia: new Set(allCountriesInAsia),
   europe: new Set(allCountriesInEurope),
   "north-america": new Set(allCountriesInNorthAmerica),
+  "center-america": new Set(allCountriesInCenterAmerica),
   "south-america": new Set(allCountriesInSouthAmerica),
   oceania: new Set(allCountriesInOceania),
 };
