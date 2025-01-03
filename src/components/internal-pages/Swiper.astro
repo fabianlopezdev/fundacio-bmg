@@ -10,11 +10,8 @@ import RightArrow from "@assets/arrows/Right-arrow.astro";
 const { imagesArr } = Astro.props;
 
 // Determine how many times to repeat the array based on its length
-// so that we always fill the swiper with images even if the screen is too big
 const repetitions = imagesArr.length === 2 ? 3 : 2;
 const repeatedImages = Array(repetitions).fill(imagesArr).flat();
-
-
 ---
 
 <script src="/src/scripts/swiperScript.ts"></script>
@@ -27,11 +24,16 @@ const repeatedImages = Array(repetitions).fill(imagesArr).flat();
           const originalArrayLength = imagesArr.length * 2;
           const isEagerLoad = index < 2 || index === originalArrayLength - 1;
 
+          // Determine object-position based on image.objectPosition
+          const objectPositionClass = image.objectPosition
+            ? `object-position-${image.objectPosition}`
+            : "object-position-bottom";
+
           return (
             <div class="swiper-slide">
               <div class="image-container">
                 <Image
-                  class="swiper-slide-image"
+                  class={`swiper-slide-image ${objectPositionClass}`}
                   src={image.img}
                   alt={image.imgAlt}
                   loading={isEagerLoad ? "eager" : "lazy"}
@@ -113,6 +115,25 @@ const repeatedImages = Array(repetitions).fill(imagesArr).flat();
     outline: none;
   }
 
+  .swiper-slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Object position classes */
+  .object-position-top {
+    object-position: top;
+  }
+
+  .object-position-center {
+    object-position: center;
+  }
+
+  .object-position-bottom {
+    object-position: bottom;
+  }
+
   .hover-details {
     position: absolute;
     bottom: 0;
@@ -166,13 +187,6 @@ const repeatedImages = Array(repetitions).fill(imagesArr).flat();
     padding-top: 2.75rem;
   }
 
-  .swiper-slide-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: bottom;
-  }
-
   @media (hover: hover) {
     .image-container:hover .hover-details {
       transform: translateY(0);
@@ -204,7 +218,6 @@ const repeatedImages = Array(repetitions).fill(imagesArr).flat();
       display: none;
     }
   }
- 
 
   @media (width < 710px) {
     .swiper-slide {

@@ -59,12 +59,14 @@ export const VALORS = {
       imgAlt: "Els jugadors i jugadores de tots els equips de la temporada 2016/17",
       details:
         "Els jugadors i jugadores de tots els equips de la temporada 2016/17",
+      
     },
     {
       img: carousel4,
       imgAlt: "Els equips tècnics de la temporada 2016/17",
       details:
         "Els equips tècnics de la temporada 2016/17",
+        objectPosition: "center",
     },
   ],
 };

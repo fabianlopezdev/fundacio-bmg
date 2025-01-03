@@ -87,6 +87,7 @@ export const TORNEJOS = {
           img: carousel2_4,
           imgAlt: "Imatge d’un dels partits del torneig d’handbol escolar Coaliment de 2017",
           details: "Imatge d’un dels partits del torneig d’handbol escolar Coaliment de 2017",
+          objectPosition: "center",
         },
         {
           img: carousel2_5,
@@ -128,21 +129,25 @@ export const TORNEJOS = {
           img: carousel3_1,
           imgAlt: "Jugadores i jugadors dels primers equips femení i masculí amb jugadors participants del torneig de 2019",
           details: "Jugadores i jugadors dels primers equips femení i masculí amb jugadors participants del torneig de 2019",
+          objectPosition: "center",
         },
         {
           img: carousel3_2,
           imgAlt: "Imatge  d’un dels partits del torneig de minihandbol de 2015",
           details: "Imatge  d’un dels partits del torneig de minihandbol de 2015",
+          objectPosition: "top",
         },
         {
           img: carousel3_3,
           imgAlt: "Imatge d’un dels partits del torneig de minihandbol de 2018",
           details: "Imatge d’un dels partits del torneig de minihandbol de 2018",
+          objectPosition: "top",
         },
         {
           img: carousel3_4,
           imgAlt: "Imatge d’un dels partits del torneig de mini-handbol de 2018",
           details: "Imatge d’un dels partits del torneig de mini-handbol de 2018",
+          objectPosition: "top",
         },
         {
           img: carousel3_5,
@@ -153,11 +158,13 @@ export const TORNEJOS = {
           img: carousel3_6,
           imgAlt: "Imatge de dos equips participants del torneig de 2012",
           details: "Imatge de dos equips participants del torneig de 2012",
+          objectPosition: "center",
         },
         {
           img: carousel3_7,
           imgAlt: "Imatge d’un dels partits del torneig de minihandbol de 2015",
           details: "Imatge d’un dels partits del torneig de minihandbol de 2015",
+          objectPosition: "center",
         },
       ],
     },
@@ -203,6 +210,7 @@ export const TORNEJOS = {
           img: carousel1_1,
           imgAlt: "Una jove jugadora de la Granollers Cup",
           details: "Una jove jugadora de la Granollers Cup",
+          objectPosition: "top",
         },
         {
           img: carousel1_2,
@@ -213,6 +221,7 @@ export const TORNEJOS = {
           img: carousel1_3,
           imgAlt: "El carrer Ansel Clavé de Granollers durant la Granollers Cup de 2023",
           details: "El carrer Ansel Clavé de Granollers durant la Granollers Cup de 2023",
+          objectPosition: "center",
         },
         {
           img: carousel1_4,
@@ -223,6 +232,7 @@ export const TORNEJOS = {
           img: carousel1_5,
           imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló del barri Congost de Granollers",
           details: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló del barri Congost de Granollers",
+          objectPosition: "top",
         },
         {
           img: carousel1_6,
@@ -263,11 +273,13 @@ export const TORNEJOS = {
           img: carousel1_13,
           imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Canovelles",
           details: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Canovelles",
+          objectPosition: "top",
         },
         {
           img: carousel1_14,
           imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Les Franqueses del Vallès",
           details: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Les Franqueses del Vallès",
+          objectPosition: "top",
         },
         {
           img: carousel1_15,

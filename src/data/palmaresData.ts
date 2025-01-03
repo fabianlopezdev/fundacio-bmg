@@ -20,6 +20,7 @@ import carousel4_3 from "@assets/carousel-images/palmares/supercampiones/superca
 import carousel4_4 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_4.webp";
 import carousel4_5 from "@assets/carousel-images/palmares/supercampiones/supercampiones_carrusel_5.webp";
 
+
 export const PALMARES = {
   title: "Palmarès del planter",
   sectionsLabels: [
@@ -51,21 +52,25 @@ export const PALMARES = {
           img: carousel1_2,
           imgAlt: "L’equip juvenil femení de la temporada 2016/2017",
           details: "L’equip juvenil femení de la temporada 2016/2017",
+          objectPosition: "center",
         },
         {
           img: carousel1_3,
           imgAlt: "L’equip cadet masculí de la temporada 2016/2017",
           details: "L’equip cadet masculí de la temporada 2016/2017",
+          objectPosition: "top",
         },
         {
           img: carousel1_4,
           imgAlt: "L’equip cadet femení de la temporada 2016/2017",
           details: "L’equip cadet femení de la temporada 2016/2017",
+          objectPosition: "center",
         },
         {
           img: carousel1_5,
           imgAlt: "L’equip infantil masculí de la temporada 2016/2017",
           details: "L’equip infantil masculí de la temporada 2016/2017",
+          objectPosition: "top",
         },
         {
           img: carousel1_6,
@@ -90,11 +95,13 @@ export const PALMARES = {
           img: carousel2_2,
           imgAlt: "L’equip cadet masculí celebrant el campionat d’Espanya de la temporada 2014/15",
           details: "L’equip cadet masculí celebrant el campionat d’Espanya de la temporada 2014/15",
+          objectPosition: "center",
         },
         {
           img: carousel2_3,
           imgAlt: "L’equip juvenil masculí celebrant el campionat d’Espanya de la temporada 2016/17",
           details: "L’equip juvenil masculí celebrant el campionat d’Espanya de la temporada 2016/17",
+          objectPosition: "center",
         },
       ],
       links: [
@@ -150,11 +157,13 @@ export const PALMARES = {
           img: carousel4_4,
           imgAlt: "Imatge del partit en el que l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
           details: "Imatge del partit en el que l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
+          objectPosition: "top",
         },
         {
           img: carousel4_5,
           imgAlt: "L’equip sènior femení campió de la Supercopa de Catalunya de la temporada 2020/21",
           details: "L’equip sènior femení campió de la Supercopa de Catalunya de la temporada 2020/21",
+          objectPosition: "center",
         },
       ],
     },
