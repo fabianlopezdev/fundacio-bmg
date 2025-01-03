@@ -3,8 +3,7 @@ import { Image } from "astro:assets";
 import ButtonArrow from "@components/buttons/ButtonArrow.astro";
 import HandBallBall from "@assets/miscellaneous/HandballBall.astro";
 
-const { imageSrc, imageAlt, label, linkHref, backgroundColor, index } =
-  Astro.props;
+const { imageSrc, imageAlt, imagePosition, imagePaddingBottom, label, linkHref, backgroundColor, index } = Astro.props;
 const isBlueColor = backgroundColor === "var(--clr-primary)";
 const isBottomShadow = backgroundColor === "var(--clr-secondary)";
 ---
@@ -14,31 +13,26 @@ const isBottomShadow = backgroundColor === "var(--clr-secondary)";
     "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
   const gridItems = document.querySelectorAll(".grid-item");
-  const excludedIndexes = [0, 1, 5]; // Indices that should *not* get extra bottom-padding
 
   gridItems.forEach((item) => {
     if (isTouchDevice()) {
       item.classList.add("touch-device");
-      // Remove hover layout for touch devices
       const hoverContent = item.querySelector(".hover-layout");
       if (hoverContent) {
         hoverContent.remove();
       }
 
-      // Conditionally add 10rem bottom-padding if index is not excluded
-      const element = item as HTMLElement;
-      const dataIndex = parseInt(element.dataset?.index || "-1", 10);
-      if (!excludedIndexes.includes(dataIndex)) {
-        const backgroundImage = item.querySelector(
-          ".background-image",
-        ) as HTMLElement;
-        if (backgroundImage) {
-          backgroundImage.style.paddingBottom = "10rem";
-        }
+      const backgroundImage = item.querySelector(".background-image") as HTMLElement;
+      if (backgroundImage) {
+        const element = item as HTMLElement;
+        const position = element.dataset.imagePosition;
+        const paddingBottom = element.dataset.imagePaddingBottom;
+        
+        if (position) backgroundImage.style.objectPosition = position;
+        if (paddingBottom) backgroundImage.style.paddingBottom = paddingBottom;
       }
     } else {
       item.classList.add("non-touch-device");
-      // Remove touch layout for non-touch devices
       const touchContent = item.querySelector(".touch-layout");
       if (touchContent) {
         touchContent.remove();
@@ -51,9 +45,16 @@ const isBottomShadow = backgroundColor === "var(--clr-secondary)";
   class={`grid-item ${isBottomShadow ? "bottom-shadow" : ""}`}
   style={`--background-color: ${backgroundColor};`}
   data-index={index}
+  data-image-position={imagePosition}
+  data-image-padding-bottom={imagePaddingBottom}
 >
-  <Image class="background-image" src={imageSrc} alt={imageAlt} />
+  <Image 
+    class="background-image" 
+    src={imageSrc} 
+    alt={imageAlt} 
+  />
 
+  <!-- Rest of the component remains the same -->
   <!-- Touch Layout -->
   <div class="grid-content touch-layout">
     <h3 style={`${isBlueColor && "--text-color: var(--clr-secondary)"}`}>

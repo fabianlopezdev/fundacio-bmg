@@ -51,6 +51,13 @@ body {
   font-weight: var(--fnt-wg-light);
   font-size: var(--fnt-sz-sm);
   letter-spacing: -0.04em;
+  padding-top: calc(var(--hg-header) * 1rem);
+}
+
+@media (width < 800px) {
+  body {
+    padding-top: calc(var(--hg-header-sm) * 1rem);
+  }
 }
 
 a {
