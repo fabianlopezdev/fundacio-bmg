@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import fundacioBMGLogo from "@assets/logos/fundacio-balonmano-granollers-logo.svg";
 import diputacioBCNLogo from "@assets/logos/diputacio-de-barcelona-logo.svg";
 import BMGLogo from "@assets/logos/balonmano-granollers-logo.svg";
-import ajuntamentGranollersLogo from "@assets/logos/ajuntament-de-granollers-logo.svg"
+import ajuntamentGranollersLogo from "@assets/logos/ajuntament-de-granollers-logo.svg";
 
 import { CREDITS } from "@data/creditsData";
 ---
@@ -17,7 +17,20 @@ import { CREDITS } from "@data/creditsData";
           CREDITS.map((credit) => (
             <div class="credit-pair">
               <dt>{credit.label}:</dt>
-              <dd>{` ${credit.text}`}</dd>
+              <dd>
+                {credit.text === "Biombo Studio" ? (
+                  <a
+                    href="https://www.biombostudio.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ves a la pàgina web de Biombo Studio"
+                  >
+                    {credit.text}
+                  </a>
+                ) : (
+                  ` ${credit.text}`
+                )}
+              </dd>
             </div>
           ))
         }
@@ -26,21 +39,34 @@ import { CREDITS } from "@data/creditsData";
   </section>
   <section class="bottom-footer">
     <div class="logos-container">
-      <a href="/" aria-label="Ves a la pàgina principal de la Fundació del Balonmano Granollers">
+      <a
+        href="/"
+        aria-label="Ves a la pàgina principal de la Fundació del Balonmano Granollers"
+      >
         <Image class="logo" src={fundacioBMGLogo} alt="" />
       </a>
       <a
-      aria-label="Ves a la pàgina web del Balonmano Granollers"
+        aria-label="Ves a la pàgina web del Balonmano Granollers"
         href="https://bmgranollers.cat/cat/"
         target="_blank"
         rel="noopener nonreferrer nofollow"
       >
         <Image class="logo" src={BMGLogo} alt="" />
       </a>
-      <a aria-label="Ves a la pàgina web de la Diputació de Barcelona" href="https://www.diba.cat/" target="_blank" rel="noopener">
+      <a
+        aria-label="Ves a la pàgina web de la Diputació de Barcelona"
+        href="https://www.diba.cat/"
+        target="_blank"
+        rel="noopener"
+      >
         <Image class="logo" src={diputacioBCNLogo} alt="" />
       </a>
-      <a aria-label="Ves a la pàgina web de l'ajuntament de Granollers" href="https://www.granollers.cat/" target="_blank" rel="noopener">
+      <a
+        aria-label="Ves a la pàgina web de l'ajuntament de Granollers"
+        href="https://www.granollers.cat/"
+        target="_blank"
+        rel="noopener"
+      >
         <Image class="logo" src={ajuntamentGranollersLogo} alt="" />
       </a>
     </div>
@@ -75,6 +101,16 @@ import { CREDITS } from "@data/creditsData";
     justify-content: center;
   }
 
+  .credit-pair a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .credit-pair a:hover {
+    text-decoration: underline;
+    color: var(--clr-accent);
+  }
+
   .credit-pair dt {
     font-weight: var(--fnt-wg-regular);
     padding-right: 0.4rem;
@@ -106,7 +142,7 @@ import { CREDITS } from "@data/creditsData";
 
   a {
     display: flex;
-    align-items: center;;
+    align-items: center;
   }
 
   .logos-container {
@@ -159,7 +195,7 @@ import { CREDITS } from "@data/creditsData";
 
   @media (width < 800px) {
     .logo {
-      align-self:center;
+      align-self: center;
       width: 123.5px;
       height: auto;
     }
@@ -168,7 +204,7 @@ import { CREDITS } from "@data/creditsData";
   @media (width < 640px) {
     .top-footer {
       height: fit-content;
-      padding-inline:var(--space-x-xl);
+      padding-inline: var(--space-x-xl);
       padding-block: var(--space-y-page-section);
     }
 
@@ -190,8 +226,6 @@ import { CREDITS } from "@data/creditsData";
       margin-inline: 0rem !important; /* Space between the text and the bar */ /* Space between the bar and the next item */
     }
 
-   
-    
     .logos-container {
       padding-inline: var(--space-x-sm);
       width: 100%;

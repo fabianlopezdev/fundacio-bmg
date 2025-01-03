@@ -9,7 +9,7 @@ export const CREDITS = [
     },
     {
         label: "Disseny web",
-        text: "Biombö Studio" 
+        text: "Biombo Studio" 
     },
     {
         label: "Imatges",
