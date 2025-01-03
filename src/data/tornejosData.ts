@@ -41,7 +41,8 @@ import tornejosChart4 from "@assets/charts/tornejos/g-cup-teams-and-players-char
 
 export const TORNEJOS = {
   title: "Tornejos",
-  heroImage: { heroImageSrc: heroImage, heroImageAlt: "" },
+  heroImage: { heroImageSrc: heroImage, heroImageAlt: "Imatge desde l'ajuntament de Granollers on és veu tots els equips participants a la plaça de la porxada" },
+  pageDescription: "Pàgina de tornejos de la fundació del Balonmano Granollers on podràs trobar informació sobre els tornejos de mini handbol, torneig escolar i la Granollers Cup.",
   sections: {
     torneigEscolar: {
       infoSection: {
@@ -75,8 +76,8 @@ export const TORNEJOS = {
         },
         {
           img: carousel2_2,
-          imgAlt: "Imatge d’un dels partits del torneig d’handbol escolar Coaliment de 2016",
-          details: "Imatge d’un dels partits del torneig d’handbol escolar Coaliment de 2016",
+          imgAlt: "Un dels partits del torneig d’handbol escolar Coaliment de 2016",
+          details: "Un dels partits del torneig d’handbol escolar Coaliment de 2016",
         },
         {
           img: carousel2_3,
@@ -85,8 +86,8 @@ export const TORNEJOS = {
         },
         {
           img: carousel2_4,
-          imgAlt: "Imatge d’un dels partits del torneig d’handbol escolar Coaliment de 2017",
-          details: "Imatge d’un dels partits del torneig d’handbol escolar Coaliment de 2017",
+          imgAlt: "Un dels partits del torneig d’handbol escolar Coaliment de 2017",
+          details: "Un dels partits del torneig d’handbol escolar Coaliment de 2017",
           objectPosition: "center",
         },
         {
@@ -133,37 +134,37 @@ export const TORNEJOS = {
         },
         {
           img: carousel3_2,
-          imgAlt: "Imatge  d’un dels partits del torneig de minihandbol de 2015",
-          details: "Imatge  d’un dels partits del torneig de minihandbol de 2015",
+          imgAlt: "Un dels partits del torneig de minihandbol de 2015",
+          details: "Un dels partits del torneig de minihandbol de 2015",
           objectPosition: "top",
         },
         {
           img: carousel3_3,
-          imgAlt: "Imatge d’un dels partits del torneig de minihandbol de 2018",
-          details: "Imatge d’un dels partits del torneig de minihandbol de 2018",
+          imgAlt: "Un dels partits del torneig de minihandbol de 2018",
+          details: "Un dels partits del torneig de minihandbol de 2018",
           objectPosition: "top",
         },
         {
           img: carousel3_4,
-          imgAlt: "Imatge d’un dels partits del torneig de mini-handbol de 2018",
-          details: "Imatge d’un dels partits del torneig de mini-handbol de 2018",
+          imgAlt: "Un dels partits del torneig de mini-handbol de 2018",
+          details: "Un dels partits del torneig de mini-handbol de 2018",
           objectPosition: "top",
         },
         {
           img: carousel3_5,
-          imgAlt: "Imatge del torneig de l’any 2012 a la pista exterior del Palau d’Esports",
-          details: "Imatge del torneig de l’any 2012 a la pista exterior del Palau d’Esports",
+          imgAlt: "Torneig de l’any 2012 a la pista exterior del Palau d’Esports",
+          details: "Torneig de l’any 2012 a la pista exterior del Palau d’Esports",
         },
         {
           img: carousel3_6,
-          imgAlt: "Imatge de dos equips participants del torneig de 2012",
-          details: "Imatge de dos equips participants del torneig de 2012",
+          imgAlt: "Dos equips participants del torneig de 2012",
+          details: "Dos equips participants del torneig de 2012",
           objectPosition: "center",
         },
         {
           img: carousel3_7,
-          imgAlt: "Imatge d’un dels partits del torneig de minihandbol de 2015",
-          details: "Imatge d’un dels partits del torneig de minihandbol de 2015",
+          imgAlt: "Un dels partits del torneig de minihandbol de 2015",
+          details: "Un dels partits del torneig de minihandbol de 2015",
           objectPosition: "center",
         },
       ],
@@ -230,8 +231,8 @@ export const TORNEJOS = {
         },
         {
           img: carousel1_5,
-          imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló del barri Congost de Granollers",
-          details: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló del barri Congost de Granollers",
+          imgAlt: "Un dels partits de la Granollers Cup 2023 al pavelló del barri Congost de Granollers",
+          details: "Un dels partits de la Granollers Cup 2023 al pavelló del barri Congost de Granollers",
           objectPosition: "top",
         },
         {
@@ -266,25 +267,25 @@ export const TORNEJOS = {
         },
         {
           img: carousel1_12,
-          imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 a la plaça de la Porxada",
-          details: "Imatge d’un dels partits de la Granollers Cup 2023 a la plaça de la Porxada",
+          imgAlt: "Un dels partits de la Granollers Cup 2023 a la plaça de la Porxada",
+          details: "Un dels partits de la Granollers Cup 2023 a la plaça de la Porxada",
         },
         {
           img: carousel1_13,
-          imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Canovelles",
-          details: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Canovelles",
+          imgAlt: "Un dels partits de la Granollers Cup 2023 al pavelló de Canovelles",
+          details: "Un dels partits de la Granollers Cup 2023 al pavelló de Canovelles",
           objectPosition: "top",
         },
         {
           img: carousel1_14,
-          imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Les Franqueses del Vallès",
-          details: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló de Les Franqueses del Vallès",
+          imgAlt: "Un dels partits de la Granollers Cup 2023 al pavelló de Les Franqueses del Vallès",
+          details: "Un dels partits de la Granollers Cup 2023 al pavelló de Les Franqueses del Vallès",
           objectPosition: "top",
         },
         {
           img: carousel1_15,
-          imgAlt: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló municipal del carrer Lluís Companys de Granollers",
-          details: "Imatge d’un dels partits de la Granollers Cup 2023 al pavelló municipal del carrer Lluís Companys de Granollers",
+          imgAlt: "Un dels partits de la Granollers Cup 2023 al pavelló municipal del carrer Lluís Companys de Granollers",
+          details: "Un dels partits de la Granollers Cup 2023 al pavelló municipal del carrer Lluís Companys de Granollers",
         },
         {
           img: carousel1_16,

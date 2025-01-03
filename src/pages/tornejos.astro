@@ -14,7 +14,7 @@ import { TORNEJOS } from "@data/tornejosData";
 import { slugify } from "@utils/index";
 import ScrollToTop from "@components/ScrollToTop.astro";
 
-const { title, heroImage, sections } = TORNEJOS;
+const { title, heroImage, sections, pageDescription } = TORNEJOS;
 
 const { granollersCup, torneigEscolar, miniHandbol } = sections;
 
@@ -22,6 +22,7 @@ const sectionsLabels = Object.values(sections).map(
   (section) => section.infoSection.title,
 );
 
+console.log("SectionLabels", sectionsLabels);
 const teamsGranollersCup = {
   text: "Descarregar quadre equips participants",
   slug: "/quadre-equips-granollers-cup.pdf",
@@ -29,7 +30,7 @@ const teamsGranollersCup = {
 };
 ---
 
-<BaseLayout title={title} description="" currentPath="tornejos">
+<BaseLayout title={title} description={pageDescription} currentPath="tornejos">
   <HeroInternal {title} {heroImage} {sectionsLabels} />
 
   <section id={slugify(sectionsLabels[0])}>
@@ -147,7 +148,7 @@ const teamsGranollersCup = {
       padding-bottom: var(--space-y-page-section);
     }
     .before-map {
-    margin-top: calc(var(--space-y-page-section) * -3);
+    margin-top: calc(var(--space-y-page-section) * -2.5);
   }
   }
 </style>

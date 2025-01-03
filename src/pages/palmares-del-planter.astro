@@ -11,7 +11,7 @@ import { PALMARES } from "@data/palmaresData";
 import {slugify} from "@utils/index";
 import ScrollToTop from "@components/ScrollToTop.astro";
 
-const { title, heroImage, sections, palmares, sectionsLabels } = PALMARES;
+const { title, heroImage, sections, palmares, sectionsLabels, pageDescription } = PALMARES;
 
 type Title = {
   team: string;
@@ -27,7 +27,7 @@ type PalmaresSection = {
 
 ---
 
-<BaseLayout title={title} description="" currentPath="palmares-del-planter">
+<BaseLayout title={title} description={pageDescription} currentPath="palmares-del-planter">
   <HeroInternal {title} {heroImage} {sectionsLabels}/>
 
   <section

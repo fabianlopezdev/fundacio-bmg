@@ -39,7 +39,8 @@ import llegatCarousel1_3 from "@assets/carousel-images/llegat/llegat_carrusel_3.
 export const PAGES = [
   {
     title: "Projectes de cooperació",
-    heroImage: { heroImageSrc: heroCooperacio, heroImageAlt: "" },
+    pageDescriptiom: "La Fundació BM Granollers ha impulsat projectes de cooperació internacional amb Nigèria i Senegal, amb l'objectiu de fomentar la formació esportiva i la cooperació internacional.",
+    heroImage: { heroImageSrc: heroCooperacio, heroImageAlt: "Imatge desde Senegal amb un grup de joves senegalesos amb jugadors i jugadores del Balonmano Granollers" },
     sectionsLabels: ["Nigèria", "Senegal"],
     sections: [
       {
@@ -112,7 +113,8 @@ export const PAGES = [
   },
   {
     title: "La residència",
-    heroImage: { heroImageSrc: heroResidencia, heroImageAlt: "" },
+    pageDescription: "La residència de jugadors joves del Club BM Granollers és un espai on els esportistes poden créixer tant a nivell esportiu com personal, consolidant-se com una peça clau per a l'èxit dels jugadors i jugadores del Club BM Granollers.",
+    heroImage: { heroImageSrc: heroResidencia, heroImageAlt: "L’alcalde Granollers, la Secretària General d’Esport i el President del Club amb tres dels primers residents: José Rial, Mikel Muguerza, Juan Del Arco" },
     sections: [
       {
         text: [
@@ -147,6 +149,7 @@ export const PAGES = [
   },
   {
     title: "Equips de veteranes i veterans",
+    pageDescription: "Descobreix els equips de veteranes i veteranes que formen part de la familia d-equips del Balonmano Granollers",
     heroImage: { heroImageSrc: heroVeterans, heroImageAlt: "" },
     sections: [
       {
@@ -187,6 +190,7 @@ export const PAGES = [
   },
   {
     title: "Acompanyant el club",
+    pageDescription: "La Fundació BM Granollers ha estat un pilar essencial d’estabilitat institucional i econòmica per al Club BM Granollers, ajudant a encaminar la recuperació de la solidesa financera del BM Granollers.",
     sections: [
       {
         text: [
@@ -198,7 +202,8 @@ export const PAGES = [
   },
   {
     title: "El llegat dels 25 anys",
-    heroImage: { heroImageSrc: heroLlegat, heroImageAlt: "" },
+    pageDescription: "Descobreix la hist[oria i llegat de la Fundació BM Granollers",
+    heroImage: { heroImageSrc: heroLlegat, heroImageAlt: "Acte de celebració dels 25 anys de la Fundació BM Granollers" },
     sections: [
       {
         text: [
@@ -216,8 +221,8 @@ export const PAGES = [
           },
           {
             img: llegatCarousel1_2,
-            imgAlt: "Imatge dels dos presidents de la Fundació durant aquest període de 25 anys, Pere Lleonart i Josep Pujadas i de Juan María Pérez Ortiz actual vicepresident de la Fundació i antic president del Club BM Granollers",
-            details: "Imatge dels dos presidents de la Fundació durant aquest període de 25 anys, Pere Lleonart i Josep Pujadas i de Juan María Pérez Ortiz actual vicepresident de la Fundació i antic president del Club BM Granollers",
+            imgAlt: "Els dos presidents de la Fundació durant aquest període de 25 anys, Pere Lleonart i Josep Pujadas i de Juan María Pérez Ortiz actual vicepresident de la Fundació i antic president del Club BM Granollers",
+            details: "Els dos presidents de la Fundació durant aquest període de 25 anys, Pere Lleonart i Josep Pujadas i de Juan María Pérez Ortiz actual vicepresident de la Fundació i antic president del Club BM Granollers",
             objectPosition: "top",
           },
           {
@@ -232,6 +237,7 @@ export const PAGES = [
   },
   {
     title: "Equip Special",
+    pageDescription: "La fundació del Balonamno Granollers s'enorgulleix de tenir un equip especial que participa en les lligues de la Fundació DeManoenMano per donar visibilitat a nois i noies amb necessitats especials.",
     heroImage: { heroImageSrc: heroSpecial, heroImageAlt: "" },
     sections: [
       {

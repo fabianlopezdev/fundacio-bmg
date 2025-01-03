@@ -23,6 +23,7 @@ import carousel4_5 from "@assets/carousel-images/palmares/supercampiones/superca
 
 export const PALMARES = {
   title: "Palmarès del planter",
+  pageDescription: "Descobreix el palmarès del planter del Balonmano Granollers a la pàgina del palmarès de la web de la Fundació BM Granollers.",
   sectionsLabels: [
     "Palmarès",
     "Campionats de Catalunya",
@@ -145,8 +146,8 @@ export const PALMARES = {
         },
         {
           img: carousel4_2,
-          imgAlt: "Imatge del partit en el que l’equip sènior femení guanya la Supercopa de Catalunya 2015/16 davant de l’equip del CH Amposta",
-          details: "Imatge del partit en el que l’equip sènior femení guanya la Supercopa de Catalunya 2015/16 davant de l’equip del CH Amposta",
+          imgAlt: "Partit en el que l’equip sènior femení guanya la Supercopa de Catalunya 2015/16 davant de l’equip del CH Amposta",
+          details: "Partit en el que l’equip sènior femení guanya la Supercopa de Catalunya 2015/16 davant de l’equip del CH Amposta",
         },
         {
           img: carousel4_3,
@@ -155,8 +156,8 @@ export const PALMARES = {
         },
         {
           img: carousel4_4,
-          imgAlt: "Imatge del partit en el que l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
-          details: "Imatge del partit en el que l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
+          imgAlt: "Partit en el que l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
+          details: "Partit en el que l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
           objectPosition: "top",
         },
         {

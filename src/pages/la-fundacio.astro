@@ -7,10 +7,10 @@ import SpecialSectionHeading from "@components/internal-pages/SpecialSectionHead
 
 import { LA_FUNDACIO } from "@data/fundacioData";
 
-const { title, heroImage, sections, foundersSections } = LA_FUNDACIO;
+const { title, heroImage, sections, foundersSections, pageDescription } = LA_FUNDACIO;
 ---
 
-<BaseLayout title={title} description="" currentPath="la-fundacio">
+<BaseLayout title={title} description={pageDescription} currentPath="la-fundacio">
   <HeroInternal {title} {heroImage} />
 
   <div class="infoblock-container">
@@ -69,6 +69,7 @@ const { title, heroImage, sections, foundersSections } = LA_FUNDACIO;
   .founders-heading {
     font-weight: var(--fnt-wg-regular);
     color: var(--clr-accent);
+    letter-spacing: 0.0004rem;
   }
 
   .divider-line {
@@ -87,6 +88,7 @@ const { title, heroImage, sections, foundersSections } = LA_FUNDACIO;
   .text-container p {
     line-height: 2;
     text-wrap: pretty;
+    letter-spacing: 0.0004rem;
   }
 
   .text-container p:nth-child(1),

@@ -8,10 +8,10 @@ import ChartSection from "@components/internal-pages/ChartSection.astro";
 
 import { VALORS } from "@data/valorsData";
 
-const { title, heroImage, sections, chartSection, images } = VALORS;
+const { title, heroImage, sections, chartSection, images, pageDescription } = VALORS;
 ---
 
-<BaseLayout title={title} description="" currentPath="un-club-amb-valors">
+<BaseLayout title={title} description={pageDescription} currentPath="un-club-amb-valors">
   <HeroInternal {title} {heroImage} />
 
   <div class="infoblock-container">

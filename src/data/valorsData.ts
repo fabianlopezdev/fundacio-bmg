@@ -9,6 +9,7 @@ import valorsChart2 from "@assets/charts/valors/jugadors-chart.svg";
 import valorsChart3 from "@assets/charts/valors/jugadores-chart.svg";
 export const VALORS = {
   title: "Un club amb valors",
+  pageDescription: "La Fundació BM Granollers treballa per la formació esportiva i la transmissió de valors als joves talents, amb 25 anys d'èxits en l'handbol català i espanyol.",
   heroImage: {
     heroImageSrc: heroImage,
     heroImageAlt:

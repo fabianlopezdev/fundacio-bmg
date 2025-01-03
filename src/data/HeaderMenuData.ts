@@ -68,12 +68,12 @@ export const HEADER_MENU_LINKS = [
 
       {
         label: "Handbol escolar",
-        url: "/tornejos#handbol-escolar",
+        url: "/tornejos#torneig-dhandbol-escolar",
         ariaLabel: "Ves a la secció d'handbol escolar de la pàgina de tornejos",
       },
       {
         label: "Minihandbol",
-        url: "/tornejos#minihandbol",
+        url: "/tornejos#torneig-de-minihandbol",
         ariaLabel: "Ves a la secció de minihandbol de la pàgina de tornejos",
       },
       {

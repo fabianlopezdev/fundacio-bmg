@@ -1,9 +1,10 @@
 import heroImage from "@assets/hero-images/la-fundacio.webp";
 export const LA_FUNDACIO = {
   title: "Fundació BM Granollers",
+  pageDescription: "Descobreix les persones, empreses i entitats que han fet possible la Fundació BM Granollers.",
   heroImage: {
     heroImageSrc: heroImage,
-    heroImageAlt: "Grup de directius de la fundació del balonmano Granollers",
+    heroImageAlt: "Grup de fundadors de la fundació del balonmano Granollers",
   },
   sections: [
     {
