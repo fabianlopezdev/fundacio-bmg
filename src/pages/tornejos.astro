@@ -70,14 +70,15 @@ const teamsGranollersCup = {
       textTitle={granollersCup.infoSection.title}
       textContent={granollersCup.infoSection.text}
     />
+    <InfoBlock
+      textTitle={granollersCup.additionalSections[0].title}
+      textContent={granollersCup.additionalSections[0].text}
+      downloadButton={teamsGranollersCup}
+      contrast
+    />
 
     <div class="infoblock-container before-map">
-      <InfoBlock
-        textTitle={granollersCup.additionalSections[0].title}
-        textContent={granollersCup.additionalSections[0].text}
-        downloadButton={teamsGranollersCup}
-        contrast
-      />
+      <ChartSection chartSection={granollersCup.chartSection} />
     </div>
 
     <WorldMap />
@@ -113,6 +114,7 @@ const teamsGranollersCup = {
 
   .before-map {
     background-color: var(--clr-primary);
+    margin-top: calc(var(--space-y-page-section) * -1);
   }
 
   .section-divider-container {
@@ -142,5 +144,8 @@ const teamsGranollersCup = {
     .infoblock-container {
       padding-bottom: var(--space-y-page-section);
     }
+    .before-map {
+    margin-top: calc(var(--space-y-page-section) * -3);
+  }
   }
 </style>

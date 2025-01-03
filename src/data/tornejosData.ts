@@ -36,6 +36,7 @@ import carousel3_7 from "@assets/carousel-images/tornejos/minihandbol/minihandbo
 import tornejosChart1 from "@assets/charts/tornejos/coaliment-players-chart.svg";
 import tornejosChart2 from "@assets/charts/tornejos/coaliment-teams-chart.svg";
 import tornejosChart3 from "@assets/charts/tornejos/coaliment-minihandbol.svg";
+import tornejosChart4 from "@assets/charts/tornejos/g-cup-teams-and-players-chart.svg";
 
 
 export const TORNEJOS = {
@@ -171,6 +172,15 @@ export const TORNEJOS = {
           newTab: true,
         },
       ],
+      chartSection: {
+        charts: [
+          {
+            chartImg: tornejosChart4,
+            chartAlt:
+              "Gràfica del número de d'equips participants a la Granollers Cup des de l'any 1999 a l'any 2024",
+          },
+        ],
+      },
       infoSection: {
         title: "Granollers Cup",
         text: [
