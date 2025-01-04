@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Get reference to main element and set initial z-index immediately
+  const mainElement = document.querySelector('main');
+  if (mainElement) {
+    mainElement.style.position = 'relative';
+    mainElement.style.zIndex = '1000';
+  }
+
   // Initialize animation states
   const textElements = document.querySelectorAll('.text');
   const heroArrow = document.querySelector('.hero-arrow');
@@ -25,6 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const heroSection = document.getElementById("hero-section");
   const animationDuration = 2500; // Total animation duration in ms
+  
+  // Calculate total animation time including height animation
+  const totalAnimationTime = animationDuration + 600; // Main animation + height animation duration
 
   function disableScroll() {
     document.body.style.overflow = "hidden";
@@ -36,9 +46,18 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.overflow = "";
   }
 
+  // Disable scroll during animations
   disableScroll();
-  setTimeout(enableScroll, animationDuration);
 
+  // Enable scroll and reset z-index after all animations complete
+  setTimeout(() => {
+    enableScroll();
+    if (mainElement) {
+      mainElement.style.zIndex = '0';
+    }
+  }, totalAnimationTime);
+
+  // Handle hero arrow click for smooth scrolling
   heroArrow?.addEventListener("click", (e) => {
     e.preventDefault();
     const infoSection = document.querySelector("#info");

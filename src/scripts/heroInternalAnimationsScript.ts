@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize animation states
+  // Get reference to main element and set initial z-index immediately
+  const mainElement = document.querySelector('main');
+  if (mainElement) {
+    mainElement.style.position = 'relative';
+    mainElement.style.zIndex = '1000';
+  }
+
+  // Initialize animation states for each word in the title
   const textElements = document.querySelectorAll('.text');
   textElements.forEach(el => {
     el.setAttribute('data-animate', '');
@@ -8,17 +15,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Disable scroll restoration
+  // Disable browser's automatic scroll position restoration
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
   }
 
-  // Scroll to top of the page
+  // Reset scroll position to top of page
   window.scrollTo(0, 0);
 
+  // Get reference to hero section
   const hero = document.getElementById("hero");
 
-  // Get the total animation delay for words
+  // Calculate total animation delay based on CSS custom property
   const computedStyle = hero && getComputedStyle(hero);
   const wordsAnimationDelay = computedStyle
     ? parseInt(computedStyle.getPropertyValue("--total-delay"))
@@ -35,18 +43,26 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.overflow = "";
   }
 
-  // Disable scroll during animation
+  // Disable scroll during initial animations
   disableScroll();
 
-  // Enable scroll after all animations complete (words + height animation)
-  setTimeout(enableScroll, wordsAnimationDelay + 600); // 600ms is the height animation duration
+  // Calculate total animation time including all delays
+  const totalAnimationTime = wordsAnimationDelay + 800; // words delay + height animation + buffer
 
-  // Handle section navigation if present
+  // Enable scroll and reset z-index after all animations complete
+  setTimeout(() => {
+    enableScroll();
+    if (mainElement) {
+      mainElement.style.zIndex = '0';
+    }
+  }, totalAnimationTime);
+
+  // Handle smooth scrolling for section navigation
   const sectionLinks = document.querySelectorAll(".section-link");
   sectionLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = e.currentTarget as HTMLAnchorElement;
+      const target = e.currentTarget;
       const sectionId = target.getAttribute("href");
       const section = sectionId ? document.querySelector(sectionId) : null;
 
@@ -60,26 +76,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // function isMobile() {
-  //   return /Mobi|Android|iPhone/i.test(navigator.userAgent);
-  // }
-
-  const isChrome = navigator.userAgent.indexOf("Chrome") > -1;
-
+  // Height animation function for hero text
   function animateHeight(
-    element: Element | HTMLElement,
-    duration: number = 600,
-  ): Animation | undefined {
-    // Skip animation for Chrome desktop
-    // if (isChrome && !isMobile()) return;
-  
-    const htmlElement = element as HTMLElement;
+    element,
+    duration = 600,
+  ) {
+    // Validate element
+    const htmlElement = element;
     if (!htmlElement || !(htmlElement instanceof HTMLElement)) {
       console.error("Invalid element passed to animateHeight");
       return undefined;
     }
   
-    // Prevent multiple animations
+    // Prevent multiple simultaneous animations
     if (htmlElement.classList.contains("animating")) return undefined;
   
     // Force a reflow to ensure accurate initial measurements
@@ -89,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const startHeight = htmlElement.offsetHeight;
     const startMargin = parseFloat(getComputedStyle(htmlElement).marginTop);
   
-    // Store original styles
+    // Store original styles for restoration
     const originalStyles = {
       height: htmlElement.style.height,
       marginTop: htmlElement.style.marginTop,
@@ -97,17 +106,17 @@ document.addEventListener("DOMContentLoaded", () => {
       transition: htmlElement.style.transition
     };
   
-    // Set initial state
+    // Set initial animation state
     htmlElement.style.height = `${startHeight}px`;
     htmlElement.style.marginTop = `${startMargin}px`;
     htmlElement.style.overflow = "hidden";
     htmlElement.style.transition = 'none';
     htmlElement.classList.add("animating");
   
-    // Force another reflow before measuring final height
+    // Force reflow before measuring final height
     void htmlElement.offsetHeight;
   
-    // Temporarily remove transition to measure final height
+    // Measure final height
     htmlElement.style.height = 'auto';
     htmlElement.style.marginTop = '0px';
     const endHeight = htmlElement.offsetHeight;
@@ -116,16 +125,16 @@ document.addEventListener("DOMContentLoaded", () => {
     htmlElement.style.height = `${startHeight}px`;
     htmlElement.style.marginTop = `${startMargin}px`;
   
-    // Force another reflow before starting animation
+    // Force final reflow before animation
     void htmlElement.offsetHeight;
   
-    // Create animation with more precise keyframes
+    // Create and run the height animation
     const animation = htmlElement.animate(
       [
         { 
           height: `${startHeight}px`,
           marginTop: `${startMargin}px`,
-          easing: 'cubic-bezier(0.4, 0, 0.2, 1)' // Add easing per keyframe for smoother animation
+          easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
         },
         {
           height: `${endHeight}px`,
@@ -139,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     );
   
-    // Clean up after animation
+    // Clean up after animation completes
     animation.onfinish = () => {
       // Restore original styles
       htmlElement.style.height = originalStyles.height;
@@ -157,11 +166,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return animation;
   }
 
-  // Animate hero text height after words animation completes
+  // Start hero text height animation after words animation completes
   const heroText = document.querySelector(".hero-text");
   if (heroText) {
     setTimeout(() => {
       animateHeight(heroText);
-    }, wordsAnimationDelay + 200); // Start height animation right after words finish
+    }, wordsAnimationDelay + 200);
   }
 });
