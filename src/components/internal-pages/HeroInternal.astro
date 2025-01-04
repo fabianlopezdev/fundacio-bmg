@@ -4,17 +4,16 @@ import HeroNavigatorContainer from "@components/internal-pages/HeroNavigatorCont
 
 const { title, heroImage, sectionsLabels } = Astro.props;
 
-
-console.log("title",title);
+console.log("title", title);
 // Split the title into words
 const titleWords = title.split(" ");
 
 // Calculate the total time needed for all words to appear
 const lastWordTiming = (titleWords.length - 1) * 300;
+const totalDelay = lastWordTiming + 200;
 
-const totalDelay = Math.max(1500, lastWordTiming + 200);
-
-const objectPositionTop = title === "Palmarès del planter" || title === "El llegat dels 25 anys";
+const objectPositionTop =
+  title === "Palmarès del planter" || title === "El llegat dels 25 anys";
 const objectPositionCenter = title === "La residència";
 ---
 
@@ -25,8 +24,8 @@ const objectPositionCenter = title === "La residència";
     <h1 class="h1-internal-page">
       {
         titleWords.map((word: string, index: number) => (
-          <span 
-            class="text" 
+          <span
+            class="text"
             style={`
               --delay: ${index * 300}ms; 
               visibility: hidden;
@@ -74,6 +73,9 @@ const objectPositionCenter = title === "La residència";
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    width: 100%; /* Add this */
+    max-width: 100%;
+    will-change: height, margin-top; 
   }
 
   .text {
@@ -125,16 +127,18 @@ const objectPositionCenter = title === "La residència";
     display: flex;
     justify-content: space-between;
     align-items: center;
-    animation: all-height 0.6s var(--total-delay) ease-in-out forwards;
+    /* animation: all-height 0.6s var(--total-delay) ease-in-out forwards; */
     background-color: var(--clr-primary);
     margin-top: calc(var(--hg-header) * -1rem);
   }
 
+  /* auto height animation is only suppported in Chrome
+  when combined with the script we have for all other browsers, in chrome it makes it not smooth */
   @keyframes all-height {
     100% {
       margin-top: 0rem;
-      height: auto;
-      height: calc-size(auto);
+      /* height: auto; */
+      /* height: calc-size(auto); */
     }
   }
 
