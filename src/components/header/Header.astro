@@ -1,45 +1,62 @@
 ---
 import { Image } from "astro:assets";
-
 import fundacioBMGLogo from "@assets/logos/fundacio-balonmano-granollers-logo.svg";
-
 import Button from "@components/buttons/Button.astro";
 import HeaderMenuButton from "@components/header/HeaderMenuButton.astro";
 import HeaderMenu from "@components/header/HeaderMenu.astro";
 ---
 
-<script src="/src/scripts/headerMenuScript.ts"></script> 
 
+<script src="/src/scripts/headerMenuScript.ts"></script>
 
-<header class="global-opposite-colors">
-  <HeaderMenuButton />
+<div class="header-container">
+  <header class="global-opposite-colors">
+    <HeaderMenuButton />
 
-  <a
-    class="logo-container"
-    href="/"
-    aria-label="Ves a la pàgina principal de la fundació del Balonmano Granollers"
-  >
-    <Image
-      class="logo"
-      src={fundacioBMGLogo}
-      loading="eager"
-      alt="Logo de la fundació del Balonmano Granollers"
-    />
-  </a>
+    <a
+      class="logo-container"
+      href="/"
+      aria-label="Ves a la pàgina principal de la fundació del Balonmano Granollers"
+    >
+      <Image
+        class="logo"
+        src={fundacioBMGLogo}
+        loading="eager"
+        alt="Logo de la fundació del Balonmano Granollers"
+      />
+    </a>
 
-  <div class="header-button">
-    <Button slug="https://bmgranollers.cat/cat" text="BM. Granollers" newTab />
-  </div>
+    <div class="header-button">
+      <Button slug="https://bmgranollers.cat/cat" text="BM. Granollers" newTab />
+    </div>
 
-  <HeaderMenu />
-</header>
+    <HeaderMenu />
+  </header>
+</div>
 
 <style>
-  header {
-    --logo-width: 177px;
-
+  .header-container {
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+    animation: z-index 0.6s 3000ms ease-in-out forwards;
+    transition: transform 0.3s ease;
+  }
+
+  .header-container.header--hidden {
+    transform: translateY(-100%);
+  }
+
+  @keyframes z-index {
+    100% {
+      z-index: 2;
+    }
+  }
+
+  header {
+    --logo-width: 177px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,16 +66,7 @@ import HeaderMenu from "@components/header/HeaderMenu.astro";
     padding-inline: var(--space-x-sm);
     border-bottom-left-radius: var(--radius-regular);
     border-bottom-right-radius: var(--radius-regular);
-    z-index: -2;
-    animation: z-index 0.6s 3000ms ease-in-out forwards;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.16);
-
-  }
-
-  @keyframes z-index {
-    100% {
-      z-index: 2;
-    }
   }
 
   .logo-container {
@@ -69,8 +77,7 @@ import HeaderMenu from "@components/header/HeaderMenu.astro";
   @media (width < 800px) {
     header {
       height: calc(var(--hg-header-sm) * 1rem);
-    padding-inline: var(--space-x-xl);
-
+      padding-inline: var(--space-x-xl);
     }
 
     .logo {
