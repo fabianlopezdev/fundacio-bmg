@@ -91,8 +91,7 @@ export const HOMEPAGE = {
       image: {
         img: acompanyantImgSection,
         alt: "Palau d'esports de Granollers ple de gent durant un partit del BM Granollers",
-        objectPosition: "center",
-        pb: "6rem",
+        objectPosition: "top",
       },
       url: "acompanyant-el-club",
     },

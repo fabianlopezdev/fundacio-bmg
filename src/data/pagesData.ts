@@ -5,6 +5,7 @@ import heroResidencia from "@assets/hero-images/residencia.webp";
 import heroVeterans from "@assets/hero-images/veterans.webp";
 import heroSpecial from "@assets/hero-images/special.webp";
 import heroLlegat from "@assets/hero-images/llegat.webp";
+import herroAcompanyant from "@assets/hero-images/acompanyant.webp";
 
 import cooperacioCarousel1_1 from "@assets/carousel-images/cooperacio/nigeria/nigeria_carrusel_1.webp";
 import cooperacioCarousel1_2 from "@assets/carousel-images/cooperacio/nigeria/nigeria_carrusel_2.webp";
@@ -149,8 +150,8 @@ export const PAGES = [
   },
   {
     title: "Equips de veteranes i veterans",
-    pageDescription: "Descobreix els equips de veteranes i veteranes que formen part de la familia d-equips del Balonmano Granollers",
-    heroImage: { heroImageSrc: heroVeterans, heroImageAlt: "" },
+    pageDescription: "Descobreix els equips de veteranes i veteranes que formen part de la familia d'equips del Balonmano Granollers",
+    heroImage: { heroImageSrc: heroVeterans, heroImageAlt: "Equip de veteranes del Balonmano Granollers celebrant un títol" },
     sections: [
       {
         text: [
@@ -191,6 +192,7 @@ export const PAGES = [
   {
     title: "Acompanyant el club",
     pageDescription: "La Fundació BM Granollers ha estat un pilar essencial d’estabilitat institucional i econòmica per al Club BM Granollers, ajudant a encaminar la recuperació de la solidesa financera del BM Granollers.",
+    heroImage: { heroImageSrc: herroAcompanyant, heroImageAlt: "Acte de celebració dels 25 anys de la Fundació BM Granollers" },
     sections: [
       {
         text: [
@@ -202,7 +204,7 @@ export const PAGES = [
   },
   {
     title: "El llegat dels 25 anys",
-    pageDescription: "Descobreix la hist[oria i llegat de la Fundació BM Granollers",
+    pageDescription: "Descobreix la història i llegat de la Fundació BM Granollers",
     heroImage: { heroImageSrc: heroLlegat, heroImageAlt: "Acte de celebració dels 25 anys de la Fundació BM Granollers" },
     sections: [
       {
@@ -238,7 +240,7 @@ export const PAGES = [
   {
     title: "Equip Special",
     pageDescription: "La fundació del Balonamno Granollers s'enorgulleix de tenir un equip especial que participa en les lligues de la Fundació DeManoenMano per donar visibilitat a nois i noies amb necessitats especials.",
-    heroImage: { heroImageSrc: heroSpecial, heroImageAlt: "" },
+    heroImage: { heroImageSrc: heroSpecial, heroImageAlt: "Foto de l'equip special" },
     sections: [
       {
         text: [

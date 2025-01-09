@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
   sectionLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = e.currentTarget;
+      const target = e.currentTarget  as HTMLAnchorElement;;
       const sectionId = target.getAttribute("href");
       const section = sectionId ? document.querySelector(sectionId) : null;
 
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Height animation function for hero text
   function animateHeight(
-    element,
+    element: HTMLElement,
     duration = 600,
   ) {
     // Validate element
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroText = document.querySelector(".hero-text");
   if (heroText) {
     setTimeout(() => {
-      animateHeight(heroText);
+      animateHeight(heroText as HTMLElement);
     }, wordsAnimationDelay + 200);
   }
 });
