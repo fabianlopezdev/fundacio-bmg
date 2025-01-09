@@ -270,8 +270,8 @@ export const PAGES = [
           },
           {
             img: specialCarousel1_5,
-            imgAlt: "Visita de l’equip special a les intal·lacions de l’empresa Kiloutou",
-            details: "Visita de l’equip special a les intal·lacions de l’empresa Kiloutou",
+            imgAlt: "Visita de l’equip special a les instal·lacions de l’empresa Kiloutou",
+            details: "Visita de l’equip special a les instal·lacions de l’empresa Kiloutou",
           },
 
         ],

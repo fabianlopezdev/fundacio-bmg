@@ -146,8 +146,8 @@ export const PALMARES = {
         },
         {
           img: carousel4_2,
-          imgAlt: "Partit en el que l’equip sènior femení guanya la Supercopa de Catalunya 2015/16 davant de l’equip del CH Amposta",
-          details: "Partit en el que l’equip sènior femení guanya la Supercopa de Catalunya 2015/16 davant de l’equip del CH Amposta",
+          imgAlt: "L’equip sènior femení guanya la Supercopa de Catalunya 2015/16 davant de l’equip del CH Amposta",
+          details: "L’equip sènior femení guanya la Supercopa de Catalunya 2015/16 davant de l’equip del CH Amposta",
         },
         {
           img: carousel4_3,
@@ -156,8 +156,8 @@ export const PALMARES = {
         },
         {
           img: carousel4_4,
-          imgAlt: "Partit en el que l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
-          details: "Partit en el que l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
+          imgAlt: "Partit en què l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
+          details: "Partit en què l’equip sènior femení va aconseguir la Supercopa Catalunya davant de l’equip Club Handbol Sant Quirze",
           objectPosition: "top",
         },
         {

@@ -146,8 +146,8 @@ export const TORNEJOS = {
         },
         {
           img: carousel3_4,
-          imgAlt: "Un dels partits del torneig de mini-handbol de 2018",
-          details: "Un dels partits del torneig de mini-handbol de 2018",
+          imgAlt: "Un dels partits del torneig de minihandbol de 2018",
+          details: "Un dels partits del torneig de minihandbol de 2018",
           objectPosition: "top",
         },
         {
@@ -220,8 +220,8 @@ export const TORNEJOS = {
         },
         {
           img: carousel1_3,
-          imgAlt: "El carrer Ansel Clavé de Granollers durant la Granollers Cup de 2023",
-          details: "El carrer Ansel Clavé de Granollers durant la Granollers Cup de 2023",
+          imgAlt: "El carrer Anselm Clavé de Granollers durant la Granollers Cup de 2023",
+          details: "El carrer Anselm Clavé de Granollers durant la Granollers Cup de 2023",
           objectPosition: "center",
         },
         {
