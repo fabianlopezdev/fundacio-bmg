@@ -82,7 +82,7 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     border-top-right-radius: var(--radius-regular);
     border-bottom-right-radius: var(--radius-regular);
     pointer-events: none;
-    font-size: clamp(1.4rem, 1.174rem + 1.006vi, 2.125rem);
+    font-size: clamp(1.2rem, 0.911rem + 1.284vi, 2.125rem);
     font-weight: var(--fnt-wg-light);
     line-height: 3.825rem;
     transform: translate(-100%);
@@ -348,5 +348,12 @@ import { HEADER_MENU_LINKS } from "@data/headerMenuData";
     .menu-flex {
       gap: 0.01rem;
     }
+
+    details > summary > .arrow {
+    bottom: 0rem;
+    transform-origin: 52% 50%;
+    
+  }
+
   }
 </style>
